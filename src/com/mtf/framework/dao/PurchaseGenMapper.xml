@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mtf.framework.dao.PurchaseGenMapper">
+	<resultMap id="BaseResultMap" type="PurchaseGen">
+		<id column="C_NUMBER" property="number" jdbcType="INTEGER" />
+		<result column="C_TICK" property="tick" jdbcType="INTEGER" />
+		<result column="C_USER_ID" property="userId" jdbcType="CHAR" />
+		<result column="C_USERNAME" property="userName" jdbcType="VARCHAR" />
+		<result column="C_DATETIME" property="dateTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<select id="selectNumber" resultType="java.lang.Integer" parameterType="PurchaseGen">
+		SELECT C_NUMBER
+		FROM purchaseGen
+		WHERE 1 = 1
+		AND C_TICK = #{tick,jdbcType=INTEGER}
+		AND C_USER_ID = #{userId,jdbcType=CHAR}
+	</select>
+	<insert id="insert" parameterType="PurchaseGen">
+		INSERT INTO purchaseGen (C_TICK, C_USER_ID, C_USERNAME, C_DATETIME)
+		VALUES (#{tick,jdbcType=INTEGER}, #{userId,jdbcType=CHAR},  #{userName,jdbcType=VARCHAR}, #{dateTime,jdbcType=TIMESTAMP})
+	</insert>
+</mapper>

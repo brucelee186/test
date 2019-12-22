@@ -1,0 +1,1270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DatasourceManager xmlVersion="20120529" releaseVersion="7.0.0">
+<ConnectionMap>
+<Connection name="FRDemo" class="com.fr.data.impl.JDBCDatabaseConnection">
+<DatabaseAttr/>
+<!-- <JDBCDatabaseAttr url="jdbc:mysql://localhost:3306/office?useUnicode=true&amp;characterEncoding=UTF-8" driver="com.mysql.jdbc.Driver" user="root" password="root" encryptPassword="true"> --> 
+<JDBCDatabaseAttr url="jdbc:mysql://192.168.50.232:3306/office?useUnicode=true&amp;characterEncoding=UTF-8" driver="com.mysql.jdbc.Driver" user="office" password="___007c0028006c0066000700b0" encryptPassword="true">
+<DBCPAttr/>
+</JDBCDatabaseAttr>
+</Connection>
+</ConnectionMap>
+<TableDataMap>
+<TableData name="searchPaymentVoucher " class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="userId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT * FROM t_paymentvoucher a
+where a.applicantId='${userId}']]></Query>
+</TableData>
+<TableData name="searchPaymentVoucherItem" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="userId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT * FROM t_paymentvoucheritem a
+WHERE paymentVoucherId='${userId}']]></Query>
+</TableData>
+<TableData name="selectMajor" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.`name`,a.code FROM userInfor a
+WHERE a.type='z' AND a.flag='i' AND a.`status`='a']]></Query>
+</TableData>
+<TableData name="selectEnglish" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.`name`,a.code FROM userInfor a
+WHERE a.type='e' AND a.flag='i' AND a.`status`='a']]></Query>
+</TableData>
+<TableData name="userScore" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="quesId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="displayName"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.id AS aid,a.quesId,a.score,a.userId,b.title ,c.displayName,b.modifyDate
+FROM userQuestionnaire a
+LEFT JOIN questionnaire AS b ON b.id=a.quesId
+INNER JOIN user AS c ON a.userId=c.id
+WHERE c.displayName like "%${displayName}%"
+AND a.quesId='${quesId}']]></Query>
+</TableData>
+<TableData name="questionScore" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="quesId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="displayName"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.quesId, a.questionId, a.result, b.content, b.number ,c.displayName, d.number AS selecterNo,d.content AS selecterContent,a.addDate
+FROM userQuestion AS a
+LEFT JOIN question AS b ON a.questionId=b.id
+LEFT JOIN selecter as d ON b.id=d.questionId
+INNER JOIN user AS c ON a.userId=c.id
+WHERE c.displayName = "${displayName}"
+AND d.answer = 'y'
+AND a.quesId='${quesId}']]></Query>
+</TableData>
+<TableData name="addDivision" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.id,a.name FROM division a]]></Query>
+</TableData>
+<TableData name="addPosition" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.id,a.name FROM t_position a
+]]></Query>
+</TableData>
+<TableData name="addReg" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="loginName"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT * FROM user
+where loginName='${loginName}']]></Query>
+</TableData>
+<TableData name="itemsRule" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.type, a.specification, a.unit, a.id,a.price
+FROM itemRule AS a ]]></Query>
+</TableData>
+<TableData name="searchUser" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="approve"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="applyMonth"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="departmentId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.userName, a.userId, a.id,a.department,a.applyMonth,a.leaderName
+FROM office AS a 
+where a.departmentId = '${departmentId}' 
+AND a.approveState = '${approve}'
+AND a.applyMonth = '${applyMonth}'
+AND a.flag = 'p'
+GROUP BY a.userId]]></Query>
+</TableData>
+<TableData name="searchUserOld" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="depOfficeId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="applyMonth"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="departmentId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.userName, a.userId, a.id,a.department,a.applyMonth,a.leaderName
+FROM office AS a
+where a.departmentId = '${departmentId}'
+AND a.applyMonth = '${applyMonth}'
+AND a.depOfficeId= "${depOfficeId}"
+GROUP BY a.userId]]></Query>
+</TableData>
+<TableData name="searchAmount" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="departmentId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="applyMonth"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.type,a.unit,a.specification,SUM(a.amount), b.id as rid, c.userId, c.userName, c.applyMonth, d.id as did
+FROM item AS a
+LEFT JOIN itemRule AS b ON b.id = a.ruleId
+LEFT JOIN office AS c ON c.id = a.officeId 
+LEFT JOIN depOffice AS d ON c.depOfficeId = d.id
+where  c.applyMonth='${applyMonth}'
+AND c.approveState="approve2"
+AND c.departmentId='${departmentId}'
+GROUP BY rid, c.userId
+]]></Query>
+</TableData>
+<TableData name="searchAmountOld" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="depOfficeId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.type,a.unit,a.specification,SUM(a.amount), b.id as rid, c.userId, c.userName ,d.id
+FROM item AS a
+LEFT JOIN itemRule AS b ON b.id = a.ruleId
+LEFT JOIN office AS c ON c.id = a.officeId 
+LEFT JOIN depOffice AS d ON c.depOfficeId = d.id
+WHERE d.id = '${depOfficeId}'
+GROUP BY rid, c.userId
+]]></Query>
+</TableData>
+<TableData name="searchOffice" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT * FROM office AS a 
+LEFT JOIN item AS b on 
+b.officeId =a.id
+]]></Query>
+</TableData>
+<TableData name="searchOfficeYear" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="applyMonth"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="departmentId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT  a.department, a.applyMonth, a.departmentId, d.id AS ruleId, b.id AS officeId, c.id, SUM(c.amount) AS amount, c.id AS itemId, c.specification, c.type, c.unit, d.price, 
+b.modifiedDate
+FROM depOffice AS a
+LEFT JOIN office AS b ON b.depOfficeId = a.id
+LEFT JOIN item AS c ON c.officeId = b.id
+INNER JOIN itemRule AS d ON d.id = c.ruleId
+where b.approveState="approve2"
+and a.departmentId="${departmentId}"
+and a.applyMonth="${applyMonth}"
+GROUP BY  a.applyMonth, c.ruleId]]></Query>
+</TableData>
+<TableData name="searchDepOffice" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT distinct a.*, b.approve2Date
+FROM depOffice AS a
+INNER JOIN office AS b ON a.id= b.depOfficeId 
+where a.approveState="approve2"
+GROUP BY a.applyMonth, a.department
+ORDER BY a.applyMonth ]]></Query>
+</TableData>
+<TableData name="searchOfficeItem" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT b.department, b.departmentId, b.id AS officeId, b.applyMonth, b.approveState, 
+c.id, SUM(c.amount) AS amount, c.id AS itemId, c.specification, c.type, c.unit, 
+d.id AS ruleId, d.price 
+FROM office AS b
+LEFT JOIN item AS c ON c.officeId = b.id
+INNER JOIN itemRule AS d ON d.id = c.ruleId
+GROUP BY d.id
+]]></Query>
+</TableData>
+<TableData name="searchItemAll" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.id, a.type, a.ruleId, b.department, b.departmentId, b.applyMonth, b.depOfficeId
+FROM item AS a
+INNER JOIN office AS b ON b.id = a.officeId]]></Query>
+</TableData>
+<TableData name="searchTotal" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.departmentId, sum(b.amount * c.price)AS totalAmount,d.approveState, a.applyMonth
+FROM office AS a
+INNER JOIN item AS b ON b.officeId = a.id
+INNER JOIN itemRule AS c ON c.id = b.ruleId
+LEFT JOIN depOffice AS d ON a.depOfficeId=d.id
+WHERE a.approveState="approve2"
+GROUP BY   a.applyMonth,a.departmentId 
+]]></Query>
+</TableData>
+<TableData name="searchItem" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="applyMonth"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="departmentId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT c.id as rid, a.id as id, a.type, a.specification, a.unit, c.price ,b.applyMonth
+FROM item AS a
+INNER JOIN office AS b ON a.officeId = b.id
+INNER JOIN itemRule AS c ON c.id =a.ruleId
+WHERE b.departmentId = '${departmentId}' 
+AND b.applyMonth = '${applyMonth}'
+and b.approveState="approve2"
+GROUP BY rid]]></Query>
+</TableData>
+<TableData name="searchItemOld" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="depOfficeId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="applyMonth"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="departmentId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT c.id as rid, a.id as id, a.type, a.specification, a.unit, c.price ,b.applyMonth,b.approve1Date
+FROM item AS a
+INNER JOIN office AS b ON a.officeId = b.id
+INNER JOIN itemRule AS c ON c.id =a.ruleId
+WHERE b.departmentId = '${departmentId}' 
+AND b.applyMonth = '${applyMonth}'
+and b.approveState="approve2"
+and b.depOfficeId="${depOfficeId}"
+GROUP BY rid]]></Query>
+</TableData>
+<TableData name="searchDepCount" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT  COUNT(DISTINCT a.userId) as conutUser, a.department,a.departmentId, a.applyMonth
+FROM office AS a
+WHERE a.approveState="approve2"
+AND a.flag = 'p'
+GROUP BY a.applyMonth, a.department]]></Query>
+</TableData>
+<TableData name="searchEmpByParam" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="applyMonth"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="departmentId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.userName, a.department, a.applyMonth, sum(b.amount * c.price)AS totalAmount 
+FROM office AS a
+INNER JOIN item AS b ON b.officeId = a.id
+INNER JOIN itemRule AS c ON c.id = b.ruleId
+WHERE a.approveState="approve2"
+AND a.departmentId = '${departmentId}' 
+AND a.applyMonth = '${applyMonth}'
+GROUP BY a.userName,a.applyMonth
+ORDER BY a.userName, a.applyMonth]]></Query>
+</TableData>
+<TableData name="searchEmpByDep" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="userName"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.departmentId, a.userId, a.userName, a.department, a.applyMonth, sum(b.amount * c.price)AS totalAmount 
+FROM office AS a
+INNER JOIN item AS b ON b.officeId = a.id
+INNER JOIN itemRule AS c ON c.id = b.ruleId
+WHERE a.approveState="approve2"
+and a.userName like'%${userName}%'
+GROUP BY a.userName,a.departmentId,a.applyMonth]]></Query>
+</TableData>
+<TableData name="paramDep" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT  DISTINCT (a.department) as disDip, a.departmentId
+FROM office AS a
+WHERE a.approveState="approve2"
+GROUP BY a.userName,a.applyMonth
+ORDER BY disDip]]></Query>
+</TableData>
+<TableData name="searchPerson" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="startDate"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="userId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="endDate"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.userId, a.userName, a.department, a.applyMonth, a.departmentId, c.id AS ruleId, a.id AS officeId, b.id, SUM(b.amount) AS amount, b.id AS itemId, b.specification, b.type, b.unit, c.price  
+FROM office AS a
+LEFT JOIN item AS b ON b.officeId = a.id
+INNER JOIN itemRule AS c ON c.id = b.ruleId
+WHERE a.approveState="approve2"
+AND a.userId="${userId}"
+AND a.applyMonth>="${startDate}"
+AND a.applyMonth<="${endDate}"
+GROUP BY a.applyMonth,  b.ruleId]]></Query>
+</TableData>
+<TableData name="searchPersonBydepId" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="startDate"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="userId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="endDate"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="departmentId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.userId, a.userName, a.department, a.applyMonth, a.departmentId, c.id AS ruleId, a.id AS officeId, b.id, SUM(b.amount) AS amount, b.id AS itemId, b.specification, b.type, b.unit, c.price  
+FROM office AS a
+LEFT JOIN item AS b ON b.officeId = a.id
+INNER JOIN itemRule AS c ON c.id = b.ruleId
+WHERE a.approveState="approve2"
+AND a.userId="${userId}"
+AND a.applyMonth>="${startDate}"
+AND a.applyMonth<="${endDate}"
+AND a.departmentId="${departmentId}"
+GROUP BY a.applyMonth,  b.ruleId]]></Query>
+</TableData>
+<TableData name="searchEmpUser" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="departmentId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="bid"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.userName, a.userId, a.id,a.department,a.applyMonth,a.leaderName
+FROM office AS a
+LEFT JOIN office AS b ON a.pid =b.id
+where a.departmentId = '${departmentId}' and b.id = ${bid}]]></Query>
+</TableData>
+<TableData name="searchEmpAmount" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="departmentId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="bid"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.*,b.id as rid
+FROM item AS a
+LEFT JOIN itemRule AS b ON b.id = a.ruleId
+LEFT JOIN office AS c ON c.id = a.officeId  
+LEFT JOIN office AS d ON c.pid =d.id
+where c.departmentId = '${departmentId}' AND d.id = ${bid} ]]></Query>
+</TableData>
+<TableData name="itemAmount" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT  a.id, a.type, a.specification, a.unit, d.modifiedDate, SUM(a.amount),b.price, d.flag, d.pid
+FROM item AS a
+LEFT JOIN itemRule AS b ON b.id = a.ruleId
+LEFT JOIN office AS c ON c.id = a.officeId 
+LEFT JOIN depOffice AS d ON c.depOfficeId = d.id
+WHERE d.pid =
+(SELECT MAX(pid) AS mpid  FROM depOffice e
+GROUP BY e.pid DESC
+LIMIT 1)
+group by a.type,a.specification,a.unit]]></Query>
+</TableData>
+<TableData name="itemAmountOld" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="depId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT  a.id, a.type, a.specification, a.unit, d.modifiedDate, SUM(a.amount),b.price, d.flag, d.pid
+FROM item AS a
+LEFT JOIN itemRule AS b ON b.id = a.ruleId
+LEFT JOIN office AS c ON c.id = a.officeId 
+LEFT JOIN depOffice AS d ON c.depOfficeId = d.id
+WHERE d.pid = ${depId}
+group by a.type,a.specification,a.unit]]></Query>
+</TableData>
+<TableData name="searchUserDep" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.userName, a.userId, a.id,a.department,a.departmentId
+FROM office AS a
+where a.approveState = 'approve1' and a.flag = 'p' 
+ORDER BY a.department]]></Query>
+</TableData>
+<TableData name="searchAmountDep" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.*,b.id as rid
+FROM item AS a
+LEFT JOIN itemRule AS b ON b.id = a.ruleId
+LEFT JOIN office AS c ON c.id = a.officeId  where c.approveState= 'approve1' and c.flag = 'p']]></Query>
+</TableData>
+<TableData name="searchUserDepF" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="depId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT c.userName, c.userId, c.id,c.department,a.applyMonth,c.departmentId
+FROM depOffice as a 
+LEFT JOIN depOffice as b ON a.pid = b.id
+LEFT JOIN office as c ON a.id = c.depOfficeId
+WHERE b.id =${depId}]]></Query>
+</TableData>
+<TableData name="searchAmountDepF" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="depId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.*,b.id as rid
+FROM item AS a
+LEFT JOIN itemRule AS b ON b.id = a.ruleId
+LEFT JOIN office AS c ON c.id = a.officeId 
+LEFT JOIN depOffice AS d ON c.depOfficeId = d.id
+where d.pid =${depId}]]></Query>
+</TableData>
+<TableData name="searchUserEmp" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="approve"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="departmentId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.userName, a.userId, a.id,a.department,a.applyMonth,a.leaderName
+FROM office AS a 
+where a.departmentId = '${departmentId}' 
+AND a.approveState = '${approve}'
+]]></Query>
+</TableData>
+<TableData name="searchAmountEmp" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="approve"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="departmentId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.*,b.id as rid, c.userId, c.userName
+FROM item AS a
+LEFT JOIN itemRule AS b ON b.id = a.ruleId
+LEFT JOIN office AS c ON c.id = a.officeId 
+where c.departmentId = '${departmentId}' 
+AND c.approveState = '${approve}']]></Query>
+</TableData>
+<TableData name="selectEthnic" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.`name`,a.code FROM userInfor a
+WHERE a.type='m' AND a.flag='i' AND a.`status`='a']]></Query>
+</TableData>
+<TableData name="selectNationality" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.`name`,a.code FROM userInfor a
+WHERE a.type='g' AND a.flag='i' AND a.`status`='a']]></Query>
+</TableData>
+<TableData name="selectPolitical" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.`name`,a.code FROM userInfor a
+WHERE a.type='zz' AND a.flag='i' AND a.`status`='a']]></Query>
+</TableData>
+<TableData name="selectReligion" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.`name`,a.code FROM userInfor a
+WHERE a.type='zj' AND a.flag='i' AND a.`status`='a']]></Query>
+</TableData>
+<TableData name="selectRelationship" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.`name`,a.code FROM userInfor a
+WHERE a.type='gx' AND a.flag='i' AND a.`status`='a']]></Query>
+</TableData>
+<TableData name="selectDegree" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.`name`,a.code FROM userInfor a
+WHERE a.type='xl' AND a.flag='i' AND a.`status`='a']]></Query>
+</TableData>
+<TableData name="selectCurrency" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT * FROM t_currency]]></Query>
+</TableData>
+<TableData name="selectCategoryLevel1" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT * from t_category a WHERE a.idLevel=1]]></Query>
+</TableData>
+<TableData name="selectCategoryLevel2" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT * from t_category a WHERE a.idLevel=2
+]]></Query>
+</TableData>
+<TableData name="selectCategoryLevel2Param" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="cat11"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT * from t_category a WHERE a.pid=IFNULL(${cat11},999)
+]]></Query>
+</TableData>
+<TableData name="selectCategoryLevel2Param2" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="cat12"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT * from t_category a WHERE a.pid=IFNULL(${cat12},999)
+]]></Query>
+</TableData>
+<TableData name="selectCategoryLevel2Param3" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="cat13"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT * from t_category a WHERE a.pid=IFNULL(${cat13},999)
+]]></Query>
+</TableData>
+<TableData name="selectCategoryLevel2Param4" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="cat14"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT * from t_category a WHERE a.pid=IFNULL(${cat14},999)
+]]></Query>
+</TableData>
+<TableData name="selectCategoryLevel2Param5" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="cat15"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT * from t_category a WHERE a.pid=IFNULL(${cat15},999)
+]]></Query>
+</TableData>
+<TableData name="selectCategoryLevel2Param6" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="cat16"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT * from t_category a WHERE a.pid=IFNULL(${cat16},999)
+]]></Query>
+</TableData>
+<TableData name="selectUser" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.id,a.displayName FROM user a]]></Query>
+</TableData>
+<TableData name="selectDivision" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT a.id,a.name FROM division a]]></Query>
+</TableData>
+<TableData name="searchUserForPv" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT * from user]]></Query>
+</TableData>
+<TableData name="searchNoGen" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT * FROM t_paymentVoucherGen]]></Query>
+</TableData>
+<TableData name="searchAttendanceAll" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="applyMonth"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[	SELECT 
+a.id, 
+a.userId, 
+a.userName, 
+a.divisionId, 
+a.divisionName, 
+a.cardNo, 
+a.timeStart, 
+a.timeEnd, 
+a.dayStart, 
+a.dayEnd, 
+a.day, 
+a.dateMonth, 
+a.dateWeek, 
+a.date, 
+a.dateAddMonth, 
+a.timeWork, 
+SUM(a.late) AS sumLate, 
+SUM(a.leaveEarly) AS sumLeaveEarly, 
+SUM(a.attendHalf) AS sumAttendHalf, 
+SUM(a.absenteeism) AS sumAbsenteeism, 
+a.statusAttendance, 
+a.statusApprove, 
+a.remark, 
+a.loopYear, 
+a.typeDate, 
+a.festivelName, 
+a.addDate, 
+a.addUser, 
+a.addIp, 
+a.modifiedDate, 
+a.modifiedUser, 
+a.modifiedIp
+FROM attendance AS a
+WHERE 
+a.dateMonth = '${applyMonth}'
+GROUP BY a.divisionName, a.userId
+]]></Query>
+</TableData>
+<TableData name="searchAttendanceAll1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="divisions"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[	SELECT 
+a.id, 
+a.userId, 
+a.userName, 
+a.divisionId, 
+a.divisionName, 
+a.cardNo, 
+a.timeStart, 
+a.timeEnd, 
+a.dayStart, 
+a.dayEnd, 
+a.day, 
+a.dateMonth, 
+a.dateWeek, 
+a.date, 
+a.dateAddMonth, 
+a.timeWork, 
+a.late, 
+a.leaveEarly, 
+a.attendHalf, 
+a.absenteeism, 
+a.statusAttendance, 
+a.statusApprove, 
+a.remark, 
+a.loopYear, 
+a.typeDate, 
+a.festivelName, 
+a.addDate, 
+a.addUser, 
+a.addIp, 
+a.modifiedDate, 
+a.modifiedUser, 
+a.modifiedIp
+FROM attendance AS a
+WHERE 
+a.statusAttendance = 're'
+AND 
+a.divisionId IN (${divisions})
+ORDER BY a.divisionName, a.userId
+]]></Query>
+</TableData>
+<TableData name="searchAttendanceAllCheck1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="attendRecordIdAp1"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT 
+a.id, 
+a.userId, 
+a.userName, 
+a.divisionId, 
+a.divisionName, 
+a.cardNo, 
+a.timeStart, 
+a.timeEnd, 
+a.dayStart, 
+a.dayEnd, 
+a.day, 
+a.dateMonth, 
+a.dateWeek, 
+a.date, 
+a.dateAddMonth, 
+a.timeWork, 
+a.late, 
+a.leaveEarly, 
+a.attendHalf, 
+a.absenteeism, 
+a.statusAttendance, 
+a.statusApprove, 
+a.remark, 
+a.loopYear, 
+a.typeDate, 
+a.festivelName, 
+a.attendRecordIdAp1, 
+a.attendRecordIdAp2, 
+a.addDate, 
+a.addUser, 
+a.addIp, 
+a.modifiedDate, 
+a.modifiedUser, 
+a.modifiedIp
+FROM attendance AS a
+WHERE 
+a.attendRecordIdAp1 = '${attendRecordIdAp1}'
+ORDER BY a.divisionName, a.userId]]></Query>
+</TableData>
+<TableData name="searchAttendanceAllCheck2" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="attendRecordIdAp2"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[	SELECT 
+a.id, 
+a.userId, 
+a.userName, 
+a.divisionId, 
+a.divisionName, 
+a.cardNo, 
+a.timeStart, 
+a.timeEnd, 
+a.dayStart, 
+a.dayEnd, 
+a.day, 
+a.dateMonth, 
+a.dateWeek, 
+a.date, 
+a.dateAddMonth, 
+a.timeWork, 
+SUM(a.late) AS sumLate, 
+SUM(a.leaveEarly) AS sumLeaveEarly, 
+SUM(a.attendHalf) AS sumAttendHalf, 
+SUM(a.absenteeism) AS sumAbsenteeism, 
+a.statusAttendance, 
+a.statusApprove, 
+a.remark, 
+a.loopYear, 
+a.typeDate, 
+a.festivelName, 
+a.addDate, 
+a.addUser, 
+a.addIp, 
+a.modifiedDate, 
+a.modifiedUser, 
+a.modifiedIp
+FROM attendance AS a
+WHERE 
+a.attendRecordIdAp2 = '${attendRecordIdAp2}'
+GROUP BY a.divisionName, a.userId]]></Query>
+</TableData>
+</TableDataMap>
+</DatasourceManager>

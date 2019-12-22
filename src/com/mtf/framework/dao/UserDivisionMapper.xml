@@ -1,0 +1,492 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mtf.framework.dao.UserDivisionMapper" > 
+	<resultMap type="com.mtf.framework.model.impl.UserDivisionImpl" id="userDivision"/> 
+	<!-- 添加实体对象 -->
+	<insert id="insert" parameterType="userDivision">
+		INSERT INTO userDivision
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					id,
+				</if>
+				<if test="userId != null">
+					userId,
+				</if>
+				<if test="divisionId != null">
+					divisionId,
+				</if>
+				<if test="index != null">
+					index,
+				</if>
+				<if test="mainIndex != null">
+					mainIndex,
+				</if>
+				<if test="positionId != null">
+					positionId,
+				</if>
+				<if test="tag != null">
+					tag,
+				</if>
+				<if test="addDate != null">
+					addDate,
+				</if>
+				<if test="addUser != null">
+					addUser,
+				</if>
+				<if test="addIp != null">
+					addIp,
+				</if>
+				<if test="modifiedDate != null">
+					modifiedDate,
+				</if>
+				<if test="modifiedUser != null">
+					modifiedUser,
+				</if>
+				<if test="modifiedIp != null">
+					modifiedIp,
+				</if>
+				<if test="divisionId1 != null">
+					divisionId1,
+				</if>
+				<if test="divisionId2 != null">
+					divisionId2,
+				</if>
+				<if test="divisionId3 != null">
+					divisionId3,
+				</if>
+				<if test="divisionId4 != null">
+					divisionId4,
+				</if>
+				<if test="divisionId5 != null">
+					divisionId5,
+				</if>
+			</trim>
+			<trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					#{id},
+				</if>
+				<if test="userId != null">
+					#{userId},
+				</if>
+				<if test="divisionId != null">
+					#{divisionId},
+				</if>
+				<if test="index != null">
+					#{index},
+				</if>
+				<if test="mainIndex != null">
+					#{mainIndex},
+				</if>
+				<if test="positionId != null">
+					#{positionId},
+				</if>
+				<if test="tag != null">
+					#{tag},
+				</if>
+				<if test="addDate != null">
+					#{addDate},
+				</if>
+				<if test="addUser != null">
+					#{addUser},
+				</if>
+				<if test="addIp != null">
+					#{addIp},
+				</if>
+				<if test="modifiedDate != null">
+					#{modifiedDate},
+				</if>
+				<if test="modifiedUser != null">
+					#{modifiedUser},
+				</if>
+				<if test="modifiedIp != null">
+					#{modifiedIp},
+				</if>
+				<if test="divisionId1 != null">
+					#{divisionId1},
+				</if>
+				<if test="divisionId2 != null">
+					#{divisionId2},
+				</if>
+				<if test="divisionId3 != null">
+					#{divisionId3},
+				</if>
+				<if test="divisionId4 != null">
+					#{divisionId4},
+				</if>
+				<if test="divisionId5 != null">
+					#{divisionId5},
+				</if>
+			</trim>
+			<selectKey resultType="long" keyProperty="id">
+				SELECT LAST_INSERT_ID() AS ID
+			</selectKey>
+	</insert>
+
+	<!-- 删除实体对象 -->
+	<delete id="delete" parameterType="java.lang.Object">
+		DELETE FROM userDivision
+		<where>
+			<if test="id != null and id != ''">
+				AND id = #{id}
+			</if>
+			<if test="userId != null and userId != ''">
+				AND userId = #{userId}
+			</if>
+			<if test="divisionId != null and divisionId != ''">
+				AND divisionId = #{divisionId}
+			</if>
+			<if test="index != null and index != ''">
+				AND index = #{index}
+			</if>
+			<if test="mainIndex != null and mainIndex != ''">
+				AND mainIndex = #{mainIndex}
+			</if>
+			<if test="positionId != null and positionId != ''">
+				AND positionId = #{positionId}
+			</if>
+			<if test="tag != null and tag != ''">
+				AND tag = #{tag}
+			</if>
+			<if test="addDate != null and addDate != ''">
+				AND addDate = #{addDate}
+			</if>
+			<if test="addUser != null and addUser != ''">
+				AND addUser = #{addUser}
+			</if>
+			<if test="addIp != null and addIp != ''">
+				AND addIp = #{addIp}
+			</if>
+			<if test="modifiedDate != null and modifiedDate != ''">
+				AND modifiedDate = #{modifiedDate}
+			</if>
+			<if test="modifiedUser != null and modifiedUser != ''">
+				AND modifiedUser = #{modifiedUser}
+			</if>
+			<if test="modifiedIp != null and modifiedIp != ''">
+				AND modifiedIp = #{modifiedIp}
+			</if>
+			<if test="divisionId1 != null and divisionId1 != ''">
+				AND divisionId1 = #{divisionId1}
+			</if>
+			<if test="divisionId2 != null and divisionId2 != ''">
+				AND divisionId2 = #{divisionId2}
+			</if>
+			<if test="divisionId3 != null and divisionId3 != ''">
+				AND divisionId3 = #{divisionId3}
+			</if>
+			<if test="divisionId4 != null and divisionId4 != ''">
+				AND divisionId4 = #{divisionId4}
+			</if>
+			<if test="divisionId5 != null and divisionId5 != ''">
+				AND divisionId5 = #{divisionId5}
+			</if>
+			<include refid="com.mtf.framework.dao.UserDivisionConditionMapper.searchWhere"/>
+		</where>
+	</delete>
+
+	<!-- 更新实体对象 -->
+	<update id="update" parameterType="java.lang.Object">
+		UPDATE userDivision
+		<set>
+			<if test="id != null and id != ''">
+				id = #{id},
+			</if>
+			<if test="userId != null and userId != ''">
+				userId = #{userId},
+			</if>
+			<if test="divisionId != null and divisionId != ''">
+				divisionId = #{divisionId},
+			</if>
+			<if test="index != null and index != ''">
+				index = #{index},
+			</if>
+			<if test="mainIndex != null and mainIndex != ''">
+				mainIndex = #{mainIndex},
+			</if>
+			<if test="positionId != null and positionId != ''">
+				positionId = #{positionId},
+			</if>
+			<if test="tag != null and tag != ''">
+				tag = #{tag},
+			</if>
+			<if test="addDate != null and addDate != ''">
+				addDate = #{addDate},
+			</if>
+			<if test="addUser != null and addUser != ''">
+				addUser = #{addUser},
+			</if>
+			<if test="addIp != null and addIp != ''">
+				addIp = #{addIp},
+			</if>
+			<if test="modifiedDate != null and modifiedDate != ''">
+				modifiedDate = #{modifiedDate},
+			</if>
+			<if test="modifiedUser != null and modifiedUser != ''">
+				modifiedUser = #{modifiedUser},
+			</if>
+			<if test="modifiedIp != null and modifiedIp != ''">
+				modifiedIp = #{modifiedIp},
+			</if>
+			<if test="divisionId1 != null and divisionId1 != ''">
+				divisionId1 = #{divisionId1},
+			</if>
+			<if test="divisionId2 != null and divisionId2 != ''">
+				divisionId2 = #{divisionId2},
+			</if>
+			<if test="divisionId3 != null and divisionId3 != ''">
+				divisionId3 = #{divisionId3},
+			</if>
+			<if test="divisionId4 != null and divisionId4 != ''">
+				divisionId4 = #{divisionId4},
+			</if>
+			<if test="divisionId5 != null and divisionId5 != ''">
+				divisionId5 = #{divisionId5},
+			</if>
+			<include refid="com.mtf.framework.dao.UserDivisionConditionMapper.updateColumn"/>
+		</set>
+		WHERE
+			<include refid="com.mtf.framework.dao.UserDivisionConditionMapper.updateWhere"/>
+			<if test="original != null">
+				 AND modified = #{original}
+			</if>
+	</update>
+
+	<!-- 查询单个实体对象 -->
+	<select id="get" parameterType="java.lang.Object" resultMap="userDivision">
+		SELECT 
+			<include refid="com.mtf.framework.dao.UserDivisionConditionMapper.getColumn"/>
+			a.id, 
+			a.userId, 
+			a.divisionId, 
+			a.index, 
+			a.mainIndex, 
+			a.positionId, 
+			a.tag, 
+			a.addDate, 
+			a.addUser, 
+			a.addIp, 
+			a.modifiedDate, 
+			a.modifiedUser, 
+			a.modifiedIp, 
+			a.divisionId1, 
+			a.divisionId2, 
+			a.divisionId3, 
+			a.divisionId4, 
+			a.divisionId5
+		FROM userDivision AS a
+		<include refid="com.mtf.framework.dao.UserDivisionConditionMapper.getFrom"/>
+		<where>
+			<if test="id != null">
+				AND a.id = #{id}
+			</if>
+			<if test="userId != null">
+				AND a.userId = #{userId}
+			</if>
+			<if test="divisionId != null">
+				AND a.divisionId = #{divisionId}
+			</if>
+			<if test="index != null">
+				AND a.index = #{index}
+			</if>
+			<if test="mainIndex != null">
+				AND a.mainIndex = #{mainIndex}
+			</if>
+			<if test="positionId != null">
+				AND a.positionId = #{positionId}
+			</if>
+			<if test="tag != null">
+				AND a.tag = #{tag}
+			</if>
+			<if test="addDate != null">
+				AND a.addDate = #{addDate}
+			</if>
+			<if test="addUser != null">
+				AND a.addUser = #{addUser}
+			</if>
+			<if test="addIp != null">
+				AND a.addIp = #{addIp}
+			</if>
+			<if test="modifiedDate != null">
+				AND a.modifiedDate = #{modifiedDate}
+			</if>
+			<if test="modifiedUser != null">
+				AND a.modifiedUser = #{modifiedUser}
+			</if>
+			<if test="modifiedIp != null">
+				AND a.modifiedIp = #{modifiedIp}
+			</if>
+			<if test="divisionId1 != null">
+				AND a.divisionId1 = #{divisionId1}
+			</if>
+			<if test="divisionId2 != null">
+				AND a.divisionId2 = #{divisionId2}
+			</if>
+			<if test="divisionId3 != null">
+				AND a.divisionId3 = #{divisionId3}
+			</if>
+			<if test="divisionId4 != null">
+				AND a.divisionId4 = #{divisionId4}
+			</if>
+			<if test="divisionId5 != null">
+				AND a.divisionId5 = #{divisionId5}
+			</if>
+			<include refid="com.mtf.framework.dao.UserDivisionConditionMapper.getWhere"/>
+		</where>
+		LIMIT 1
+	</select>
+
+	<!-- 查询实体对象集合 -->
+	<select id="select" parameterType="java.lang.Object" resultMap="userDivision">
+		SELECT 
+			<include refid="com.mtf.framework.dao.UserDivisionConditionMapper.selectColumn"/>
+			a.id, 
+			a.userId, 
+			a.divisionId, 
+			a.index, 
+			a.mainIndex, 
+			a.positionId, 
+			a.tag, 
+			a.addDate, 
+			a.addUser, 
+			a.addIp, 
+			a.modifiedDate, 
+			a.modifiedUser, 
+			a.modifiedIp, 
+			a.divisionId1, 
+			a.divisionId2, 
+			a.divisionId3, 
+			a.divisionId4, 
+			a.divisionId5
+		FROM userDivision AS a
+		<include refid="com.mtf.framework.dao.UserDivisionConditionMapper.searchFrom"/>
+		<where>
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="userId != null and userId != ''">
+				AND a.userId = #{userId}
+			</if>
+			<if test="divisionId != null and divisionId != ''">
+				AND a.divisionId = #{divisionId}
+			</if>
+			<if test="index != null and index != ''">
+				AND a.index = #{index}
+			</if>
+			<if test="mainIndex != null and mainIndex != ''">
+				AND a.mainIndex = #{mainIndex}
+			</if>
+			<if test="positionId != null and positionId != ''">
+				AND a.positionId = #{positionId}
+			</if>
+			<if test="tag != null and tag != ''">
+				AND a.tag = #{tag}
+			</if>
+			<if test="addDate != null and addDate != ''">
+				AND a.addDate = #{addDate}
+			</if>
+			<if test="addUser != null and addUser != ''">
+				AND a.addUser = #{addUser}
+			</if>
+			<if test="addIp != null and addIp != ''">
+				AND a.addIp = #{addIp}
+			</if>
+			<if test="modifiedDate != null and modifiedDate != ''">
+				AND a.modifiedDate = #{modifiedDate}
+			</if>
+			<if test="modifiedUser != null and modifiedUser != ''">
+				AND a.modifiedUser = #{modifiedUser}
+			</if>
+			<if test="modifiedIp != null and modifiedIp != ''">
+				AND a.modifiedIp = #{modifiedIp}
+			</if>
+			<if test="divisionId1 != null and divisionId1 != ''">
+				AND a.divisionId1 = #{divisionId1}
+			</if>
+			<if test="divisionId2 != null and divisionId2 != ''">
+				AND a.divisionId2 = #{divisionId2}
+			</if>
+			<if test="divisionId3 != null and divisionId3 != ''">
+				AND a.divisionId3 = #{divisionId3}
+			</if>
+			<if test="divisionId4 != null and divisionId4 != ''">
+				AND a.divisionId4 = #{divisionId4}
+			</if>
+			<if test="divisionId5 != null and divisionId5 != ''">
+				AND a.divisionId5 = #{divisionId5}
+			</if>
+			<include refid="com.mtf.framework.dao.UserDivisionConditionMapper.searchWhere"/>
+		</where>
+		<if test="group != null">
+			GROUP BY ${group}
+		</if>
+		<if test="sort != null">
+			ORDER BY ${sort} ${order}
+		</if>
+		<if test="rows != 0">
+			LIMIT ${startIndex}, ${rows}
+		</if>
+	</select>
+
+	<!-- 查询实体对象记录数 -->
+	<select id="count" parameterType="java.lang.Object" resultType="int">
+		SELECT COUNT(1) FROM userDivision AS a
+		<include refid="com.mtf.framework.dao.UserDivisionConditionMapper.searchFrom"/>
+		<where>
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="userId != null and userId != ''">
+				AND a.userId = #{userId}
+			</if>
+			<if test="divisionId != null and divisionId != ''">
+				AND a.divisionId = #{divisionId}
+			</if>
+			<if test="index != null and index != ''">
+				AND a.index = #{index}
+			</if>
+			<if test="mainIndex != null and mainIndex != ''">
+				AND a.mainIndex = #{mainIndex}
+			</if>
+			<if test="positionId != null and positionId != ''">
+				AND a.positionId = #{positionId}
+			</if>
+			<if test="tag != null and tag != ''">
+				AND a.tag = #{tag}
+			</if>
+			<if test="addDate != null and addDate != ''">
+				AND a.addDate = #{addDate}
+			</if>
+			<if test="addUser != null and addUser != ''">
+				AND a.addUser = #{addUser}
+			</if>
+			<if test="addIp != null and addIp != ''">
+				AND a.addIp = #{addIp}
+			</if>
+			<if test="modifiedDate != null and modifiedDate != ''">
+				AND a.modifiedDate = #{modifiedDate}
+			</if>
+			<if test="modifiedUser != null and modifiedUser != ''">
+				AND a.modifiedUser = #{modifiedUser}
+			</if>
+			<if test="modifiedIp != null and modifiedIp != ''">
+				AND a.modifiedIp = #{modifiedIp}
+			</if>
+			<if test="divisionId1 != null and divisionId1 != ''">
+				AND a.divisionId1 = #{divisionId1}
+			</if>
+			<if test="divisionId2 != null and divisionId2 != ''">
+				AND a.divisionId2 = #{divisionId2}
+			</if>
+			<if test="divisionId3 != null and divisionId3 != ''">
+				AND a.divisionId3 = #{divisionId3}
+			</if>
+			<if test="divisionId4 != null and divisionId4 != ''">
+				AND a.divisionId4 = #{divisionId4}
+			</if>
+			<if test="divisionId5 != null and divisionId5 != ''">
+				AND a.divisionId5 = #{divisionId5}
+			</if>
+			<include refid="com.mtf.framework.dao.UserDivisionConditionMapper.searchWhere"/>
+		</where>
+	</select>
+</mapper>

@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mtf.framework.dao.ItemruleMapper" > 
+	<resultMap type="com.mtf.framework.model.impl.ItemruleImpl" id="itemRule"/> 
+	<!-- 添加实体对象 -->
+	<insert id="insert" parameterType="itemRule">
+		INSERT INTO itemRule
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					id,
+				</if>
+				<if test="type != null">
+					type,
+				</if>
+				<if test="specification != null">
+					specification,
+				</if>
+				<if test="unit != null">
+					unit,
+				</if>
+				<if test="price != null">
+					price,
+				</if>
+				<if test="supplier != null">
+					supplier,
+				</if>
+				<if test="remarks != null">
+					remarks,
+				</if>
+				<if test="amountDefault != null">
+					amountDefault,
+				</if>
+				<if test="amountMax != null">
+					amountMax,
+				</if>
+				<if test="addDate != null">
+					addDate,
+				</if>
+				<if test="modifiedDate != null">
+					modifiedDate,
+				</if>
+				<if test="status != null">
+					status,
+				</if>
+			</trim>
+			<trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					#{id},
+				</if>
+				<if test="type != null">
+					#{type},
+				</if>
+				<if test="specification != null">
+					#{specification},
+				</if>
+				<if test="unit != null">
+					#{unit},
+				</if>
+				<if test="price != null">
+					#{price},
+				</if>
+				<if test="supplier != null">
+					#{supplier},
+				</if>
+				<if test="remarks != null">
+					#{remarks},
+				</if>
+				<if test="amountDefault != null">
+					#{amountDefault},
+				</if>
+				<if test="amountMax != null">
+					#{amountMax},
+				</if>
+				<if test="addDate != null">
+					#{addDate},
+				</if>
+				<if test="modifiedDate != null">
+					#{modifiedDate},
+				</if>
+				<if test="status != null">
+					#{status},
+				</if>
+			</trim>
+			<selectKey resultType="long" keyProperty="id">
+				SELECT LAST_INSERT_ID() AS ID
+			</selectKey>
+	</insert>
+
+	<!-- 删除实体对象 -->
+	<delete id="delete" parameterType="java.lang.Object">
+		DELETE FROM itemRule
+		WHERE
+			id = #{id}
+	</delete>
+
+	<!-- 更新实体对象 -->
+	<update id="update" parameterType="java.lang.Object">
+		UPDATE itemRule
+		<set>
+			<if test="id != null">
+				id = #{id},
+			</if>
+			<if test="type != null">
+				type = #{type},
+			</if>
+			<if test="specification != null">
+				specification = #{specification},
+			</if>
+			<if test="unit != null">
+				unit = #{unit},
+			</if>
+			<if test="price != null">
+				price = #{price},
+			</if>
+			<if test="supplier != null">
+				supplier = #{supplier},
+			</if>
+			<if test="remarks != null">
+				remarks = #{remarks},
+			</if>
+			<if test="amountDefault != null">
+				amountDefault = #{amountDefault},
+			</if>
+			<if test="amountMax != null">
+				amountMax = #{amountMax},
+			</if>
+			<if test="addDate != null">
+				addDate = #{addDate},
+			</if>
+			<if test="modifiedDate != null">
+				modifiedDate = #{modifiedDate},
+			</if>
+			<if test="status != null">
+				status = #{status},
+			</if>
+		</set>
+		WHERE
+			id = #{id}
+			<if test="original != null">
+				 AND modified = #{original}
+			</if>
+	</update>
+
+	<!-- 查询单个实体对象 -->
+	<select id="get" parameterType="java.lang.Object" resultMap="itemRule">
+		SELECT 
+			id, 
+			type, 
+			specification, 
+			unit, 
+			price, 
+			supplier, 
+			remarks, 
+			amountDefault, 
+			amountMax, 
+			addDate, 
+			modifiedDate, 
+			status
+		FROM itemRule
+		<where>
+			<if test="id != null">
+				AND id = #{id}
+			</if>
+			<if test="type != null">
+				AND type = #{type}
+			</if>
+			<if test="specification != null">
+				AND specification = #{specification}
+			</if>
+			<if test="unit != null">
+				AND unit = #{unit}
+			</if>
+			<if test="price != null">
+				AND price = #{price}
+			</if>
+			<if test="supplier != null">
+				AND supplier = #{supplier}
+			</if>
+			<if test="remarks != null">
+				AND remarks = #{remarks}
+			</if>
+			<if test="amountDefault != null">
+				AND amountDefault = #{amountDefault}
+			</if>
+			<if test="amountMax != null">
+				AND amountMax = #{amountMax}
+			</if>
+			<if test="addDate != null">
+				AND addDate = #{addDate}
+			</if>
+			<if test="modifiedDate != null">
+				AND modifiedDate = #{modifiedDate}
+			</if>
+			<if test="status != null">
+				AND status = #{status}
+			</if>
+		</where>
+		LIMIT 1
+	</select>
+
+	<!-- 查询实体对象集合 -->
+	<select id="select" parameterType="java.lang.Object" resultMap="itemRule">
+		SELECT 
+			id, 
+			type, 
+			specification, 
+			unit, 
+			price, 
+			supplier, 
+			remarks, 
+			amountDefault, 
+			amountMax, 
+			addDate, 
+			modifiedDate, 
+			status
+		FROM itemRule
+		WHERE 1 = 1
+			<if test="id != null">
+				AND id = #{id}
+			</if>
+			<if test="type != null">
+				AND type = #{type}
+			</if>
+			<if test="specification != null">
+				AND specification = #{specification}
+			</if>
+			<if test="unit != null">
+				AND unit = #{unit}
+			</if>
+			<if test="price != null">
+				AND price = #{price}
+			</if>
+			<if test="supplier != null">
+				AND supplier = #{supplier}
+			</if>
+			<if test="remarks != null">
+				AND remarks = #{remarks}
+			</if>
+			<if test="amountDefault != null">
+				AND amountDefault = #{amountDefault}
+			</if>
+			<if test="amountMax != null">
+				AND amountMax = #{amountMax}
+			</if>
+			<if test="addDate != null">
+				AND addDate = #{addDate}
+			</if>
+			<if test="modifiedDate != null">
+				AND modifiedDate = #{modifiedDate}
+			</if>
+			<if test="status != null">
+				AND status = #{status}
+			</if>
+			<if test="sort != null">
+				ORDER BY ${sort} ${order}
+			</if>
+		LIMIT ${startIndex}, ${rows}
+	</select>
+
+	<!-- 查询实体对象记录数 -->
+	<select id="count" parameterType="java.lang.Object" resultType="int">
+		SELECT COUNT(1) FROM itemRule
+		WHERE 1 = 1
+			<if test="id != null">
+				AND id = #{id}
+			</if>
+			<if test="type != null">
+				AND type = #{type}
+			</if>
+			<if test="specification != null">
+				AND specification = #{specification}
+			</if>
+			<if test="unit != null">
+				AND unit = #{unit}
+			</if>
+			<if test="price != null">
+				AND price = #{price}
+			</if>
+			<if test="supplier != null">
+				AND supplier = #{supplier}
+			</if>
+			<if test="remarks != null">
+				AND remarks = #{remarks}
+			</if>
+			<if test="amountDefault != null">
+				AND amountDefault = #{amountDefault}
+			</if>
+			<if test="amountMax != null">
+				AND amountMax = #{amountMax}
+			</if>
+			<if test="addDate != null">
+				AND addDate = #{addDate}
+			</if>
+			<if test="modifiedDate != null">
+				AND modifiedDate = #{modifiedDate}
+			</if>
+			<if test="status != null">
+				AND status = #{status}
+			</if>
+			<if test="sort != null">
+				ORDER BY ${sort} ${order}
+			</if>
+	</select>
+	
+	<!-- 查询实体对象集合 -->
+	<select id="selectByName" parameterType="java.lang.Object" resultMap="itemRule">
+		SELECT 
+			id, 
+			type, 
+			specification, 
+			unit, 
+			price, 
+			supplier, 
+			remarks, 
+			amountDefault, 
+			amountMax, 
+			addDate, 
+			modifiedDate, 
+			status
+		FROM itemRule
+		WHERE 1 = 1
+			
+			<if test="type != null and type != ''">
+				AND type LIKE CONCAT('%', #{type},'%')
+			</if>
+			<if test="status != null ">
+				AND status = #{status}
+			</if>
+			<if test="sort != null">
+				ORDER BY ${sort} ${order}
+			</if>
+		LIMIT ${startIndex}, ${rows}
+	</select>
+
+	<!-- 查询实体对象记录数 -->
+	<select id="countByName" parameterType="java.lang.Object" resultType="int">
+		SELECT COUNT(1) FROM itemRule
+		WHERE 1 = 1
+			<if test="type != null and type != ''">
+				AND type LIKE CONCAT('%', #{type},'%')
+			</if>
+			<if test="status != null ">
+				AND status = #{status}
+			</if>
+	</select>
+</mapper>

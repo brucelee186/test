@@ -1,0 +1,911 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mtf.framework.dao.BudgetMapper" > 
+	<resultMap type="com.mtf.framework.model.impl.BudgetImpl" id="budget"/> 
+	<!-- 添加实体对象 -->
+	<insert id="insert" parameterType="budget">
+		INSERT INTO budget
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					id,
+				</if>
+				<if test="contractId != null">
+					contractId,
+				</if>
+				<if test="type != null">
+					type,
+				</if>
+				<if test="modified != null">
+					modified,
+				</if>
+				<if test="approveState != null">
+					approveState,
+				</if>
+				<if test="approver0 != null">
+					approver0,
+				</if>
+				<if test="approverDate0 != null">
+					approverDate0,
+				</if>
+				<if test="approver1 != null">
+					approver1,
+				</if>
+				<if test="approverDate1 != null">
+					approverDate1,
+				</if>
+				<if test="approver2 != null">
+					approver2,
+				</if>
+				<if test="approverDate2 != null">
+					approverDate2,
+				</if>
+				<if test="approver3 != null">
+					approver3,
+				</if>
+				<if test="approverDate3 != null">
+					approverDate3,
+				</if>
+				<if test="accData != null">
+					accData,
+				</if>
+				<if test="department != null">
+					department,
+				</if>
+				<if test="productionUnit != null">
+					productionUnit,
+				</if>
+				<if test="budgetNo != null">
+					budgetNo,
+				</if>
+				<if test="tradeName != null">
+					tradeName,
+				</if>
+				<if test="customer != null">
+					customer,
+				</if>
+				<if test="styleNumber != null">
+					styleNumber,
+				</if>
+				<if test="specification != null">
+					specification,
+				</if>
+				<if test="unit != null">
+					unit,
+				</if>
+				<if test="totalAmount != null">
+					totalAmount,
+				</if>
+				<if test="rawMaterialTotalAmount != null">
+					rawMaterialTotalAmount,
+				</if>
+				<if test="packagingTotalAmount != null">
+					packagingTotalAmount,
+				</if>
+				<if test="processCost != null">
+					processCost,
+				</if>
+				<if test="totalCost != null">
+					totalCost,
+				</if>
+				<if test="remark != null">
+					remark,
+				</if>
+				<if test="accCIF != null">
+					accCIF,
+				</if>
+				<if test="accI != null">
+					accI,
+				</if>
+				<if test="accFOB != null">
+					accFOB,
+				</if>
+				<if test="drawBack != null">
+					drawBack,
+				</if>
+				<if test="oreignExchangeRate != null">
+					oreignExchangeRate,
+				</if>
+				<if test="otherIncome != null">
+					otherIncome,
+				</if>
+				<if test="totalIncome != null">
+					totalIncome,
+				</if>
+				<if test="rawMaterialCost != null">
+					rawMaterialCost,
+				</if>
+				<if test="packagingCost != null">
+					packagingCost,
+				</if>
+				<if test="otherCost != null">
+					otherCost,
+				</if>
+				<if test="otherExpense != null">
+					otherExpense,
+				</if>
+				<if test="indirectCost != null">
+					indirectCost,
+				</if>
+				<if test="totalProductCost != null">
+					totalProductCost,
+				</if>
+				<if test="profit != null">
+					profit,
+				</if>
+				<if test="accF != null">
+					accF,
+				</if>
+				<if test="processFeeCost != null">
+					processFeeCost,
+				</if>
+				<if test="rejectReason != null">
+					rejectReason,
+				</if>
+				<if test="accRMB != null">
+					accRMB,
+				</if>
+				<if test="unitPrice != null">
+					unitPrice,
+				</if>
+				<if test="approveReason != null">
+					approveReason,
+				</if>
+				<if test="addUser != null">
+					addUser,
+				</if>
+				<if test="addDate != null">
+					addDate,
+				</if>
+				<if test="modifiedUser != null">
+					modifiedUser,
+				</if>
+				<if test="modifiedDate != null">
+					modifiedDate,
+				</if>
+				<if test="budgetId != null">
+					budgetId,
+				</if>
+				<if test="approver != null">
+					approver,
+				</if>
+				<if test="approverDate != null">
+					approverDate,
+				</if>
+			</trim>
+			<trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					#{id},
+				</if>
+				<if test="contractId != null">
+					#{contractId},
+				</if>
+				<if test="type != null">
+					#{type},
+				</if>
+				<if test="modified != null">
+					#{modified},
+				</if>
+				<if test="approveState != null">
+					#{approveState},
+				</if>
+				<if test="approver0 != null">
+					#{approver0},
+				</if>
+				<if test="approverDate0 != null">
+					#{approverDate0},
+				</if>
+				<if test="approver1 != null">
+					#{approver1},
+				</if>
+				<if test="approverDate1 != null">
+					#{approverDate1},
+				</if>
+				<if test="approver2 != null">
+					#{approver2},
+				</if>
+				<if test="approverDate2 != null">
+					#{approverDate2},
+				</if>
+				<if test="approver3 != null">
+					#{approver3},
+				</if>
+				<if test="approverDate3 != null">
+					#{approverDate3},
+				</if>
+				<if test="accData != null">
+					#{accData},
+				</if>
+				<if test="department != null">
+					#{department},
+				</if>
+				<if test="productionUnit != null">
+					#{productionUnit},
+				</if>
+				<if test="budgetNo != null">
+					#{budgetNo},
+				</if>
+				<if test="tradeName != null">
+					#{tradeName},
+				</if>
+				<if test="customer != null">
+					#{customer},
+				</if>
+				<if test="styleNumber != null">
+					#{styleNumber},
+				</if>
+				<if test="specification != null">
+					#{specification},
+				</if>
+				<if test="unit != null">
+					#{unit},
+				</if>
+				<if test="totalAmount != null">
+					#{totalAmount},
+				</if>
+				<if test="rawMaterialTotalAmount != null">
+					#{rawMaterialTotalAmount},
+				</if>
+				<if test="packagingTotalAmount != null">
+					#{packagingTotalAmount},
+				</if>
+				<if test="processCost != null">
+					#{processCost},
+				</if>
+				<if test="totalCost != null">
+					#{totalCost},
+				</if>
+				<if test="remark != null">
+					#{remark},
+				</if>
+				<if test="accCIF != null">
+					#{accCIF},
+				</if>
+				<if test="accI != null">
+					#{accI},
+				</if>
+				<if test="accFOB != null">
+					#{accFOB},
+				</if>
+				<if test="drawBack != null">
+					#{drawBack},
+				</if>
+				<if test="oreignExchangeRate != null">
+					#{oreignExchangeRate},
+				</if>
+				<if test="otherIncome != null">
+					#{otherIncome},
+				</if>
+				<if test="totalIncome != null">
+					#{totalIncome},
+				</if>
+				<if test="rawMaterialCost != null">
+					#{rawMaterialCost},
+				</if>
+				<if test="packagingCost != null">
+					#{packagingCost},
+				</if>
+				<if test="otherCost != null">
+					#{otherCost},
+				</if>
+				<if test="otherExpense != null">
+					#{otherExpense},
+				</if>
+				<if test="indirectCost != null">
+					#{indirectCost},
+				</if>
+				<if test="totalProductCost != null">
+					#{totalProductCost},
+				</if>
+				<if test="profit != null">
+					#{profit},
+				</if>
+				<if test="accF != null">
+					#{accF},
+				</if>
+				<if test="processFeeCost != null">
+					#{processFeeCost},
+				</if>
+				<if test="rejectReason != null">
+					#{rejectReason},
+				</if>
+				<if test="accRMB != null">
+					#{accRMB},
+				</if>
+				<if test="unitPrice != null">
+					#{unitPrice},
+				</if>
+				<if test="approveReason != null">
+					#{approveReason},
+				</if>
+				<if test="addUser != null">
+					#{addUser},
+				</if>
+				<if test="addDate != null">
+					#{addDate},
+				</if>
+				<if test="modifiedUser != null">
+					#{modifiedUser},
+				</if>
+				<if test="modifiedDate != null">
+					#{modifiedDate},
+				</if>
+				<if test="budgetId != null">
+					#{budgetId},
+				</if>
+				<if test="approver != null">
+					#{approver},
+				</if>
+				<if test="approverDate != null">
+					#{approverDate},
+				</if>
+			</trim>
+			<selectKey resultType="long" keyProperty="id">
+				SELECT LAST_INSERT_ID() AS ID
+			</selectKey>
+	</insert>
+
+	<!-- 删除实体对象 -->
+	<delete id="delete" parameterType="java.lang.Object">
+		DELETE FROM budget
+		WHERE
+			id = #{id}
+	</delete>
+
+	<!-- 更新实体对象 -->
+	<update id="update" parameterType="java.lang.Object">
+		UPDATE budget
+		<set>
+			<if test="id != null">
+				id = #{id},
+			</if>
+			<if test="contractId != null">
+				contractId = #{contractId},
+			</if>
+			<if test="type != null">
+				type = #{type},
+			</if>
+			<if test="modified != null">
+				modified = #{modified},
+			</if>
+			<if test="approveState != null">
+				approveState = #{approveState},
+			</if>
+			<if test="approver0 != null">
+				approver0 = #{approver0},
+			</if>
+			<if test="approverDate0 != null">
+				approverDate0 = #{approverDate0},
+			</if>
+			<if test="approver1 != null">
+				approver1 = #{approver1},
+			</if>
+			<if test="approverDate1 != null">
+				approverDate1 = #{approverDate1},
+			</if>
+			<if test="approver2 != null">
+				approver2 = #{approver2},
+			</if>
+			<if test="approverDate2 != null">
+				approverDate2 = #{approverDate2},
+			</if>
+			<if test="approver3 != null">
+				approver3 = #{approver3},
+			</if>
+			<if test="approverDate3 != null">
+				approverDate3 = #{approverDate3},
+			</if>
+			<if test="accData != null">
+				accData = #{accData},
+			</if>
+			<if test="department != null">
+				department = #{department},
+			</if>
+			<if test="productionUnit != null">
+				productionUnit = #{productionUnit},
+			</if>
+			<if test="budgetNo != null">
+				budgetNo = #{budgetNo},
+			</if>
+			<if test="tradeName != null">
+				tradeName = #{tradeName},
+			</if>
+			<if test="customer != null">
+				customer = #{customer},
+			</if>
+			<if test="styleNumber != null">
+				styleNumber = #{styleNumber},
+			</if>
+			<if test="specification != null">
+				specification = #{specification},
+			</if>
+			<if test="unit != null">
+				unit = #{unit},
+			</if>
+			<if test="totalAmount != null">
+				totalAmount = #{totalAmount},
+			</if>
+			<if test="rawMaterialTotalAmount != null">
+				rawMaterialTotalAmount = #{rawMaterialTotalAmount},
+			</if>
+			<if test="packagingTotalAmount != null">
+				packagingTotalAmount = #{packagingTotalAmount},
+			</if>
+			<if test="processCost != null">
+				processCost = #{processCost},
+			</if>
+			<if test="totalCost != null">
+				totalCost = #{totalCost},
+			</if>
+			<if test="remark != null">
+				remark = #{remark},
+			</if>
+			<if test="accCIF != null">
+				accCIF = #{accCIF},
+			</if>
+			<if test="accI != null">
+				accI = #{accI},
+			</if>
+			<if test="accFOB != null">
+				accFOB = #{accFOB},
+			</if>
+			<if test="drawBack != null">
+				drawBack = #{drawBack},
+			</if>
+			<if test="oreignExchangeRate != null">
+				oreignExchangeRate = #{oreignExchangeRate},
+			</if>
+			<if test="otherIncome != null">
+				otherIncome = #{otherIncome},
+			</if>
+			<if test="totalIncome != null">
+				totalIncome = #{totalIncome},
+			</if>
+			<if test="rawMaterialCost != null">
+				rawMaterialCost = #{rawMaterialCost},
+			</if>
+			<if test="packagingCost != null">
+				packagingCost = #{packagingCost},
+			</if>
+			<if test="otherCost != null">
+				otherCost = #{otherCost},
+			</if>
+			<if test="otherExpense != null">
+				otherExpense = #{otherExpense},
+			</if>
+			<if test="indirectCost != null">
+				indirectCost = #{indirectCost},
+			</if>
+			<if test="totalProductCost != null">
+				totalProductCost = #{totalProductCost},
+			</if>
+			<if test="profit != null">
+				profit = #{profit},
+			</if>
+			<if test="accF != null">
+				accF = #{accF},
+			</if>
+			<if test="processFeeCost != null">
+				processFeeCost = #{processFeeCost},
+			</if>
+			<if test="rejectReason != null">
+				rejectReason = #{rejectReason},
+			</if>
+			<if test="accRMB != null">
+				accRMB = #{accRMB},
+			</if>
+			<if test="unitPrice != null">
+				unitPrice = #{unitPrice},
+			</if>
+			<if test="approveReason != null">
+				approveReason = #{approveReason},
+			</if>
+			<if test="addUser != null">
+				addUser = #{addUser},
+			</if>
+			<if test="addDate != null">
+				addDate = #{addDate},
+			</if>
+			<if test="modifiedUser != null">
+				modifiedUser = #{modifiedUser},
+			</if>
+			<if test="modifiedDate != null">
+				modifiedDate = #{modifiedDate},
+			</if>
+			<if test="budgetId != null">
+				budgetId = #{budgetId},
+			</if>
+			<if test="approver != null">
+				approver = #{approver},
+			</if>
+			<if test="approverDate != null">
+				approverDate = #{approverDate},
+			</if>
+		</set>
+		WHERE
+			id = #{id}
+			<if test="original != null">
+				 AND modified = #{original}
+			</if>
+	</update>
+
+	<!-- 查询单个实体对象 -->
+	<select id="get" parameterType="java.lang.Object" resultMap="budget">
+		SELECT a.*,
+			(select signature from user as c where c.c_id = b.approverId0) as signature0,
+			(select signature from user as c where c.c_id = b.approverId1) as signature1,
+			(select signature from user as c where c.c_id = b.approverId2) as signature2,
+			(select signature from user as c where c.c_id = b.approverId3) as signature3
+		FROM budget AS a
+		LEFT JOIN contract AS b on b.id = a.contractId
+		<where>
+			<if test="id != null">
+				AND a.id = #{id}
+			</if>
+			<if test="contractId != null">
+				AND a.contractId = #{contractId}
+			</if>
+			<if test="type != null">
+				AND a.type = #{type}
+			</if>
+			<if test="modified != null">
+				AND a.modified = #{modified}
+			</if>
+			<if test="approveState != null">
+				AND a.approveState = #{approveState}
+			</if>
+			<if test="approver0 != null">
+				AND a.approver0 = #{approver0}
+			</if>
+			<if test="approverDate0 != null">
+				AND a.approverDate0 = #{approverDate0}
+			</if>
+			<if test="approver1 != null">
+				AND a.approver1 = #{approver1}
+			</if>
+			<if test="approverDate1 != null">
+				AND a.approverDate1 = #{approverDate1}
+			</if>
+			<if test="approver2 != null">
+				AND a.approver2 = #{approver2}
+			</if>
+			<if test="approverDate2 != null">
+				AND a.approverDate2 = #{approverDate2}
+			</if>
+			<if test="approver3 != null">
+				AND a.approver3 = #{approver3}
+			</if>
+			<if test="approverDate3 != null">
+				AND a.approverDate3 = #{approverDate3}
+			</if>
+			<if test="accData != null">
+				AND a.accData = #{accData}
+			</if>
+			<if test="department != null">
+				AND a.department = #{department}
+			</if>
+			<if test="productionUnit != null">
+				AND a.productionUnit = #{productionUnit}
+			</if>
+			<if test="budgetNo != null">
+				AND a.budgetNo = #{budgetNo}
+			</if>
+			<if test="tradeName != null">
+				AND a.tradeName = #{tradeName}
+			</if>
+			<if test="customer != null">
+				AND a.customer = #{customer}
+			</if>
+			<if test="styleNumber != null">
+				AND a.styleNumber = #{styleNumber}
+			</if>
+			<if test="specification != null">
+				AND a.specification = #{specification}
+			</if>
+			<if test="unit != null">
+				AND a.unit = #{unit}
+			</if>
+			<if test="totalAmount != null">
+				AND a.totalAmount = #{totalAmount}
+			</if>
+			<if test="rawMaterialTotalAmount != null">
+				AND a.rawMaterialTotalAmount = #{rawMaterialTotalAmount}
+			</if>
+			<if test="packagingTotalAmount != null">
+				AND a.packagingTotalAmount = #{packagingTotalAmount}
+			</if>
+			<if test="processCost != null">
+				AND a.processCost = #{processCost}
+			</if>
+			<if test="totalCost != null">
+				AND a.totalCost = #{totalCost}
+			</if>
+			<if test="remark != null">
+				AND a.remark = #{remark}
+			</if>
+			<if test="accCIF != null">
+				AND a.accCIF = #{accCIF}
+			</if>
+			<if test="accI != null">
+				AND a.accI = #{accI}
+			</if>
+			<if test="accFOB != null">
+				AND a.accFOB = #{accFOB}
+			</if>
+			<if test="drawBack != null">
+				AND a.drawBack = #{drawBack}
+			</if>
+			<if test="oreignExchangeRate != null">
+				AND a.oreignExchangeRate = #{oreignExchangeRate}
+			</if>
+			<if test="otherIncome != null">
+				AND a.otherIncome = #{otherIncome}
+			</if>
+			<if test="totalIncome != null">
+				AND a.totalIncome = #{totalIncome}
+			</if>
+			<if test="rawMaterialCost != null">
+				AND a.rawMaterialCost = #{rawMaterialCost}
+			</if>
+			<if test="packagingCost != null">
+				AND a.packagingCost = #{packagingCost}
+			</if>
+			<if test="otherCost != null">
+				AND a.otherCost = #{otherCost}
+			</if>
+			<if test="otherExpense != null">
+				AND a.otherExpense = #{otherExpense}
+			</if>
+			<if test="indirectCost != null">
+				AND a.indirectCost = #{indirectCost}
+			</if>
+			<if test="totalProductCost != null">
+				AND a.totalProductCost = #{totalProductCost}
+			</if>
+			<if test="profit != null">
+				AND a.profit = #{profit}
+			</if>
+			<if test="accF != null">
+				AND a.accF = #{accF}
+			</if>
+			<if test="processFeeCost != null">
+				AND a.processFeeCost = #{processFeeCost}
+			</if>
+			<if test="rejectReason != null">
+				AND a.rejectReason = #{rejectReason}
+			</if>
+			<if test="accRMB != null">
+				AND a.accRMB = #{accRMB}
+			</if>
+			<if test="unitPrice != null">
+				AND a.unitPrice = #{unitPrice}
+			</if>
+			<if test="approveReason != null">
+				AND a.approveReason = #{approveReason}
+			</if>
+			<if test="addUser != null">
+				AND a.addUser = #{addUser}
+			</if>
+			<if test="addDate != null">
+				AND a.addDate = #{addDate}
+			</if>
+			<if test="modifiedUser != null">
+				AND a.modifiedUser = #{modifiedUser}
+			</if>
+			<if test="modifiedDate != null">
+				AND a.modifiedDate = #{modifiedDate}
+			</if>
+			<if test="budgetId != null">
+				AND a.budgetId = #{budgetId}
+			</if>
+			<if test="approver != null">
+				AND a.approver = #{approver}
+			</if>
+			<if test="approverDate != null">
+				AND a.approverDate = #{approverDate}
+			</if>
+		</where>
+		LIMIT 1
+	</select>
+
+	<!-- 查询实体对象集合 -->
+	<select id="select" parameterType="java.lang.Object" resultMap="budget">
+		SELECT 
+			a.*,
+			(select signature from user as c where c.c_id = b.approverId0) as signature0,
+			(select signature from user as c where c.c_id = b.approverId1) as signature1,
+			(select signature from user as c where c.c_id = b.approverId2) as signature2,
+			(select signature from user as c where c.c_id = b.approverId3) as signature3
+		FROM budget AS a
+		LEFT JOIN contract AS b on b.id = a.contractId
+		<where>
+			<if test="id != null">
+				AND a.id = #{id}
+			</if>
+			<if test="contractId != null">
+				AND a.contractId = #{contractId}
+			</if>
+			<if test="type != null">
+				AND type = #{type}
+			</if>			
+			<if test="sort != null">
+				ORDER BY ${sort} ${order}
+			</if>
+		</where>
+	</select>
+
+	<!-- 查询实体对象记录数 -->
+	<select id="count" parameterType="java.lang.Object" resultType="int">
+		SELECT COUNT(1) FROM budget
+		<where>
+			<if test="id != null">
+				AND id = #{id}
+			</if>
+			<if test="contractId != null">
+				AND contractId = #{contractId}
+			</if>
+			<if test="type != null">
+				AND type = #{type}
+			</if>
+			<if test="modified != null">
+				AND modified = #{modified}
+			</if>
+			<if test="approveState != null">
+				AND approveState = #{approveState}
+			</if>
+			<if test="approver0 != null">
+				AND approver0 = #{approver0}
+			</if>
+			<if test="approverDate0 != null">
+				AND approverDate0 = #{approverDate0}
+			</if>
+			<if test="approver1 != null">
+				AND approver1 = #{approver1}
+			</if>
+			<if test="approverDate1 != null">
+				AND approverDate1 = #{approverDate1}
+			</if>
+			<if test="approver2 != null">
+				AND approver2 = #{approver2}
+			</if>
+			<if test="approverDate2 != null">
+				AND approverDate2 = #{approverDate2}
+			</if>
+			<if test="approver3 != null">
+				AND approver3 = #{approver3}
+			</if>
+			<if test="approverDate3 != null">
+				AND approverDate3 = #{approverDate3}
+			</if>
+			<if test="accData != null">
+				AND accData = #{accData}
+			</if>
+			<if test="department != null">
+				AND department = #{department}
+			</if>
+			<if test="productionUnit != null">
+				AND productionUnit = #{productionUnit}
+			</if>
+			<if test="budgetNo != null">
+				AND budgetNo = #{budgetNo}
+			</if>
+			<if test="tradeName != null">
+				AND tradeName = #{tradeName}
+			</if>
+			<if test="customer != null">
+				AND customer = #{customer}
+			</if>
+			<if test="styleNumber != null">
+				AND styleNumber = #{styleNumber}
+			</if>
+			<if test="specification != null">
+				AND specification = #{specification}
+			</if>
+			<if test="unit != null">
+				AND unit = #{unit}
+			</if>
+			<if test="totalAmount != null">
+				AND totalAmount = #{totalAmount}
+			</if>
+			<if test="rawMaterialTotalAmount != null">
+				AND rawMaterialTotalAmount = #{rawMaterialTotalAmount}
+			</if>
+			<if test="packagingTotalAmount != null">
+				AND packagingTotalAmount = #{packagingTotalAmount}
+			</if>
+			<if test="processCost != null">
+				AND processCost = #{processCost}
+			</if>
+			<if test="totalCost != null">
+				AND totalCost = #{totalCost}
+			</if>
+			<if test="remark != null">
+				AND remark = #{remark}
+			</if>
+			<if test="accCIF != null">
+				AND accCIF = #{accCIF}
+			</if>
+			<if test="accI != null">
+				AND accI = #{accI}
+			</if>
+			<if test="accFOB != null">
+				AND accFOB = #{accFOB}
+			</if>
+			<if test="drawBack != null">
+				AND drawBack = #{drawBack}
+			</if>
+			<if test="oreignExchangeRate != null">
+				AND oreignExchangeRate = #{oreignExchangeRate}
+			</if>
+			<if test="otherIncome != null">
+				AND otherIncome = #{otherIncome}
+			</if>
+			<if test="totalIncome != null">
+				AND totalIncome = #{totalIncome}
+			</if>
+			<if test="rawMaterialCost != null">
+				AND rawMaterialCost = #{rawMaterialCost}
+			</if>
+			<if test="packagingCost != null">
+				AND packagingCost = #{packagingCost}
+			</if>
+			<if test="otherCost != null">
+				AND otherCost = #{otherCost}
+			</if>
+			<if test="otherExpense != null">
+				AND otherExpense = #{otherExpense}
+			</if>
+			<if test="indirectCost != null">
+				AND indirectCost = #{indirectCost}
+			</if>
+			<if test="totalProductCost != null">
+				AND totalProductCost = #{totalProductCost}
+			</if>
+			<if test="profit != null">
+				AND profit = #{profit}
+			</if>
+			<if test="accF != null">
+				AND accF = #{accF}
+			</if>
+			<if test="processFeeCost != null">
+				AND processFeeCost = #{processFeeCost}
+			</if>
+			<if test="rejectReason != null">
+				AND rejectReason = #{rejectReason}
+			</if>
+			<if test="accRMB != null">
+				AND accRMB = #{accRMB}
+			</if>
+			<if test="unitPrice != null">
+				AND unitPrice = #{unitPrice}
+			</if>
+			<if test="approveReason != null">
+				AND approveReason = #{approveReason}
+			</if>
+			<if test="addUser != null">
+				AND addUser = #{addUser}
+			</if>
+			<if test="addDate != null">
+				AND addDate = #{addDate}
+			</if>
+			<if test="modifiedUser != null">
+				AND modifiedUser = #{modifiedUser}
+			</if>
+			<if test="modifiedDate != null">
+				AND modifiedDate = #{modifiedDate}
+			</if>
+			<if test="approver != null">
+				AND approver = #{approver}
+			</if>
+			<if test="approverDate != null">
+				AND approverDate = #{approverDate}
+			</if>
+		</where>
+	</select>
+		<!-- 预算金额累加 -->
+	<select id="sumFOB" parameterType="budget" resultType="java.lang.String">
+		SELECT IFNULL(SUM(a.accFOB), 0) AS sumFOB
+		FROM budget AS a
+		WHERE a.contractId = #{contractId}
+		AND a.type = #{type}
+	</select>
+</mapper>

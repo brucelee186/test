@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mtf.framework.dao.GoodsMapper">
+	<resultMap id="goods" type="com.mtf.framework.model.Goods"/>
+
+	<sql id="Base_Column_List">
+
+		id, commodity, specification,unit_id, unit, quantity, unitPriceUS, unitPrice,
+		modified, addUser, modifyUser, userModifyDate, userAddDate, status
+	</sql>
+	<select id="get" parameterType="java.lang.Long" resultMap="goods">
+
+		select
+		<include refid="Base_Column_List" />
+		from goods
+		where id = #{id,jdbcType=BIGINT}
+	</select>
+	<select id="count" resultType="int" parameterType="java.lang.Object">
+		SELECT
+			COUNT(id)
+		FROM goods AS g
+		WHERE 1 = 1	
+		<if test="commodity != null and commodity != ''">
+			AND g.commodity LIKE CONCAT(CONCAT('%', #{commodity, jdbcType=VARCHAR}),'%')
+		</if>
+	</select> 
+	<select id="countBySearch" resultType="int" parameterType="java.util.HashMap">
+		SELECT
+		COUNT(id)
+		FROM goods
+		WHERE 1 = 1	
+		<if test="commodity != null">
+			AND commodity = #{commodity,jdbcType=VARCHAR}
+		</if>
+		<if test="status!= null">
+			AND status = #{status,jdbcType=INTEGER}
+		</if>
+	</select>
+	<select id="select" resultMap="goods" parameterType="java.lang.Object">
+	select
+	<include refid="Base_Column_List"/>
+	from goods AS g
+	where 1=1
+	<if test="commodity != null and commodity != ''">
+			AND g.commodity LIKE CONCAT(CONCAT('%', #{commodity, jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="sort != null and sort != ''">
+			ORDER BY ${sort} ${order}
+		</if>
+		LIMIT ${startIndex}, ${pageSize}
+	</select>
+	<select id="selectBySearch" resultMap="goods" parameterType="java.util.HashMap">
+	select
+	<include refid="Base_Column_List"/>
+	from goods 
+	where 1=1
+		<if test="commodity != null">
+			AND commodity = #{commodity,jdbcType=VARCHAR}
+		</if>
+		<if test="status != null">
+			AND status = #{status,jdbcType=INTEGER}
+		</if>
+		limit ${startIndex}, ${pageSize}
+	</select>
+	<delete id="delete" parameterType="java.lang.Object">
+		DELETE FROM goods
+		WHERE id = #{id,jdbcType=CHAR}
+	</delete>
+	<insert id="insert" parameterType="com.mtf.framework.model.Goods">
+
+		insert into goods (commodity, specification,unit_id, unit, quantity, unitPriceUS, unitPrice,
+		modified, addUser, modifyUser, userModifyDate, userAddDate, status
+		)
+		values (#{commodity,jdbcType=VARCHAR},
+		#{specification,jdbcType=VARCHAR},#{unit_id}, #{unit,jdbcType=VARCHAR}, #{quantity,jdbcType=VARCHAR},
+		#{unitPriceUS,jdbcType=VARCHAR}, #{unitPrice,jdbcType=VARCHAR},
+		#{modified,jdbcType=VARCHAR}, #{addUser,jdbcType=CHAR}, #{modifyUser,jdbcType=CHAR},
+		#{userModifyDate,jdbcType=TIMESTAMP}, #{userAddDate,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}
+		)
+	</insert>
+	
+	<update id="update" parameterType="com.mtf.framework.model.Goods">
+
+		update goods
+		set 
+		commodity = #{commodity,jdbcType=VARCHAR},
+		specification = #{specification,jdbcType=VARCHAR},
+		unit_id = #{unit_id,jdbcType=CHAR},
+		unit = #{unit,jdbcType=VARCHAR},
+		quantity = #{quantity,jdbcType=VARCHAR},
+		unitPriceUS = #{unitPriceUS,jdbcType=VARCHAR},
+		unitPrice= #{unitPrice,jdbcType=VARCHAR},
+		modified = #{modified,jdbcType=VARCHAR},
+		addUser = #{addUser,jdbcType=CHAR},
+		modifyUser = #{modifyUser,jdbcType=CHAR},
+		userModifyDate = #{userModifyDate,jdbcType=TIMESTAMP},
+		userAddDate = #{userAddDate,jdbcType=TIMESTAMP},
+		status = #{status,jdbcType=INTEGER}
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+</mapper>

@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mtf.framework.dao.SysTempConditionMapper" > 
+	<resultMap type="com.mtf.framework.model.impl.SysTempImpl" id="sysTemp"/> 
+
+	<sql id="getColumn">
+		
+	</sql>
+
+	<sql id="getFrom">
+		
+	</sql>
+
+	<sql id="getWhere">
+		
+	</sql>
+
+	<sql id="selectColumn">
+		
+	</sql>
+
+	<sql id="selectFrom">
+		
+	</sql>
+
+	<sql id="selectWhere">
+		
+	</sql>
+
+	<sql id="countFrom">
+		
+	</sql>
+
+	<sql id="searchFrom">
+		
+	</sql>
+	
+	<select id="getLastContent" parameterType="java.lang.Object" resultMap="sysTemp">
+		SELECT 
+			a.id, 
+			a.content, 
+			a.userId, 
+			a.userName, 
+			a.type, 
+			a.tag, 
+			a.log, 
+			a.text1, 
+			a.text2, 
+			a.text3, 
+			a.text4, 
+			a.text5, 
+			a.text6, 
+			a.text7, 
+			a.text8, 
+			a.text9, 
+			a.text10,			
+			a.remark, 
+			a.addDate, 
+			a.addUser, 
+			a.addIp, 
+			a.addMac, 
+			a.modifiedDate, 
+			a.modifiedUser, 
+			a.modifiedIp, 
+			a.modifiedMac
+		FROM sysTemp AS a
+		WHERE
+			a.userId = #{userId}
+		<if test="sort != null">
+			ORDER BY ${sort} ${order}
+		</if>
+		LIMIT 1
+	</select>
+	<sql id="countWhere">
+		
+	</sql>
+
+	<sql id="searchWhere">
+		
+	</sql>
+
+	<sql id="updateColumn">
+		
+	</sql>
+
+	<sql id="updateWhere">
+		id = #{id}
+	</sql>
+</mapper>

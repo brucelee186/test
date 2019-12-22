@@ -1,0 +1,23 @@
+<?xml version="1.0"?>  
+<!DOCTYPE hibernate-mapping PUBLIC   
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="framework.hibernate.one2one.sharePrimaryKey">
+	<class name="IdCard">
+		<!-- idCard的主键来源于Person因为person是主表,从表idCard与person共享主键id,持久化person后,找到id传入idCard,再持久化idCard -->
+		<id name="id">
+			<!-- class="foreign说明本表的主键即是主键,也是对于本表引用外表的外键(本表的外键关联外表的主键) -->
+			<generator class="foreign">
+				<param name="property">person</param>
+			</generator>
+		</id>
+		<property name="authorizeDate"></property>
+		<!-- constrained="true"表示本类的id外键关联它表idCard的主键 -->
+		<!-- 加约束说明本表的id是外键,引用了name为person类的主键 -->
+		<!-- 如果设置为false就不会生成主外键关系的建表语句 -->
+		<!-- fetch="join"表示不采用默认的left outer join 方式,而改用inner join方式 -->
+		<!-- lazy="false" 默认为lazy="proxy" 表在查询从表的过程中会先查一遍从表之后,会再查询一遍主从表关联查询, 默认方式是懒加载-->
+		<!-- 如果加了fetch="join"那么laxy="proxy"无效 -->
+		<one-to-one name="person" constrained="true" lazy="proxy" fetch="join"></one-to-one>
+	</class>
+</hibernate-mapping>

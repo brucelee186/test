@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mtf.framework.dao.AttenRuleConditionMapper" > 
+	<resultMap type="com.mtf.framework.model.impl.AttenRuleImpl" id="attenRule"/> 
+
+	<sql id="getColumn">
+		
+	</sql>
+
+	<sql id="getFrom">
+		
+	</sql>
+	
+	<sql id="getWhere">
+	</sql>	
+	
+	<sql id="updateColumn">
+	</sql>	
+
+	<sql id="selectColumn">
+		(SELECT attenDay.`name` FROM attenDay WHERE attenDay.id = a.time1) timeNameSub1,
+		(SELECT attenDay.`name` FROM attenDay WHERE attenDay.id = a.time2) timeNameSub2,
+		(SELECT attenDay.`name` FROM attenDay WHERE attenDay.id = a.time3) timeNameSub3,
+		(SELECT attenDay.`name` FROM attenDay WHERE attenDay.id = a.time4) timeNameSub4,
+		(SELECT attenDay.`name` FROM attenDay WHERE attenDay.id = a.time5) timeNameSub5,
+		(SELECT attenDay.`name` FROM attenDay WHERE attenDay.id = a.time6) timeNameSub6,
+		(SELECT attenDay.`name` FROM attenDay WHERE attenDay.id = a.time7) timeNameSub7,
+		(SELECT attenDay.timeStart FROM attenDay WHERE attenDay.id = a.time1 ) AS timeStartSub1, 
+		(SELECT attenDay.timeStart FROM attenDay WHERE attenDay.id = a.time2 ) AS timeStartSub2, 
+		(SELECT attenDay.timeStart FROM attenDay WHERE attenDay.id = a.time3 ) AS timeStartSub3, 
+		(SELECT attenDay.timeStart FROM attenDay WHERE attenDay.id = a.time4 ) AS timeStartSub4, 
+		(SELECT attenDay.timeStart FROM attenDay WHERE attenDay.id = a.time5 ) AS timeStartSub5, 
+		(SELECT attenDay.timeStart FROM attenDay WHERE attenDay.id = a.time6 ) AS timeStartSub6, 
+		(SELECT attenDay.timeStart FROM attenDay WHERE attenDay.id = a.time7 ) AS timeStartSub7, 
+		(SELECT attenDay.timeEnd FROM attenDay WHERE attenDay.id = a.time1 ) AS timeEndSub1, 
+		(SELECT attenDay.timeEnd FROM attenDay WHERE attenDay.id = a.time2 ) AS timeEndSub2, 
+		(SELECT attenDay.timeEnd FROM attenDay WHERE attenDay.id = a.time3 ) AS timeEndSub3, 
+		(SELECT attenDay.timeEnd FROM attenDay WHERE attenDay.id = a.time4 ) AS timeEndSub4, 
+		(SELECT attenDay.timeEnd FROM attenDay WHERE attenDay.id = a.time5 ) AS timeEndSub5, 
+		(SELECT attenDay.timeEnd FROM attenDay WHERE attenDay.id = a.time6 ) AS timeEndSub6, 
+		(SELECT attenDay.timeEnd FROM attenDay WHERE attenDay.id = a.time7 ) AS timeEndSub7, 
+		
+	</sql>
+
+	<sql id="selectFrom">
+		
+	</sql>
+
+	<sql id="selectWhere">
+		
+	</sql>
+
+	<sql id="countFrom">
+		
+	</sql>
+
+	<sql id="countWhere">
+		
+	</sql>
+	
+	<sql id="updateWhere">
+		id = #{id}
+	</sql>
+	
+	<select id="selectAttenCollect" resultMap="attenRule">
+		SELECT
+			b.value1 AS divisionId,
+			(SELECT division.name FROM division where division.id = b.value1) AS divisionName,
+			a.tagAttendance,
+			a.tagDefault,
+			a.dayOfWeek,
+			<if test="dayOfWeek1 != null">
+			 (SELECT attenDay.timeStart FROM attenDay WHERE attenDay.id = a.time1 ) AS timeStartSub, 
+			 (SELECT attenDay.timeEnd FROM attenDay WHERE attenDay.id = a.time1 ) AS timeEndSub, 
+			 a.dayOfWeek1 AS dayOfWeekSub
+			</if>
+			<if test="dayOfWeek2 != null">	 
+			 (SELECT attenDay.timeStart FROM attenDay WHERE attenDay.id = a.time2 ) AS timeStartSub,	 
+			 (SELECT attenDay.timeEnd FROM attenDay WHERE attenDay.id = a.time2 ) AS timeEndSub,	 
+			 a.dayOfWeek2 AS dayOfWeekSub
+			</if>	 
+			<if test="dayOfWeek3 != null">	 
+			 (SELECT attenDay.timeStart FROM attenDay WHERE attenDay.id = a.time3 ) AS timeStartSub,	 
+			 (SELECT attenDay.timeEnd FROM attenDay WHERE attenDay.id = a.time3 ) AS timeEndSub,	 
+			 a.dayOfWeek3 AS dayOfWeekSub	 
+			</if>	 
+			<if test="dayOfWeek4 != null">	 
+			 (SELECT attenDay.timeStart FROM attenDay WHERE attenDay.id = a.time4 ) AS timeStartSub,	 
+			 (SELECT attenDay.timeEnd FROM attenDay WHERE attenDay.id = a.time4 ) AS timeEndSub,	 
+			 a.dayOfWeek4 AS dayOfWeekSub	 
+			</if>	 
+			<if test="dayOfWeek5 != null">	 
+			 (SELECT attenDay.timeStart FROM attenDay WHERE attenDay.id = a.time5 ) AS timeStartSub,	 
+			 (SELECT attenDay.timeEnd FROM attenDay WHERE attenDay.id = a.time5 ) AS timeEndSub,	 
+			 a.dayOfWeek5 AS dayOfWeekSub	 
+			</if>	 
+			<if test="dayOfWeek6 != null">	 
+			 (SELECT attenDay.timeStart FROM attenDay WHERE attenDay.id = a.time6 ) AS timeStartSub,	 
+			 (SELECT attenDay.timeEnd FROM attenDay WHERE attenDay.id = a.time6 ) AS timeEndSub,	 
+			 a.dayOfWeek6 AS dayOfWeekSub	 
+			</if>	 
+			<if test="dayOfWeek7 != null">	 
+			 (SELECT attenDay.timeStart FROM attenDay WHERE attenDay.id = a.time7 ) AS timeStartSub,	 
+			 (SELECT attenDay.timeEnd FROM attenDay WHERE attenDay.id = a.time7 ) AS timeEndSub,	 
+			 a.dayOfWeek7 AS dayOfWeekSub	 
+			</if> 								
+		FROM attenRule AS a
+		LEFT JOIN permission AS b ON (b.value2 = a.id AND b.parentCode = '1615000')
+	</select>
+
+	<select id="doGetWorkHourRange" parameterType="java.lang.Object" resultMap="attenRule">
+		SELECT
+				<!-- b.value1 AS divisionId,
+				(SELECT division.name FROM division where division.id = b.value1) AS divisionName, -->
+				c.name attenFestival,
+			CASE WHEN
+				c.name IS NOT NULL
+			THEN
+				CONCAT(c.name, ' - 0 - 0')
+			WHEN
+				DAYOFWEEK('${date}') = 1
+			THEN
+				CONCAT((SELECT ad.rangeArea FROM attenday ad WHERE ad.id = a.time1), ' - 1')
+			WHEN
+				DAYOFWEEK('${date}') = 2
+			THEN
+				CONCAT((SELECT ad.rangeArea FROM attenday ad WHERE ad.id = a.time2), ' - 2')
+			WHEN
+				DAYOFWEEK('${date}') = 3
+			THEN
+				CONCAT((SELECT ad.rangeArea FROM attenday ad WHERE ad.id = a.time3), ' - 3')
+			WHEN
+				DAYOFWEEK('${date}') = 4
+			THEN
+				CONCAT((SELECT ad.rangeArea FROM attenday ad WHERE ad.id = a.time4), ' - 4')
+			WHEN
+				DAYOFWEEK('${date}') = 5
+			THEN
+				CONCAT((SELECT ad.rangeArea FROM attenday ad WHERE ad.id = a.time5), ' - 5')
+			WHEN
+				DAYOFWEEK('${date}') = 6
+			THEN
+				CONCAT((SELECT ad.rangeArea FROM attenday ad WHERE ad.id = a.time6), ' - 6')
+			WHEN
+				DAYOFWEEK('${date}') = 7
+			THEN
+				CONCAT((SELECT ad.rangeArea FROM attenday ad WHERE ad.id = a.time7), ' - 7')
+			END AS rangeArea
+		FROM attenrule a
+		LEFT JOIN permission AS b ON (b.value2 = a.id AND b.parentCode = '1615000')
+		LEFT JOIN attenfestival c ON (c.date = '${date}' AND c.typeDate = 'f')
+		WHERE b.value1 = #{divisionId}
+		LIMIT 1;
+	</select>
+</mapper>

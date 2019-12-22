@@ -1,0 +1,995 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20130114" releaseVersion="7.0.3">
+<TableDataMap>
+<TableData name="数据库查询1" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[		SELECT
+				id,
+				flag,
+				sellerId,
+				sellerName,
+				buyerId,
+				buyerName,
+				buyerAddressId,
+				buyerAddress,
+				shipment,
+				insurance,
+				signedAt,
+				destination,
+				packing,
+				transportaion,
+				otherTerms,
+				approveState,
+				approver,
+				approverDate
+		FROM contract AS a]]></Query>
+</TableData>
+</TableDataMap>
+<ReportWebAttr>
+<ServerPrinter/>
+<WebPageContent>
+<ToolBars>
+<ToolBarManager>
+<Location>
+<Embed position="1"/>
+</Location>
+<ToolBar>
+<Widget class="com.fr.report.web.ui.impl.page.First">
+<WidgetAttr disabled="true"/>
+<Text>
+<![CDATA[${i18n("ReportServerP-First")}]]></Text>
+<IconName>
+<![CDATA[first]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Previous">
+<WidgetAttr disabled="true"/>
+<Text>
+<![CDATA[${i18n("ReportServerP-Previous")}]]></Text>
+<IconName>
+<![CDATA[previous]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.PageNavi">
+<WidgetAttr/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Next">
+<WidgetAttr disabled="true"/>
+<Text>
+<![CDATA[${i18n("ReportServerP-Next")}]]></Text>
+<IconName>
+<![CDATA[next]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Last">
+<WidgetAttr disabled="true"/>
+<Text>
+<![CDATA[${i18n("ReportServerP-Last")}]]></Text>
+<IconName>
+<![CDATA[last]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.FlashPrint">
+<WidgetAttr disabled="true"/>
+<Text>
+<![CDATA[${i18n("Utils-Print[Client]A")}]]></Text>
+<IconName>
+<![CDATA[flashprint]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Print">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n("Print")}]]></Text>
+<IconName>
+<![CDATA[print]]></IconName>
+<PrintButtons/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Export">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n("Export")}]]></Text>
+<IconName>
+<![CDATA[export]]></IconName>
+<Buttons pdf="true" excelP="true" excelO="true" excelS="true" word="true" image="true" html="true"/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.PrintPreview">
+<WidgetAttr disabled="true"/>
+<Text>
+<![CDATA[${i18n("PrintP-Print_Preview")}]]></Text>
+<IconName>
+<![CDATA[preview]]></IconName>
+</Widget>
+</ToolBar>
+</ToolBarManager>
+</ToolBars>
+<WebPage isPage="false" isShowAsImage="false" isAutoScale="false" isTDHeavy="false"/>
+</WebPageContent>
+<WebViewContent>
+<ToolBars/>
+</WebViewContent>
+<WebWriteContent>
+<ToolBars/>
+<SelectedColor color="-10033153"/>
+</WebWriteContent>
+<CacheValidateTime>
+<![CDATA[100]]></CacheValidateTime>
+</ReportWebAttr>
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR F="0" T="4"/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<RowHeight defaultValue="723900">
+<![CDATA[1752600,723900,723900,723900,1866900,723900,762000,0,723900,723900,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[76200,1143000,1143000,1866900,1485900,1638300,1295400,1409700,1066800,1562100,1485900,1295400,1219200,1333500,1257300,1943100,2019300,2095500,1219200,1066800,1104900,1104900,1066800,1638300,1714500,1524000,1371600,876300,1181100,1104900,952500,952500,952500,1104900,1104900,1104900,1104900,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="11" r="0" cs="4" s="0">
+<O>
+<![CDATA[销售明细账]]></O>
+<Expand/>
+</C>
+<C c="25" r="0">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="22" r="1">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="23" r="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=CONCATENATE("第", $$page_number, "页")]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="24" r="1" s="1">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="1" r="2" cs="3">
+<O>
+<![CDATA[查询期间：]]></O>
+<Expand/>
+</C>
+<C c="4" r="2" cs="8" s="2">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=CONCATENATE($startDate, "至", $endDate)]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="20" r="2" cs="3" s="3">
+<O>
+<![CDATA[购货单位：]]></O>
+<Expand/>
+</C>
+<C c="23" r="2" cs="4" s="2">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$cusId]]></Attributes>
+</O>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.DynamicSQLDict">
+<FormulaDictAttr ki="0" vi="1"/>
+<Formula>
+<![CDATA[SELECT cid,companyName FROM bim_customerset]]></Formula>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[metal]]></DatabaseName>
+</Connection>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="1" r="3" cs="2" s="4">
+<O>
+<![CDATA[年]]></O>
+<Expand/>
+</C>
+<C c="3" r="3" rs="2" s="4">
+<O>
+<![CDATA[摘要]]></O>
+<Expand/>
+</C>
+<C c="4" r="3" rs="2" s="4">
+<O>
+<![CDATA[购货单位]]></O>
+<Expand/>
+</C>
+<C c="5" r="3" rs="2" s="4">
+<O>
+<![CDATA[销售经手人]]></O>
+<Expand/>
+</C>
+<C c="6" r="3" cs="10" s="4">
+<O>
+<![CDATA[应收账款]]></O>
+<Expand/>
+</C>
+<C c="16" r="3" cs="8" s="4">
+<O>
+<![CDATA[划回款]]></O>
+<Expand/>
+</C>
+<C c="24" r="3" rs="2" s="4">
+<O>
+<![CDATA[尚欠款]]></O>
+<Expand/>
+</C>
+<C c="25" r="3" rs="2" s="4">
+<O>
+<![CDATA[运费款]]></O>
+<Expand/>
+</C>
+<C c="26" r="3" rs="2" s="4">
+<O>
+<![CDATA[差旅费及其它]]></O>
+<Expand/>
+</C>
+<C c="1" r="4" s="4">
+<O>
+<![CDATA[月]]></O>
+<Expand/>
+</C>
+<C c="2" r="4" s="4">
+<O>
+<![CDATA[日]]></O>
+<Expand/>
+</C>
+<C c="6" r="4" s="4">
+<O>
+<![CDATA[规格]]></O>
+<Expand/>
+</C>
+<C c="7" r="4" s="4">
+<O>
+<![CDATA[数量]]></O>
+<Expand/>
+</C>
+<C c="8" r="4" s="4">
+<O>
+<![CDATA[单位]]></O>
+<Expand/>
+</C>
+<C c="9" r="4" s="4">
+<O>
+<![CDATA[不含税单价]]></O>
+<Expand/>
+</C>
+<C c="10" r="4" s="4">
+<O>
+<![CDATA[含税单价]]></O>
+<Expand/>
+</C>
+<C c="11" r="4" s="4">
+<O>
+<![CDATA[开票日期]]></O>
+<Expand/>
+</C>
+<C c="12" r="4" s="4">
+<O>
+<![CDATA[币种]]></O>
+<Expand/>
+</C>
+<C c="13" r="4" s="4">
+<O>
+<![CDATA[汇率]]></O>
+<Expand/>
+</C>
+<C c="14" r="4" s="4">
+<O>
+<![CDATA[美元金额]]></O>
+<Expand/>
+</C>
+<C c="15" r="4" s="4">
+<O>
+<![CDATA[人民币金额]]></O>
+<Expand/>
+</C>
+<C c="16" r="4" s="4">
+<O>
+<![CDATA[收款金额(美元)]]></O>
+<Expand/>
+</C>
+<C c="17" r="4" s="4">
+<O>
+<![CDATA[收款金额(人民币)]]></O>
+<Expand/>
+</C>
+<C c="18" r="4" s="4">
+<O>
+<![CDATA[收款方式]]></O>
+<Expand/>
+</C>
+<C c="19" r="4" s="4">
+<O>
+<![CDATA[预收款]]></O>
+<Expand/>
+</C>
+<C c="20" r="4" s="4">
+<O>
+<![CDATA[抹账回款]]></O>
+<Expand/>
+</C>
+<C c="21" r="4" s="4">
+<O>
+<![CDATA[起诉回款]]></O>
+<Expand/>
+</C>
+<C c="22" r="4" s="4">
+<O>
+<![CDATA[赔偿降价]]></O>
+<Expand/>
+</C>
+<C c="23" r="4" s="4">
+<O>
+<![CDATA[退货]]></O>
+<Expand/>
+</C>
+<C c="1" r="5" cs="2" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="receiveDate"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[receiveDate]]></CNAME>
+<Compare op="3">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=format($startDate,"yyyy-MM-dd")]]></Attributes>
+</O>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[receiveDate]]></CNAME>
+<Compare op="5">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=format($endDate,"yyyy-MM-dd")]]></Attributes>
+</O>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[buyingCompanyId]]></CNAME>
+<Compare op="0">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(len($cusId) = 0, nofilter,$cusId)]]></Attributes>
+</O>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="3" r="5" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="digest"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="4" r="5" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="companyName"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="5" r="5" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="salerName"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="6" r="5" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="bearingNumber"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="7" r="5" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="amount"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="8" r="5" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="unitName"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="9" r="5" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="noRatePrice"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="10" r="5" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="ratePrice"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="11" r="5" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="ticketDate"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="12" r="5" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="moneyName"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="13" r="5" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="exchangeRate"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="14" r="5" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="payMoneyDollar"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="15" r="5" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="payMoney"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="16" r="5" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="payAmountDollar"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="17" r="5" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="payAmount"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="18" r="5" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="payReceiveName"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="19" r="5" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="prepayMoney"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[IF(prepayMoney = "true", "√", null)]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="20" r="5" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="refuseMoney"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[IF(refuseMoney = "true", "√", null)]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="21" r="5" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="indictMoney"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[IF(indictMoney = "true", "√", null)]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="22" r="5" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="amendSaleOff"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="23" r="5" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="productReject"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="24" r="5" s="5">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=P6 - R6 - W6 - X6]]></Attributes>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="25" r="5" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="carriage"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="26" r="5" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="travellingExpenses"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="3" r="6" cs="3" s="6">
+<O>
+<![CDATA[合计：]]></O>
+<Expand/>
+</C>
+<C c="6" r="6" s="7">
+<Expand/>
+</C>
+<C c="7" r="6" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(H6)]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="9" r="6" s="8">
+<Expand/>
+</C>
+<C c="10" r="6" s="8">
+<Expand/>
+</C>
+<C c="11" r="6" s="8">
+<Expand/>
+</C>
+<C c="12" r="6" s="8">
+<Expand/>
+</C>
+<C c="13" r="6" s="8">
+<Expand/>
+</C>
+<C c="14" r="6" s="8">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(O6)]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="15" r="6" s="8">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(P6)]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="16" r="6" s="8">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(Q6)]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="17" r="6" s="8">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(R6)]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="18" r="6" s="8">
+<Expand/>
+</C>
+<C c="19" r="6" s="8">
+<Expand/>
+</C>
+<C c="20" r="6" s="8">
+<Expand/>
+</C>
+<C c="21" r="6" s="8">
+<Expand/>
+</C>
+<C c="22" r="6" s="8">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(W6)]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="23" r="6" s="8">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(X6)]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="24" r="6" s="8">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(Y6)]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="25" r="6" s="8">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(Z6)]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="26" r="6" s="8">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=sum(AA6)]]></Attributes>
+</O>
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting orientation="1"/>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<WorkSheetAttr/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="false" windowPosition="1" align="0"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+<ParameterUI class="com.fr.main.parameter.UI.FormParameterUI">
+<Layout class="com.fr.form.ui.container.WAbsoluteLayout">
+<WidgetName name="para"/>
+<WidgetAttr/>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.form.ui.Label">
+<WidgetName name="label1"/>
+<WidgetAttr/>
+<LabelAttr verticalcenter="true" textalign="2" autoline="true"/>
+<FRFont name="SimSun" style="0" size="72"/>
+<widgetValue>
+<O>
+<![CDATA[开始日期：]]></O>
+</widgetValue>
+</InnerWidget>
+<BoundsAttr x="0" y="17" width="64" height="22"/>
+</Widget>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.form.ui.DateEditor">
+<WidgetName name="startDate"/>
+<WidgetAttr/>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<DateAttr returnDate="true"/>
+<widgetValue/>
+</InnerWidget>
+<BoundsAttr x="64" y="17" width="107" height="22"/>
+</Widget>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.form.ui.Label">
+<WidgetName name="label3"/>
+<WidgetAttr/>
+<LabelAttr verticalcenter="true" textalign="2" autoline="true"/>
+<FRFont name="SimSun" style="0" size="72"/>
+<widgetValue>
+<O>
+<![CDATA[结束日期：]]></O>
+</widgetValue>
+</InnerWidget>
+<BoundsAttr x="171" y="17" width="65" height="22"/>
+</Widget>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.form.ui.DateEditor">
+<WidgetName name="endDate"/>
+<WidgetAttr/>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<DateAttr returnDate="true"/>
+<widgetValue/>
+</InnerWidget>
+<BoundsAttr x="236" y="17" width="100" height="22"/>
+</Widget>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.form.ui.Label">
+<WidgetName name="label5"/>
+<WidgetAttr/>
+<LabelAttr verticalcenter="true" textalign="2" autoline="true"/>
+<FRFont name="SimSun" style="0" size="72"/>
+<widgetValue>
+<O>
+<![CDATA[购货单位：]]></O>
+</widgetValue>
+</InnerWidget>
+<BoundsAttr x="336" y="17" width="72" height="22"/>
+</Widget>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.form.ui.ComboBox">
+<WidgetName name="cusId"/>
+<WidgetAttr/>
+<Dictionary class="com.fr.data.impl.DynamicSQLDict">
+<FormulaDictAttr ki="0" vi="1"/>
+<Formula>
+<![CDATA[SELECT cid,companyName FROM bim_customerset]]></Formula>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[metal]]></DatabaseName>
+</Connection>
+</Dictionary>
+<widgetValue/>
+</InnerWidget>
+<BoundsAttr x="408" y="17" width="123" height="22"/>
+</Widget>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.report.web.ui.impl.form.FormSubmitButton">
+<Listener event="click">
+<JavaScript class="com.fr.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var startDate = this.options.form.getWidgetByName("startDate").getValue();
+var endDate = this.options.form.getWidgetByName("endDate").getValue();
+if(startDate == ""){
+	alert("开始日期不能为空!");
+	return false;
+}
+if(endDate == ""){
+	alert("结束日期不能为空!");
+	return false;
+}
+if(startDate > endDate){
+	alert("开始日期不能大于结束日期!");
+	return false;
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="widget7"/>
+<WidgetAttr/>
+<Text>
+<![CDATA[查询]]></Text>
+<Hotkeys>
+<![CDATA[enter]]></Hotkeys>
+<IconName>
+<![CDATA[preview]]></IconName>
+</InnerWidget>
+<BoundsAttr x="545" y="17" width="72" height="22"/>
+</Widget>
+<LCAttr vgap="0" hgap="0"/>
+</Layout>
+<DesignAttr width="800" height="58"/>
+</ParameterUI>
+<Parameter>
+<Attributes name="startDate"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="endDate"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="cusId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="黑体" style="0" size="124" foreground="-8355712"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="6"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style textStyle="1" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="ColorBackground" color="-4144960"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72" foreground="-65536"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72" foreground="-65536"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<Format class="java.text.DecimalFormat">
+<![CDATA[#0.00]]></Format>
+<FRFont name="SimSun" style="0" size="72" foreground="-65536"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+</StyleList>
+<DesignerVersion DesignerVersion="HAD"/>
+<PreviewType PreviewType="0"/>
+</WorkBook>

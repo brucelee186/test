@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mtf.framework.dao.AttenVacateManageConditionMapper" > 
+	<resultMap type="com.mtf.framework.model.impl.AttenVacateManageImpl" id="attenVacateManage"/> 
+
+	<sql id="updateColumn">
+		<if test="remarkReject == null ">
+			remarkReject = #{remarkReject},
+		</if>
+	</sql>
+
+	<sql id="getColumn">
+		
+	</sql>
+
+	<sql id="getFrom">
+		
+	</sql>
+
+	<sql id="getWhere">
+		
+	</sql>
+
+	<sql id="selectColumn">
+		<if test="tagSelectColumn == null">
+			b.timeStart, 
+			b.timeEnd, 
+			b.dayStart, 
+			b.dayEnd, 
+			b.typeDate, 
+			b.vacateTimeStart, 
+			b.vacateTimeEnd, 
+			b.day, 
+			b.dateMonth, 
+			b.dateWeek, 
+			b.date, 
+			b.dateAddMonth, 
+			b.timeWork, 
+			b.late, 
+			b.leaveEarly, 
+			b.attendHalf, 
+			b.absenteeism, 
+			b.statusAttendance, 
+			b.statusApprove, 
+			b.statusVacate, 
+			b.daySignIn, 
+			b.signinLocation, 
+			b.signinDate, 
+			b.remark as remarkAtten, 
+		</if>
+	</sql>
+
+	<sql id="selectFrom">
+		<if test="tagSelectColumn == null">
+			LEFT JOIN attendance AS b ON (b.idVacateManage = a.id AND a.dateStart = b.date)
+		</if>
+	</sql>
+
+	<sql id="selectWhere">
+		<if test="searchUserName != null and searchUserName != ''">
+			AND a.userName LIKE CONCAT('%', #{searchUserName},'%')
+		</if>
+		<if test="se_duration != null and se_duration != ''">
+			AND (a.duration + 0 >= #{se_duration} OR a.tagEmail = 's')
+		</if>
+		<if test="typeData == 'a'.toString()">
+			<if test="searchDateStart != null and searchDateStart != ''">
+				AND b.date >= #{searchDateStart}
+			</if>
+			<if test="searchDateEnd != null and searchDateEnd != ''">
+				AND #{searchDateEnd} >= b.date
+			</if>
+		</if>
+		<if test="listDivision != null">
+			AND a.divisionId IN
+			<foreach collection="listDivision" item="item" index="index" open="(" separator="," close=")">
+				#{item.divisionId}
+			</foreach>
+		</if>
+		<if test="arrayVacate != null">
+			AND a.id IN
+			<foreach collection="arrayVacate" item="item" index="index" open="(" separator="," close=")">
+				#{item}
+			</foreach>
+		</if>
+		<if test="tagMapper == 'searchOverWorkApprove'">
+			AND (typeData = 'od' OR typeData = 'op')
+		</if>
+		<if test="tagMapper == 'searchOverWorkModify'">
+			AND (typeData = 'm')
+		</if>
+		GROUP BY a.id
+	</sql>
+
+	<sql id="countFrom">
+		<if test="tagSelectColumn == null">
+			LEFT JOIN attendance AS b ON (b.idVacateManage = a.id AND a.dateStart = b.date)
+		</if>
+	</sql>
+
+	<sql id="countWhere">
+		<if test="searchUserName != null and searchUserName != ''">
+			AND a.userName LIKE CONCAT('%', #{searchUserName},'%')
+		</if>
+		<if test="se_duration != null and se_duration != ''">
+			AND (a.duration + 0 >= #{se_duration} OR a.tagEmail = 's')
+		</if>		
+		<if test="typeData == 'a'.toString()">
+			<if test="searchDateStart != null and searchDateStart != ''">
+				AND b.date >= #{searchDateStart}
+			</if>
+			<if test="searchDateEnd != null and searchDateEnd != ''">
+				AND #{searchDateEnd} >= b.date
+			</if>
+		</if>
+		<if test="listDivision != null">
+			AND a.divisionId IN
+			<foreach collection="listDivision" item="item" index="index" open="(" separator="," close=")">
+				#{item.divisionId}
+			</foreach>
+		</if>
+		<if test="arrayVacate != null">
+			AND a.id IN
+			<foreach collection="arrayVacate" item="item" index="index" open="(" separator="," close=")">
+				#{item}
+			</foreach>
+		</if>		
+	</sql>
+
+	<sql id="updateWhere">
+		id = #{id}
+	</sql>
+</mapper>

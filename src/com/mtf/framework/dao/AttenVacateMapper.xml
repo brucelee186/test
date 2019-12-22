@@ -1,0 +1,650 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mtf.framework.dao.AttenVacateMapper" > 
+	<resultMap type="com.mtf.framework.model.impl.AttenVacateImpl" id="attenVacate"/> 
+	<!-- 添加实体对象 -->
+	<insert id="insert" parameterType="attenVacate">
+		INSERT INTO attenVacate
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					id,
+				</if>
+				<if test="name != null">
+					name,
+				</if>
+				<if test="duration != null">
+					duration,
+				</if>
+				<if test="unit != null">
+					unit,
+				</if>
+				<if test="proportion != null">
+					proportion,
+				</if>
+				<if test="remark != null">
+					remark,
+				</if>
+				<if test="tag != null">
+					tag,
+				</if>
+				<if test="orderIndex != null">
+					orderIndex,
+				</if>
+				<if test="code != null">
+					code,
+				</if>
+				<if test="dayStart != null">
+					dayStart,
+				</if>
+				<if test="dayEnd != null">
+					dayEnd,
+				</if>
+				<if test="tagTimeOff != null">
+					tagTimeOff,
+				</if>
+				<if test="tagInstead != null">
+					tagInstead,
+				</if>
+				<if test="tagBreakOff != null">
+					tagBreakOff,
+				</if>
+				<if test="approveLevel != null">
+					approveLevel,
+				</if>
+				<if test="dayVacateAhead != null">
+					dayVacateAhead,
+				</if>
+				<if test="tagProve != null">
+					tagProve,
+				</if>
+				<if test="tagType != null">
+					tagType,
+				</if>
+				<if test="pid != null">
+					pid,
+				</if>
+				<if test="addDate != null">
+					addDate,
+				</if>
+				<if test="addUser != null">
+					addUser,
+				</if>
+				<if test="addIp != null">
+					addIp,
+				</if>
+				<if test="modifiedDate != null">
+					modifiedDate,
+				</if>
+				<if test="modifiedUser != null">
+					modifiedUser,
+				</if>
+				<if test="modifiedIp != null">
+					modifiedIp,
+				</if>
+			</trim>
+			<trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					#{id},
+				</if>
+				<if test="name != null">
+					#{name},
+				</if>
+				<if test="duration != null">
+					#{duration},
+				</if>
+				<if test="unit != null">
+					#{unit},
+				</if>
+				<if test="proportion != null">
+					#{proportion},
+				</if>
+				<if test="remark != null">
+					#{remark},
+				</if>
+				<if test="tag != null">
+					#{tag},
+				</if>
+				<if test="orderIndex != null">
+					#{orderIndex},
+				</if>
+				<if test="code != null">
+					#{code},
+				</if>
+				<if test="dayStart != null">
+					#{dayStart},
+				</if>
+				<if test="dayEnd != null">
+					#{dayEnd},
+				</if>
+				<if test="tagTimeOff != null">
+					#{tagTimeOff},
+				</if>
+				<if test="tagInstead != null">
+					#{tagInstead},
+				</if>
+				<if test="tagBreakOff != null">
+					#{tagBreakOff},
+				</if>
+				<if test="approveLevel != null">
+					#{approveLevel},
+				</if>
+				<if test="dayVacateAhead != null">
+					#{dayVacateAhead},
+				</if>
+				<if test="tagProve != null">
+					#{tagProve},
+				</if>
+				<if test="tagType != null">
+					#{tagType},
+				</if>
+				<if test="pid != null">
+					#{pid},
+				</if>
+				<if test="addDate != null">
+					#{addDate},
+				</if>
+				<if test="addUser != null">
+					#{addUser},
+				</if>
+				<if test="addIp != null">
+					#{addIp},
+				</if>
+				<if test="modifiedDate != null">
+					#{modifiedDate},
+				</if>
+				<if test="modifiedUser != null">
+					#{modifiedUser},
+				</if>
+				<if test="modifiedIp != null">
+					#{modifiedIp},
+				</if>
+			</trim>
+			<selectKey resultType="long" keyProperty="id">
+				SELECT LAST_INSERT_ID() AS ID
+			</selectKey>
+	</insert>
+
+	<!-- 删除实体对象 -->
+	<delete id="delete" parameterType="java.lang.Object">
+		DELETE FROM attenVacate
+		<where>
+			<if test="id != null and id != ''">
+				AND id = #{id}
+			</if>
+			<if test="name != null and name != ''">
+				AND name = #{name}
+			</if>
+			<if test="duration != null and duration != ''">
+				AND duration = #{duration}
+			</if>
+			<if test="unit != null and unit != ''">
+				AND unit = #{unit}
+			</if>
+			<if test="proportion != null and proportion != ''">
+				AND proportion = #{proportion}
+			</if>
+			<if test="remark != null and remark != ''">
+				AND remark = #{remark}
+			</if>
+			<if test="tag != null and tag != ''">
+				AND tag = #{tag}
+			</if>
+			<if test="orderIndex != null and orderIndex != ''">
+				AND orderIndex = #{orderIndex}
+			</if>
+			<if test="code != null and code != ''">
+				AND code = #{code}
+			</if>
+			<if test="dayStart != null and dayStart != ''">
+				AND dayStart = #{dayStart}
+			</if>
+			<if test="dayEnd != null and dayEnd != ''">
+				AND dayEnd = #{dayEnd}
+			</if>
+			<if test="tagTimeOff != null and tagTimeOff != ''">
+				AND tagTimeOff = #{tagTimeOff}
+			</if>
+			<if test="tagInstead != null and tagInstead != ''">
+				AND tagInstead = #{tagInstead}
+			</if>
+			<if test="tagBreakOff != null and tagBreakOff != ''">
+				AND tagBreakOff = #{tagBreakOff}
+			</if>
+			<if test="approveLevel != null and approveLevel != ''">
+				AND approveLevel = #{approveLevel}
+			</if>
+			<if test="dayVacateAhead != null and dayVacateAhead != ''">
+				AND dayVacateAhead = #{dayVacateAhead}
+			</if>
+			<if test="tagProve != null and tagProve != ''">
+				AND tagProve = #{tagProve}
+			</if>
+			<if test="tagType != null and tagType != ''">
+				AND tagType = #{tagType}
+			</if>
+			<if test="pid != null and pid != ''">
+				AND pid = #{pid}
+			</if>
+			<if test="addDate != null and addDate != ''">
+				AND addDate = #{addDate}
+			</if>
+			<if test="addUser != null and addUser != ''">
+				AND addUser = #{addUser}
+			</if>
+			<if test="addIp != null and addIp != ''">
+				AND addIp = #{addIp}
+			</if>
+			<if test="modifiedDate != null and modifiedDate != ''">
+				AND modifiedDate = #{modifiedDate}
+			</if>
+			<if test="modifiedUser != null and modifiedUser != ''">
+				AND modifiedUser = #{modifiedUser}
+			</if>
+			<if test="modifiedIp != null and modifiedIp != ''">
+				AND modifiedIp = #{modifiedIp}
+			</if>
+			<include refid="com.mtf.framework.dao.AttenVacateConditionMapper.countWhere"/>
+		</where>
+	</delete>
+
+	<!-- 更新实体对象 -->
+	<update id="update" parameterType="java.lang.Object">
+		UPDATE attenVacate
+		<set>
+			<if test="id != null and id != ''">
+				id = #{id},
+			</if>
+			<if test="name != null and name != ''">
+				name = #{name},
+			</if>
+			<if test="duration != null and duration != ''">
+				duration = #{duration},
+			</if>
+			<if test="unit != null and unit != ''">
+				unit = #{unit},
+			</if>
+			<if test="proportion != null and proportion != ''">
+				proportion = #{proportion},
+			</if>
+			<if test="remark != null and remark != ''">
+				remark = #{remark},
+			</if>
+			<if test="tag != null and tag != ''">
+				tag = #{tag},
+			</if>
+			<if test="orderIndex != null and orderIndex != ''">
+				orderIndex = #{orderIndex},
+			</if>
+			<if test="code != null and code != ''">
+				code = #{code},
+			</if>
+			<if test="dayStart != null and dayStart != ''">
+				dayStart = #{dayStart},
+			</if>
+			<if test="dayEnd != null and dayEnd != ''">
+				dayEnd = #{dayEnd},
+			</if>
+			<if test="tagTimeOff != null and tagTimeOff != ''">
+				tagTimeOff = #{tagTimeOff},
+			</if>
+			<if test="tagInstead != null and tagInstead != ''">
+				tagInstead = #{tagInstead},
+			</if>
+			<if test="tagBreakOff != null and tagBreakOff != ''">
+				tagBreakOff = #{tagBreakOff},
+			</if>
+			<if test="approveLevel != null and approveLevel != ''">
+				approveLevel = #{approveLevel},
+			</if>
+			<if test="dayVacateAhead != null and dayVacateAhead != ''">
+				dayVacateAhead = #{dayVacateAhead},
+			</if>
+			<if test="tagProve != null and tagProve != ''">
+				tagProve = #{tagProve},
+			</if>
+			<if test="tagType != null and tagType != ''">
+				tagType = #{tagType},
+			</if>
+			<if test="pid != null and pid != ''">
+				pid = #{pid},
+			</if>
+			<if test="addDate != null and addDate != ''">
+				addDate = #{addDate},
+			</if>
+			<if test="addUser != null and addUser != ''">
+				addUser = #{addUser},
+			</if>
+			<if test="addIp != null and addIp != ''">
+				addIp = #{addIp},
+			</if>
+			<if test="modifiedDate != null and modifiedDate != ''">
+				modifiedDate = #{modifiedDate},
+			</if>
+			<if test="modifiedUser != null and modifiedUser != ''">
+				modifiedUser = #{modifiedUser},
+			</if>
+			<if test="modifiedIp != null and modifiedIp != ''">
+				modifiedIp = #{modifiedIp},
+			</if>
+			<include refid="com.mtf.framework.dao.AttenVacateConditionMapper.updateColumn"/>
+		</set>
+		WHERE
+			<include refid="com.mtf.framework.dao.AttenVacateConditionMapper.updateWhere"/>
+			<if test="original != null">
+				 AND modified = #{original}
+			</if>
+	</update>
+
+	<!-- 查询单个实体对象 -->
+	<select id="get" parameterType="java.lang.Object" resultMap="attenVacate">
+		SELECT 
+			<include refid="com.mtf.framework.dao.AttenVacateConditionMapper.getColumn"/>
+			a.id, 
+			a.name, 
+			a.duration, 
+			a.unit, 
+			a.proportion, 
+			a.remark, 
+			a.tag, 
+			a.orderIndex, 
+			a.code, 
+			a.dayStart, 
+			a.dayEnd, 
+			a.tagTimeOff, 
+			a.tagInstead, 
+			a.tagBreakOff, 
+			a.approveLevel, 
+			a.dayVacateAhead, 
+			a.tagProve, 
+			a.tagType, 
+			a.pid, 
+			a.addDate, 
+			a.addUser, 
+			a.addIp, 
+			a.modifiedDate, 
+			a.modifiedUser, 
+			a.modifiedIp
+		FROM attenVacate AS a
+		<include refid="com.mtf.framework.dao.AttenVacateConditionMapper.getFrom"/>
+		<where>
+			<if test="id != null">
+				AND a.id = #{id}
+			</if>
+			<if test="name != null">
+				AND a.name = #{name}
+			</if>
+			<if test="duration != null">
+				AND a.duration = #{duration}
+			</if>
+			<if test="unit != null">
+				AND a.unit = #{unit}
+			</if>
+			<if test="proportion != null">
+				AND a.proportion = #{proportion}
+			</if>
+			<if test="remark != null">
+				AND a.remark = #{remark}
+			</if>
+			<if test="tag != null">
+				AND a.tag = #{tag}
+			</if>
+			<if test="orderIndex != null">
+				AND a.orderIndex = #{orderIndex}
+			</if>
+			<if test="code != null">
+				AND a.code = #{code}
+			</if>
+			<if test="dayStart != null">
+				AND a.dayStart = #{dayStart}
+			</if>
+			<if test="dayEnd != null">
+				AND a.dayEnd = #{dayEnd}
+			</if>
+			<if test="tagTimeOff != null">
+				AND a.tagTimeOff = #{tagTimeOff}
+			</if>
+			<if test="tagInstead != null">
+				AND a.tagInstead = #{tagInstead}
+			</if>
+			<if test="tagBreakOff != null">
+				AND a.tagBreakOff = #{tagBreakOff}
+			</if>
+			<if test="approveLevel != null">
+				AND a.approveLevel = #{approveLevel}
+			</if>
+			<if test="dayVacateAhead != null">
+				AND a.dayVacateAhead = #{dayVacateAhead}
+			</if>
+			<if test="tagProve != null">
+				AND a.tagProve = #{tagProve}
+			</if>
+			<if test="tagType != null">
+				AND a.tagType = #{tagType}
+			</if>
+			<if test="pid != null">
+				AND a.pid = #{pid}
+			</if>
+			<if test="addDate != null">
+				AND a.addDate = #{addDate}
+			</if>
+			<if test="addUser != null">
+				AND a.addUser = #{addUser}
+			</if>
+			<if test="addIp != null">
+				AND a.addIp = #{addIp}
+			</if>
+			<if test="modifiedDate != null">
+				AND a.modifiedDate = #{modifiedDate}
+			</if>
+			<if test="modifiedUser != null">
+				AND a.modifiedUser = #{modifiedUser}
+			</if>
+			<if test="modifiedIp != null">
+				AND a.modifiedIp = #{modifiedIp}
+			</if>
+			<include refid="com.mtf.framework.dao.AttenVacateConditionMapper.getWhere"/>
+		</where>
+		LIMIT 1
+	</select>
+
+	<!-- 查询实体对象集合 -->
+	<select id="select" parameterType="java.lang.Object" resultMap="attenVacate">
+		SELECT 
+			<include refid="com.mtf.framework.dao.AttenVacateConditionMapper.selectColumn"/>
+			a.id, 
+			a.name, 
+			a.duration, 
+			a.unit, 
+			a.proportion, 
+			a.remark, 
+			a.tag, 
+			a.orderIndex, 
+			a.code, 
+			a.dayStart, 
+			a.dayEnd, 
+			a.tagTimeOff, 
+			a.tagInstead, 
+			a.tagBreakOff, 
+			a.approveLevel, 
+			a.dayVacateAhead, 
+			a.tagProve, 
+			a.tagType, 
+			a.pid, 
+			a.addDate, 
+			a.addUser, 
+			a.addIp, 
+			a.modifiedDate, 
+			a.modifiedUser, 
+			a.modifiedIp
+		FROM attenVacate AS a
+		<include refid="com.mtf.framework.dao.AttenVacateConditionMapper.selectFrom"/>
+		<where>
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name = #{name}
+			</if>
+			<if test="duration != null and duration != ''">
+				AND a.duration = #{duration}
+			</if>
+			<if test="unit != null and unit != ''">
+				AND a.unit = #{unit}
+			</if>
+			<if test="proportion != null and proportion != ''">
+				AND a.proportion = #{proportion}
+			</if>
+			<if test="remark != null and remark != ''">
+				AND a.remark = #{remark}
+			</if>
+			<if test="tag != null and tag != ''">
+				AND a.tag = #{tag}
+			</if>
+			<if test="orderIndex != null and orderIndex != ''">
+				AND a.orderIndex = #{orderIndex}
+			</if>
+			<if test="code != null and code != ''">
+				AND a.code = #{code}
+			</if>
+			<if test="dayStart != null and dayStart != ''">
+				AND a.dayStart = #{dayStart}
+			</if>
+			<if test="dayEnd != null and dayEnd != ''">
+				AND a.dayEnd = #{dayEnd}
+			</if>
+			<if test="tagTimeOff != null and tagTimeOff != ''">
+				AND a.tagTimeOff = #{tagTimeOff}
+			</if>
+			<if test="tagInstead != null and tagInstead != ''">
+				AND a.tagInstead = #{tagInstead}
+			</if>
+			<if test="tagBreakOff != null and tagBreakOff != ''">
+				AND a.tagBreakOff = #{tagBreakOff}
+			</if>
+			<if test="approveLevel != null and approveLevel != ''">
+				AND a.approveLevel = #{approveLevel}
+			</if>
+			<if test="dayVacateAhead != null and dayVacateAhead != ''">
+				AND a.dayVacateAhead = #{dayVacateAhead}
+			</if>
+			<if test="tagProve != null and tagProve != ''">
+				AND a.tagProve = #{tagProve}
+			</if>
+			<if test="tagType != null and tagType != ''">
+				AND a.tagType = #{tagType}
+			</if>
+			<if test="pid != null and pid != ''">
+				AND a.pid = #{pid}
+			</if>
+			<if test="addDate != null and addDate != ''">
+				AND a.addDate = #{addDate}
+			</if>
+			<if test="addUser != null and addUser != ''">
+				AND a.addUser = #{addUser}
+			</if>
+			<if test="addIp != null and addIp != ''">
+				AND a.addIp = #{addIp}
+			</if>
+			<if test="modifiedDate != null and modifiedDate != ''">
+				AND a.modifiedDate = #{modifiedDate}
+			</if>
+			<if test="modifiedUser != null and modifiedUser != ''">
+				AND a.modifiedUser = #{modifiedUser}
+			</if>
+			<if test="modifiedIp != null and modifiedIp != ''">
+				AND a.modifiedIp = #{modifiedIp}
+			</if>
+			<include refid="com.mtf.framework.dao.AttenVacateConditionMapper.selectWhere"/>
+		</where>
+		<if test="sort != null">
+			ORDER BY a.${sort} ${order}
+		</if>
+		<if test="rows != 0">
+			LIMIT ${startIndex}, ${rows}
+		</if>
+	</select>
+
+	<!-- 查询实体对象记录数 -->
+	<select id="count" parameterType="java.lang.Object" resultType="int">
+		SELECT COUNT(1) FROM attenVacate AS a
+		<include refid="com.mtf.framework.dao.AttenVacateConditionMapper.countFrom"/>
+		<where>
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name = #{name}
+			</if>
+			<if test="duration != null and duration != ''">
+				AND a.duration = #{duration}
+			</if>
+			<if test="unit != null and unit != ''">
+				AND a.unit = #{unit}
+			</if>
+			<if test="proportion != null and proportion != ''">
+				AND a.proportion = #{proportion}
+			</if>
+			<if test="remark != null and remark != ''">
+				AND a.remark = #{remark}
+			</if>
+			<if test="tag != null and tag != ''">
+				AND a.tag = #{tag}
+			</if>
+			<if test="orderIndex != null and orderIndex != ''">
+				AND a.orderIndex = #{orderIndex}
+			</if>
+			<if test="code != null and code != ''">
+				AND a.code = #{code}
+			</if>
+			<if test="dayStart != null and dayStart != ''">
+				AND a.dayStart = #{dayStart}
+			</if>
+			<if test="dayEnd != null and dayEnd != ''">
+				AND a.dayEnd = #{dayEnd}
+			</if>
+			<if test="tagTimeOff != null and tagTimeOff != ''">
+				AND a.tagTimeOff = #{tagTimeOff}
+			</if>
+			<if test="tagInstead != null and tagInstead != ''">
+				AND a.tagInstead = #{tagInstead}
+			</if>
+			<if test="tagBreakOff != null and tagBreakOff != ''">
+				AND a.tagBreakOff = #{tagBreakOff}
+			</if>
+			<if test="approveLevel != null and approveLevel != ''">
+				AND a.approveLevel = #{approveLevel}
+			</if>
+			<if test="dayVacateAhead != null and dayVacateAhead != ''">
+				AND a.dayVacateAhead = #{dayVacateAhead}
+			</if>
+			<if test="tagProve != null and tagProve != ''">
+				AND a.tagProve = #{tagProve}
+			</if>
+			<if test="tagType != null and tagType != ''">
+				AND a.tagType = #{tagType}
+			</if>
+			<if test="pid != null and pid != ''">
+				AND a.pid = #{pid}
+			</if>
+			<if test="addDate != null and addDate != ''">
+				AND a.addDate = #{addDate}
+			</if>
+			<if test="addUser != null and addUser != ''">
+				AND a.addUser = #{addUser}
+			</if>
+			<if test="addIp != null and addIp != ''">
+				AND a.addIp = #{addIp}
+			</if>
+			<if test="modifiedDate != null and modifiedDate != ''">
+				AND a.modifiedDate = #{modifiedDate}
+			</if>
+			<if test="modifiedUser != null and modifiedUser != ''">
+				AND a.modifiedUser = #{modifiedUser}
+			</if>
+			<if test="modifiedIp != null and modifiedIp != ''">
+				AND a.modifiedIp = #{modifiedIp}
+			</if>
+			<include refid="com.mtf.framework.dao.AttenVacateConditionMapper.countWhere"/>
+		</where>
+	</select>
+</mapper>

@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20120529" releaseVersion="7.0.0">
+<ReportWebAttr>
+<WebPageContent>
+<ToolBars>
+<ToolBarManager>
+<Location>
+<Embed position="1"/>
+</Location>
+<ToolBar>
+<Widget class="com.fr.report.web.ui.impl.page.First">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('ReportServerP-First')}]]></Text>
+<IconName>
+<![CDATA[first]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Previous">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('ReportServerP-Previous')}]]></Text>
+<IconName>
+<![CDATA[previous]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.PageNavi">
+<WidgetAttr/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Next">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('ReportServerP-Next')}]]></Text>
+<IconName>
+<![CDATA[next]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Last">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('ReportServerP-Last')}]]></Text>
+<IconName>
+<![CDATA[last]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.FlashPrint">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('Utils-Print[Client]A')}]]></Text>
+<IconName>
+<![CDATA[flashprint]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Print">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('Print')}]]></Text>
+<IconName>
+<![CDATA[print]]></IconName>
+<PrintButtons/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Export">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('Export')}]]></Text>
+<IconName>
+<![CDATA[export]]></IconName>
+<Buttons pdf="true" excelP="true" excelO="true" excelS="true" word="true" image="true" html="true"/>
+</Widget>
+</ToolBar>
+</ToolBarManager>
+</ToolBars>
+<WebPage isPage="false" isShowAsImage="false" isAutoScale="false" isTDHeavy="false"/>
+</WebPageContent>
+</ReportWebAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<RowHeight defaultValue="723900">
+<![CDATA[723900,723900,419100,0,723900,0,722880,722880,0,723900,723900,723900,723900,723900,723900,723900,723900,723900,0,0,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[1143000,2743200,3886200,2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200]]></ColumnWidth>
+<FloatElementList>
+<com.fr.report.cell.FloatElement>
+<FloatElementName name="Float1"/>
+<Location leftDistance="4000500" topDistance="3352800" width="7772400" height="609600"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$startDate + " 到 " + $endDate]]></Attributes>
+</O>
+<Style index="0"/>
+</com.fr.report.cell.FloatElement>
+</FloatElementList>
+<CellElementList>
+<C c="2" r="1" cs="3" s="1">
+<O>
+<![CDATA[员工办公用品申请记录表]]></O>
+<Expand extendable="3" leftParentDefault="false" upParentDefault="false"/>
+</C>
+<C c="1" r="3" s="2">
+<O t="I">
+<![CDATA[1]]></O>
+<Expand/>
+</C>
+<C c="2" r="3">
+<O t="DSColumn">
+<Attributes dsName="searchPersonBydepId" columnName="departmentId"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand leftParentDefault="false" upParentDefault="false"/>
+</C>
+<C c="1" r="4" s="2">
+<O>
+<![CDATA[部  门：]]></O>
+<Expand/>
+</C>
+<C c="2" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="searchPersonBydepId" columnName="department"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand leftParentDefault="false" upParentDefault="false"/>
+</C>
+<C c="2" r="5">
+<O t="DSColumn">
+<Attributes dsName="searchPerson" columnName="userId"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="1"/>
+</C>
+<C c="0" r="6">
+<O>
+<![CDATA[]]></O>
+<CellGUIAttr adjustmode="1" showAsDefault="true"/>
+<CellPageAttr/>
+<CellInsertPolicy/>
+<Expand/>
+</C>
+<C c="1" r="6" s="2">
+<O>
+<![CDATA[申请人：]]></O>
+<Expand leftParentDefault="false" left="C7" upParentDefault="false"/>
+</C>
+<C c="2" r="6" s="2">
+<O t="DSColumn">
+<Attributes dsName="searchPersonBydepId" columnName="userName"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="1"/>
+</C>
+<C c="3" r="6">
+<Expand dir="0" leftParentDefault="false" upParentDefault="false"/>
+</C>
+<C c="1" r="7" s="2">
+<O>
+<![CDATA[时  间：]]></O>
+<Expand/>
+</C>
+<C c="2" r="7" s="3">
+<Expand dir="1"/>
+</C>
+<C c="3" r="7">
+<Expand/>
+</C>
+<C c="2" r="8">
+<O t="DSColumn">
+<Attributes dsName="searchPersonBydepId" columnName="ruleId"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[2]]></CNUMBER>
+<CNAME>
+<![CDATA[userName]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="searchPerson" columnName="userName"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="1" upParentDefault="false" up="C7"/>
+</C>
+<C c="1" r="9" s="4">
+<O>
+<![CDATA[名  称]]></O>
+<CellGUIAttr adjustmode="1" showAsDefault="true"/>
+<CellPageAttr repeat="false" breakOnPaginate="false"/>
+<CellInsertPolicy/>
+<Expand extendable="1" leftParentDefault="false" upParentDefault="false" up="C7" order="2"/>
+</C>
+<C c="2" r="9" s="5">
+<O t="DSColumn">
+<Attributes dsName="searchPersonBydepId" columnName="type"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[2]]></CNUMBER>
+<CNAME>
+<![CDATA[userName]]></CNAME>
+<Compare op="0">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=C7]]></Attributes>
+</O>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[6]]></CNUMBER>
+<CNAME>
+<![CDATA[ruleId]]></CNAME>
+<Compare op="0">
+<ColumnRow column="2" row="8"/>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr adjustmode="1" showAsDefault="true"/>
+<CellPageAttr repeat="false" breakOnPaginate="false"/>
+<CellInsertPolicy/>
+<Expand dir="1" extendable="2" leftParentDefault="false" upParentDefault="false" up="C9" order="2"/>
+</C>
+<C c="1" r="10" s="4">
+<O>
+<![CDATA[规  格]]></O>
+<CellGUIAttr adjustmode="1" showAsDefault="true"/>
+<CellPageAttr repeat="false" breakOnPaginate="false"/>
+<CellInsertPolicy/>
+<Expand extendable="1" leftParentDefault="false" upParentDefault="false" up="C7" order="2"/>
+</C>
+<C c="2" r="10" s="6">
+<O t="DSColumn">
+<Attributes dsName="searchPersonBydepId" columnName="specification"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr adjustmode="1" showAsDefault="true"/>
+<CellPageAttr repeat="false" breakOnPaginate="false"/>
+<CellInsertPolicy/>
+<Expand dir="1" extendable="2" leftParentDefault="false" upParentDefault="false" up="C10" order="2"/>
+</C>
+<C c="1" r="11" s="4">
+<O>
+<![CDATA[单  位]]></O>
+<CellGUIAttr adjustmode="1" showAsDefault="true"/>
+<CellPageAttr repeat="false" breakOnPaginate="false"/>
+<CellInsertPolicy/>
+<Expand extendable="1" leftParentDefault="false" upParentDefault="false" up="C7" order="2"/>
+</C>
+<C c="2" r="11" s="6">
+<O t="DSColumn">
+<Attributes dsName="searchPersonBydepId" columnName="unit"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr adjustmode="1" showAsDefault="true"/>
+<CellPageAttr repeat="false" breakOnPaginate="false"/>
+<CellInsertPolicy/>
+<Expand dir="1" extendable="2" leftParentDefault="false" upParentDefault="false" up="C11" order="2"/>
+</C>
+<C c="1" r="12" s="7">
+<O>
+<![CDATA[数  量]]></O>
+<CellGUIAttr adjustmode="1" showAsDefault="true"/>
+<CellPageAttr repeat="false" breakOnPaginate="false"/>
+<CellInsertPolicy/>
+<Expand extendable="1" leftParentDefault="false" upParentDefault="false" up="C7" order="2"/>
+</C>
+<C c="2" r="12" s="6">
+<O t="DSColumn">
+<Attributes dsName="searchPersonBydepId" columnName="amount"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr adjustmode="1" showAsDefault="true"/>
+<CellPageAttr repeat="false" breakOnPaginate="false"/>
+<CellInsertPolicy/>
+<Expand extendable="2" leftParentDefault="false" upParentDefault="false" up="C12" order="2"/>
+</C>
+<C c="1" r="13" s="4">
+<O>
+<![CDATA[单  价]]></O>
+<CellGUIAttr adjustmode="1" showAsDefault="true"/>
+<CellPageAttr repeat="false" breakOnPaginate="false"/>
+<CellInsertPolicy/>
+<Expand extendable="1" leftParentDefault="false" upParentDefault="false" up="C7" order="2"/>
+</C>
+<C c="2" r="13" s="8">
+<O t="DSColumn">
+<Attributes dsName="searchPersonBydepId" columnName="price"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<CellGUIAttr adjustmode="1" showAsDefault="true"/>
+<CellPageAttr repeat="false" breakOnPaginate="false"/>
+<CellInsertPolicy/>
+<Expand dir="0" extendable="2" leftParentDefault="false" upParentDefault="false" up="C13" order="2"/>
+</C>
+<C c="1" r="14" s="4">
+<O>
+<![CDATA[金  额]]></O>
+<CellGUIAttr adjustmode="1" showAsDefault="true"/>
+<CellPageAttr repeat="false" breakOnPaginate="false"/>
+<CellInsertPolicy/>
+<Expand extendable="1" leftParentDefault="false" upParentDefault="false" up="C7" order="2"/>
+</C>
+<C c="2" r="14" s="9">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=C13 * C14]]></Attributes>
+</O>
+<CellGUIAttr adjustmode="1" showAsDefault="true"/>
+<CellPageAttr repeat="false" breakOnPaginate="false"/>
+<CellInsertPolicy/>
+<Expand extendable="2" leftParentDefault="false" upParentDefault="false" up="C13" order="2"/>
+</C>
+<C c="1" r="15" s="4">
+<O>
+<![CDATA[总金额]]></O>
+<CellGUIAttr adjustmode="1" showAsDefault="true"/>
+<CellPageAttr repeat="false" breakOnPaginate="false"/>
+<CellInsertPolicy/>
+<Expand extendable="1" leftParentDefault="false" upParentDefault="false" up="C7" order="2"/>
+</C>
+<C c="2" r="15" s="9">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=SUM(C15)]]></Attributes>
+</O>
+<CellGUIAttr adjustmode="1" showAsDefault="true"/>
+<CellPageAttr repeat="false" breakOnPaginate="false"/>
+<CellInsertPolicy/>
+<Expand extendable="2" leftParentDefault="false" upParentDefault="false" up="C7" order="2"/>
+</C>
+<C c="1" r="16" s="10">
+<O>
+<![CDATA[返回上一级]]></O>
+<NameJavaScriptGroup>
+<NameJavaScript name="网络报表1">
+<JavaScript class="com.fr.base.js.ReportletHyperlink">
+<JavaScript class="com.fr.base.js.ReportletHyperlink">
+<Parameters>
+<Parameter>
+<Attributes name="departmentId"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=C4]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="startDate"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=C19]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="endDate"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=C20]]></Attributes>
+</O>
+</Parameter>
+</Parameters>
+<TargetFrame>
+<![CDATA[_self]]></TargetFrame>
+<Features width="600" height="400"/>
+<ReportletName showPI="true">
+<![CDATA[/showEmpByDep.cpt]]></ReportletName>
+</JavaScript>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+<Expand/>
+</C>
+<C c="2" r="18">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=CONCATENATE($startDate,"-01")]]></Attributes>
+</O>
+<Expand extendable="3" leftParentDefault="false" upParentDefault="false"/>
+</C>
+<C c="2" r="19">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=CONCATENATE($endDate,"-28")]]></Attributes>
+</O>
+<Expand extendable="3" leftParentDefault="false" upParentDefault="false"/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting orientation="1">
+<PaperSize width="46368000" height="64080000"/>
+<Margin top="986400" left="2743200" bottom="986400" right="2743200"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="false" windowPosition="1" align="0"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="ColorBackground" color="-1"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="宋体" style="0" size="64"/>
+<Background name="ColorBackground" color="-2624775"/>
+<Border>
+<Top style="1" color="-6697729"/>
+<Bottom style="1" color="-6697729"/>
+<Left style="1" color="-6697729"/>
+<Right style="1" color="-6697729"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1" paddingLeft="0" paddingRight="0">
+<FRFont name="宋体" style="0" size="64"/>
+<Background name="ColorBackground" color="-2624775"/>
+<Border>
+<Top style="1" color="-6697729"/>
+<Bottom style="1" color="-6697729"/>
+<Left style="1" color="-6697729"/>
+<Right style="1" color="-6697729"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="ColorBackground" color="-1"/>
+<Border>
+<Top style="1" color="-6697729"/>
+<Bottom style="1" color="-6697729"/>
+<Left style="1" color="-6697729"/>
+<Right style="1" color="-6697729"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="64"/>
+<Background name="ColorBackground" color="-2624775"/>
+<Border>
+<Top style="1" color="-6697729"/>
+<Bottom style="1" color="-6697729"/>
+<Left style="1" color="-6697729"/>
+<Right style="1" color="-6697729"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1">
+<Format class="com.fr.base.CoreDecimalFormat">
+<![CDATA[¤#0.00]]></Format>
+<FRFont name="宋体" style="0" size="64"/>
+<Background name="ColorBackground" color="-1"/>
+<Border>
+<Top style="1" color="-6697729"/>
+<Bottom style="1" color="-6697729"/>
+<Left style="1" color="-6697729"/>
+<Right style="1" color="-6697729"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1">
+<Format class="com.fr.base.CoreDecimalFormat">
+<![CDATA[¤#0.00]]></Format>
+<FRFont name="宋体" style="0" size="64"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-6697729"/>
+<Bottom style="1" color="-6697729"/>
+<Left style="1" color="-6697729"/>
+<Right style="1" color="-6697729"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72" foreground="-16776961" underline="1"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+</StyleList>
+</WorkBook>

@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mtf.framework.dao.HistoryMapper" > 
+	<resultMap type="com.mtf.framework.model.impl.HistoryImpl" id="history"/> 
+	<!-- 添加实体对象 -->
+	<insert id="insert" parameterType="history">
+		INSERT INTO history
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					id,
+				</if>
+				<if test="code != null">
+					code,
+				</if>
+				<if test="loginName != null">
+					loginName,
+				</if>
+				<if test="displayName != null">
+					displayName,
+				</if>
+				<if test="versionNO != null">
+					versionNO,
+				</if>
+				<if test="userIds != null">
+					userIds,
+				</if>
+				<if test="type != null">
+					type,
+				</if>
+				<if test="preCodeId != null">
+					preCodeId,
+				</if>
+				<if test="codeId != null">
+					codeId,
+				</if>
+				<if test="currentFlag != null">
+					currentFlag,
+				</if>
+				<if test="addDate != null">
+					addDate,
+				</if>
+				<if test="addIp != null">
+					addIp,
+				</if>
+				<if test="addUser != null">
+					addUser,
+				</if>
+				<if test="modifyDate != null">
+					modifyDate,
+				</if>
+				<if test="modifyIp != null">
+					modifyIp,
+				</if>
+				<if test="modifyUser != null">
+					modifyUser,
+				</if>
+			</trim>
+			<trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					#{id},
+				</if>
+				<if test="code != null">
+					#{code},
+				</if>
+				<if test="loginName != null">
+					#{loginName},
+				</if>
+				<if test="displayName != null">
+					#{displayName},
+				</if>
+				<if test="versionNO != null">
+					#{versionNO},
+				</if>
+				<if test="userIds != null">
+					#{userIds},
+				</if>
+				<if test="type != null">
+					#{type},
+				</if>
+				<if test="preCodeId != null">
+					#{preCodeId},
+				</if>
+				<if test="codeId != null">
+					#{codeId},
+				</if>
+				<if test="currentFlag != null">
+					#{currentFlag},
+				</if>
+				<if test="addDate != null">
+					#{addDate},
+				</if>
+				<if test="addIp != null">
+					#{addIp},
+				</if>
+				<if test="addUser != null">
+					#{addUser},
+				</if>
+				<if test="modifyDate != null">
+					#{modifyDate},
+				</if>
+				<if test="modifyIp != null">
+					#{modifyIp},
+				</if>
+				<if test="modifyUser != null">
+					#{modifyUser},
+				</if>
+			</trim>
+			<selectKey resultType="long" keyProperty="id">
+				SELECT LAST_INSERT_ID() AS ID
+			</selectKey> 
+	</insert>
+<!-- 插入增加版本 -->	
+	<insert id="insertForVersioin" parameterType="history">
+		INSERT INTO history
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					id,
+				</if>
+				<if test="code != null">
+					code,
+				</if>
+				<if test="loginName != null">
+					loginName,
+				</if>
+				<if test="displayName != null">
+					displayName,
+				</if>
+				<if test="versionNO != null">
+					versionNO,
+				</if>
+				<if test="userIds != null">
+					userIds,
+				</if>
+				<if test="type != null">
+					type,
+				</if>
+				<if test="preCodeId != null">
+					preCodeId,
+				</if>
+				<if test="codeId != null">
+					codeId,
+				</if>
+				<if test="currentFlag != null">
+					currentFlag,
+				</if>
+				<if test="addDate != null">
+					addDate,
+				</if>
+				<if test="addIp != null">
+					addIp,
+				</if>
+				<if test="addUser != null">
+					addUser,
+				</if>
+				<if test="modifyDate != null">
+					modifyDate,
+				</if>
+				<if test="modifyIp != null">
+					modifyIp,
+				</if>
+				<if test="modifyUser != null">
+					modifyUser,
+				</if>
+			</trim>
+			<trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					#{id},
+				</if>
+				<if test="code != null">
+					#{code},
+				</if>
+				<if test="loginName != null">
+					#{loginName},
+				</if>
+				<if test="displayName != null">
+					#{displayName},
+				</if>
+				<if test="versionNO != null">
+					#{versionNO},
+				</if>
+				<if test="userIds != null">
+					#{userIds},
+				</if>
+				<if test="type != null">
+					#{type},
+				</if>
+				<if test="preCodeId != null">
+					#{preCodeId},
+				</if>
+				<if test="codeId != null">
+					#{codeId},
+				</if>
+				<if test="currentFlag != null">
+					#{currentFlag},
+				</if>
+				<if test="addDate != null">
+					#{addDate},
+				</if>
+				<if test="addIp != null">
+					#{addIp},
+				</if>
+				<if test="addUser != null">
+					#{addUser},
+				</if>
+				<if test="modifyDate != null">
+					#{modifyDate},
+				</if>
+				<if test="modifyIp != null">
+					#{modifyIp},
+				</if>
+				<if test="modifyUser != null">
+					#{modifyUser},
+				</if>
+			</trim>
+	</insert>
+	
+
+	<!-- 删除实体对象 -->
+	<delete id="delete" parameterType="java.lang.Object">
+		DELETE FROM history
+		WHERE
+			id = #{id}
+	</delete>
+
+	<!-- 更新实体对象 -->
+	<update id="update" parameterType="java.lang.Object">
+		UPDATE history
+		<set>
+			<if test="id != null">
+				id = #{id},
+			</if>
+			<if test="code != null">
+				code = #{code},
+			</if>
+			<if test="loginName != null">
+				loginName = #{loginName},
+			</if>
+			<if test="displayName != null">
+				displayName = #{displayName},
+			</if>
+			<if test="versionNO != null">
+				versionNO = #{versionNO},
+			</if>
+			<if test="userIds != null">
+				userIds = #{userIds},
+			</if>
+			<if test="type != null">
+				type = #{type},
+			</if>
+			<if test="preCodeId != null">
+				preCodeId = #{preCodeId},
+			</if>
+			<if test="codeId != null">
+				codeId = #{codeId},
+			</if>
+			<if test="currentFlag != null">
+				currentFlag = #{currentFlag},
+			</if>
+			<if test="addDate != null">
+				addDate = #{addDate},
+			</if>
+			<if test="addIp != null">
+				addIp = #{addIp},
+			</if>
+			<if test="addUser != null">
+				addUser = #{addUser},
+			</if>
+			<if test="modifyDate != null">
+				modifyDate = #{modifyDate},
+			</if>
+			<if test="modifyIp != null">
+				modifyIp = #{modifyIp},
+			</if>
+			<if test="modifyUser != null">
+				modifyUser = #{modifyUser},
+			</if>
+		</set>
+		WHERE
+			id = #{id}
+			<if test="original != null">
+				 AND modified = #{original}
+			</if>
+	</update>
+
+	<!-- 查询单个实体对象 -->
+	<select id="get" parameterType="java.lang.Object" resultMap="history">
+		SELECT 
+			id, 
+			code, 
+			loginName, 
+			displayName, 
+			versionNO, 
+			userIds, 
+			type, 
+			preCodeId, 
+			codeId, 
+			currentFlag, 
+			addDate, 
+			addIp, 
+			addUser, 
+			modifyDate, 
+			modifyIp, 
+			modifyUser
+		FROM history
+		<where>
+			<if test="id != null">
+				AND id = #{id}
+			</if>
+			<if test="code != null">
+				AND code = #{code}
+			</if>
+			<if test="loginName != null">
+				AND loginName = #{loginName}
+			</if>
+			<if test="displayName != null">
+				AND displayName = #{displayName}
+			</if>
+			<if test="versionNO != null">
+				AND versionNO = #{versionNO}
+			</if>
+			<if test="userIds != null">
+				AND userIds = #{userIds}
+			</if>
+			<if test="type != null">
+				AND type = #{type}
+			</if>
+			<if test="preCodeId != null">
+				AND preCodeId = #{preCodeId}
+			</if>
+			<if test="codeId != null">
+				AND codeId = #{codeId}
+			</if>
+			<if test="currentFlag != null">
+				AND currentFlag = #{currentFlag}
+			</if>
+			<if test="addDate != null">
+				AND addDate = #{addDate}
+			</if>
+			<if test="addIp != null">
+				AND addIp = #{addIp}
+			</if>
+			<if test="addUser != null">
+				AND addUser = #{addUser}
+			</if>
+			<if test="modifyDate != null">
+				AND modifyDate = #{modifyDate}
+			</if>
+			<if test="modifyIp != null">
+				AND modifyIp = #{modifyIp}
+			</if>
+			<if test="modifyUser != null">
+				AND modifyUser = #{modifyUser}
+			</if>
+		</where>
+		LIMIT 1
+	</select>
+	
+	<!-- 查询单个实体对象 -->
+	<select id="getMax" parameterType="com.mtf.framework.model.History" resultMap="history">
+		SELECT 
+			id, 
+			code, 
+			loginName, 
+			displayName, 
+			versionNO, 
+			userIds, 
+			type, 
+			preCodeId, 
+			codeId, 
+			currentFlag, 
+			addDate, 
+			addIp, 
+			addUser, 
+			modifyDate, 
+			modifyIp, 
+			modifyUser
+		FROM history
+		WHERE addDate=(select max(addDate) from history)
+		AND userIds = #{userIds,jdbcType=VARCHAR}
+		LIMIT 1
+	</select>
+
+	<!-- 查询实体对象集合 -->
+	<select id="select" parameterType="java.lang.Object" resultMap="history">
+		SELECT 
+			id, 
+			code, 
+			loginName, 
+			displayName, 
+			versionNO, 
+			userIds, 
+			type, 
+			preCodeId, 
+			codeId, 
+			currentFlag, 
+			addDate, 
+			addIp, 
+			addUser, 
+			modifyDate, 
+			modifyIp, 
+			modifyUser
+		FROM history
+		where 1=1
+			<if test="id != null">
+				AND id = #{id}
+			</if>
+			<if test="code != null">
+				AND code = #{code}
+			</if>
+			<if test="loginName != null">
+				AND loginName = #{loginName}
+			</if>
+			<if test="displayName != null">
+				AND displayName = #{displayName}
+			</if>
+			<if test="versionNO != null">
+				AND versionNO = #{versionNO}
+			</if>
+			<if test="userIds != null">
+				AND userIds = #{userIds,jdbcType=VARCHAR}
+			</if>
+			<if test="type != null">
+				AND type = #{type}
+			</if>
+			<if test="preCodeId != null">
+				AND preCodeId = #{preCodeId}
+			</if>
+			<if test="codeId != null">
+				AND codeId = #{codeId}
+			</if>
+			<if test="currentFlag != null">
+				AND currentFlag = #{currentFlag}
+			</if>
+			<if test="addDate != null">
+				AND addDate = #{addDate}
+			</if>
+			<if test="addIp != null">
+				AND addIp = #{addIp}
+			</if>
+			<if test="addUser != null">
+				AND addUser = #{addUser}
+			</if>
+			<if test="modifyDate != null">
+				AND modifyDate = #{modifyDate}
+			</if>
+			<if test="modifyIp != null">
+				AND modifyIp = #{modifyIp}
+			</if>
+			<if test="modifyUser != null">
+				AND modifyUser = #{modifyUser}
+			</if>
+			<if test="sort != null">
+				ORDER BY ${sort} ${order}
+			</if>
+	</select>
+
+	<!-- 查询实体对象记录数 -->
+	<select id="count" parameterType="java.lang.Object" resultType="int">
+		SELECT COUNT(1) FROM history
+		where 1=1
+			<if test="id != null">
+				AND id = #{id}
+			</if>
+			<if test="code != null">
+				AND code = #{code}
+			</if>
+			<if test="loginName != null">
+				AND loginName = #{loginName}
+			</if>
+			<if test="displayName != null">
+				AND displayName = #{displayName}
+			</if>
+			<if test="versionNO != null">
+				AND versionNO = #{versionNO}
+			</if>
+			<if test="userIds != null">
+				AND userIds = #{userIds}
+			</if>
+			<if test="type != null">
+				AND type = #{type}
+			</if>
+			<if test="preCodeId != null">
+				AND preCodeId = #{preCodeId}
+			</if>
+			<if test="codeId != null">
+				AND codeId = #{codeId}
+			</if>
+			<if test="currentFlag != null">
+				AND currentFlag = #{currentFlag}
+			</if>
+			<if test="addDate != null">
+				AND addDate = #{addDate}
+			</if>
+			<if test="addIp != null">
+				AND addIp = #{addIp}
+			</if>
+			<if test="addUser != null">
+				AND addUser = #{addUser}
+			</if>
+			<if test="modifyDate != null">
+				AND modifyDate = #{modifyDate}
+			</if>
+			<if test="modifyIp != null">
+				AND modifyIp = #{modifyIp}
+			</if>
+			<if test="modifyUser != null">
+				AND modifyUser = #{modifyUser}
+			</if>
+	</select>
+</mapper>

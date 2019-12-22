@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mtf.framework.dao.OrderServiceRecordConditionMapper" > 
+	<resultMap type="com.mtf.framework.model.impl.OrderServiceRecordImpl" id="orderServiceRecord"/>
+	<resultMap type="com.mtf.framework.model.impl.OrderServiceImpl" id="orderService"/>  
+
+	<sql id="updateColumn">
+		
+	</sql>
+
+	<sql id="getColumn">
+		
+	</sql>
+
+	<sql id="getFrom">
+		
+	</sql>
+
+	<sql id="getWhere">
+		
+	</sql>
+
+	<sql id="selectColumn">
+		
+	</sql>
+
+	<sql id="selectFrom">
+		
+	</sql>
+
+	<sql id="selectWhere">
+		
+	</sql>
+
+	<sql id="countFrom">
+		
+	</sql>
+
+	<sql id="countWhere">
+		
+	</sql>
+
+	<sql id="updateWhere">
+		id = #{id}
+	</sql>
+	
+	<select id="selectOrderServiceRecordForReimburse" parameterType="java.lang.Object" resultMap="orderService">
+		SELECT
+			a.divisionId,
+			a.divisionName,
+			a.customer,
+			(SELECT customer.`name` FROM customer WHERE customer.id = a.customer) customerName,
+			a.expenseTotal,
+			SUM(a.expenseTotal) sumExpenseTotal,
+			(SUM(a.expenseOther) +  SUM(a.expensePass) )sumExpenseOther
+		FROM
+			orderService a
+		WHERE
+			a.idOrderServiceRecord = #{id}
+		AND
+			a.statusOrder = 'ap2'
+		GROUP BY 
+			a.customer,a.divisionId	
+	</select>
+	
+		<select id="selectOrderServiceRecordForDriver" parameterType="java.lang.Object" resultMap="orderService">
+			SELECT
+			(SELECT
+			(SELECT permission.`name` FROM permission WHERE permission.`parentCode` = '7102000' AND permission.`code` = rp.code)
+			FROM 
+				rolepermission rp
+			WHERE rp.parentCode = '7102000' AND rp.typeId = a.divisionId LIMIT 1) nameGroup,
+			
+			(SELECT `user`.displayName FROM `user` WHERE `user`.id = a.driverId) AS nameDriver,
+			a.divisionName,
+			SUM(a.expenseTotal) sumExpenseTotal,
+			(SUM(a.expenseOther) +  SUM(a.expensePass) ) sumExpenseOther,
+			(SELECT division.`name` FROM division WHERE division.id = a.customer) customerName,
+			a.customer,
+			(SELECT userinfor.`name` FROM userinfor WHERE userinfor.`code` = a.typeExpense ) AS nameTypeExpense,
+			a.*
+			FROM
+			orderservice a
+			WHERE
+			a.statusOrder IN ('ap3', 'rd')
+			GROUP BY driverId, divisionName
+			ORDER BY driverId, divisionName
+	</select>
+
+</mapper>

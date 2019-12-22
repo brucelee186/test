@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost/test</property>
+		<!-- 或
+		 	<property name="hibernate.connection.url">  
+            	jdbc:mysql:///test  
+            </property>  
+		 -->
+		 <property name="hibernate.connection.username">root</property>
+		 <property name="hibernate.connection.password">root</property>
+		 <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		 <!-- update表示由映射配置文件***.hbm.mxl生成映射关系数据库表 -->
+		 <property name="hbm2ddl.auto">update</property>
+		 <!-- 显示SQL -->
+		 <property name="show_sql">true</property>
+		 <mapping resource="framework/hibernate/one2one/sharePrimaryKey/Person.hbm.xml"/>
+		 <mapping resource="framework/hibernate/one2one/sharePrimaryKey/IdCard.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>
