@@ -27,11 +27,11 @@ public class TestSerialPort {
 	// ['hjʊmɪtʃɚ]
 	private static void getHumiture() {
 		 try {
-				final CommPortIdentifier  portIdentifier = CommPortIdentifier.getPortIdentifier("COM2");
+				final CommPortIdentifier  portIdentifier = CommPortIdentifier.getPortIdentifier("COM6");
 				final String PORT_OWER = "MonitorApp"; 
 				//SerialPort serialPort = (SerialPort) portIdentifier.open("test", 4800);
 				//CommPortIdentifier portIdentifier = CommPortIdentifier.getPortIdentifier("COM4");//COM4是串口名字
-				CommPort commPort = portIdentifier.open("COM2", 2000);    //2000是打开超时时间
+				CommPort commPort = portIdentifier.open("COM6", 2000);    //2000是打开超时时间
 				SerialPort serialPort = (SerialPort) commPort;
 				// 必须设定参数,否则会乱码
 				serialPort.setSerialPortParams(4800, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
