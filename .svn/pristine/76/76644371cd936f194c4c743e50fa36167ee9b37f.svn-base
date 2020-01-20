@@ -1,0 +1,1173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20120529" releaseVersion="7.0.0">
+<TableDataMap>
+<TableData name="showCountWorkExtraColumn" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+a.*
+FROM workextra a]]></Query>
+</TableData>
+</TableDataMap>
+<ReportWebAttr>
+<WebPageContent>
+<ToolBars>
+<ToolBarManager>
+<Location>
+<Embed position="1"/>
+</Location>
+<ToolBar>
+<Widget class="com.fr.report.web.ui.impl.page.First">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('ReportServerP-First')}]]></Text>
+<IconName>
+<![CDATA[first]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Previous">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('ReportServerP-Previous')}]]></Text>
+<IconName>
+<![CDATA[previous]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.PageNavi">
+<WidgetAttr/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Next">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('ReportServerP-Next')}]]></Text>
+<IconName>
+<![CDATA[next]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Last">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('ReportServerP-Last')}]]></Text>
+<IconName>
+<![CDATA[last]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.FlashPrint">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('Utils-Print[Client]A')}]]></Text>
+<IconName>
+<![CDATA[flashprint]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Print">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('Print')}]]></Text>
+<IconName>
+<![CDATA[print]]></IconName>
+<PrintButtons/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Export">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('Export')}]]></Text>
+<IconName>
+<![CDATA[export]]></IconName>
+<Buttons pdf="true" excelP="true" excelO="true" excelS="true" word="true" image="true" html="true"/>
+</Widget>
+</ToolBar>
+</ToolBarManager>
+</ToolBars>
+<WebPage isPage="false" isShowAsImage="false" isAutoScale="false" isTDHeavy="false"/>
+</WebPageContent>
+</ReportWebAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR F="1" T="4"/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<RowHeight defaultValue="723900">
+<![CDATA[723900,1219200,723900,723900,723900,723900,723900,0,723900,723900,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[2743200,2592000,3276600,2592000,2743200,2592000,2592000,2743200,2160000,3086100,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="1" r="1" cs="6" s="0">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=CONCATENATE("加班统计(", $applyMonth, ")")]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="0" r="2" s="1">
+<Expand/>
+</C>
+<C c="8" r="3">
+<Expand dir="1" extendable="2"/>
+</C>
+<C c="0" r="4" s="2">
+<O>
+<![CDATA[工作组]]></O>
+<Expand leftParentDefault="false" upParentDefault="false"/>
+</C>
+<C c="1" r="4" s="2">
+<O>
+<![CDATA[姓名]]></O>
+<Expand leftParentDefault="false" upParentDefault="false"/>
+</C>
+<C c="2" r="4" s="2">
+<O>
+<![CDATA[列号]]></O>
+<Expand leftParentDefault="false" upParentDefault="false"/>
+</C>
+<C c="3" r="4" s="2">
+<O>
+<![CDATA[考勤异常次数]]></O>
+<Expand leftParentDefault="false" upParentDefault="false"/>
+</C>
+<C c="4" r="4" s="2">
+<O>
+<![CDATA[满勤]]></O>
+<Expand leftParentDefault="false" upParentDefault="false"/>
+</C>
+<C c="5" r="4" s="2">
+<O>
+<![CDATA[加班总时长]]></O>
+<Expand leftParentDefault="false" upParentDefault="false"/>
+</C>
+<C c="6" r="4" s="2">
+<O>
+<![CDATA[加班费]]></O>
+<Expand/>
+</C>
+<C c="7" r="4">
+<O t="DSColumn">
+<Attributes dsName="showCountWorkExtraDay" columnName="dayFull"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="1" extendable="2" leftParentDefault="false" left="C6"/>
+</C>
+<C c="8" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="showCountWorkExtraDay" columnName="date"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="1" extendable="2" leftParentDefault="false" left="C6"/>
+</C>
+<C c="9" r="4" s="2">
+<O t="DSColumn">
+<Attributes dsName="showCountWorkExtraDay" columnName="week"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="1" extendable="2" leftParentDefault="false" left="H5"/>
+</C>
+<C c="10" r="4" s="2">
+<O>
+<![CDATA[上报加班时长]]></O>
+<Expand dir="1" extendable="2" leftParentDefault="false" left="H5"/>
+</C>
+<C c="11" r="4" s="2">
+<O>
+<![CDATA[考勤加班时长]]></O>
+<Expand dir="1" extendable="2" leftParentDefault="false" left="H5"/>
+</C>
+<C c="12" r="4" s="2">
+<O>
+<![CDATA[下班时间]]></O>
+<Expand dir="1" extendable="2" leftParentDefault="false" left="H5"/>
+</C>
+<C c="13" r="4" s="2">
+<O>
+<![CDATA[考勤状态]]></O>
+<Expand dir="1" extendable="2" leftParentDefault="false" left="H5"/>
+</C>
+<C c="0" r="5" s="3">
+<O t="DSColumn">
+<Attributes dsName="showCountWorkExtra" columnName="group"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<NameJavaScriptGroup>
+<NameJavaScript name="网络报表1">
+<JavaScript class="com.fr.base.js.ReportletHyperlink">
+<JavaScript class="com.fr.base.js.ReportletHyperlink">
+<Parameters>
+<Parameter>
+<Attributes name="userId"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=G6]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="attenCollectDateStart"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$attenCollectDateStart]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="attenCollectDateEnd"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$attenCollectDateEnd]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="__showtoolbar__"/>
+<O t="B">
+<![CDATA[true]]></O>
+</Parameter>
+</Parameters>
+<TargetFrame>
+<![CDATA[_dialog]]></TargetFrame>
+<Features width="1000" height="500"/>
+<ReportletName showPI="true">
+<![CDATA[/showAttendanceUserMonth.cpt]]></ReportletName>
+</JavaScript>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="sra" value="A样品室"/>
+<Dict key="srb" value="B样品室"/>
+<Dict key="cut" value="裁剪车间"/>
+<Dict key="papa" value="纸型A组"/>
+<Dict key="papb" value="纸型B组"/>
+<Dict key="papc" value="纸型C组"/>
+<Dict key="psps" value="纸型车间"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand dir="0" leftParentDefault="false" left="B6" upParentDefault="false"/>
+</C>
+<C c="1" r="5" s="3">
+<O t="DSColumn">
+<Attributes dsName="showCountWorkExtra" columnName="name"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<NameJavaScriptGroup>
+<NameJavaScript name="网络报表1">
+<JavaScript class="com.fr.base.js.ReportletHyperlink">
+<JavaScript class="com.fr.base.js.ReportletHyperlink">
+<Parameters>
+<Parameter>
+<Attributes name="userId"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=G6]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="attenCollectDateStart"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$attenCollectDateStart]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="attenCollectDateEnd"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$attenCollectDateEnd]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="__showtoolbar__"/>
+<O t="B">
+<![CDATA[true]]></O>
+</Parameter>
+</Parameters>
+<TargetFrame>
+<![CDATA[_dialog]]></TargetFrame>
+<Features width="1000" height="500"/>
+<ReportletName showPI="true">
+<![CDATA[/showAttendanceUserMonth.cpt]]></ReportletName>
+</JavaScript>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+<Expand dir="0" extendable="1" leftParentDefault="false" upParentDefault="false"/>
+</C>
+<C c="2" r="5" s="3">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=showCountWorkExtra.select(#0)]]></Attributes>
+</O>
+<NameJavaScriptGroup>
+<NameJavaScript name="网络报表1">
+<JavaScript class="com.fr.base.js.ReportletHyperlink">
+<JavaScript class="com.fr.base.js.ReportletHyperlink">
+<Parameters>
+<Parameter>
+<Attributes name="userId"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=G6]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="attenCollectDateStart"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$attenCollectDateStart]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="attenCollectDateEnd"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$attenCollectDateEnd]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="__showtoolbar__"/>
+<O t="B">
+<![CDATA[true]]></O>
+</Parameter>
+</Parameters>
+<TargetFrame>
+<![CDATA[_dialog]]></TargetFrame>
+<Features width="1000" height="500"/>
+<ReportletName showPI="true">
+<![CDATA[/showAttendanceUserMonth.cpt]]></ReportletName>
+</JavaScript>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+<Expand dir="0" leftParentDefault="false" left="B6" upParentDefault="false"/>
+</C>
+<C c="3" r="5" s="4">
+<O>
+<![CDATA[统计数据]]></O>
+<NameJavaScriptGroup>
+<NameJavaScript name="网络报表1">
+<JavaScript class="com.fr.base.js.ReportletHyperlink">
+<JavaScript class="com.fr.base.js.ReportletHyperlink">
+<Parameters>
+<Parameter>
+<Attributes name="userId"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=F6]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="attenCollectDateStart"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$attenCollectDateStart]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="attenCollectDateEnd"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$attenCollectDateEnd]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="__showtoolbar__"/>
+<O t="B">
+<![CDATA[true]]></O>
+</Parameter>
+</Parameters>
+<TargetFrame>
+<![CDATA[_dialog]]></TargetFrame>
+<Features width="1000" height="500"/>
+<ReportletName showPI="true">
+<![CDATA[/showAttendanceUserMonth.cpt]]></ReportletName>
+</JavaScript>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+<Expand leftParentDefault="false" left="B6" upParentDefault="false"/>
+</C>
+<C c="4" r="5" s="3">
+<O t="DSColumn">
+<Attributes dsName="showCountWorkExtra" columnName="fullHour"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<NameJavaScriptGroup>
+<NameJavaScript name="网络报表1">
+<JavaScript class="com.fr.base.js.ReportletHyperlink">
+<JavaScript class="com.fr.base.js.ReportletHyperlink">
+<Parameters>
+<Parameter>
+<Attributes name="userId"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=G6]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="attenCollectDateStart"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$attenCollectDateStart]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="attenCollectDateEnd"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$attenCollectDateEnd]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="__showtoolbar__"/>
+<O t="B">
+<![CDATA[true]]></O>
+</Parameter>
+</Parameters>
+<TargetFrame>
+<![CDATA[_dialog]]></TargetFrame>
+<Features width="1000" height="500"/>
+<ReportletName showPI="true">
+<![CDATA[/showAttendanceUserMonth.cpt]]></ReportletName>
+</JavaScript>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="y" value="是"/>
+<Dict key="n" value="否"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand dir="0" extendable="1" leftParentDefault="false" left="B6"/>
+</C>
+<C c="5" r="5" s="4">
+<O t="DSColumn">
+<Attributes dsName="showCountWorkExtra" columnName="extraWorkDuration"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<NameJavaScriptGroup>
+<NameJavaScript name="网络报表1">
+<JavaScript class="com.fr.base.js.ReportletHyperlink">
+<JavaScript class="com.fr.base.js.ReportletHyperlink">
+<Parameters>
+<Parameter>
+<Attributes name="userId"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=G6]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="attenCollectDateStart"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$attenCollectDateStart]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="attenCollectDateEnd"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$attenCollectDateEnd]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="__showtoolbar__"/>
+<O t="B">
+<![CDATA[true]]></O>
+</Parameter>
+</Parameters>
+<TargetFrame>
+<![CDATA[_dialog]]></TargetFrame>
+<Features width="1000" height="500"/>
+<ReportletName showPI="true">
+<![CDATA[/showAttendanceUserMonth.cpt]]></ReportletName>
+</JavaScript>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+<Expand dir="0" extendable="1" leftParentDefault="false" left="B6"/>
+</C>
+<C c="6" r="5" s="5">
+<O t="DSColumn">
+<Attributes dsName="showCountWorkExtra" columnName="extraWorkExpense"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<NameJavaScriptGroup>
+<NameJavaScript name="网络报表1">
+<JavaScript class="com.fr.base.js.ReportletHyperlink">
+<JavaScript class="com.fr.base.js.ReportletHyperlink">
+<Parameters>
+<Parameter>
+<Attributes name="userId"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=G6]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="attenCollectDateStart"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$attenCollectDateStart]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="attenCollectDateEnd"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$attenCollectDateEnd]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="__showtoolbar__"/>
+<O t="B">
+<![CDATA[true]]></O>
+</Parameter>
+</Parameters>
+<TargetFrame>
+<![CDATA[_dialog]]></TargetFrame>
+<Features width="1000" height="500"/>
+<ReportletName showPI="true">
+<![CDATA[/showAttendanceUserMonth.cpt]]></ReportletName>
+</JavaScript>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+<Expand dir="0" extendable="1" leftParentDefault="false" left="B6"/>
+</C>
+<C c="8" r="5" s="6">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=showCountWorkExtra.value(A6, I5 + 5)]]></Attributes>
+</O>
+<NameJavaScriptGroup>
+<NameJavaScript name="网络报表1">
+<JavaScript class="com.fr.base.js.ReportletHyperlink">
+<JavaScript class="com.fr.base.js.ReportletHyperlink">
+<Parameters>
+<Parameter>
+<Attributes name="userId"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=I6]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="attenCollectDateStart"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$attenCollectDateStart]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="attenCollectDateEnd"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$attenCollectDateEnd]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="__showtoolbar__"/>
+<O t="B">
+<![CDATA[true]]></O>
+</Parameter>
+</Parameters>
+<TargetFrame>
+<![CDATA[_dialog]]></TargetFrame>
+<Features width="1000" height="500"/>
+<ReportletName showPI="true">
+<![CDATA[/showAttendanceUserMonth.cpt]]></ReportletName>
+</JavaScript>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.FormulaDictionary">
+<FormulaDict>
+<![CDATA[TABLEDATAFIELDS("showCountWorkExtra")]]></FormulaDict>
+</Dictionary>
+</Present>
+<Expand dir="1" extendable="2" leftParentDefault="false" left="H5"/>
+</C>
+<C c="9" r="5" s="7">
+<Expand dir="1" extendable="2" leftParentDefault="false" left="H5"/>
+</C>
+<C c="10" r="5">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=showCountWorkExtra.value(C6, K5 + 5)]]></Attributes>
+</O>
+<Expand dir="1" extendable="2" leftParentDefault="false" left="H5"/>
+</C>
+<C c="11" r="5">
+<Expand dir="1" extendable="2" leftParentDefault="false" left="H5"/>
+</C>
+<C c="12" r="5">
+<Expand dir="1" extendable="2" leftParentDefault="false" left="H5"/>
+</C>
+<C c="13" r="5">
+<Expand dir="1" extendable="2" leftParentDefault="false" left="H5"/>
+</C>
+<C c="4" r="6" s="3">
+<O>
+<![CDATA[系统数据]]></O>
+<NameJavaScriptGroup>
+<NameJavaScript name="网络报表1">
+<JavaScript class="com.fr.base.js.ReportletHyperlink">
+<JavaScript class="com.fr.base.js.ReportletHyperlink">
+<Parameters>
+<Parameter>
+<Attributes name="userId"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=G6]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="attenCollectDateStart"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$attenCollectDateStart]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="attenCollectDateEnd"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$attenCollectDateEnd]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="__showtoolbar__"/>
+<O t="B">
+<![CDATA[true]]></O>
+</Parameter>
+</Parameters>
+<TargetFrame>
+<![CDATA[_dialog]]></TargetFrame>
+<Features width="1000" height="500"/>
+<ReportletName showPI="true">
+<![CDATA[/showAttendanceUserMonth.cpt]]></ReportletName>
+</JavaScript>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+<Expand leftParentDefault="false" left="D6" upParentDefault="false"/>
+</C>
+<C c="5" r="6" s="3">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=IF(F8 > 0, '否', '是')]]></Attributes>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ObjectCondition">
+<Compare op="2">
+<O>
+<![CDATA[0]]></O>
+</Compare>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-26164"/>
+</HighlightAction>
+</Highlight>
+</HighlightList>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.DatabaseDictionary">
+<FormulaDictAttr ki="1" vi="2"/>
+<DBDictAttr tableName="" schemaName="" ki="1" vi="2"/>
+<Connection class="com.fr.data.impl.JDBCDatabaseConnection">
+<DatabaseAttr/>
+<JDBCDatabaseAttr url="" driver="" user="" password="___" encryptPassword="true">
+<DBCPAttr/>
+</JDBCDatabaseAttr>
+</Connection>
+</Dictionary>
+</Present>
+<Expand dir="0" extendable="1" leftParentDefault="false" left="D6"/>
+</C>
+<C c="6" r="6" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=SUM(I7)]]></Attributes>
+</O>
+<Expand dir="0" extendable="1" leftParentDefault="false" left="D6"/>
+</C>
+<C c="8" r="6" s="6">
+<O t="DSColumn">
+<Attributes dsName="showCountWorkExtraAttendanceMonth" columnName="workDuration_a"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[8]]></CNUMBER>
+<CNAME>
+<![CDATA[userName]]></CNAME>
+<Compare op="0">
+<ColumnRow column="1" row="5"/>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[14]]></CNUMBER>
+<CNAME>
+<![CDATA[day]]></CNAME>
+<Compare op="0">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=G5]]></Attributes>
+</O>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[I6 != ""]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<NameJavaScriptGroup>
+<NameJavaScript name="网络报表1">
+<JavaScript class="com.fr.base.js.ReportletHyperlink">
+<JavaScript class="com.fr.base.js.ReportletHyperlink">
+<Parameters>
+<Parameter>
+<Attributes name="userName"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=B6]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="date"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=CONCATENATE($applyMonth, "-", I5)]]></Attributes>
+</O>
+</Parameter>
+</Parameters>
+<TargetFrame>
+<![CDATA[_dialog]]></TargetFrame>
+<Features width="1000" height="500"/>
+<ReportletName showPI="true">
+<![CDATA[/showAttendanceUserDayForWorkExtra.cpt]]></ReportletName>
+</JavaScript>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.ObjectCondition">
+<Compare op="4">
+<ColumnRow column="8" row="5"/>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[I6 != ""]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.ObjectCondition">
+<Compare op="1">
+<O>
+<![CDATA[checked]]></O>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.ObjectCondition">
+<Compare op="0">
+<O>
+<![CDATA[error]]></O>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-26164"/>
+</HighlightAction>
+</Highlight>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性2]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.ObjectCondition">
+<Compare op="2">
+<ColumnRow column="8" row="5"/>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.ObjectCondition">
+<Compare op="1">
+<O>
+<![CDATA[error]]></O>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.ObjectCondition">
+<Compare op="1">
+<O>
+<![CDATA[checked]]></O>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-6697729"/>
+</HighlightAction>
+</Highlight>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性3]]></Name>
+<Condition class="com.fr.data.condition.ObjectCondition">
+<Compare op="0">
+<O>
+<![CDATA[checked]]></O>
+</Compare>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.BackgroundHighlightAction">
+<Background name="ColorBackground" color="-103"/>
+</HighlightAction>
+</Highlight>
+</HighlightList>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="error" value="考勤异常"/>
+<Dict key="checked" value="补签考勤"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand dir="1" extendable="2" leftParentDefault="false" left="H5"/>
+</C>
+<C c="9" r="6" s="8">
+<O t="DSColumn">
+<Attributes dsName="showCountWorkExtraAttendanceMonth" columnName="dayEnd"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[8]]></CNUMBER>
+<CNAME>
+<![CDATA[userName]]></CNAME>
+<Compare op="0">
+<ColumnRow column="1" row="5"/>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[14]]></CNUMBER>
+<CNAME>
+<![CDATA[day]]></CNAME>
+<Compare op="0">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=G5]]></Attributes>
+</O>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[I6 != ""]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<NameJavaScriptGroup>
+<NameJavaScript name="网络报表1">
+<JavaScript class="com.fr.base.js.ReportletHyperlink">
+<JavaScript class="com.fr.base.js.ReportletHyperlink">
+<Parameters>
+<Parameter>
+<Attributes name="userName"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=B6]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="date"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=CONCATENATE($applyMonth, "-", I5)]]></Attributes>
+</O>
+</Parameter>
+</Parameters>
+<TargetFrame>
+<![CDATA[_dialog]]></TargetFrame>
+<Features width="1000" height="500"/>
+<ReportletName showPI="true">
+<![CDATA[/showAttendanceUserDayForWorkExtra.cpt]]></ReportletName>
+</JavaScript>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="error" value="考勤异常"/>
+<Dict key="checked" value="补签考勤"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand dir="1" extendable="2" leftParentDefault="false" left="H5"/>
+</C>
+<C c="10" r="6">
+<Expand dir="1" extendable="2" leftParentDefault="false" left="H5"/>
+</C>
+<C c="11" r="6">
+<Expand dir="1" extendable="2" leftParentDefault="false" left="H5"/>
+</C>
+<C c="12" r="6">
+<Expand dir="1" extendable="2" leftParentDefault="false" left="H5"/>
+</C>
+<C c="13" r="6">
+<Expand dir="1" extendable="2" leftParentDefault="false" left="H5"/>
+</C>
+<C c="5" r="7">
+<O t="DSColumn">
+<Attributes dsName="showCountWorkExtraWorkFullHour" columnName="COUNT(a.statusAttendance)"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[1]]></CNUMBER>
+<CNAME>
+<![CDATA[userName]]></CNAME>
+<Compare op="0">
+<ColumnRow column="3" row="5"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.DatabaseDictionary">
+<FormulaDictAttr ki="1" vi="2"/>
+<DBDictAttr tableName="" schemaName="" ki="1" vi="2"/>
+<Connection class="com.fr.data.impl.JDBCDatabaseConnection">
+<DatabaseAttr/>
+<JDBCDatabaseAttr url="" driver="" user="" password="___" encryptPassword="true">
+<DBCPAttr/>
+</JDBCDatabaseAttr>
+</Connection>
+</Dictionary>
+</Present>
+<Expand dir="0" extendable="1" leftParentDefault="false" left="D6"/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting orientation="1">
+<PaperSize width="60480000" height="85536000"/>
+<Margin top="986400" left="2743200" bottom="986400" right="2743200"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="false" windowPosition="1" align="0"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+<ParameterUI class="com.fr.main.parameter.FormParameterUI">
+<Layout class="com.fr.form.ui.container.WAbsoluteLayout">
+<WidgetName name="para"/>
+<WidgetAttr/>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.form.ui.FreeButton">
+<Listener event="click">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var serverIpText = '${serverIp}';
+var url = serverIpText + '/attendance/attenRecord/toSearch.do?tag=ap2&typeRecord=a';
+window.location.href =url;]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="button1_c_c"/>
+<WidgetAttr/>
+<Text>
+<![CDATA[返回]]></Text>
+<IconName>
+<![CDATA[reload]]></IconName>
+</InnerWidget>
+<BoundsAttr x="16" y="20" width="80" height="21"/>
+</Widget>
+<LCAttr vgap="0" hgap="0"/>
+</Layout>
+<DesignAttr width="800" height="56"/>
+</ParameterUI>
+<Parameter>
+<Attributes name="col"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="144"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="宋体" style="0" size="72"/>
+<Background name="ColorBackground" color="-2624775"/>
+<Border>
+<Top style="1" color="-6697729"/>
+<Bottom style="1" color="-6697729"/>
+<Left style="1" color="-6697729"/>
+<Right style="1" color="-6697729"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="宋体" style="0" size="72" foreground="-16776961"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-6697729"/>
+<Bottom style="1" color="-6697729"/>
+<Left style="1" color="-6697729"/>
+<Right style="1" color="-6697729"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1">
+<FRFont name="宋体" style="0" size="72" foreground="-16776961"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-6697729"/>
+<Bottom style="1" color="-6697729"/>
+<Left style="1" color="-6697729"/>
+<Right style="1" color="-6697729"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1">
+<Format class="com.fr.base.CoreDecimalFormat">
+<![CDATA[#0.00]]></Format>
+<FRFont name="宋体" style="0" size="72" foreground="-16776961"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-6697729"/>
+<Bottom style="1" color="-6697729"/>
+<Left style="1" color="-6697729"/>
+<Right style="1" color="-6697729"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-6697729"/>
+<Bottom style="1" color="-6697729"/>
+<Left style="1" color="-6697729"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-6697729"/>
+<Bottom style="1" color="-6697729"/>
+<Right style="1" color="-6697729"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-6697729"/>
+<Bottom style="1" color="-6697729"/>
+<Right style="1" color="-6697729"/>
+</Border>
+</Style>
+</StyleList>
+</WorkBook>

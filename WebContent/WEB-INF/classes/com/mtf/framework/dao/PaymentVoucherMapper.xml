@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mtf.framework.dao.PaymentVoucherMapper" >
+	<resultMap id="BaseResultMap" type="com.mtf.framework.model.PaymentVoucher" >
+		<id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="applicationDate" property="applicationDate" jdbcType="TIMESTAMP" />
+		<result column="applicantId" property="applicantId" jdbcType="VARCHAR" />
+		<result column="recipient" property="recipient" jdbcType="VARCHAR" />
+		<result column="applicantDeptId" property="applicantDeptId" jdbcType="VARCHAR" />
+		<result column="currencyId" property="currencyId" jdbcType="INTEGER" />
+		<result column="exchangeRate" property="exchangeRate" jdbcType="DOUBLE" />
+		<result column="totalAmount" property="totalAmount" jdbcType="DOUBLE" />
+		<result column="totalRmbAmount" property="totalRmbAmount" jdbcType="DOUBLE" />
+		<result column="cpvNo" property="cpvNo" jdbcType="VARCHAR" />
+		<result column="approveStatus" property="approveStatus" jdbcType="INTEGER" />
+	</resultMap>
+	<sql id="Base_Column_List" >
+		id, applicationDate, applicantId, recipient, applicantDeptId, currencyId, exchangeRate, 
+		totalAmount, totalRmbAmount, cpvNo, approveStatus
+	</sql>
+	<select id="count" resultType="java.lang.Integer" parameterType="com.mtf.framework.model.PaymentVoucher" >
+		SELECT COUNT(*) FROM t_paymentvoucher WHERE 1 = 1
+		<if test="applicationDate != null" >
+			 AND applicationDate = #{applicationDate,jdbcType=TIMESTAMP}
+		</if>
+		<if test="applicantId != null and applicantId != ''" >
+			 AND applicantId = #{applicantId,jdbcType=VARCHAR}
+		</if>
+		<if test="recipient != null and recipient != ''" >
+			 AND recipient = #{recipient,jdbcType=VARCHAR}
+		</if>
+		<if test="applicantDeptId != null and applicantDeptId != ''" >
+			 AND applicantDeptId = #{applicantDeptId,jdbcType=VARCHAR}
+		</if>
+		<if test="currencyId != null" >
+			 AND currencyId = #{currencyId,jdbcType=INTEGER}
+		</if>
+		<if test="exchangeRate != null" >
+			 AND exchangeRate = #{exchangeRate,jdbcType=DOUBLE}
+		</if>
+		<if test="totalAmount != null" >
+			 AND totalAmount = #{totalAmount,jdbcType=DOUBLE}
+		</if>
+		<if test="totalRmbAmount != null" >
+			 AND totalRmbAmount = #{totalRmbAmount,jdbcType=DOUBLE}
+		</if>
+		<if test="cpvNo != null and cpvNo != ''" >
+			 AND cpvNo = #{cpvNo,jdbcType=VARCHAR}
+		</if>
+		<if test="approveStatus != null" >
+			 AND approveStatus = #{approveStatus,jdbcType=INTEGER}
+		</if>
+	</select>
+	<select id="select" resultMap="BaseResultMap" >
+		SELECT 
+		<include refid="Base_Column_List" />
+		FROM t_paymentvoucher WHERE 1 = 1
+		<if test="record != null" >
+			<if test="record.applicationDate != null" >
+				 AND applicationDate = #{record.applicationDate,jdbcType=TIMESTAMP}
+			</if>
+			<if test="record.applicantId != null and record.applicantId != ''" >
+				 AND applicantId = #{record.applicantId,jdbcType=VARCHAR}
+			</if>
+			<if test="record.recipient != null and record.recipient != ''" >
+				 AND recipient = #{record.recipient,jdbcType=VARCHAR}
+			</if>
+			<if test="record.applicantDeptId != null and record.applicantDeptId != ''" >
+				 AND applicantDeptId = #{record.applicantDeptId,jdbcType=VARCHAR}
+			</if>
+			<if test="record.currencyId != null" >
+				 AND currencyId = #{record.currencyId,jdbcType=INTEGER}
+			</if>
+			<if test="record.exchangeRate != null" >
+				 AND exchangeRate = #{record.exchangeRate,jdbcType=DOUBLE}
+			</if>
+			<if test="record.totalAmount != null" >
+				 AND totalAmount = #{record.totalAmount,jdbcType=DOUBLE}
+			</if>
+			<if test="record.totalRmbAmount != null" >
+				 AND totalRmbAmount = #{record.totalRmbAmount,jdbcType=DOUBLE}
+			</if>
+			<if test="record.cpvNo != null and record.cpvNo != ''" >
+				 AND cpvNo = #{record.cpvNo,jdbcType=VARCHAR}
+			</if>
+			<if test="record.approveStatus != null" >
+				 AND approveStatus = #{record.approveStatus,jdbcType=INTEGER}
+			</if>
+		</if>
+		<if test="page != null" >
+			<if test="page.orderBy != null and page.orderBy != ''" >
+				ORDER BY ${page.orderBy}
+			</if>
+			<if test="page.orderBy == null or page.orderBy == ''" >
+				 
+			</if>
+			<if test="page.startIndex &gt;= 0 and page.rows &gt; 0" >
+				LIMIT ${page.startIndex}, ${page.rows}
+			</if>
+		</if>
+		<if test="page == null" >
+			 
+		</if>
+	</select>
+	<select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.String" >
+		SELECT 
+		<include refid="Base_Column_List" />
+		FROM t_paymentvoucher
+		WHERE id = #{id,jdbcType=VARCHAR}
+	</select>
+	<delete id="deleteById" parameterType="java.lang.String" >
+		DELETE FROM t_paymentvoucher
+		WHERE id = #{id,jdbcType=VARCHAR}
+	</delete>
+	<insert id="insert" parameterType="com.mtf.framework.model.PaymentVoucher" >
+		INSERT INTO t_paymentvoucher (id, applicationDate, applicantId, 
+			recipient, applicantDeptId, currencyId, 
+			exchangeRate, totalAmount, totalRmbAmount, 
+			cpvNo, approveStatus)
+		VALUES (#{id,jdbcType=VARCHAR}, #{applicationDate,jdbcType=TIMESTAMP}, #{applicantId,jdbcType=VARCHAR}, 
+			#{recipient,jdbcType=VARCHAR}, #{applicantDeptId,jdbcType=VARCHAR}, #{currencyId,jdbcType=INTEGER}, 
+			#{exchangeRate,jdbcType=DOUBLE}, #{totalAmount,jdbcType=DOUBLE}, #{totalRmbAmount,jdbcType=DOUBLE}, 
+			#{cpvNo,jdbcType=VARCHAR}, #{approveStatus,jdbcType=INTEGER})
+	</insert>
+	<update id="updateById" parameterType="com.mtf.framework.model.PaymentVoucher" >
+		UPDATE t_paymentvoucher
+		SET applicationDate = #{applicationDate,jdbcType=TIMESTAMP},
+			applicantId = #{applicantId,jdbcType=VARCHAR},
+			recipient = #{recipient,jdbcType=VARCHAR},
+			applicantDeptId = #{applicantDeptId,jdbcType=VARCHAR},
+			currencyId = #{currencyId,jdbcType=INTEGER},
+			exchangeRate = #{exchangeRate,jdbcType=DOUBLE},
+			totalAmount = #{totalAmount,jdbcType=DOUBLE},
+			totalRmbAmount = #{totalRmbAmount,jdbcType=DOUBLE},
+			cpvNo = #{cpvNo,jdbcType=VARCHAR},
+			approveStatus = #{approveStatus,jdbcType=INTEGER}
+		WHERE id = #{id,jdbcType=VARCHAR}
+	</update>
+</mapper>

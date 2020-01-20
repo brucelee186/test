@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mtf.framework.dao.UserProfileMapper">
+	<resultMap id="BaseResultMap" type="UserProfile">
+		<id column="id" property="id" jdbcType="CHAR" />
+		<result column="userId" property="userId" jdbcType="CHAR" />
+		<result column="C_FULLNAME" property="fullname" jdbcType="VARCHAR" />
+		<result column="C_EMAIL" property="email" jdbcType="VARCHAR" />
+		<result column="C_LANGUAGE" property="language" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, userId, C_FULLNAME, C_EMAIL, C_LANGUAGE
+	</sql>
+	<select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.String">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM userProfile
+		WHERE id = #{id,jdbcType=CHAR}
+	</select>
+	<select id="countByEmail" resultType="int" parameterType="java.lang.String">
+		SELECT count(id)
+		FROM userProfile
+		WHERE C_EMAIL = #{email,jdbcType=VARCHAR}
+	</select>
+	<select id="countByEmailAndNotId" resultType="int" parameterType="java.util.HashMap">
+		SELECT count(id)
+		FROM userProfile
+		WHERE C_EMAIL = #{email,jdbcType=VARCHAR}
+		AND id != #{id,jdbcType=CHAR}
+	</select>
+	<select id="selectByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM userProfile
+		WHERE userId = #{userId,jdbcType=CHAR}
+	</select>
+	<delete id="deleteById" parameterType="java.lang.String">
+		DELETE FROM userProfile
+		WHERE id = #{id,jdbcType=CHAR}
+	</delete>
+	<insert id="insert" parameterType="UserProfile">
+		INSERT INTO userProfile (id, userId, C_FULLNAME, C_EMAIL, C_LANGUAGE)
+		VALUES (#{id,jdbcType=CHAR}, #{userId,jdbcType=CHAR}, #{fullname,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR})
+	</insert>
+	<update id="updateById" parameterType="UserProfile">
+		UPDATE userProfile
+		SET userId = #{userId,jdbcType=CHAR},
+		C_FULLNAME = #{fullname,jdbcType=VARCHAR},
+		C_EMAIL = #{email,jdbcType=VARCHAR},
+		C_LANGUAGE = #{language,jdbcType=VARCHAR}
+		WHERE id = #{id,jdbcType=CHAR}
+	</update>
+</mapper>

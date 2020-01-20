@@ -1,0 +1,58 @@
+dateformat.datetime=yyyy-MM-dd HH:mm:ss
+dateformat.year=yyyy
+dateformat.date=yyyy-MM-dd
+dateformat.time=HH:mm:ss
+line.separator=,
+
+
+### report dir
+report.template.dir=D\:/git/office/sourcecode/office/WebContent/WEB-INF/reportlets/
+
+### mail server setting
+mail.smtp.host=mail.manchutimesfashion.com
+mail.smtp.port=25
+mail.smtp.auth=true
+mail.smtp.uid=vegasupport
+mail.smtp.pwd=mtf.vega2014
+mail.smtp.from=Office Support<OfficeSupport@ManchuTimesFashion.com>
+mail.dev=wadezhu@manchutimesfashion.com,billqi@manchutimesfashion.com,neoyin@manchutimesfashion.com,suzieli@manchutimesfashion.com
+mail.reimbursement.report.recevier.test=neoyin@manchutimesfashion.com;neoyin@manchutimesfashion.com;
+mail.reimbursement.report.recevier=JoeZhou@ManchuTimesFashion.com;LiuXiMing@ManchuTimesFashion.com;
+# dev:development,rel:real
+sys.mode=dev
+sys.cache=true
+
+### permission codes app(applicatino) purchase(pur)
+permission.app.codes=1402023,1402024,1402025,1402026,1402027,1402028,1402029,1402030,1402031,1402032,1402033,1402034,1402035,1402036,1402037,1402038,1402039,1402040,1402041,1402042,1402043,1402044,1402045,1402046,1402047,1402048,1402049,1402050,1402051,1402052,1402053,1402054,1402055,1402056,1402057,1402058,1402059,1402060,1402061,1402062,1402063,1402064
+permission.pur.codes=1402065,1402066,1402067,1402068,1402069,1402070,1402071,1402072,1402073,1402074,1402075,1402076,1402077,1402078,1402079,1402080,1402081,1402082,1402083,1402084,1402085,1402086,1402087,1402088,1402089,1402090,1402091,1402092,1402093,1402094,1402095,1402096,1402097,1402098,1402099,1402100,1402101,1402102,1402103,1402104,1402105,1402106,1402107,1402108,1402109,1402110,1402111,1402112,1402113,1402114,1402115,1402116,1402117,1402118,1402119,1402120,1402121,1402122,1402123,1402124,1402125,1402126,1402127
+permission.pur.domestic.codes=1402128,1402129,1402130,1402131,1402132,1402133,1402134,1402135,1402136,1402137,1402138,1402139,1402140,1402141,1402142,1402143,1402144,1402145,1402146,1402147,1402148,1402149,1402150,1402151,1402152,1402153,1402154,1402155,1402156,1402157,1402158,1402159,1402160,1402161,1402162,1402163,1402164,1402165,1402166,1402167,1402168,1402169,1402170,1402171,1402172,1402173,1402174,1402175,1402176,1402177,1402178,1402179,1402180,1402181,1402182,1402183,1402184,1402185,1402186,1402187,1402188,1402189,1402190
+
+permission.admin.codes=1507000,1508000,1509000
+permission.pur.max.code=1402019
+permission.categoryId.domestic.code=1402020
+permission.categoryId.international.code=1402021
+permission.signer.code=1402022
+permission.domestic.categoryId=29
+#permission.international.categoryId=30
+
+
+
+### mail template
+mail.body.header=<\!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http\://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\r\n<html>\r\n<head>\r\n<style type\="text/css">\r\n<\!-- \r\n.mailbody {font-family\: Candara, Verdana, Arial, Helvetica, sans-serif; font-size\: 11pt; color\: \#110043; text-decoration\: none;}\r\n.mailfooter {font-family\: Candara, Verdana, Arial, Helvetica, sans-serif; font-size\: 9pt;font-style\: italic;color\:\#999999}\r\n.mailtableh {font-family\: Candara, Verdana, Arial, Helvetica, sans-serif; border-color\:\#6593CF;border-width\:1px;border-style\:solid; border-collapse\:collapse;text-align\: center; color\:\#110043}\r\n.mailtableh th {font-family\: Candara, Verdana, Arial, Helvetica, sans-serif; border-color\:\#6593CF;border-width\:1px;border-style\:solid; padding\: 3px; background-color\: \#C2D9F1}\r\n.mailtableh td {font-family\: Candara, Verdana, Arial, Helvetica, sans-serif; border-color\:\#6593CF;border-width\:1px;border-style\:solid; padding\: 3px;}\r\n.mailtablev {font-family\: Candara, Verdana, Arial, Helvetica, sans-serif; border-color\:\#6593CF;border-width\:1px;border-style\:solid; border-collapse\:collapse;color\:\#110043}\r\n.mailtablev th {font-family\: Candara, Verdana, Arial, Helvetica, sans-serif; border-color\:\#6593CF;border-width\:1px;border-style\:solid; padding\: 3px; background-color\: \#C2D9F1; text-align\: right; }\r\n.mailtablev td {font-family\: Candara, Verdana, Arial, Helvetica, sans-serif; border-color\:\#6593CF;border-width\:1px;border-style\:solid; padding\: 3px; text-align\: left; }\r\n-->\r\n</style>\r\n</head>\r\n<body>\r\n<div class\="mailbody">\r\n
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\r\n\
+<html>\r\n\
+<head>\r\n\
+<style type="text/css">\r\n\
+
+</style>\r\n\
+</head>\r\n\
+<body>\r\n\
+<div class="mailbody">\r\n
+mail.body.footer=<hr />\r\n<span class\="mailfooter">\r\n<p>This message is sent from <a href\="http\://192.168.50.5\:8080/office/">OFFICE</a>, please do not reply\!</p>\r\n</span>\r\n</div>\r\n</body>\r\n</html>
+<hr />\r\n<span class\="mailfooter">\r\n<p>This message is sent from <a href\="http\://192.168.50.5\:8080/office/">OFFICE</a>, please do not reply\!</p>\r\n</span>\r\n</div>\r\n</body>\r\n</html>>
+<span class\="mailfooter">\r\n<p>This message is sent from <a href\="http\://192.168.50.5\:8080/office/">OFFICE</a>, please do not reply\!</p>\r\n</span>\r\n</div>\r\n</body>\r\n</html>
+<p>This message is sent from <a href\="http\://192.168.50.5\:8080/office/">OFFICE</a>, please do not reply\!</p>\r\n</span>\r\n</div>\r\n</body>\r\n</html>
+</span>\r\n\
+</div>\r\n\
+</body>\r\n\
+</html>

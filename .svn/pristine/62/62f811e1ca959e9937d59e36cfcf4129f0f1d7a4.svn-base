@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mtf.framework.dao.Role2ActionMapper">
+	<resultMap id="BaseResultMap" type="Role2Action">
+		<id column="id" property="id" jdbcType="CHAR" />
+		<result column="roleId" property="roleId" jdbcType="CHAR" />
+		<result column="actionId" property="actionId" jdbcType="CHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, roleId, actionId
+	</sql>
+	<select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.String">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM roleAction
+		WHERE id = #{id,jdbcType=CHAR}
+	</select>
+	<select id="countByActionIdAndRoleIds" resultType="int" parameterType="java.util.HashMap">
+		SELECT COUNT(id)
+		FROM roleAction
+		WHERE actionId = #{actionId,jdbcType=CHAR}
+		AND roleId IN
+		<foreach collection="roleIds" item="roleId" open="(" separator="," close=")">  
+			#{roleId,jdbcType=CHAR}
+		</foreach>
+	</select>
+	<delete id="deleteById" parameterType="java.lang.String">
+		DELETE FROM roleAction
+		WHERE id = #{id,jdbcType=CHAR}
+	</delete>
+	<delete id="deleteByRoleId" parameterType="java.lang.String">
+		DELETE FROM roleAction
+		WHERE roleId = #{roleId,jdbcType=CHAR}
+	</delete>
+	<delete id="deleteByActionId" parameterType="java.lang.String">
+		DELETE FROM roleAction
+		WHERE actionId = #{actionId,jdbcType=CHAR}
+	</delete>
+	<insert id="insert" parameterType="Role2Action">
+		INSERT INTO roleAction (id, roleId, actionId)
+		VALUES (#{id,jdbcType=CHAR}, #{roleId,jdbcType=CHAR}, #{actionId,jdbcType=CHAR})
+	</insert>
+	<update id="updateById" parameterType="Role2Action">
+		UPDATE roleAction
+		SET roleId = #{roleId,jdbcType=CHAR},
+		actionId = #{actionId,jdbcType=CHAR}
+		WHERE id = #{id,jdbcType=CHAR}
+	</update>
+</mapper>

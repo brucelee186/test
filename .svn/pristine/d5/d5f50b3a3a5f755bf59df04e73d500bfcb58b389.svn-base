@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mtf.framework.dao.UserInforConditionMapper" > 
+	<resultMap type="com.mtf.framework.model.impl.UserInforImpl" id="userInfor"/>
+	
+<!-- 	<resultMap id="userInforMain" type="com.mtf.framework.model.impl.UserInforImpl">
+	   <result property="code" column="codeMain"/>  
+	   <collection property="listUserInfor" resultMap="userInforDetail"/>
+	 </resultMap>  
+    -->
+<!-- 	<resultMap id="userInforDetail" type="com.mtf.framework.model.impl.UserInforImpl">
+		<result property="code" column="code" />
+		<result property="pid" column="pid" />
+		<result property="codeDetail" column="codeDetail" />
+		<result property="name" column="name" />
+	</resultMap> -->
+
+<!-- 	<select id="selectListMap"  parameterMap="java.lang.Object" resultMap="userInforMain">
+		SELECT 
+			a.code codeMain,
+			b.*
+		FROM
+			userInfor a LEFT JOIN userInfor b ON b.code = a.code
+	</select> -->
+
+	<sql id="updateColumn">
+		<if test="orderIndex == null or orderIndex == ''">
+			orderIndex = #{orderIndex},
+		</if>
+	</sql>
+
+	<sql id="getColumn">
+		REPLACE(a.`code`,a.type,'') AS codeOrder,
+	</sql>
+
+	<sql id="getFrom">
+		
+	</sql>
+
+	<sql id="getWhere">
+		
+	</sql>
+
+	<sql id="selectColumn">
+		
+	</sql>
+
+	<sql id="selectFrom">
+		
+	</sql>
+
+	<sql id="selectWhere">
+		
+	</sql>
+
+	<sql id="countFrom">
+		
+	</sql>
+
+	<sql id="countWhere">
+		
+	</sql>
+
+	<sql id="updateWhere">
+		<if test="tagUpdate == null ">
+			id = #{id}
+		</if>
+		<if test="tagUpdate != null ">
+			pid = #{pid}
+		</if>	
+	</sql>
+	
+	
+		<!-- 查询单个实体对象 -->
+	<select id="getUserInforImpl" parameterType="java.lang.Object" resultMap="userInfor">
+		SELECT 
+			id, 
+			name, 
+			type, 
+			pid, 
+			flag, 
+			status, 
+			addDate, 
+			addIp, 
+			addUser, 
+			modifyDate, 
+			modifyIp, 
+			modifyUser, 
+			code
+		FROM userInfor
+		<where>
+			1=1
+			<if test="type != null">
+				AND type = #{type}
+			</if>
+			<if test="pid != null">
+				AND pid = #{pid}
+			</if>
+			<if test="flag != null">
+				AND flag = #{flag}
+			</if>
+
+		</where>
+		ORDER BY addDate DESC
+		LIMIT 1
+	</select>
+</mapper>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mtf.framework.dao.UserDivisionConditionMapper" > 
+	<resultMap type="com.mtf.framework.model.impl.UserDivisionImpl" id="userDivision"/> 
+
+	<sql id="getColumn">
+		
+	</sql>
+
+	<sql id="getFrom">
+		
+	</sql>
+
+	<sql id="getWhere">
+		
+	</sql>
+
+	<sql id="selectColumn">
+		(SELECT division.name FROM division WHERE division.id = a.divisionId) divisionName,
+		(SELECT userDetail.displayName FROM userDetail WHERE userDetail.id = a.userId) userName,
+	</sql>
+
+	<sql id="selectFrom">
+		<if test="tagMapper == 'doListUserByDivision'">
+			LEFT JOIN userDetail b ON b.userId = a.userId
+		</if>
+		<if test="tagMapper == 'joinAttenRule'">
+			LEFT JOIN userDetail b ON b.userId = a.userId
+			LEFT JOIN permission AS b ON (b.value2 = a.id AND b.parentCode = '1615000')
+		</if>
+	</sql>
+
+	<sql id="selectWhere">
+		<if test="tagMapper == 'doListUserByDivision'">
+			AND (b.`status` = 0 OR b.`status` = 4)
+			AND b.displayName IS NOT NULL
+		</if>
+	</sql>
+
+	<sql id="countFrom">
+		
+	</sql>
+
+	<sql id="searchFrom">
+		<if test="tagMapper == 'status0'">
+			LEFT JOIN user b ON b.id = a.userId
+		</if>
+	</sql>
+
+	<sql id="countWhere">
+		
+	</sql>
+
+	<sql id="searchWhere">
+		<if test="tagMapper == 'status0'">
+			AND b.`status` = 0
+		</if>
+	</sql>
+
+	<sql id="updateColumn">
+		
+	</sql>
+
+	<sql id="updateWhere">
+		id = #{id}
+	</sql>
+</mapper>

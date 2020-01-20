@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mtf.framework.dao.ResourceMapper">
+	<resultMap id="BaseResultMap" type="ResourceImpl">
+		<id column="id" property="id" jdbcType="CHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="description" property="description" jdbcType="VARCHAR" />
+		<result column="uri" property="uri" jdbcType="VARCHAR" />
+		<result column="level" property="level" jdbcType="INTEGER" />
+		<result column="access" property="access"/>
+		<result column="actionId" property="actionId" jdbcType="CHAR" />
+		<result column="pid" property="pid" jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="WithActionResultMap" type="ResourceImpl" extends="BaseResultMap">
+		<association property="action" javaType="Action">
+			<id column="actionId" property="id" jdbcType="CHAR" />
+			<result column="actionName" property="name" jdbcType="VARCHAR" />
+			<result column="actionDescription" property="description" jdbcType="VARCHAR" />
+			<result column="actionLevel" property="level" jdbcType="INTEGER" />
+			<result column="actionStatus" property="status" jdbcType="INTEGER" />
+		</association>
+	</resultMap>
+	<sql id="baseColumn">
+		id, name, description, uri, level, access, actionId, pid, addDate, modifiedDate
+	</sql>
+	<select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.String">
+		SELECT
+		<include refid="baseColumn" />
+		FROM resource
+		WHERE id = #{id,jdbcType=CHAR}
+	</select>
+	<select id="selectByUri" resultMap="BaseResultMap" parameterType="java.lang.String">
+		SELECT
+		<include refid="baseColumn" />
+		FROM resource
+		WHERE uri = #{uri,jdbcType=CHAR}
+	</select>
+	<select id="selectByActionId" resultMap="BaseResultMap" parameterType="java.lang.String">
+		SELECT
+		<include refid="baseColumn" />
+		FROM resource
+		WHERE actionId = #{actionId,jdbcType=CHAR}
+	</select>
+	<select id="selectAll" resultMap="BaseResultMap">
+		SELECT
+		<include refid="baseColumn" />
+		FROM resource
+		ORDER BY uri
+	</select>
+	<select id="selectAllUnsigned" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+		SELECT
+		<include refid="baseColumn" />
+		FROM resource
+		WHERE actionId IS NULL
+		<if test="sort != null and sort != ''">
+			ORDER BY ${sort} ${order}
+		</if>
+	</select>
+	<select id="countByName" resultType="int" parameterType="java.lang.String">
+		SELECT COUNT(id)
+		FROM resource
+		WHERE name = #{name,jdbcType=VARCHAR}
+	</select>
+	<select id="countByUri" resultType="int" parameterType="java.lang.String">
+		SELECT COUNT(id)
+		FROM resource
+		WHERE uri = #{uri,jdbcType=VARCHAR}
+	</select>
+	<select id="countBySearch" resultType="int" parameterType="java.util.HashMap">
+		SELECT COUNT(id)
+		FROM resource
+		WHERE 1 = 1
+		<if test="name != null and name != ''">
+			AND name LIKE CONCAT(CONCAT('%', #{name,jdbcType=VARCHAR}), '%')
+		</if>
+		<if test="uri != null and uri != ''">
+			AND uri LIKE CONCAT(CONCAT('%', #{uri,jdbcType=VARCHAR}), '%')
+		</if>
+		<if test="level != null">
+			AND level = #{level,jdbcType=INTEGER}
+		</if>
+		<if test="access != null">
+			AND access = #{access}
+		</if>
+		<if test="description != null and description != ''">
+			AND description LIKE CONCAT(CONCAT('%', #{description,jdbcType=VARCHAR}), '%')
+		</if>
+	</select>
+	<select id="selectBySearch" resultMap="WithActionResultMap" parameterType="java.util.HashMap">
+		SELECT
+		resource.id,
+		resource.name,
+		resource.description,
+		resource.uri,
+		resource.level,
+		resource.access,
+		resource.actionId,
+		resource.pid,
+		resource.addDate,
+		resource.modifiedDate,
+		action.name AS actionName,
+		action.description AS actionDescription,
+		action.level AS actionLevel,
+		action.status AS actionStatus
+		FROM resource
+		LEFT JOIN action ON resource.actionId  = action.id
+		WHERE 1 = 1
+		<if test="name != null and name != ''">
+			AND resource.name LIKE CONCAT(CONCAT('%', #{name,jdbcType=VARCHAR}), '%')
+		</if>
+		<if test="uri != null and uri != ''">
+			AND resource.uri LIKE CONCAT(CONCAT('%', #{uri,jdbcType=VARCHAR}), '%')
+		</if>
+		<if test="level != null and level &gt; 0 and level &lt; 10">
+			AND resource.level = #{level,jdbcType=INTEGER}
+		</if>
+		<if test="access != null">
+			AND resource.access = #{access}
+		</if>
+		<if test="description != null and description != ''">
+			AND resource.description LIKE CONCAT(CONCAT('%', #{description,jdbcType=VARCHAR}), '%')
+		</if>
+		<if test="sort != null and sort != ''">
+			ORDER BY ${sort} ${order}
+		</if>
+		<if test="sort == null or sort == ''">
+			ORDER BY resource.modifiedDate DESC 
+		</if>
+		limit ${startIndex}, ${pageSize}
+	</select>
+	<delete id="deleteById" parameterType="java.lang.String">
+		DELETE FROM resource
+		WHERE id = #{id,jdbcType=CHAR}
+	</delete>
+	<insert id="insert" parameterType="Resource">
+		INSERT INTO resource (id, name, description, uri, level, access, actionId, addDate, modifiedDate)
+		VALUES (#{id,jdbcType=CHAR}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{uri,jdbcType=VARCHAR}, #{level,jdbcType=INTEGER}, #{access}, #{actionId,jdbcType=CHAR}, #{addDate}, #{modifiedDate})
+	</insert>
+	<update id="updateActionId2Null" parameterType="java.lang.String">
+		UPDATE resource
+		SET actionId = NULL
+		WHERE actionId = #{actionId,jdbcType=CHAR}
+	</update>
+	<update id="updateById" parameterType="Resource">
+		UPDATE resource
+		SET name = #{name,jdbcType=VARCHAR},
+		description = #{description,jdbcType=VARCHAR},
+		uri = #{uri,jdbcType=VARCHAR},
+		level = #{level,jdbcType=INTEGER},
+		access = #{access},
+		actionId = #{actionId,jdbcType=CHAR},
+		pid = #{pid}
+		WHERE id = #{id,jdbcType=CHAR}
+	</update>
+	<update id="updateByIdWithoutActionId" parameterType="Resource">
+		UPDATE resource
+		SET name = #{name,jdbcType=VARCHAR},
+		description = #{description,jdbcType=VARCHAR},
+		uri = #{uri,jdbcType=VARCHAR},
+		level = #{level,jdbcType=INTEGER},
+		addDate = #{addDate},
+		modifiedDate = #{modifiedDate}
+		WHERE id = #{id,jdbcType=CHAR}
+	</update>
+	
+	<select id="selectMenu" parameterType="Resource" resultMap="BaseResultMap" >
+		SELECT
+			<include refid="baseColumn"/>
+		FROM resource
+		WHERE access = #{access}
+	</select>
+</mapper>

@@ -1,0 +1,3743 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20120529" releaseVersion="7.0.0">
+<ReportWebAttr>
+<WebPageContent>
+<ToolBars>
+<ToolBarManager>
+<Location>
+<Embed position="1"/>
+</Location>
+<ToolBar>
+<Widget class="com.fr.report.web.ui.impl.page.First">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('ReportServerP-First')}]]></Text>
+<IconName>
+<![CDATA[first]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Previous">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('ReportServerP-Previous')}]]></Text>
+<IconName>
+<![CDATA[previous]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.PageNavi">
+<WidgetAttr/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Next">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('ReportServerP-Next')}]]></Text>
+<IconName>
+<![CDATA[next]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Last">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('ReportServerP-Last')}]]></Text>
+<IconName>
+<![CDATA[last]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.FlashPrint">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('Utils-Print[Client]A')}]]></Text>
+<IconName>
+<![CDATA[flashprint]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Print">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('Print')}]]></Text>
+<IconName>
+<![CDATA[print]]></IconName>
+<PrintButtons/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Export">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('Export')}]]></Text>
+<IconName>
+<![CDATA[export]]></IconName>
+<Buttons pdf="true" excelP="true" excelO="true" excelS="true" word="true" image="true" html="true"/>
+</Widget>
+</ToolBar>
+</ToolBarManager>
+</ToolBars>
+<WebPage isPage="false" isShowAsImage="false" isAutoScale="false" isTDHeavy="false"/>
+</WebPageContent>
+<WebWriteContent>
+<Listener event="writefailure">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[FR.Msg.alert(FR.i18n.Alert, "请检查登录名是否重名！"); ]]></Content>
+</JavaScript>
+</Listener>
+<Listener event="writesuccess">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[t=setTimeout("window.history.go(-1)",3000);]]></Content>
+</JavaScript>
+</Listener>
+<ToolBars>
+<ToolBarManager>
+<Location>
+<Embed position="1"/>
+</Location>
+<ToolBar>
+<Widget class="com.fr.report.web.ui.impl.FlashPrint">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('Utils-Print[Client]A')}]]></Text>
+<IconName>
+<![CDATA[flashprint]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.write.Verify">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('Verify-Data_Verify')}]]></Text>
+<IconName>
+<![CDATA[verify]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Print">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('Print')}]]></Text>
+<IconName>
+<![CDATA[print]]></IconName>
+<PrintButtons/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Export">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('Export')}]]></Text>
+<IconName>
+<![CDATA[export]]></IconName>
+<Buttons pdf="true" excelP="true" excelO="true" excelS="true" word="true" image="true" html="true"/>
+</Widget>
+</ToolBar>
+</ToolBarManager>
+</ToolBars>
+<SelectedColor/>
+</WebWriteContent>
+</ReportWebAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<RowHeight defaultValue="723900">
+<![CDATA[381000,457200,723900,571500,723900,266700,723900,1143000,723900,723900,723900,1143000,723900,304800,0,723900,1333500,360000,720000,216000,1296000,1296000,1152000,1152000,1152000,1152000,1152000,1152000,576000,576000,723900,722880,723900,723900,723900,723900,723900,576000,576000,723900,723900,723900,723900,576000,576000,723900,1143000,1296000,1296000,1296000,723900,723900,723900,722880,1181100,723900,723900,576000,576000,723900,864000,864000,864000,864000,864000,864000,864000,723900,723900,723900,723900,723900,723900,723900,723900,0,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[288000,1440000,1440000,533400,1440000,1440000,1440000,1440000,1440000,1440000,1440000,1440000,1440000,1440000,1440000,1440000,1440000,1447800,288000,144000,1440000,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="1" r="1" cs="17" rs="3" s="0">
+<O>
+<![CDATA[员工入职登记表]]></O>
+<Expand/>
+</C>
+<C c="1" r="4" cs="17" s="1">
+<O>
+<![CDATA[FORM FOR PERSONAL INFORMATION OF EMPLOYEE]]></O>
+<Expand/>
+</C>
+<C c="1" r="5" cs="12">
+<Expand/>
+</C>
+<C c="0" r="6">
+<Expand/>
+</C>
+<C c="1" r="6" cs="17" s="2">
+<O>
+<![CDATA[入职员工填写下面表格，所有的表格必须填写，或填写无。]]></O>
+<Expand/>
+</C>
+<C c="1" r="7" cs="17" s="3">
+<O>
+<![CDATA[The blanks below must be filled completely or filled with “No” by the applicant.]]></O>
+<Expand/>
+</C>
+<C c="8" r="8">
+<Expand/>
+</C>
+<C c="1" r="9" cs="10" s="4">
+<O>
+<![CDATA[工作信息 POSITION INFORAMTION]]></O>
+<Expand/>
+</C>
+<C c="1" r="10" cs="5" s="5">
+<O>
+<![CDATA[所属部门Department]]></O>
+<Expand/>
+</C>
+<C c="6" r="10" cs="4" s="6">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="departmentId"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.ComboBox">
+<Listener event="beforeedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[contentPane.getWidgetByName("depart").setValue();]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="depart"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择部门！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="0" vi="1"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[addDivision]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+<widgetValue/>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="0" vi="1"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[addDivision]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="10" r="10" cs="4" s="6">
+<O>
+<![CDATA[岗位Position]]></O>
+<Expand/>
+</C>
+<C c="14" r="10" cs="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="positionId"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.ComboBox">
+<Listener event="beforeedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[contentPane.getWidgetByName("position").setValue();]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="position"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择岗位！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="0" vi="1"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[addPosition]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+<widgetValue/>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="0" vi="1"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[addPosition]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="1" r="11" cs="5" s="8">
+<O>
+<![CDATA[入职日期Entry Date]]></O>
+<Expand/>
+</C>
+<C c="6" r="11" cs="4" s="9">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="entryDate"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.DateEditor">
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择入职时间！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<DateAttr/>
+<widgetValue/>
+</Widget>
+<Expand/>
+</C>
+<C c="10" r="11" cs="4" s="10">
+<O>
+<![CDATA[英语水平English Proficiency]]></O>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr/>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="14" r="11" cs="4" s="11">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="englishProficiency"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.ComboBox">
+<Listener event="beforeedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[contentPane.getWidgetByName("enLevel").setValue();]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="enLevel"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择英语水平！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectEnglish]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+<widgetValue/>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectEnglish]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="1" r="14" cs="17">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="id"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetAttr/>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.NoneReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="15" cs="10" s="4">
+<O>
+<![CDATA[个人资料PERSONAL INFORMATION]]></O>
+<Expand/>
+</C>
+<C c="1" r="16" cs="5" s="5">
+<O>
+<![CDATA[中文姓名Chinese Name]]></O>
+<Expand/>
+</C>
+<C c="6" r="16" cs="4" s="6">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="displayName"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<Listener event="stopedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var chineseName = this.getValue();
+if(chineseName.trim()!=""){    
+       var reg=/^([\u4e00-\u9fa5]A)+$/;    
+        if(!reg.test(chineseName)){    
+	    FR.Msg.alert(FR.i18n.Alert, "中文姓名格式不正确，只能输入汉字!"); 
+        } 
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="chineseName"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请正确输入中文姓名！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.CustomReg">
+<CusReg ct="^([\u4e00-\u9fa5])+$"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="10" r="16" cs="4" s="6">
+<O>
+<![CDATA[登录名 loginName]]></O>
+<Expand/>
+</C>
+<C c="14" r="16" cs="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="loginName"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<Listener event="stopedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var loginName = contentPane.getWidgetByName("loginName").getValue();
+if(loginName.trim()!=""){    
+       var reg=/^[A-Za-z]A+$/;    
+        if(!reg.test(loginName)){    
+	    FR.Msg.alert(FR.i18n.Alert, "英文姓名（登录名）格式不正确!"); 
+        } 
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="loginName"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请正确输入英文姓名（登录名）！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.CustomReg">
+<CusReg ct="^[A-Za-z]+$"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="17" cs="5" rs="3" s="12">
+<O>
+<![CDATA[性别Gender]]></O>
+<Expand/>
+</C>
+<C c="6" r="17" cs="4" s="13">
+<Expand/>
+</C>
+<C c="10" r="17" cs="4" rs="3" s="14">
+<O>
+<![CDATA[出生日期Birth Date(YY/MM/DD)]]></O>
+<Expand/>
+</C>
+<C c="14" r="17" cs="4" rs="3" s="15">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="birthDate"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.DateEditor">
+<WidgetName name="birthDate"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择出生日期！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<DateAttr format="yyyy/MM/dd" start="01/01/1930" end="12/01/2050" returnDate="true"/>
+<widgetValue/>
+</Widget>
+<Expand/>
+</C>
+<C c="6" r="18" cs="4" s="16">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="gender"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetName name="gender"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择性别！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="m" value="男Male"/>
+<Dict key="f" value="女Female"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="m" value="男Male"/>
+<Dict key="f" value="女Female"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="6" r="19" cs="4" s="17">
+<Expand/>
+</C>
+<C c="1" r="20" cs="5" s="12">
+<O>
+<![CDATA[民族Ethnic Group]]></O>
+<Expand/>
+</C>
+<C c="6" r="20" cs="4" s="14">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="ethnicGroup"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.ComboBox">
+<Listener event="beforeedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[contentPane.getWidgetByName("ethnic").setValue();]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="ethnic"/>
+<WidgetAttr/>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectEthnic]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+<widgetValue/>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectEthnic]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="10" r="20" cs="4" s="14">
+<O>
+<![CDATA[婚姻状况Marital Status]]></O>
+<Expand/>
+</C>
+<C c="14" r="20" cs="4" s="18">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="maritalStatus"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetName name="marital"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择婚姻状况！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="m" value="已婚Married"/>
+<Dict key="s" value="未婚Single"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="m" value="已婚Married"/>
+<Dict key="s" value="未婚Single"/>
+<Dict key="" value=""/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="1" r="21" cs="5" s="12">
+<O>
+<![CDATA[国籍Nationality]]></O>
+<Expand/>
+</C>
+<C c="6" r="21" cs="4" s="14">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="nationality"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.ComboBox">
+<Listener event="beforeedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[contentPane.getWidgetByName("national").setValue();]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="national"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择国际！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectNationality]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+<widgetValue/>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectNationality]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="10" r="21" cs="4" s="14">
+<O>
+<![CDATA[宅电TEL NO.]]></O>
+<Expand/>
+</C>
+<C c="14" r="21" cs="4" s="18">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="telephoneNo"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入宅电号码，没有请输入“无”！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.CustomReg">
+<CusReg ct="(^[0-9]{3,4}\-[0-9]{3,8}$)|(^[0-9]{3,8}$)|(^[0-9]{6,12}$)|(^([\u4e00-\u9fa5]){1}$)"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="22" cs="5" s="12">
+<O>
+<![CDATA[政治身份Political Identity(如有If Any)]]></O>
+<Expand/>
+</C>
+<C c="6" r="22" cs="4" s="14">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="politicalIdentity"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.ComboBox">
+<Listener event="beforeedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[contentPane.getWidgetByName("political").setValue();]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="political"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择政治身份！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectPolitical]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+<widgetValue/>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectPolitical]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="10" r="22" cs="4" s="14">
+<O>
+<![CDATA[宗教信仰Religion(如有If Any)]]></O>
+<Expand/>
+</C>
+<C c="14" r="22" cs="4" s="18">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="religion"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.ComboBox">
+<Listener event="beforeedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[contentPane.getWidgetByName("religion").setValue();]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="religion"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择宗教信仰！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectReligion]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+<widgetValue/>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectReligion]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="1" r="23" cs="5" s="12">
+<O>
+<![CDATA[身份证号码ID No(或 护照号 Or Passport No.)]]></O>
+<Expand/>
+</C>
+<C c="6" r="23" cs="4" s="14">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="idNo"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<Listener event="stopedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var idNo = contentPane.getWidgetByName("idNo").getValue();
+if(idNo.trim()!=""){    
+       var reg=/(^\d{15}$)|(\d{17}(?:\d|x|X)$)| ^1[45]A[0-9]A{7}|G[0-9]A{8}|P[0-9]A{7}|S[0-9]A{7,8}$/;    
+        if(!reg.test(idNo)){    
+	    FR.Msg.alert(FR.i18n.Alert, "身份证号码（护照名）格式不正确!"); 
+        } 
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="idNo"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请正确输入身份证号码（护照号）！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.CustomReg">
+<CusReg ct="(^\d{15}$)|(\d{17}(?:\d|x|X)$)| ^1[45][0-9]{7}|G[0-9]{8}|P[0-9]{7}|S[0-9]{7,8}$"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="10" r="23" cs="4" s="19">
+<O>
+<![CDATA[英文名 English Name]]></O>
+<Expand/>
+</C>
+<C c="14" r="23" cs="4" s="18">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="englishName"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<Listener event="stopedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var loginName = contentPane.getWidgetByName("loginName").getValue();
+if(loginName.trim()!=""){    
+       var reg=/^[A-Za-z]A+$/;    
+        if(!reg.test(loginName)){    
+	    FR.Msg.alert(FR.i18n.Alert, "英文姓名（登录名）格式不正确!"); 
+        } 
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="englishName"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请正确输入英文名！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.CustomReg">
+<CusReg ct="^([A-Za-z]+\s?)*[A-Za-z]$"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="24" cs="5" s="12">
+<O>
+<![CDATA[户口所在地Registered Residence]]></O>
+<Expand/>
+</C>
+<C c="6" r="24" cs="3" s="20">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="province"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入省份！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="10"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="9" r="24" s="21">
+<O>
+<![CDATA[省]]></O>
+<Expand/>
+</C>
+<C c="10" r="24" cs="3" s="22">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="city"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入市（县）！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="10"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="13" r="24" cs="2" s="21">
+<O>
+<![CDATA[市（县）]]></O>
+<Expand/>
+</C>
+<C c="15" r="24" cs="2" s="22">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="district"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入区！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="10"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="17" r="24" s="23">
+<O>
+<![CDATA[区]]></O>
+<Expand/>
+</C>
+<C c="1" r="25" cs="5" s="12">
+<O>
+<![CDATA[电子邮件Email Address]]></O>
+<Expand/>
+</C>
+<C c="6" r="25" cs="12" s="18">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="email"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<Listener event="stopedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var email=this.getValue();
+if(email.trim()!=""){    
+       var reg=/^\w+([-+.]A\w+)*@\w+([-.]A\w+)*\.\w+([-.]A\w+)*$/;    
+        if(!reg.test(email)){    
+	    FR.Msg.alert(FR.i18n.Alert, "电子邮件格式不正确!"); 
+        } 
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="email"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请正确输入电子邮件！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.MailReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="26" cs="5" s="12">
+<O>
+<![CDATA[移动电话Cell Phone NO.]]></O>
+<Expand/>
+</C>
+<C c="6" r="26" cs="12" s="18">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="phoneNo"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<Listener event="stopedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var phoneNo = contentPane.getWidgetByName("phoneNo").getValue();
+if(phoneNo.trim()!=""){    
+       var reg=/^(1)\d{10}$/;    
+        if(!reg.test(phoneNo)){    
+	    FR.Msg.alert(FR.i18n.Alert, "手机号码格式不正确!"); 
+        } 
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="phoneNo"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请正确输入移动电话！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.MobileReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="27" cs="5" s="8">
+<O>
+<![CDATA[现住址Address Available]]></O>
+<Expand/>
+</C>
+<C c="6" r="27" cs="12" s="11">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="addressAvailable"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="address"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入现住址！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="100"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="30" cs="13" s="4">
+<O>
+<![CDATA[社会福利信息SOCIAL WELFARE INFORMATION]]></O>
+<Expand/>
+</C>
+<C c="1" r="31" cs="4" rs="2" s="5">
+<O>
+<![CDATA[     社会保险      Social Security]]></O>
+<Expand/>
+</C>
+<C c="5" r="31" cs="7" s="6">
+<O>
+<![CDATA[享受此社会福利?Do you have this access? ]]></O>
+<Expand/>
+</C>
+<C c="12" r="31" cs="6" s="7">
+<O>
+<![CDATA[缴费状态Paying Status]]></O>
+<Expand/>
+</C>
+<C c="5" r="32" s="24">
+<Expand/>
+</C>
+<C c="6" r="32" s="25">
+<Expand/>
+</C>
+<C c="7" r="32" cs="4" s="21">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="socialSecurityNoPermission"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetName name="socialSecurityNoPermission1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择是否享受【社会保险】福利！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="y" value="是Yes"/>
+<Dict key="n" value="否No"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="y" value="是Yes"/>
+<Dict key="n" value="否No"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="11" r="32" s="26">
+<Expand/>
+</C>
+<C c="12" r="32" cs="6" s="18">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="socialSecurityPayingStatus"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetName name="socialSecurityPayingStatus1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【社会保险】缴费状态！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="c" value="在缴Normal"/>
+<Dict key="d" value="断缴Interrupted"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="c" value="在缴Normal"/>
+<Dict key="d" value="断缴Interrupted"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="1" r="33" cs="6" s="12">
+<O>
+<![CDATA[社会保险号Social Security NO.]]></O>
+<Expand/>
+</C>
+<C c="7" r="33" cs="11" s="18">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="socialSecurityNo"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="socialNo1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请正确输入【社会保险】号，没有请输入“无”！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.CustomReg">
+<CusReg ct="(^\d{8}$)|(^([\u4e00-\u9fa5]){1}$)|(^([\u4e00-\u9fa5]){1}$)"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="34" cs="4" rs="2" s="12">
+<O>
+<![CDATA[      公积金      House Funding]]></O>
+<Expand/>
+</C>
+<C c="5" r="34" cs="7" s="14">
+<O>
+<![CDATA[享受此社会福利?Do you have this access? ]]></O>
+<Expand/>
+</C>
+<C c="12" r="34" cs="6" s="18">
+<O>
+<![CDATA[缴费状态Paying Status]]></O>
+<Expand/>
+</C>
+<C c="5" r="35" s="24">
+<Expand/>
+</C>
+<C c="6" r="35" s="25">
+<Expand/>
+</C>
+<C c="7" r="35" cs="4" s="21">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="houseFundingPermission"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetName name="houseFundingPermission1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择是否享受【公积金】福利！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="y" value="是Yes"/>
+<Dict key="n" value="否No"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="y" value="是Yes"/>
+<Dict key="n" value="否No"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="11" r="35" s="26">
+<Expand/>
+</C>
+<C c="12" r="35" cs="6" s="18">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="houseFundingPayingStatus"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetName name="houseFundingPayingStatus1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【公积金】缴费状态！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="c" value="在缴Normal"/>
+<Dict key="d" value="断缴Interrupted"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="c" value="在缴Normal"/>
+<Dict key="d" value="断缴Interrupted"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="1" r="36" cs="6" s="8">
+<O>
+<![CDATA[公积金号House Funding NO.]]></O>
+<Expand/>
+</C>
+<C c="7" r="36" cs="11" s="11">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="houseFundingNo"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="houseNo1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请正确输入【公积金】号没有请输入“无”！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.CustomReg">
+<CusReg ct="(^\d{16}$)|(^([\u4e00-\u9fa5]){1}$)|(^([\u4e00-\u9fa5]){1}$)"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="19" r="36">
+<Expand/>
+</C>
+<C c="1" r="39" cs="11" s="4">
+<O>
+<![CDATA[紧急联络人信息EMERGENCY CONTACT]]></O>
+<Expand/>
+</C>
+<C c="1" r="40" cs="5" s="5">
+<O>
+<![CDATA[姓名Name]]></O>
+<Expand/>
+</C>
+<C c="6" r="40" cs="5" s="6">
+<O>
+<![CDATA[关系Relationship]]></O>
+<Expand/>
+</C>
+<C c="11" r="40" cs="7" s="7">
+<O>
+<![CDATA[联系电话Phone No.]]></O>
+<Expand/>
+</C>
+<C c="1" r="41" cs="5" s="12">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="emergencyName1"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetAttr/>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.NoneReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="6" r="41" cs="5" s="14">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="emergencyRelationship1"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.ComboBox">
+<Listener event="beforeedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[contentPane.getWidgetByName("emRelationship1").setValue();]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="emRelationship1"/>
+<WidgetAttr/>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectRelationship]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+<widgetValue/>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectRelationship]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="11" r="41" cs="7" s="18">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="emergencyPhoneNo1"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<Listener event="stopedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var emPhoneNO1 = contentPane.getWidgetByName("emPhoneNO1").getValue();
+if(emPhoneNO1.trim()!=""){    
+       var reg=/^(1)\d{10}$/;    
+        if(!reg.test(emPhoneNO1)){    
+	    FR.Msg.alert(FR.i18n.Alert, "【紧急联络人1】手机号码格式不正确!"); 
+        } 
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="emPhoneNO1"/>
+<WidgetAttr/>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.NoneReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="42" cs="5" s="8">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="emergencyName2"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetAttr/>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.NoneReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="6" r="42" cs="5" s="10">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="emergencyRelationship2"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.ComboBox">
+<Listener event="beforeedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[contentPane.getWidgetByName("emRelationship1").setValue();]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="emRelationship2"/>
+<WidgetAttr/>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectRelationship]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+<widgetValue/>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectRelationship]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="11" r="42" cs="7" s="11">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="emergencyPhoneNo2"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<Listener event="stopedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var emPhoneNO2 = contentPane.getWidgetByName("emPhoneNO2").getValue();
+if(emPhoneNO2.trim()!=""){    
+       var reg=/^(1)\d{10}$/;    
+        if(!reg.test(emPhoneNO2)){    
+	    FR.Msg.alert(FR.i18n.Alert, "【紧急联络人2】手机号码格式不正确!"); 
+        } 
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="emPhoneNO2"/>
+<WidgetAttr/>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.NoneReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="45" cs="8" s="4">
+<O>
+<![CDATA[教育情况EDUCATION INFORMATION]]></O>
+<Expand/>
+</C>
+<C c="9" r="45" cs="9" s="27">
+<O>
+<![CDATA[(从最高开始The highest degree on the top)]]></O>
+<Expand/>
+</C>
+<C c="1" r="46" cs="5" s="5">
+<O>
+<![CDATA[学习时间Educational Period]]></O>
+<Expand/>
+</C>
+<C c="6" r="46" cs="3" s="6">
+<O>
+<![CDATA[    学校名称       Name of School]]></O>
+<Expand/>
+</C>
+<C c="9" r="46" cs="2" s="6">
+<O>
+<![CDATA[专业Major]]></O>
+<Expand/>
+</C>
+<C c="11" r="46" cs="3" s="6">
+<O>
+<![CDATA[学历 Educational Degree]]></O>
+<Expand/>
+</C>
+<C c="14" r="46" cs="4" s="7">
+<O>
+<![CDATA[教育形式Educational Status]]></O>
+<Expand/>
+</C>
+<C c="1" r="47" cs="2" s="28">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="beginEducationalPeriod1"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.DateEditor">
+<Listener event="afteredit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var eduStart1 = contentPane.getWidgetByName("eduStart1").getValue();
+var eduStart2 = contentPane.getWidgetByName("eduStart2").getValue();
+var eduStart3 = contentPane.getWidgetByName("eduStart3").getValue();
+var eduEnd1= contentPane.getWidgetByName("eduEnd1").getValue();
+var eduEnd2 = contentPane.getWidgetByName("eduEnd2").getValue();
+var eduEnd3 = contentPane.getWidgetByName("eduEnd3").getValue();
+if(eduStart1 !="" && eduEnd1 != ""){      
+        if(eduStart1 > eduEnd1 || eduStart1 == eduEnd1){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}
+if(eduStart1 != "" && eduEnd2 != ""){
+	if(eduStart1 < eduEnd2 ){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}
+if(eduStart2 !="" && eduEnd2 !=""){
+	if(eduStart2 > eduEnd2 || eduStart2 == eduEnd2){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}
+if(eduStart2 !="" && eduEnd3 !=""){
+	if(eduStart2 < eduEnd3 ){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}
+if(eduStart3 !="" && eduEnd3 !=""){
+	if(eduStart3 > eduEnd3 || eduStart3 == eduEnd3){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="eduStart1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【教育情况】的起始学习时间！]]></EMSG>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<DateAttr format="yyyy/MM/dd"/>
+<widgetValue/>
+</Widget>
+<Expand/>
+</C>
+<C c="3" r="47" s="29">
+<O>
+<![CDATA[-]]></O>
+<Expand/>
+</C>
+<C c="4" r="47" cs="2" s="30">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="endEducationalPeriod1"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.DateEditor">
+<Listener event="afteredit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var eduStart1 = contentPane.getWidgetByName("eduStart1").getValue();
+var eduStart2 = contentPane.getWidgetByName("eduStart2").getValue();
+var eduStart3 = contentPane.getWidgetByName("eduStart3").getValue();
+var eduEnd1= contentPane.getWidgetByName("eduEnd1").getValue();
+var eduEnd2 = contentPane.getWidgetByName("eduEnd2").getValue();
+var eduEnd3 = contentPane.getWidgetByName("eduEnd3").getValue();
+if(eduStart1 !="" && eduEnd1 != ""){      
+        if(eduStart1 > eduEnd1 || eduStart1 == eduEnd1){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}
+if(eduStart1 != "" && eduEnd2 != ""){
+	if(eduStart1 < eduEnd2 ){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}
+if(eduStart2 !="" && eduEnd2 !=""){
+	if(eduStart2 > eduEnd2 || eduStart2 == eduEnd2){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}
+if(eduStart2 !="" && eduEnd3 !=""){
+	if(eduStart2 < eduEnd3 ){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}
+if(eduStart3 !="" && eduEnd3 !=""){
+	if(eduStart3 > eduEnd3 || eduStart3 == eduEnd3){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="eduEnd1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【教育情况】的结束学习时间！]]></EMSG>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<DateAttr format="yyyy/MM/dd"/>
+<widgetValue/>
+</Widget>
+<Expand/>
+</C>
+<C c="6" r="47" cs="3" s="14">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="schoolName1"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="eduSchoolName1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【教育情况】的学校名称！]]></EMSG>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="20"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="9" r="47" cs="2" s="14">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="major1"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.ComboBox">
+<Listener event="beforeedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[contentPane.getWidgetByName("eduMajor1").setValue();]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="eduMajor1"/>
+<WidgetAttr/>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectMajor]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+<widgetValue/>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectMajor]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="11" r="47" cs="3" s="14">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="educationalDegree1"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.ComboBox">
+<Listener event="beforeedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[contentPane.getWidgetByName("eduDegree1").setValue();]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="eduDegree1"/>
+<WidgetAttr/>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectDegree]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+<widgetValue/>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectDegree]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="14" r="47" cs="4" s="18">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="educationalStatus1"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetName name="eduStatus1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【教育情况】的教育形式！]]></EMSG>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="" value=""/>
+<Dict key="c" value="统招compulsory"/>
+<Dict key="v" value="非统招Volunteer"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="c" value="统招compulsory"/>
+<Dict key="v" value="非统招Volunteer"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="1" r="48" cs="2" s="28">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="beginEducationalPeriod2"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.DateEditor">
+<Listener event="afteredit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var eduStart1 = contentPane.getWidgetByName("eduStart1").getValue();
+var eduStart2 = contentPane.getWidgetByName("eduStart2").getValue();
+var eduStart3 = contentPane.getWidgetByName("eduStart3").getValue();
+var eduEnd1= contentPane.getWidgetByName("eduEnd1").getValue();
+var eduEnd2 = contentPane.getWidgetByName("eduEnd2").getValue();
+var eduEnd3 = contentPane.getWidgetByName("eduEnd3").getValue();
+if(eduStart1 !="" && eduEnd1 != ""){      
+        if(eduStart1 > eduEnd1 || eduStart1 == eduEnd1){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}
+if(eduStart1 != "" && eduEnd2 != ""){
+	if(eduStart1 < eduEnd2 ){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}
+if(eduStart2 !="" && eduEnd2 !=""){
+	if(eduStart2 > eduEnd2 || eduStart2 == eduEnd2){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}
+if(eduStart2 !="" && eduEnd3 !=""){
+	if(eduStart2 < eduEnd3 ){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}
+if(eduStart3 !="" && eduEnd3 !=""){
+	if(eduStart3 > eduEnd3 || eduStart3 == eduEnd3){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="eduStart2"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【教育情况】的起始学习时间！]]></EMSG>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<DateAttr format="yyyy/MM/dd"/>
+<widgetValue/>
+</Widget>
+<Expand/>
+</C>
+<C c="3" r="48" s="29">
+<O>
+<![CDATA[-]]></O>
+<Expand/>
+</C>
+<C c="4" r="48" cs="2" s="30">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="endEducationalPeriod12"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.DateEditor">
+<Listener event="afteredit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var eduStart1 = contentPane.getWidgetByName("eduStart1").getValue();
+var eduStart2 = contentPane.getWidgetByName("eduStart2").getValue();
+var eduStart3 = contentPane.getWidgetByName("eduStart3").getValue();
+var eduEnd1= contentPane.getWidgetByName("eduEnd1").getValue();
+var eduEnd2 = contentPane.getWidgetByName("eduEnd2").getValue();
+var eduEnd3 = contentPane.getWidgetByName("eduEnd3").getValue();
+if(eduStart1 !="" && eduEnd1 != ""){      
+        if(eduStart1 > eduEnd1 || eduStart1 == eduEnd1){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}
+if(eduStart1 != "" && eduEnd2 != ""){
+	if(eduStart1 < eduEnd2 ){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}
+if(eduStart2 !="" && eduEnd2 !=""){
+	if(eduStart2 > eduEnd2 || eduStart2 == eduEnd2){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}
+if(eduStart2 !="" && eduEnd3 !=""){
+	if(eduStart2 < eduEnd3 ){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}
+if(eduStart3 !="" && eduEnd3 !=""){
+	if(eduStart3 > eduEnd3 || eduStart3 == eduEnd3){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="eduEnd2"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【教育情况】的结束学习时间！]]></EMSG>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<DateAttr format="yyyy/MM/dd"/>
+<widgetValue/>
+</Widget>
+<Expand/>
+</C>
+<C c="6" r="48" cs="3" s="14">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="schoolName2"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="eduSchoolName2"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【教育情况】的学校名称！]]></EMSG>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="20"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="9" r="48" cs="2" s="14">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="major2"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.ComboBox">
+<Listener event="beforeedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[contentPane.getWidgetByName("eduMajor1").setValue();]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="eduMajor2"/>
+<WidgetAttr/>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectMajor]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+<widgetValue/>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectMajor]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="11" r="48" cs="3" s="14">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="educationalDegree2"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.ComboBox">
+<Listener event="beforeedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[contentPane.getWidgetByName("eduDegree1").setValue();]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="eduDegree1"/>
+<WidgetAttr/>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectDegree]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+<widgetValue/>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectDegree]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="14" r="48" cs="4" s="18">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="educationalStatus2"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetName name="eduStatus2"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【教育情况】的教育形式！]]></EMSG>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="" value=""/>
+<Dict key="c" value="统招compulsory"/>
+<Dict key="v" value="非统招Volunteer"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="c" value="统招compulsory"/>
+<Dict key="v" value="非统招Volunteer"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="1" r="49" cs="2" s="31">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="beginEducationalPeriod3"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.DateEditor">
+<Listener event="afteredit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var eduStart1 = contentPane.getWidgetByName("eduStart1").getValue();
+var eduStart2 = contentPane.getWidgetByName("eduStart2").getValue();
+var eduStart3 = contentPane.getWidgetByName("eduStart3").getValue();
+var eduEnd1= contentPane.getWidgetByName("eduEnd1").getValue();
+var eduEnd2 = contentPane.getWidgetByName("eduEnd2").getValue();
+var eduEnd3 = contentPane.getWidgetByName("eduEnd3").getValue();
+if(eduStart1 !="" && eduEnd1 != ""){      
+        if(eduStart1 > eduEnd1 || eduStart1 == eduEnd1){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}
+if(eduStart1 != "" && eduEnd2 != ""){
+	if(eduStart1 < eduEnd2 ){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}
+if(eduStart2 !="" && eduEnd2 !=""){
+	if(eduStart2 > eduEnd2 || eduStart2 == eduEnd2){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}
+if(eduStart2 !="" && eduEnd3 !=""){
+	if(eduStart2 < eduEnd3 ){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}
+if(eduStart3 !="" && eduEnd3 !=""){
+	if(eduStart3 > eduEnd3 || eduStart3 == eduEnd3){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="eduStart3"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【教育情况】的起始学习时间！]]></EMSG>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<DateAttr format="yyyy/MM/dd"/>
+<widgetValue/>
+</Widget>
+<Expand/>
+</C>
+<C c="3" r="49" s="32">
+<O>
+<![CDATA[-]]></O>
+<Expand/>
+</C>
+<C c="4" r="49" cs="2" s="33">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="endEducationalPeriod13"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.DateEditor">
+<Listener event="afteredit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var eduStart1 = contentPane.getWidgetByName("eduStart1").getValue();
+var eduStart2 = contentPane.getWidgetByName("eduStart2").getValue();
+var eduStart3 = contentPane.getWidgetByName("eduStart3").getValue();
+var eduEnd1= contentPane.getWidgetByName("eduEnd1").getValue();
+var eduEnd2 = contentPane.getWidgetByName("eduEnd2").getValue();
+var eduEnd3 = contentPane.getWidgetByName("eduEnd3").getValue();
+if(eduStart1 !="" && eduEnd1 != ""){      
+        if(eduStart1 > eduEnd1 || eduStart1 == eduEnd1){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}
+if(eduStart1 != "" && eduEnd2 != ""){
+	if(eduStart1 < eduEnd2 ){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}
+if(eduStart2 !="" && eduEnd2 !=""){
+	if(eduStart2 > eduEnd2 || eduStart2 == eduEnd2){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}
+if(eduStart2 !="" && eduEnd3 !=""){
+	if(eduStart2 < eduEnd3 ){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}
+if(eduStart3 !="" && eduEnd3 !=""){
+	if(eduStart3 > eduEnd3 || eduStart3 == eduEnd3){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+        } 
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="eduEnd3"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【教育情况】的结束学习时间！]]></EMSG>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<DateAttr format="yyyy/MM/dd"/>
+<widgetValue/>
+</Widget>
+<Expand/>
+</C>
+<C c="6" r="49" cs="3" s="10">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="schoolName3"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="eduSchoolName3"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【教育情况】的学校名称！]]></EMSG>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="20"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="9" r="49" cs="2" s="10">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="major3"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.ComboBox">
+<Listener event="beforeedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[contentPane.getWidgetByName("eduMajor1").setValue();]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="eduMajor3"/>
+<WidgetAttr/>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectMajor]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+<widgetValue/>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectMajor]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="11" r="49" cs="3" s="10">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="educationalDegree3"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.ComboBox">
+<Listener event="beforeedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[contentPane.getWidgetByName("eduDegree1").setValue();]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="eduDegree3"/>
+<WidgetAttr/>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectDegree]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+<widgetValue/>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="1" vi="0"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[selectDegree]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="14" r="49" cs="4" s="11">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="educationalStatus3"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetName name="eduStatus3"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【教育情况】的教育形式！]]></EMSG>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="" value=""/>
+<Dict key="c" value="统招compulsory"/>
+<Dict key="v" value="非统招Volunteer"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="c" value="统招compulsory"/>
+<Dict key="v" value="非统招Volunteer"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="1" r="53" cs="6" s="4">
+<O>
+<![CDATA[技能水平SKILL LEVEL]]></O>
+<Expand/>
+</C>
+<C c="7" r="53" cs="8" s="27">
+<O>
+<![CDATA[(只注明最高only the highest level)]]></O>
+<Expand/>
+</C>
+<C c="1" r="54" cs="4" s="5">
+<O>
+<![CDATA[技能名称Skills]]></O>
+<Expand/>
+</C>
+<C c="5" r="54" cs="9" s="6">
+<O>
+<![CDATA[技能证书Certificates or Licenses]]></O>
+<Expand/>
+</C>
+<C c="14" r="54" cs="4" s="7">
+<O>
+<![CDATA[资格获得时间Certificated Date]]></O>
+<Expand/>
+</C>
+<C c="1" r="55" cs="4" s="12">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="skills1"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="skills1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【技能水平】的技能名称！]]></EMSG>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="20"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="5" r="55" cs="9" s="14">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="certificatesOrLicenses1"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="skillsLicenses1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【技能水平】的技能证书！]]></EMSG>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="100"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="14" r="55" cs="4" s="34">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="certificatedDate1"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.DateEditor">
+<WidgetName name="skillsDate1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【技能水平】资格获得时间！]]></EMSG>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<DateAttr/>
+<widgetValue/>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="56" cs="4" s="8">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="skills2"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="skills2"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【技能水平】的技能名称！]]></EMSG>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="20"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="5" r="56" cs="9" s="10">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="certificatesOrLicenses2"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="skillsLicenses2"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【技能水平】的技能证书！]]></EMSG>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="100"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="14" r="56" cs="4" s="35">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="certificatedDate2"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.DateEditor">
+<WidgetName name="skillsDate2"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【技能水平】资格获得时间！]]></EMSG>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<DateAttr/>
+<widgetValue/>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="59" cs="17" s="4">
+<O>
+<![CDATA[提供的证明证件CETIFICATES AND DIPLOMA]]></O>
+<Expand/>
+</C>
+<C c="1" r="60" s="36">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.CheckBox">
+<Listener event="afterinit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var checkCell=contentPane.curLGP.getCellValue("T61"); 
+var $checkbox1 = $("div[widgetname=DEGREE1]A span[class*=x-text]A");
+if("y"==checkCell){	$checkbox1.removeClass("fr-checkbox-checkoff");
+	$checkbox1.addClass("fr-checkbox-checkon");
+}
+else if("n"==checkCell){
+	$checkbox1.removeClass("fr-checkbox-checkon");
+	$checkbox1.addClass("fr-checkbox-checkoff");
+}]]></Content>
+</JavaScript>
+</Listener>
+<Listener event="statechange">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[
+var checkValue =this.getValue();
+
+if(true == checkValue){
+
+contentPane.setCellValue("T61", null,"y");
+
+}else if(false == checkValue){
+
+contentPane.setCellValue("T61", null,"n");
+}
+]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="degree1"/>
+<WidgetAttr/>
+</Widget>
+<Expand/>
+</C>
+<C c="2" r="60" cs="16" s="37">
+<O>
+<![CDATA[学历证Degree Certificate]]></O>
+<Expand/>
+</C>
+<C c="19" r="60" s="38">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="degreeCertificateValidity"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand/>
+</C>
+<C c="1" r="61" s="39">
+<Widget class="com.fr.form.ui.CheckBox">
+<Listener event="afterinit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var checkCell=contentPane.curLGP.getCellValue("T62"); 
+var $checkbox1 = $("div[widgetname=DIPLOMA]A span[class*=x-text]A");
+if("y"==checkCell){	$checkbox1.removeClass("fr-checkbox-checkoff");
+	$checkbox1.addClass("fr-checkbox-checkon");
+}
+else if("n"==checkCell){
+	$checkbox1.removeClass("fr-checkbox-checkon");
+	$checkbox1.addClass("fr-checkbox-checkoff");
+}]]></Content>
+</JavaScript>
+</Listener>
+<Listener event="statechange">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[
+var checkValue =this.getValue();
+
+if(true == checkValue){
+contentPane.setCellValue("T62", null,"y");
+
+}else if(false == checkValue){
+
+contentPane.setCellValue("T62", null,"n");
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="DIPLOMA"/>
+<WidgetAttr/>
+</Widget>
+<Expand/>
+</C>
+<C c="2" r="61" cs="16" s="40">
+<O>
+<![CDATA[学位证 Diploma]]></O>
+<Expand/>
+</C>
+<C c="19" r="61" s="38">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="diplomaCertificateValidity"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand/>
+</C>
+<C c="1" r="62" s="39">
+<Widget class="com.fr.form.ui.CheckBox">
+<Listener event="afterinit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var checkCell=contentPane.curLGP.getCellValue("T63"); 
+var $checkbox1 = $("div[widgetname=ENGLISHLEVEL]A span[class*=x-text]A");
+if("y"==checkCell){	$checkbox1.removeClass("fr-checkbox-checkoff");
+	$checkbox1.addClass("fr-checkbox-checkon");
+}
+else if("n"==checkCell){
+	$checkbox1.removeClass("fr-checkbox-checkon");
+	$checkbox1.addClass("fr-checkbox-checkoff");
+}]]></Content>
+</JavaScript>
+</Listener>
+<Listener event="statechange">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[
+var checkValue =this.getValue();
+
+if(true == checkValue){
+contentPane.setCellValue("T63", null,"y");
+
+}else if(false == checkValue){
+
+contentPane.setCellValue("T63", null,"n");
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="ENGLISHLEVEL"/>
+<WidgetAttr/>
+</Widget>
+<Expand/>
+</C>
+<C c="2" r="62" cs="16" s="40">
+<O>
+<![CDATA[英语等级证书Certificate of English ]]></O>
+<Expand/>
+</C>
+<C c="19" r="62" s="38">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="englishCertificateValidity"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand/>
+</C>
+<C c="1" r="63" s="39">
+<Widget class="com.fr.form.ui.CheckBox">
+<Listener event="afterinit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var checkCell=contentPane.curLGP.getCellValue("T64"); 
+var $checkbox1 = $("div[widgetname=CAREER]A span[class*=x-text]A");
+if("y"==checkCell){	$checkbox1.removeClass("fr-checkbox-checkoff");
+	$checkbox1.addClass("fr-checkbox-checkon");
+}
+else if("n"==checkCell){
+	$checkbox1.removeClass("fr-checkbox-checkon");
+	$checkbox1.addClass("fr-checkbox-checkoff");
+}]]></Content>
+</JavaScript>
+</Listener>
+<Listener event="statechange">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[
+var checkValue =this.getValue();
+
+if(true == checkValue){
+contentPane.setCellValue("T64", null,"y");
+
+}else if(false == checkValue){
+
+contentPane.setCellValue("T64", null,"n");
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="CAREER"/>
+<WidgetAttr/>
+</Widget>
+<Expand/>
+</C>
+<C c="2" r="63" cs="16" s="40">
+<O>
+<![CDATA[职业资格证书Career License]]></O>
+<Expand/>
+</C>
+<C c="19" r="63" s="38">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="careerLicenseValidity"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand/>
+</C>
+<C c="1" r="64" s="39">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.CheckBox">
+<Listener event="afterinit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var checkCell=contentPane.curLGP.getCellValue("T65"); 
+var $checkbox1 = $("div[widgetname=IDNO]A span[class*=x-text]A");
+if("y"==checkCell){	$checkbox1.removeClass("fr-checkbox-checkoff");
+	$checkbox1.addClass("fr-checkbox-checkon");
+}
+else if("n"==checkCell){
+	$checkbox1.removeClass("fr-checkbox-checkon");
+	$checkbox1.addClass("fr-checkbox-checkoff");
+}]]></Content>
+</JavaScript>
+</Listener>
+<Listener event="statechange">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[
+var checkValue =this.getValue();
+
+if(true == checkValue){
+contentPane.setCellValue("T65", null,"y");
+
+}else if(false == checkValue){
+
+contentPane.setCellValue("T65", null,"n");
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="IDNO"/>
+<WidgetAttr/>
+</Widget>
+<Expand/>
+</C>
+<C c="2" r="64" cs="16" s="40">
+<O>
+<![CDATA[身份证ID Card No.]]></O>
+<Expand/>
+</C>
+<C c="19" r="64" s="38">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="IDNOValidity"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand/>
+</C>
+<C c="1" r="65" s="39">
+<Widget class="com.fr.form.ui.CheckBox">
+<Listener event="afterinit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var checkCell=contentPane.curLGP.getCellValue("T66"); 
+var $checkbox1 = $("div[widgetname=PET]A span[class*=x-text]A");
+if("y"==checkCell){
+	$checkbox1.removeClass("fr-checkbox-checkoff");
+	$checkbox1.addClass("fr-checkbox-checkon");
+}else if("n"==checkCell){
+	$checkbox1.removeClass("fr-checkbox-checkon");
+	$checkbox1.addClass("fr-checkbox-checkoff");
+}]]></Content>
+</JavaScript>
+</Listener>
+<Listener event="statechange">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[
+var checkValue =this.getValue();
+
+if(true == checkValue){
+contentPane.setCellValue("T66", null,"y");
+
+}else if(false == checkValue){
+
+contentPane.setCellValue("T66", null,"n");
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="PET"/>
+<WidgetAttr/>
+</Widget>
+<Expand/>
+</C>
+<C c="2" r="65" cs="16" s="40">
+<O>
+<![CDATA[解除（终止）劳动合同证明Proof of Employment Termination]]></O>
+<Expand/>
+</C>
+<C c="19" r="65" s="38">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="PETValidity"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand/>
+</C>
+<C c="1" r="66" s="41">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.CheckBox">
+<Listener event="afterinit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var checkCell=contentPane.curLGP.getCellValue("T67"); 
+
+var $checkbox1 = $("div[widgetname=OTHERS]A span[class*=x-text]A");
+
+if("y"==checkCell){	$checkbox1.removeClass("fr-checkbox-checkoff");
+	$checkbox1.addClass("fr-checkbox-checkon");
+
+
+}
+else if("n"==checkCell){
+	$checkbox1.removeClass("fr-checkbox-checkon");
+	$checkbox1.addClass("fr-checkbox-checkoff");
+
+
+}
+
+]]></Content>
+</JavaScript>
+</Listener>
+<Listener event="statechange">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[
+var checkValue =this.getValue();
+
+if(true == checkValue){
+contentPane.setCellValue("T67", null,"y");
+contentPane.getWidgetByName("othersCet").enable();
+
+}else if(false == checkValue){
+
+contentPane.setCellValue("T67", null,"n");
+contentPane.setCellValue("G67", null,"");
+contentPane.getWidgetByName("othersCet").disable();
+
+
+
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="OTHERS"/>
+<WidgetAttr/>
+</Widget>
+<Expand/>
+</C>
+<C c="2" r="66" cs="4" s="42">
+<O>
+<![CDATA[其他所需证件Others]]></O>
+<Expand/>
+</C>
+<C c="6" r="66" cs="12" s="43">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="othersDetails"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="othersCet"/>
+<WidgetAttr disabled="true"/>
+<EMSG>
+<![CDATA[请输入其他所需证件！]]></EMSG>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.NoneReg"/>
+<watermark>
+<![CDATA[选定“其他所需证件”后进行输入！]]></watermark>
+</Widget>
+<Expand/>
+</C>
+<C c="19" r="66" s="38">
+<O t="DSColumn">
+<Attributes dsName="addReg" columnName="othersValidity"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand/>
+</C>
+<C c="7" r="70" cs="4" rs="2">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.FreeButton">
+<Listener event="click">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var flag =true;
+
+var emPhoneNO1 = contentPane.getWidgetByName("emPhoneNO1").getValue();
+if(emPhoneNO1.trim()!=""){    
+       var reg=/^(1)\d{10}$/;    
+        if(!reg.test(emPhoneNO1)){    
+	    FR.Msg.alert(FR.i18n.Alert, "【紧急联络人1】手机号码格式不正确!");
+ flag =false;
+        } 
+}
+
+var emPhoneNO2 = contentPane.getWidgetByName("emPhoneNO2").getValue();
+if(emPhoneNO2.trim()!=""){    
+       var reg=/^(1)\d{10}$/;    
+        if(!reg.test(emPhoneNO2)){    
+	    FR.Msg.alert(FR.i18n.Alert, "【紧急联络人2】手机号码格式不正确!"); 
+flag = false;
+        } 
+}
+
+
+
+var eduStart1 = contentPane.getWidgetByName("eduStart1").getValue();
+var eduStart2 = contentPane.getWidgetByName("eduStart2").getValue();
+var eduStart3 = contentPane.getWidgetByName("eduStart3").getValue();
+var eduEnd1= contentPane.getWidgetByName("eduEnd1").getValue();
+var eduEnd2 = contentPane.getWidgetByName("eduEnd2").getValue();
+var eduEnd3 = contentPane.getWidgetByName("eduEnd3").getValue();
+
+if(eduStart1 !="" && eduEnd1 != ""){      
+        if(eduStart1 > eduEnd1 || eduStart1 == eduEnd1){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!"); 
+	    flag=false;
+        } 
+}
+if(eduStart1 != "" && eduEnd2 != ""){
+	if(eduStart1 < eduEnd2 ){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!");
+	    flag=false;
+        } 
+}
+if(eduStart2 !="" && eduEnd2 !=""){
+	if(eduStart2 > eduEnd2 || eduStart2 == eduEnd2){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!");
+	    flag=false;
+        } 
+}
+if(eduStart2 !="" && eduEnd3 !=""){
+	if(eduStart2 < eduEnd3 ){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!");
+	    flag=false;
+        } 
+}
+if(eduStart3 !="" && eduEnd3 !=""){
+	if(eduStart3 > eduEnd3 || eduStart3 == eduEnd3){    
+	    FR.Msg.alert(FR.i18n.Alert, "请正确填写！【学习时间】要从最近开始!");
+	    flag=false;
+        } 
+}
+
+if(flag){
+_g('${sessionID}').verifyAndWriteReport(); 
+}
+]]></Content>
+</JavaScript>
+</Listener>
+<WidgetAttr/>
+<Text>
+<![CDATA[<b><font color='red' size='2' >提            交</font></b>]]></Text>
+<IconName>
+<![CDATA[submit]]></IconName>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="75" cs="2">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=NOW()]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="3" r="75" cs="3">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="6" r="75" cs="3">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$modifyUser]]></Attributes>
+</O>
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings isVerticalCenterOnPage="true" headerHeight="0" footerHeight="0">
+<PaperSetting>
+<Margin top="986400" left="2880000" bottom="986400" right="2743200"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<ReportWriteAttr>
+<Submiter class="com.fr.report.write.BuiltInSQLSubmiter" name="内置SQL1">
+<Attributes dsName="FRDemo"/>
+<DMLConfig class="com.fr.base.write.config.IntelliDMLConfig">
+<Table schema="" name="t_user"/>
+<ColumnConfig name="id" isKey="true" skipUnmodified="false">
+<ColumnRow column="1" row="14"/>
+</ColumnConfig>
+<ColumnConfig name="loginName" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="16"/>
+</ColumnConfig>
+<ColumnConfig name="displayName" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="16"/>
+</ColumnConfig>
+<ColumnConfig name="email" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="25"/>
+</ColumnConfig>
+<ColumnConfig name="entryDate" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="11"/>
+</ColumnConfig>
+<ColumnConfig name="englishProficiency" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="11"/>
+</ColumnConfig>
+<ColumnConfig name="departmentId" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="10"/>
+</ColumnConfig>
+<ColumnConfig name="positionId" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="10"/>
+</ColumnConfig>
+<ColumnConfig name="gender" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="18"/>
+</ColumnConfig>
+<ColumnConfig name="birthDate" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="17"/>
+</ColumnConfig>
+<ColumnConfig name="ethnicGroup" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="20"/>
+</ColumnConfig>
+<ColumnConfig name="nationality" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="21"/>
+</ColumnConfig>
+<ColumnConfig name="maritalStatus" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="20"/>
+</ColumnConfig>
+<ColumnConfig name="politicalIdentity" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="22"/>
+</ColumnConfig>
+<ColumnConfig name="religion" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="22"/>
+</ColumnConfig>
+<ColumnConfig name="idNo" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="23"/>
+</ColumnConfig>
+<ColumnConfig name="phoneNo" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="26"/>
+</ColumnConfig>
+<ColumnConfig name="telephoneNo" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="21"/>
+</ColumnConfig>
+<ColumnConfig name="addressAvailable" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="27"/>
+</ColumnConfig>
+<ColumnConfig name="socialSecurityNo" isKey="false" skipUnmodified="true">
+<ColumnRow column="7" row="33"/>
+</ColumnConfig>
+<ColumnConfig name="socialSecurityNoPermission" isKey="false" skipUnmodified="true">
+<ColumnRow column="7" row="32"/>
+</ColumnConfig>
+<ColumnConfig name="socialSecurityPayingStatus" isKey="false" skipUnmodified="true">
+<ColumnRow column="12" row="32"/>
+</ColumnConfig>
+<ColumnConfig name="houseFundingNo" isKey="false" skipUnmodified="true">
+<ColumnRow column="7" row="36"/>
+</ColumnConfig>
+<ColumnConfig name="houseFundingPermission" isKey="false" skipUnmodified="true">
+<ColumnRow column="7" row="35"/>
+</ColumnConfig>
+<ColumnConfig name="houseFundingPayingStatus" isKey="false" skipUnmodified="true">
+<ColumnRow column="12" row="35"/>
+</ColumnConfig>
+<ColumnConfig name="emergencyName1" isKey="false" skipUnmodified="true">
+<ColumnRow column="1" row="41"/>
+</ColumnConfig>
+<ColumnConfig name="emergencyRelationship1" isKey="false" skipUnmodified="true">
+<ColumnRow column="5" row="41"/>
+</ColumnConfig>
+<ColumnConfig name="emergencyPhoneNo1" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="41"/>
+</ColumnConfig>
+<ColumnConfig name="emergencyName2" isKey="false" skipUnmodified="true">
+<ColumnRow column="1" row="42"/>
+</ColumnConfig>
+<ColumnConfig name="emergencyRelationship2" isKey="false" skipUnmodified="true">
+<ColumnRow column="5" row="42"/>
+</ColumnConfig>
+<ColumnConfig name="emergencyPhoneNo2" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="42"/>
+</ColumnConfig>
+<ColumnConfig name="beginEducationalPeriod1" isKey="false" skipUnmodified="true">
+<ColumnRow column="1" row="47"/>
+</ColumnConfig>
+<ColumnConfig name="endEducationalPeriod1" isKey="false" skipUnmodified="true">
+<ColumnRow column="4" row="47"/>
+</ColumnConfig>
+<ColumnConfig name="schoolName1" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="47"/>
+</ColumnConfig>
+<ColumnConfig name="major1" isKey="false" skipUnmodified="true">
+<ColumnRow column="9" row="47"/>
+</ColumnConfig>
+<ColumnConfig name="educationalDegree1" isKey="false" skipUnmodified="true">
+<ColumnRow column="11" row="47"/>
+</ColumnConfig>
+<ColumnConfig name="educationalStatus1" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="47"/>
+</ColumnConfig>
+<ColumnConfig name="beginEducationalPeriod2" isKey="false" skipUnmodified="true">
+<ColumnRow column="1" row="48"/>
+</ColumnConfig>
+<ColumnConfig name="endEducationalPeriod12" isKey="false" skipUnmodified="true">
+<ColumnRow column="4" row="48"/>
+</ColumnConfig>
+<ColumnConfig name="schoolName2" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="48"/>
+</ColumnConfig>
+<ColumnConfig name="major2" isKey="false" skipUnmodified="true">
+<ColumnRow column="9" row="48"/>
+</ColumnConfig>
+<ColumnConfig name="educationalDegree2" isKey="false" skipUnmodified="true">
+<ColumnRow column="11" row="48"/>
+</ColumnConfig>
+<ColumnConfig name="educationalStatus2" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="48"/>
+</ColumnConfig>
+<ColumnConfig name="beginEducationalPeriod3" isKey="false" skipUnmodified="true">
+<ColumnRow column="1" row="49"/>
+</ColumnConfig>
+<ColumnConfig name="endEducationalPeriod13" isKey="false" skipUnmodified="true">
+<ColumnRow column="4" row="49"/>
+</ColumnConfig>
+<ColumnConfig name="schoolName3" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="49"/>
+</ColumnConfig>
+<ColumnConfig name="major3" isKey="false" skipUnmodified="true">
+<ColumnRow column="9" row="49"/>
+</ColumnConfig>
+<ColumnConfig name="educationalDegree3" isKey="false" skipUnmodified="true">
+<ColumnRow column="11" row="49"/>
+</ColumnConfig>
+<ColumnConfig name="educationalStatus3" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="49"/>
+</ColumnConfig>
+<ColumnConfig name="skills1" isKey="false" skipUnmodified="true">
+<ColumnRow column="1" row="55"/>
+</ColumnConfig>
+<ColumnConfig name="certificatesOrLicenses1" isKey="false" skipUnmodified="true">
+<ColumnRow column="5" row="55"/>
+</ColumnConfig>
+<ColumnConfig name="certificatedDate1" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="55"/>
+</ColumnConfig>
+<ColumnConfig name="skills2" isKey="false" skipUnmodified="true">
+<ColumnRow column="1" row="56"/>
+</ColumnConfig>
+<ColumnConfig name="certificatesOrLicenses2" isKey="false" skipUnmodified="true">
+<ColumnRow column="5" row="56"/>
+</ColumnConfig>
+<ColumnConfig name="certificatedDate2" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="56"/>
+</ColumnConfig>
+<ColumnConfig name="othersDetails" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="66"/>
+</ColumnConfig>
+<ColumnConfig name="modifyDate" isKey="false" skipUnmodified="true">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=NOW()]]></Attributes>
+</O>
+</ColumnConfig>
+<ColumnConfig name="modifyUser" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="75"/>
+</ColumnConfig>
+<ColumnConfig name="province" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="24"/>
+</ColumnConfig>
+<ColumnConfig name="city" isKey="false" skipUnmodified="true">
+<ColumnRow column="10" row="24"/>
+</ColumnConfig>
+<ColumnConfig name="district" isKey="false" skipUnmodified="true">
+<ColumnRow column="15" row="24"/>
+</ColumnConfig>
+<ColumnConfig name="degreeCertificateValidity" isKey="false" skipUnmodified="true">
+<ColumnRow column="19" row="60"/>
+</ColumnConfig>
+<ColumnConfig name="diplomaCertificateValidity" isKey="false" skipUnmodified="true">
+<ColumnRow column="19" row="61"/>
+</ColumnConfig>
+<ColumnConfig name="englishCertificateValidity" isKey="false" skipUnmodified="true">
+<ColumnRow column="19" row="62"/>
+</ColumnConfig>
+<ColumnConfig name="careerLicenseValidity" isKey="false" skipUnmodified="true">
+<ColumnRow column="19" row="63"/>
+</ColumnConfig>
+<ColumnConfig name="IDNOValidity" isKey="false" skipUnmodified="true">
+<ColumnRow column="19" row="64"/>
+</ColumnConfig>
+<ColumnConfig name="PETValidity" isKey="false" skipUnmodified="true">
+<ColumnRow column="19" row="65"/>
+</ColumnConfig>
+<ColumnConfig name="othersValidity" isKey="false" skipUnmodified="true">
+<ColumnRow column="19" row="66"/>
+</ColumnConfig>
+<ColumnConfig name="englishName" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="23"/>
+</ColumnConfig>
+</DMLConfig>
+</Submiter>
+</ReportWriteAttr>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="false" windowPosition="1" align="0"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+<ParameterUI class="com.fr.main.parameter.FormParameterUI">
+<Layout class="com.fr.form.ui.container.WAbsoluteLayout">
+<WidgetName name="para"/>
+<WidgetAttr/>
+<LCAttr vgap="0" hgap="0"/>
+</Layout>
+<DesignAttr width="527" height="0"/>
+</ParameterUI>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="宋体" style="1" size="224" underline="2"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="宋体" style="1" size="80"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="2" size="64"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="1" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="2"/>
+<Bottom style="1"/>
+<Left style="2"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="2"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="2"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="2"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="2"/>
+<Left style="2"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<Format class="java.text.SimpleDateFormat">
+<![CDATA[yyyy-MM-dd]]></Format>
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="2"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="2"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="2"/>
+<Left style="1"/>
+<Right style="2"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="2"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<Format class="java.text.SimpleDateFormat">
+<![CDATA[yyyy/MM/dd]]></Format>
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="2"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="2"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72" underline="1"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72" underline="1"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Right style="2"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="56"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<Format class="java.text.SimpleDateFormat">
+<![CDATA[yyyy/MM/dd]]></Format>
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="2"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<Format class="java.text.SimpleDateFormat">
+<![CDATA[yyyy/MM/dd]]></Format>
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<Format class="java.text.SimpleDateFormat">
+<![CDATA[yyyy/MM/dd]]></Format>
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="2"/>
+<Left style="2"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="2"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<Format class="java.text.SimpleDateFormat">
+<![CDATA[yyyy/MM/dd]]></Format>
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="2"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<Format class="java.text.SimpleDateFormat">
+<![CDATA[yyyy-MM-dd]]></Format>
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="2"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<Format class="java.text.SimpleDateFormat">
+<![CDATA[yyyy-MM-dd]]></Format>
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="2"/>
+<Left style="1"/>
+<Right style="2"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="2"/>
+<Left style="2"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="1" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="2"/>
+<Right style="2"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="4"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Left style="2"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="1" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Right style="2"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="2"/>
+<Left style="2"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="1" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="2"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72" underline="1"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="2"/>
+<Right style="2"/>
+</Border>
+</Style>
+</StyleList>
+</WorkBook>

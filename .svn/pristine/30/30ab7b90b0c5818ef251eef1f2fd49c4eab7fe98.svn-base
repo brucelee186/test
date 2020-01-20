@@ -1,0 +1,2478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20120529" releaseVersion="7.0.0">
+<ReportWebAttr>
+<WebPageContent>
+<ToolBars/>
+<WebPage isPage="true" isShowAsImage="false" isAutoScale="true" isTDHeavy="false"/>
+</WebPageContent>
+<WebWriteContent>
+<Listener event="writesuccess">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[t=setTimeout("window.history.go(-1)",3000);
+]]></Content>
+</JavaScript>
+</Listener>
+<Listener event="writefailure">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[
+FR.Msg.alert(FR.i18n.Alert, "请检查登录名是否重名！"); ]]></Content>
+</JavaScript>
+</Listener>
+<ToolBars>
+<ToolBarManager>
+<Location>
+<Embed position="1"/>
+</Location>
+<ToolBar>
+<Widget class="com.fr.report.web.ui.impl.write.Submit">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('Utils-Submit')}]]></Text>
+<IconName>
+<![CDATA[submit]]></IconName>
+<Verify failVerifySubmit="false"/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.write.Verify">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('Verify-Data_Verify')}]]></Text>
+<IconName>
+<![CDATA[verify]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.FlashPrint">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('Utils-Print[Client]A')}]]></Text>
+<IconName>
+<![CDATA[flashprint]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Print">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('Print')}]]></Text>
+<IconName>
+<![CDATA[print]]></IconName>
+<PrintButtons/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Export">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('Export')}]]></Text>
+<IconName>
+<![CDATA[export]]></IconName>
+<Buttons pdf="true" excelP="true" excelO="true" excelS="true" word="true" image="true" html="true"/>
+</Widget>
+</ToolBar>
+</ToolBarManager>
+</ToolBars>
+<SelectedColor/>
+</WebWriteContent>
+</ReportWebAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<RowHeight defaultValue="723900">
+<![CDATA[381000,723900,495300,533400,723900,266700,723900,609600,723900,723900,723900,1143000,576000,576000,0,723900,1152000,360000,720000,216000,1296000,1296000,1152000,1152000,1152000,1152000,1152000,576000,576000,723900,722880,723900,723900,723900,723900,723900,576000,576000,723900,723900,723900,723900,576000,576000,723900,1143000,1296000,1296000,1296000,723900,723900,723900,952500,722880,1181100,723900,723900,576000,576000,723900,1152000,1152000,1152000,1152000,1152000,1152000,1752600,3086100,723900,723900,723900,723900,723900,723900,723900,0,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[288000,1440000,1440000,533400,1440000,1440000,1440000,1440000,1440000,1440000,1440000,1440000,1440000,1440000,1440000,1440000,1440000,1440000,288000,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="1" r="1" cs="17" rs="3" s="0">
+<O>
+<![CDATA[员工入职登记表]]></O>
+<Expand/>
+</C>
+<C c="1" r="4" cs="17" s="1">
+<O>
+<![CDATA[FORM FOR PERSONAL INFORMATION OF EMPLOYEE]]></O>
+<Expand/>
+</C>
+<C c="1" r="5" cs="12">
+<Expand/>
+</C>
+<C c="0" r="6">
+<Expand/>
+</C>
+<C c="1" r="6" cs="17" s="2">
+<O>
+<![CDATA[入职员工填写下面表格，所有的表格必须填写，或填写无。]]></O>
+<Expand/>
+</C>
+<C c="1" r="7" cs="17" s="3">
+<O>
+<![CDATA[The blanks below must be filled completely or filled with “No” by the applicant.]]></O>
+<Expand/>
+</C>
+<C c="8" r="8">
+<Expand/>
+</C>
+<C c="1" r="9" cs="10" s="4">
+<O>
+<![CDATA[工作信息 POSITION INFORAMTION]]></O>
+<Expand/>
+</C>
+<C c="1" r="10" cs="5" s="5">
+<O>
+<![CDATA[所属部门Department]]></O>
+<Expand/>
+</C>
+<C c="6" r="10" cs="4" s="6">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.ComboBox">
+<WidgetName name="depart"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择部门！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="0" vi="1"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[addDivision]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+<widgetValue/>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="0" vi="1"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[addDivision]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="10" r="10" cs="4" s="6">
+<O>
+<![CDATA[岗位Position]]></O>
+<Expand/>
+</C>
+<C c="14" r="10" cs="4" s="7">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.ComboBox">
+<WidgetName name="position"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择岗位！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="0" vi="1"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[addPosition]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+<widgetValue/>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr ki="0" vi="1"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[addPosition]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="1" r="11" cs="5" s="8">
+<O>
+<![CDATA[入职日期Entry Date]]></O>
+<Expand/>
+</C>
+<C c="6" r="11" cs="4" s="9">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.DateEditor">
+<WidgetName name="entryDate"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择入职日期！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<DateAttr/>
+<widgetValue/>
+</Widget>
+<Expand/>
+</C>
+<C c="10" r="11" cs="4" s="10">
+<O>
+<![CDATA[     首次工作日期    Initial Date of Career]]></O>
+<Expand/>
+</C>
+<C c="14" r="11" cs="4" s="11">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.DateEditor">
+<WidgetName name="initialDate"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择首次工作日期！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<DateAttr/>
+<widgetValue/>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="14" cs="17">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=UUID()]]></Attributes>
+</O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetAttr/>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.NoneReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="15" cs="10" s="4">
+<O>
+<![CDATA[个人资料PERSONAL INFORMATION]]></O>
+<Expand/>
+</C>
+<C c="1" r="16" cs="5" s="5">
+<O>
+<![CDATA[中文姓名Chinese Name]]></O>
+<Expand/>
+</C>
+<C c="6" r="16" cs="4" s="6">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.TextEditor">
+<Listener event="stopedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var chineseName = this.getValue();
+if(chineseName.trim()!=""){    
+       var reg=/^([\u4e00-\u9fa5]A)+$/;    
+        if(!reg.test(chineseName)){    
+	    FR.Msg.alert(FR.i18n.Alert, "中文姓名格式不正确，只能输入汉字!"); 
+        } 
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="chineseName"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请正确输入中文姓名！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.CustomReg">
+<CusReg ct="^([\u4e00-\u9fa5])+$"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="10" r="16" cs="4" s="6">
+<O>
+<![CDATA[英文姓名English Name(登录名 loginName)]]></O>
+<Expand/>
+</C>
+<C c="14" r="16" cs="4" s="7">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.TextEditor">
+<Listener event="stopedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var loginName = contentPane.getWidgetByName("loginName").getValue();
+if(loginName.trim()!=""){    
+       var reg=/^[A-Za-z]A+$/;    
+        if(!reg.test(loginName)){    
+	    FR.Msg.alert(FR.i18n.Alert, "英文姓名（登录名）格式不正确!"); 
+        } 
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="loginName"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请正确输入英文姓名（登录名）！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.CustomReg">
+<CusReg ct="^[A-Za-z]+$"/>
+</Reg>
+<watermark>
+<![CDATA[eg.JackZhang]]></watermark>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="17" cs="5" rs="3" s="12">
+<O>
+<![CDATA[性别Gender]]></O>
+<Expand/>
+</C>
+<C c="6" r="17" cs="4">
+<Expand/>
+</C>
+<C c="10" r="17" cs="4" rs="3" s="13">
+<O>
+<![CDATA[出生日期Birth Date(YY/MM/DD)]]></O>
+<Expand/>
+</C>
+<C c="14" r="17" cs="4" rs="3" s="14">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.DateEditor">
+<WidgetName name="birthDate"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择出生日期！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<DateAttr format="yy/MM/dd" start="01/01/1930" end="12/01/2050" returnDate="true"/>
+<widgetValue/>
+</Widget>
+<Expand/>
+</C>
+<C c="6" r="18" cs="4" s="15">
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetName name="gender"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择性别！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="m" value="男Male"/>
+<Dict key="f" value="女Female"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="m" value="男Male"/>
+<Dict key="f" value="女(Female)"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="6" r="19" cs="4">
+<Expand/>
+</C>
+<C c="1" r="20" cs="5" s="12">
+<O>
+<![CDATA[民族Ethnic Group(或 国籍Or Nationality)]]></O>
+<Expand/>
+</C>
+<C c="6" r="20" cs="4" s="13">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="ethnic"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入民族（国籍）！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="10"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="10" r="20" cs="4" s="13">
+<O>
+<![CDATA[婚姻状况Marital Status]]></O>
+<Expand/>
+</C>
+<C c="14" r="20" cs="4" s="16">
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetName name="marital"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择婚姻状况！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="m" value="已婚Married"/>
+<Dict key="u" value="未婚Unmarried"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="m" value="已婚Married"/>
+<Dict key="u" value="女Female"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="1" r="21" cs="5" s="12">
+<O>
+<![CDATA[政治身份Political Identity(如有If Any)]]></O>
+<Expand/>
+</C>
+<C c="6" r="21" cs="4" s="13">
+<Widget class="com.fr.form.ui.ComboBox">
+<WidgetName name="political"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择政治身份！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<DirectEdit>
+<![CDATA[false]]></DirectEdit>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="c" value="中共党员(CPC Member)"/>
+<Dict key="d" value="民主党派(Democrat)"/>
+<Dict key="p" value="群众(the common people)"/>
+</CustomDictAttr>
+</Dictionary>
+<widgetValue/>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="c" value="中共党员CPC Member"/>
+<Dict key="d" value="民主党派Democrat"/>
+<Dict key="p" value="群众the common people"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="10" r="21" cs="4" s="13">
+<O>
+<![CDATA[宗教信仰Religion(如有If Any)]]></O>
+<Expand/>
+</C>
+<C c="14" r="21" cs="4" s="16">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="religion"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入宗教信仰！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="10"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="22" cs="5" s="12">
+<O>
+<![CDATA[身份证号码ID No(或 护照号 Or Passport No.)]]></O>
+<Expand/>
+</C>
+<C c="6" r="22" cs="12" s="16">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.TextEditor">
+<Listener event="stopedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var idNo = contentPane.getWidgetByName("idNo").getValue();
+if(idNo.trim()!=""){    
+       var reg=/(^\d{15}$)|(\d{17}(?:\d|x|X)$)| ^1[45]A[0-9]A{7}|G[0-9]A{8}|P[0-9]A{7}|S[0-9]A{7,8}$/;    
+        if(!reg.test(idNo)){    
+	    FR.Msg.alert(FR.i18n.Alert, "身份证号码（护照名）格式不正确!"); 
+        } 
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="idNo"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请正确输入身份证号码（护照号）！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.CustomReg">
+<CusReg ct="(^\d{15}$)|(\d{17}(?:\d|x|X)$)| ^1[45][0-9]{7}|G[0-9]{8}|P[0-9]{7}|S[0-9]{7,8}$"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="23" cs="5" s="12">
+<O>
+<![CDATA[户口所在地Registered Residence]]></O>
+<Expand/>
+</C>
+<C c="6" r="23" cs="12" s="16">
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="registered"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入户口所在地！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="100"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="24" cs="5" s="12">
+<O>
+<![CDATA[电子邮件Email Address]]></O>
+<Expand/>
+</C>
+<C c="6" r="24" cs="12" s="16">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.TextEditor">
+<Listener event="stopedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var email=this.getValue();
+if(email.trim()!=""){    
+       var reg=/^\w+([-+.]A\w+)*@\w+([-.]A\w+)*\.\w+([-.]A\w+)*$/;    
+        if(!reg.test(email)){    
+	    FR.Msg.alert(FR.i18n.Alert, "电子邮件格式不正确!"); 
+        } 
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="email"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请正确输入电子邮件！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.MailReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="25" cs="5" s="12">
+<O>
+<![CDATA[移动电话 Cell Phone NO.]]></O>
+<Expand/>
+</C>
+<C c="6" r="25" cs="12" s="16">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.TextEditor">
+<Listener event="stopedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var phoneNo = contentPane.getWidgetByName("phoneNo").getValue();
+if(phoneNo.trim()!=""){    
+       var reg=/^(1)\d{10}$/;    
+        if(!reg.test(phoneNo)){    
+	    FR.Msg.alert(FR.i18n.Alert, "手机号码格式不正确!"); 
+        } 
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="phoneNo"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请正确输入移动电话！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.MobileReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="26" cs="5" s="8">
+<O>
+<![CDATA[现住址Address Available]]></O>
+<Expand/>
+</C>
+<C c="6" r="26" cs="12" s="17">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="address"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入现住址！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="100"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="29" cs="13" s="4">
+<O>
+<![CDATA[社会福利信息SOCIAL WELFARE INFORMATION]]></O>
+<Expand/>
+</C>
+<C c="1" r="30" cs="4" rs="2" s="5">
+<O>
+<![CDATA[     社会保险      Social Security]]></O>
+<Expand/>
+</C>
+<C c="5" r="30" cs="7" s="6">
+<O>
+<![CDATA[享受此社会福利?Do you have this access? ]]></O>
+<Expand/>
+</C>
+<C c="12" r="30" cs="6" s="7">
+<O>
+<![CDATA[缴费状态Paying Status]]></O>
+<Expand/>
+</C>
+<C c="5" r="31" s="18">
+<Expand/>
+</C>
+<C c="6" r="31" s="19">
+<Expand/>
+</C>
+<C c="7" r="31" cs="4" s="20">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetName name="socialSecurityNoPermission1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择是否享受【社会保险】福利！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="y" value="是Yes"/>
+<Dict key="n" value="否No"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="y" value="是Yes"/>
+<Dict key="n" value="否No"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="11" r="31" s="21">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="12" r="31" cs="6" s="16">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetName name="socialSecurityPayingStatus1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【社会保险】缴费状态！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="c" value="在缴Normal"/>
+<Dict key="d" value="断缴Interrupted"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="c" value="在缴Normal"/>
+<Dict key="d" value="断缴Interrupted"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="1" r="32" cs="6" s="12">
+<O>
+<![CDATA[社会保险号Social Security NO.]]></O>
+<Expand/>
+</C>
+<C c="7" r="32" cs="11" s="22">
+<Widget class="com.fr.form.ui.TextEditor">
+<Listener event="stopedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var socialNo1 = contentPane.getWidgetByName("socialNo1").getValue();
+if(socialNo1.trim()!=""){    
+       var reg=/(^\d{8}$)/;    
+        if(!reg.test(socialNo1)){    
+	    FR.Msg.alert(FR.i18n.Alert, "社保号格式不正确，8位数字!"); 
+        } 
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="socialNo1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请正确输入【社会保险】号！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.CustomReg">
+<CusReg ct="^\d{8}$"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="33" cs="4" rs="2" s="12">
+<O>
+<![CDATA[      公积金      House Funding]]></O>
+<Expand/>
+</C>
+<C c="5" r="33" cs="7" s="13">
+<O>
+<![CDATA[享受此社会福利?Do you have this access? ]]></O>
+<Expand/>
+</C>
+<C c="12" r="33" cs="6" s="16">
+<O>
+<![CDATA[缴费状态Paying Status]]></O>
+<Expand/>
+</C>
+<C c="5" r="34" s="18">
+<Expand/>
+</C>
+<C c="6" r="34" s="19">
+<Expand/>
+</C>
+<C c="7" r="34" cs="4" s="20">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetName name="houseFundingPermission1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择是否享受【公积金】福利！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="y" value="是Yes"/>
+<Dict key="n" value="否No"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="y" value="是Yes"/>
+<Dict key="n" value="否No"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="11" r="34" s="21">
+<Expand/>
+</C>
+<C c="12" r="34" cs="6" s="16">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetName name="houseFundingPayingStatus1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【公积金】缴费状态！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="c" value="在缴Normal"/>
+<Dict key="d" value="断缴Interrupted"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="c" value="在缴Normal"/>
+<Dict key="d" value="断缴Interrupted"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="1" r="35" cs="6" s="8">
+<O>
+<![CDATA[公积金号House Funding NO.]]></O>
+<Expand/>
+</C>
+<C c="7" r="35" cs="11" s="23">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.TextEditor">
+<Listener event="stopedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var houseNo1 = contentPane.getWidgetByName("houseNo1").getValue();
+
+if(houseNo1.trim()!=""){    
+       var reg=/(^\d{16}$)/;    
+        if(!reg.test(houseNo1)){    
+	    FR.Msg.alert(FR.i18n.Alert, "公积金格式不正确，16位数字!"); 
+        } 
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="houseNo1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请正确输入【公积金】号！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.CustomReg">
+<CusReg ct="^\d{16}$"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="38" cs="11" s="4">
+<O>
+<![CDATA[紧急联络人信息EMERGENCY CONTACT]]></O>
+<Expand/>
+</C>
+<C c="1" r="39" cs="4" s="5">
+<O>
+<![CDATA[姓名Name]]></O>
+<Expand/>
+</C>
+<C c="5" r="39" cs="3" s="6">
+<O>
+<![CDATA[关系Relationship]]></O>
+<Expand/>
+</C>
+<C c="8" r="39" cs="6" s="6">
+<O>
+<![CDATA[工作单位和职务Company & Title ]]></O>
+<Expand/>
+</C>
+<C c="14" r="39" cs="4" s="7">
+<O>
+<![CDATA[联系电话Phone No.]]></O>
+<Expand/>
+</C>
+<C c="1" r="40" cs="4" s="12">
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="emName1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【紧急联络人】的姓名！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="10"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="5" r="40" cs="3" s="13">
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="emRelationship1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【紧急联络人】的关系！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="10"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="8" r="40" cs="6" s="13">
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="emCompany1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【紧急联络人】的工作单位和职务！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="20"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="14" r="40" cs="4" s="16">
+<Widget class="com.fr.form.ui.TextEditor">
+<Listener event="stopedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var emPhoneNO1 = contentPane.getWidgetByName("emPhoneNO1").getValue();
+if(emPhoneNO1.trim()!=""){    
+       var reg=/^(1)\d{10}$/;    
+        if(!reg.test(emPhoneNO1)){    
+	    FR.Msg.alert(FR.i18n.Alert, "【紧急联络人1】手机号码格式不正确!"); 
+        } 
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="emPhoneNO1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请正确输入【紧急联络人】的联系电话！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.MobileReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="41" cs="4" s="8">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="emName2"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【紧急联络人】的姓名！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="10"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="5" r="41" cs="3" s="10">
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="emRelationship2"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【紧急联络人】的关系！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="10"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="8" r="41" cs="6" s="10">
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="emCompany2"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【紧急联络人】的工作单位和职务！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="20"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="14" r="41" cs="4" s="17">
+<Widget class="com.fr.form.ui.TextEditor">
+<Listener event="stopedit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var emPhoneNO2 = contentPane.getWidgetByName("emPhoneNO1").getValue();
+
+if(emPhoneNO2.trim()!=""){    
+       var reg=/^(1)\d{10}$/;    
+        if(!reg.test(emPhoneNO2)){    
+	    FR.Msg.alert(FR.i18n.Alert, "【紧急联络人2】手机号码格式不正确!"); 
+        } 
+}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="emPhoneNO2"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请正确输入【紧急联络人】的联系电话！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.MobileReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="44" cs="8" s="4">
+<O>
+<![CDATA[教育情况EDUCATION INFORMATION]]></O>
+<Expand/>
+</C>
+<C c="9" r="44" cs="9" s="24">
+<O>
+<![CDATA[(从最高开始The highest degree on the top)]]></O>
+<Expand/>
+</C>
+<C c="1" r="45" cs="5" s="5">
+<O>
+<![CDATA[学习时间Educational Period]]></O>
+<Expand/>
+</C>
+<C c="6" r="45" cs="3" s="6">
+<O>
+<![CDATA[    学校名称       Name of School]]></O>
+<Expand/>
+</C>
+<C c="9" r="45" cs="2" s="6">
+<O>
+<![CDATA[专业Major]]></O>
+<Expand/>
+</C>
+<C c="11" r="45" cs="3" s="6">
+<O>
+<![CDATA[学历 Educational Degree]]></O>
+<Expand/>
+</C>
+<C c="14" r="45" cs="4" s="7">
+<O>
+<![CDATA[教育形式Educational Status]]></O>
+<Expand/>
+</C>
+<C c="1" r="46" cs="2" s="25">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.DateEditor">
+<WidgetName name="eduStart1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【教育情况】的起始学习时间！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<DateAttr format="yyyy/MM/dd"/>
+<widgetValue/>
+</Widget>
+<Expand/>
+</C>
+<C c="3" r="46" s="26">
+<O>
+<![CDATA[-]]></O>
+<Expand/>
+</C>
+<C c="4" r="46" cs="2" s="27">
+<Widget class="com.fr.form.ui.DateEditor">
+<WidgetName name="eduEnd1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【教育情况】的结束学习时间！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<DateAttr format="yyyy/MM/dd"/>
+<widgetValue/>
+</Widget>
+<Expand/>
+</C>
+<C c="6" r="46" cs="3" s="13">
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="eduSchoolName1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【教育情况】的学校名称！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="10"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="9" r="46" cs="2" s="13">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="eduMajor1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【教育情况】的专业！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="10"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="11" r="46" cs="3" s="13">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="eduDegree1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【教育情况】的学历！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="10"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="14" r="46" cs="4" s="16">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetName name="eduStatus1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【教育情况】的教育形式！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="" value=""/>
+<Dict key="c" value="统招compulsory"/>
+<Dict key="v" value="非统招Volunteer"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="c" value="统招compulsory"/>
+<Dict key="v" value="非统招Volunteer"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="1" r="47" cs="2" s="25">
+<Widget class="com.fr.form.ui.DateEditor">
+<WidgetName name="eduStart2"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【教育情况】的起始学习时间]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<DateAttr format="yyyy/MM/dd"/>
+<widgetValue/>
+</Widget>
+<Expand/>
+</C>
+<C c="3" r="47" s="26">
+<O>
+<![CDATA[-]]></O>
+<Expand/>
+</C>
+<C c="4" r="47" cs="2" s="27">
+<Widget class="com.fr.form.ui.DateEditor">
+<WidgetName name="eduEnd2"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【教育情况】的结束学习时间！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<DateAttr format="yyyy/MM/dd"/>
+<widgetValue/>
+</Widget>
+<Expand/>
+</C>
+<C c="6" r="47" cs="3" s="13">
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="eduSchoolName2"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【教育情况】的学校名称！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="10"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="9" r="47" cs="2" s="13">
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="eduMajor2"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【教育情况】的专业！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="10"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="11" r="47" cs="3" s="13">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="eduDegree2"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【教育情况】的学历！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="10"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="14" r="47" cs="4" s="16">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetName name="eduStatus2"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【教育情况】的教育形式！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="" value=""/>
+<Dict key="c" value="统招compulsory"/>
+<Dict key="v" value="非统招Volunteer"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="c" value="统招compulsory"/>
+<Dict key="v" value="非统招Volunteer"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="1" r="48" cs="2" s="28">
+<Widget class="com.fr.form.ui.DateEditor">
+<WidgetName name="eduStart3"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【教育情况】的起始学习时间]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<DateAttr format="yyyy/MM/dd"/>
+<widgetValue/>
+</Widget>
+<Expand/>
+</C>
+<C c="3" r="48" s="29">
+<O>
+<![CDATA[-]]></O>
+<Expand/>
+</C>
+<C c="4" r="48" cs="2" s="30">
+<Widget class="com.fr.form.ui.DateEditor">
+<WidgetName name="eduEnd3"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【教育情况】的结束学习时间！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<DateAttr format="yyyy/MM/dd"/>
+<widgetValue/>
+</Widget>
+<Expand/>
+</C>
+<C c="6" r="48" cs="3" s="10">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="eduSchoolName3"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【教育情况】的学校名称！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="10"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="9" r="48" cs="2" s="10">
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="eduMajor3"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【教育情况】的专业！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="10"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="11" r="48" cs="3" s="10">
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="eduDegree3"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【教育情况】的学历！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="10"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="14" r="48" cs="4" s="17">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetName name="eduStatus3"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【教育情况】的教育形式！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="" value=""/>
+<Dict key="c" value="统招compulsory"/>
+<Dict key="v" value="非统招Volunteer"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="c" value="统招compulsory"/>
+<Dict key="v" value="非统招Volunteer"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="1" r="53" cs="6" s="4">
+<O>
+<![CDATA[技能水平SKILL LEVEL]]></O>
+<Expand/>
+</C>
+<C c="7" r="53" cs="8" s="24">
+<O>
+<![CDATA[(只注明最高only the highest level)]]></O>
+<Expand/>
+</C>
+<C c="1" r="54" cs="4" s="5">
+<O>
+<![CDATA[技能名称Skills]]></O>
+<Expand/>
+</C>
+<C c="5" r="54" cs="9" s="6">
+<O>
+<![CDATA[技能证书Certificates or Licenses]]></O>
+<Expand/>
+</C>
+<C c="14" r="54" cs="4" s="7">
+<O>
+<![CDATA[资格获得时间Certificated Date]]></O>
+<Expand/>
+</C>
+<C c="1" r="55" cs="4" s="12">
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="skills1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【技能水平】的技能名称！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="10"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="5" r="55" cs="9" s="13">
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="skillsLicenses1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【技能水平】的技能证书！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="100"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="14" r="55" cs="4" s="31">
+<Widget class="com.fr.form.ui.DateEditor">
+<WidgetName name="skillsDate1"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【技能水平】资格获得时间！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<DateAttr/>
+<widgetValue/>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="56" cs="4" s="8">
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="skills2"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【技能水平】的技能名称！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="10"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="5" r="56" cs="9" s="10">
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="skillsLicenses2"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【技能水平】的技能证书！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="100"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="14" r="56" cs="4" s="11">
+<Widget class="com.fr.form.ui.DateEditor">
+<WidgetName name="skillsDate2"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【技能水平】资格获得时间！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<DateAttr/>
+<widgetValue/>
+</Widget>
+<Expand/>
+</C>
+<C c="1" r="59" cs="14" s="4">
+<O>
+<![CDATA[证明证件CETIFICATE AND DIPLOMA]]></O>
+<Expand/>
+</C>
+<C c="1" r="60" cs="5" s="5">
+<O>
+<![CDATA[所需证件Requested Documents]]></O>
+<Expand/>
+</C>
+<C c="6" r="60" cs="8" s="6">
+<O>
+<![CDATA[具体要求Details]]></O>
+<Expand/>
+</C>
+<C c="14" r="60" cs="4" s="7">
+<O>
+<![CDATA[是否符合要求Validity:]]></O>
+<Expand/>
+</C>
+<C c="1" r="61" cs="5" s="12">
+<O>
+<![CDATA[学历证Degree Certificate]]></O>
+<Expand/>
+</C>
+<C c="6" r="61" cs="8" s="13">
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="degreeD"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【证明证件】学历证的具体要求！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="100"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="14" r="61" cs="4" s="16">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetName name="degreeV"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【证明证件】学历证是否符合要求！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="y" value="是Yes"/>
+<Dict key="n" value="否No"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="y" value="是Yes"/>
+<Dict key="n" value="否No"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="1" r="62" cs="5" s="12">
+<O>
+<![CDATA[学位证 Diploma]]></O>
+<Expand/>
+</C>
+<C c="6" r="62" cs="8" s="13">
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="diplomaD"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【证明证件】学位证的具体要求！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="100"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="14" r="62" cs="4" s="16">
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetName name="diplomaV"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【证明证件】学位证是否符合要求！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="y" value="是Yes"/>
+<Dict key="n" value="否No"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="y" value="是Yes"/>
+<Dict key="n" value="否No"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="1" r="63" cs="5" s="12">
+<O>
+<![CDATA[英语等级证书Certificate of English]]></O>
+<Expand/>
+</C>
+<C c="6" r="63" cs="8" s="13">
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="englishD"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【证明证件】英语等级证书的具体要求！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="100"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="14" r="63" cs="4" s="16">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetName name="englishV"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【证明证件】英语等级证书是否符合要求！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="y" value="是Yes"/>
+<Dict key="n" value="否No"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="y" value="是Yes"/>
+<Dict key="n" value="否No"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="1" r="64" cs="5" s="12">
+<O>
+<![CDATA[职业资格证书Career License]]></O>
+<Expand/>
+</C>
+<C c="6" r="64" cs="8" s="13">
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="careerD"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【证明证件】职业资格证书的具体要求！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="100"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="14" r="64" cs="4" s="16">
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetName name="careerV"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【证明证件】职业资格证书是否符合要求！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="y" value="是Yes"/>
+<Dict key="n" value="否No"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="y" value="是Yes"/>
+<Dict key="n" value="否No"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="1" r="65" cs="5" s="12">
+<O>
+<![CDATA[身份证ID Card No.]]></O>
+<Expand/>
+</C>
+<C c="6" r="65" cs="8" s="13">
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="idNoD"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请正确输入【证明证件】身份证的具体要求！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.IDCardReg"/>
+</Widget>
+<Expand/>
+</C>
+<C c="14" r="65" cs="4" s="16">
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetName name="idNoV"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【证明证件】身份证是否符合要求！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="y" value="是Yes"/>
+<Dict key="n" value="否No"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="y" value="是Yes"/>
+<Dict key="n" value="否No"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="1" r="66" cs="5" s="12">
+<O>
+<![CDATA[解除（终止）劳动合同证明 Proof of Employment Termination]]></O>
+<Expand/>
+</C>
+<C c="6" r="66" cs="8" s="13">
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="terminationD"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【证明证件】解除（终止）劳动合同证明的具体要求！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="100"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="14" r="66" cs="4" s="16">
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetName name="terminationV"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【证明证件】解除（终止）劳动合同证明是否符合要求！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="y" value="是Yes"/>
+<Dict key="n" value="否No"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="y" value="是Yes"/>
+<Dict key="n" value="否No"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="1" r="67" cs="5" s="8">
+<O>
+<![CDATA[其他所需证件Others]]></O>
+<Expand/>
+</C>
+<C c="6" r="67" cs="8" s="10">
+<Widget class="com.fr.form.ui.TextArea">
+<WidgetName name="otherD"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请输入【证明证件】其他所需证件的具体要求！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+<Reg class="com.fr.form.ui.reg.LengthReg">
+<LenReg min="0" max="100"/>
+</Reg>
+</Widget>
+<Expand/>
+</C>
+<C c="14" r="67" cs="4" s="17">
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetName name="otherV"/>
+<WidgetAttr/>
+<EMSG>
+<![CDATA[请选择【证明证件】其他所需证件是否符合要求！]]></EMSG>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="y" value="是Yes"/>
+<Dict key="n" value="否No"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+<Present class="com.fr.base.present.DictPresent">
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="y" value="是Yes"/>
+<Dict key="n" value="否No"/>
+</CustomDictAttr>
+</Dictionary>
+</Present>
+<Expand/>
+</C>
+<C c="7" r="71" cs="4" rs="2">
+<O>
+<![CDATA[]]></O>
+<Widget class="com.fr.form.ui.FreeButton">
+<Listener event="click">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[
+_g('${sessionID}').verifyAndWriteReport(); 
+]]></Content>
+</JavaScript>
+</Listener>
+<WidgetAttr/>
+<Text>
+<![CDATA[<b><font color='red' size='2' >提            交</font></b>]]></Text>
+<IconName>
+<![CDATA[submit]]></IconName>
+</Widget>
+<Expand/>
+</C>
+<C c="13" r="72">
+<Expand/>
+</C>
+<C c="1" r="75" cs="2">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=NOW()]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="3" r="75" cs="3">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings isVerticalCenterOnPage="true" headerHeight="0" footerHeight="0">
+<PaperSetting>
+<Margin top="986400" left="2880000" bottom="986400" right="2743200"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<ReportWriteAttr>
+<Submiter class="com.fr.report.write.BuiltInSQLSubmiter" name="内置SQL1">
+<Attributes dsName="FRDemo"/>
+<DMLConfig class="com.fr.base.write.config.IntelliDMLConfig">
+<Table schema="" name="t_user"/>
+<ColumnConfig name="id" isKey="true" skipUnmodified="false">
+<ColumnRow column="1" row="14"/>
+</ColumnConfig>
+<ColumnConfig name="code" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="loginName" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="16"/>
+</ColumnConfig>
+<ColumnConfig name="displayName" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="16"/>
+</ColumnConfig>
+<ColumnConfig name="email" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="24"/>
+</ColumnConfig>
+<ColumnConfig name="entryDate" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="11"/>
+</ColumnConfig>
+<ColumnConfig name="initialDate" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="11"/>
+</ColumnConfig>
+<ColumnConfig name="englishName" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="16"/>
+</ColumnConfig>
+<ColumnConfig name="departmentId" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="10"/>
+</ColumnConfig>
+<ColumnConfig name="positionId" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="10"/>
+</ColumnConfig>
+<ColumnConfig name="gender" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="18"/>
+</ColumnConfig>
+<ColumnConfig name="birthDate" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="18"/>
+</ColumnConfig>
+<ColumnConfig name="ethnicGroup" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="20"/>
+</ColumnConfig>
+<ColumnConfig name="maritalStatus" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="20"/>
+</ColumnConfig>
+<ColumnConfig name="politicalIdentity" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="21"/>
+</ColumnConfig>
+<ColumnConfig name="religion" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="21"/>
+</ColumnConfig>
+<ColumnConfig name="idNo" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="22"/>
+</ColumnConfig>
+<ColumnConfig name="resgisteredResidence" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="23"/>
+</ColumnConfig>
+<ColumnConfig name="phoneNo" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="25"/>
+</ColumnConfig>
+<ColumnConfig name="addressAvailable" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="26"/>
+</ColumnConfig>
+<ColumnConfig name="socialSecurityNo" isKey="false" skipUnmodified="true">
+<ColumnRow column="7" row="32"/>
+</ColumnConfig>
+<ColumnConfig name="socialSecurityNoPermission" isKey="false" skipUnmodified="true">
+<ColumnRow column="7" row="31"/>
+</ColumnConfig>
+<ColumnConfig name="socialSecurityPayingStatus" isKey="false" skipUnmodified="true">
+<ColumnRow column="12" row="31"/>
+</ColumnConfig>
+<ColumnConfig name="houseFundingNo" isKey="false" skipUnmodified="true">
+<ColumnRow column="7" row="35"/>
+</ColumnConfig>
+<ColumnConfig name="houseFundingPermission" isKey="false" skipUnmodified="true">
+<ColumnRow column="7" row="34"/>
+</ColumnConfig>
+<ColumnConfig name="houseFundingPayingStatus" isKey="false" skipUnmodified="true">
+<ColumnRow column="12" row="34"/>
+</ColumnConfig>
+<ColumnConfig name="emergencyName1" isKey="false" skipUnmodified="true">
+<ColumnRow column="1" row="40"/>
+</ColumnConfig>
+<ColumnConfig name="emergencyRelationship1" isKey="false" skipUnmodified="true">
+<ColumnRow column="5" row="40"/>
+</ColumnConfig>
+<ColumnConfig name="emergencyCompanyAndTitle1" isKey="false" skipUnmodified="true">
+<ColumnRow column="8" row="40"/>
+</ColumnConfig>
+<ColumnConfig name="emergencyPhoneNo1" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="40"/>
+</ColumnConfig>
+<ColumnConfig name="emergencyName2" isKey="false" skipUnmodified="true">
+<ColumnRow column="1" row="41"/>
+</ColumnConfig>
+<ColumnConfig name="emergencyRelationship2" isKey="false" skipUnmodified="true">
+<ColumnRow column="5" row="41"/>
+</ColumnConfig>
+<ColumnConfig name="emergencyCompanyAndTitle2" isKey="false" skipUnmodified="true">
+<ColumnRow column="8" row="41"/>
+</ColumnConfig>
+<ColumnConfig name="emergencyPhoneNo2" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="41"/>
+</ColumnConfig>
+<ColumnConfig name="beginEducationalPeriod1" isKey="false" skipUnmodified="true">
+<ColumnRow column="1" row="46"/>
+</ColumnConfig>
+<ColumnConfig name="endEducationalPeriod1" isKey="false" skipUnmodified="true">
+<ColumnRow column="4" row="46"/>
+</ColumnConfig>
+<ColumnConfig name="schoolName1" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="46"/>
+</ColumnConfig>
+<ColumnConfig name="major1" isKey="false" skipUnmodified="true">
+<ColumnRow column="9" row="46"/>
+</ColumnConfig>
+<ColumnConfig name="educationalDegree1" isKey="false" skipUnmodified="true">
+<ColumnRow column="11" row="46"/>
+</ColumnConfig>
+<ColumnConfig name="educationalStatus1" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="46"/>
+</ColumnConfig>
+<ColumnConfig name="beginEducationalPeriod2" isKey="false" skipUnmodified="true">
+<ColumnRow column="1" row="47"/>
+</ColumnConfig>
+<ColumnConfig name="endEducationalPeriod12" isKey="false" skipUnmodified="true">
+<ColumnRow column="4" row="47"/>
+</ColumnConfig>
+<ColumnConfig name="schoolName2" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="47"/>
+</ColumnConfig>
+<ColumnConfig name="major2" isKey="false" skipUnmodified="true">
+<ColumnRow column="9" row="47"/>
+</ColumnConfig>
+<ColumnConfig name="educationalDegree2" isKey="false" skipUnmodified="true">
+<ColumnRow column="11" row="47"/>
+</ColumnConfig>
+<ColumnConfig name="educationalStatus2" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="47"/>
+</ColumnConfig>
+<ColumnConfig name="beginEducationalPeriod3" isKey="false" skipUnmodified="true">
+<ColumnRow column="1" row="48"/>
+</ColumnConfig>
+<ColumnConfig name="endEducationalPeriod13" isKey="false" skipUnmodified="true">
+<ColumnRow column="5" row="48"/>
+</ColumnConfig>
+<ColumnConfig name="schoolName3" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="48"/>
+</ColumnConfig>
+<ColumnConfig name="major3" isKey="false" skipUnmodified="true">
+<ColumnRow column="9" row="48"/>
+</ColumnConfig>
+<ColumnConfig name="educationalDegree3" isKey="false" skipUnmodified="true">
+<ColumnRow column="11" row="48"/>
+</ColumnConfig>
+<ColumnConfig name="educationalStatus3" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="48"/>
+</ColumnConfig>
+<ColumnConfig name="skills1" isKey="false" skipUnmodified="true">
+<ColumnRow column="1" row="55"/>
+</ColumnConfig>
+<ColumnConfig name="certificatesOrLicenses1" isKey="false" skipUnmodified="true">
+<ColumnRow column="5" row="55"/>
+</ColumnConfig>
+<ColumnConfig name="certificatedDate1" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="55"/>
+</ColumnConfig>
+<ColumnConfig name="skills2" isKey="false" skipUnmodified="true">
+<ColumnRow column="1" row="56"/>
+</ColumnConfig>
+<ColumnConfig name="certificatesOrLicenses2" isKey="false" skipUnmodified="true">
+<ColumnRow column="5" row="56"/>
+</ColumnConfig>
+<ColumnConfig name="certificatedDate2" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="56"/>
+</ColumnConfig>
+<ColumnConfig name="degreeCertificateDetails" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="61"/>
+</ColumnConfig>
+<ColumnConfig name="degreeCertificateValidity" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="61"/>
+</ColumnConfig>
+<ColumnConfig name="diplomaCertificateDetails" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="62"/>
+</ColumnConfig>
+<ColumnConfig name="diplomaCertificateValidity" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="62"/>
+</ColumnConfig>
+<ColumnConfig name="englishCertificateDetails" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="63"/>
+</ColumnConfig>
+<ColumnConfig name="englishCertificateValidity" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="63"/>
+</ColumnConfig>
+<ColumnConfig name="careerLicenseDetails" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="64"/>
+</ColumnConfig>
+<ColumnConfig name="careerLicenseValidity" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="64"/>
+</ColumnConfig>
+<ColumnConfig name="IDNODetails" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="65"/>
+</ColumnConfig>
+<ColumnConfig name="IDNOValidity" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="65"/>
+</ColumnConfig>
+<ColumnConfig name="PETDetails" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="66"/>
+</ColumnConfig>
+<ColumnConfig name="PETValidity" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="66"/>
+</ColumnConfig>
+<ColumnConfig name="othersDetails" isKey="false" skipUnmodified="true">
+<ColumnRow column="6" row="67"/>
+</ColumnConfig>
+<ColumnConfig name="othersValidity" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="67"/>
+</ColumnConfig>
+<ColumnConfig name="approverName" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="approverTime" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="approveStatus" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="addDate" isKey="false" skipUnmodified="true">
+<ColumnRow column="1" row="75"/>
+</ColumnConfig>
+<ColumnConfig name="addIp" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="addUser" isKey="false" skipUnmodified="true">
+<ColumnRow column="14" row="16"/>
+</ColumnConfig>
+<ColumnConfig name="status" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[2]]></O>
+</ColumnConfig>
+<ColumnConfig name="dateTime" isKey="false" skipUnmodified="false">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=NOW()]]></Attributes>
+</O>
+</ColumnConfig>
+<ColumnConfig name="password" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[e10adc3949ba59abbe56e057f20f883e]]></O>
+</ColumnConfig>
+</DMLConfig>
+</Submiter>
+<VV>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=G12 >= O12]]></Attributes>
+</O>
+<Message>
+<![CDATA[错误，“入职日期”早于首次“工作日期”！]]></Message>
+</VV>
+</ReportWriteAttr>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="false" windowPosition="1" align="1"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+<ParameterUI class="com.fr.main.parameter.FormParameterUI">
+<Layout class="com.fr.form.ui.container.WAbsoluteLayout">
+<WidgetName name="para"/>
+<WidgetAttr/>
+<LCAttr vgap="0" hgap="0"/>
+</Layout>
+<DesignAttr width="527" height="0"/>
+</ParameterUI>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="宋体" style="1" size="224" underline="2"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="宋体" style="1" size="80"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="64"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="1" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="2"/>
+<Bottom style="1"/>
+<Left style="2"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="2"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="2"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="2"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="2"/>
+<Left style="2"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<Format class="java.text.SimpleDateFormat">
+<![CDATA[yyyy-MM-dd]]></Format>
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="2"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="2"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<Format class="java.text.SimpleDateFormat">
+<![CDATA[yyyy-MM-dd]]></Format>
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="2"/>
+<Left style="1"/>
+<Right style="2"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="2"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<Format class="java.text.SimpleDateFormat">
+<![CDATA[yy/MM/dd]]></Format>
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="2"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="2"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="2"/>
+<Left style="1"/>
+<Right style="2"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="2"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="2"/>
+<Left style="1"/>
+<Right style="2"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="56"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<Format class="java.text.SimpleDateFormat">
+<![CDATA[yyyy/MM/dd]]></Format>
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="2"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<Format class="java.text.SimpleDateFormat">
+<![CDATA[yyyy/MM/dd]]></Format>
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<Format class="java.text.SimpleDateFormat">
+<![CDATA[yyyy/MM/dd]]></Format>
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="2"/>
+<Left style="2"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="2"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<Format class="java.text.SimpleDateFormat">
+<![CDATA[yyyy/MM/dd]]></Format>
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="2"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<Format class="java.text.SimpleDateFormat">
+<![CDATA[yyyy-MM-dd]]></Format>
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="2"/>
+</Border>
+</Style>
+</StyleList>
+</WorkBook>

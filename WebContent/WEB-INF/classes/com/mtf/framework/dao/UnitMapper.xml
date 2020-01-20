@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mtf.framework.dao.UnitMapper">
+	<resultMap id="BaseResultMap" type="Unit">
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, name, modified, addUser modifyUser, userModifyDate, userAddDate, status
+	</sql>
+	<select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.String">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM unit
+		WHERE id = #{id,jdbcType=CHAR}
+	</select>
+	<select id="selectByName" resultMap="BaseResultMap" parameterType="Unit">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM unit
+		WHERE 1 = 1
+		AND LOWER(name) = LOWER(#{name,jdbcType=VARCHAR})
+	</select>
+	<select id="selectAll" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM unit
+		
+	</select>
+	<select id="selectAllAvailable" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM unit
+		WHERE status = 0	
+	</select>
+
+	<delete id="delete" parameterType="java.lang.Object">
+		DELETE FROM unit
+		WHERE id = #{id}
+	</delete>
+	<insert id="insert" parameterType="Unit">
+		INSERT INTO unit ( name, modified, addUser ,modifyUser, userModifyDate, userAddDate, status)
+		VALUES (#{name}, #{modified}, #{addUser}, #{modifyUser}, #{userModifyDate}, #{userAddDate}, #{status})
+	</insert>
+	<update id="update" parameterType="Unit">
+		UPDATE unit
+		SET name = #{name},
+		modified = #{modified},
+		addUser = #{addUser},
+		modifyUser = #{modifyUser},
+		userModifyDate = #{userModifyDate},
+		userAddDate = #{userAddDate},
+		status = #{status,jdbcType=INTEGER}
+		WHERE id = #{id,jdbcType=CHAR}
+	</update>
+</mapper>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mtf.framework.dao.PaymentVoucherGenMapper" >
+	<resultMap id="BaseResultMap" type="com.mtf.framework.model.PaymentVoucherGen" >
+		<id column="C_NUMBER" property="number" jdbcType="INTEGER" />
+		<result column="C_TICK" property="tick" jdbcType="BIGINT" />
+		<result column="C_USER_ID" property="userId" jdbcType="CHAR" />
+		<result column="C_DATETIME" property="dateTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="Base_Column_List" >
+		C_NUMBER, C_TICK, C_USER_ID, C_DATETIME
+	</sql>
+	<select id="count" resultType="java.lang.Integer" parameterType="com.mtf.framework.model.PaymentVoucherGen" >
+		SELECT COUNT(*) FROM t_paymentVoucherGen WHERE 1 = 1
+		<if test="tick != null" >
+			 AND C_TICK = #{tick,jdbcType=BIGINT}
+		</if>
+		<if test="userId != null and userId != ''" >
+			 AND C_USER_ID = #{userId,jdbcType=CHAR}
+		</if>
+		<if test="dateTime != null" >
+			 AND C_DATETIME = #{dateTime,jdbcType=TIMESTAMP}
+		</if>
+	</select>
+	<select id="select" resultMap="BaseResultMap" >
+		SELECT 
+		<include refid="Base_Column_List" />
+		FROM t_paymentVoucherGen WHERE 1 = 1
+		<if test="record != null" >
+			<if test="record.tick != null" >
+				 AND C_TICK = #{record.tick,jdbcType=BIGINT}
+			</if>
+			<if test="record.userId != null and record.userId != ''" >
+				 AND C_USER_ID = #{record.userId,jdbcType=CHAR}
+			</if>
+			<if test="record.dateTime != null" >
+				 AND C_DATETIME = #{record.dateTime,jdbcType=TIMESTAMP}
+			</if>
+		</if>
+		<if test="page != null" >
+			<if test="page.orderBy != null and page.orderBy != ''" >
+				ORDER BY ${page.orderBy}
+			</if>
+			<if test="page.orderBy == null or page.orderBy == ''" >
+				 
+			</if>
+			<if test="page.startIndex &gt;= 0 and page.rows &gt; 0" >
+				LIMIT ${page.startIndex}, ${page.rows}
+			</if>
+		</if>
+		<if test="page == null" >
+			 
+		</if>
+	</select>
+	<select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+		SELECT 
+		<include refid="Base_Column_List" />
+		FROM t_paymentVoucherGen
+		WHERE C_NUMBER = #{number,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteById" parameterType="java.lang.Integer" >
+		DELETE FROM t_paymentVoucherGen
+		WHERE C_NUMBER = #{number,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.mtf.framework.model.PaymentVoucherGen" >
+		INSERT INTO t_paymentVoucherGen (C_NUMBER, C_TICK, C_USER_ID, 
+			C_DATETIME)
+		VALUES (#{number,jdbcType=INTEGER}, #{tick,jdbcType=BIGINT}, #{userId,jdbcType=CHAR}, 
+			#{dateTime,jdbcType=TIMESTAMP})
+	</insert>
+	<update id="updateById" parameterType="com.mtf.framework.model.PaymentVoucherGen" >
+		UPDATE t_paymentVoucherGen
+		SET C_TICK = #{tick,jdbcType=BIGINT},
+			C_USER_ID = #{userId,jdbcType=CHAR},
+			C_DATETIME = #{dateTime,jdbcType=TIMESTAMP}
+		WHERE C_NUMBER = #{number,jdbcType=INTEGER}
+	</update>
+	<select id="selectByTick" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+		SELECT 
+		<include refid="Base_Column_List" />
+		FROM t_paymentVoucherGen
+		WHERE C_TICK = #{tick,jdbcType=BIGINT}
+	</select>
+</mapper>

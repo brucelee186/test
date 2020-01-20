@@ -1,0 +1,469 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mtf.framework.dao.AttachmentMapper" > 
+	<resultMap type="com.mtf.framework.model.impl.AttachmentImpl" id="attachment"/> 
+	<!-- 添加实体对象 -->
+	<insert id="insert" parameterType="attachment">
+		INSERT INTO attachment
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					id,
+				</if>
+				<if test="relevanceTable != null">
+					relevanceTable,
+				</if>
+				<if test="relevanceId != null">
+					relevanceId,
+				</if>
+				<if test="userId != null">
+					userId,
+				</if>
+				<if test="userName != null">
+					userName,
+				</if>
+				<if test="contractId != null">
+					contractId,
+				</if>
+				<if test="code != null">
+					code,
+				</if>
+				<if test="fileName != null">
+					fileName,
+				</if>
+				<if test="suffix != null">
+					suffix,
+				</if>
+				<if test="savePathFile != null">
+					savePathFile,
+				</if>
+				<if test="tag != null">
+					tag,
+				</if>
+				<if test="addDate != null">
+					addDate,
+				</if>
+				<if test="addUser != null">
+					addUser,
+				</if>
+				<if test="addIp != null">
+					addIp,
+				</if>
+				<if test="modifiedDate != null">
+					modifiedDate,
+				</if>
+				<if test="modifiedUser != null">
+					modifiedUser,
+				</if>
+				<if test="modifiedIp != null">
+					modifiedIp,
+				</if>
+			</trim>
+			<trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					#{id},
+				</if>
+				<if test="relevanceTable != null">
+					#{relevanceTable},
+				</if>
+				<if test="relevanceId != null">
+					#{relevanceId},
+				</if>
+				<if test="userId != null">
+					#{userId},
+				</if>
+				<if test="userName != null">
+					#{userName},
+				</if>
+				<if test="contractId != null">
+					#{contractId},
+				</if>
+				<if test="code != null">
+					#{code},
+				</if>
+				<if test="fileName != null">
+					#{fileName},
+				</if>
+				<if test="suffix != null">
+					#{suffix},
+				</if>
+				<if test="savePathFile != null">
+					#{savePathFile},
+				</if>
+				<if test="tag != null">
+					#{tag},
+				</if>
+				<if test="addDate != null">
+					#{addDate},
+				</if>
+				<if test="addUser != null">
+					#{addUser},
+				</if>
+				<if test="addIp != null">
+					#{addIp},
+				</if>
+				<if test="modifiedDate != null">
+					#{modifiedDate},
+				</if>
+				<if test="modifiedUser != null">
+					#{modifiedUser},
+				</if>
+				<if test="modifiedIp != null">
+					#{modifiedIp},
+				</if>
+			</trim>
+			<selectKey resultType="long" keyProperty="id">
+				SELECT LAST_INSERT_ID() AS ID
+			</selectKey>
+	</insert>
+
+	<!-- 删除实体对象 -->
+	<delete id="delete" parameterType="java.lang.Object">
+		DELETE FROM attachment
+		<where>
+			<if test="id != null and id != ''">
+				AND id = #{id}
+			</if>
+			<if test="relevanceTable != null and relevanceTable != ''">
+				AND relevanceTable = #{relevanceTable}
+			</if>
+			<if test="relevanceId != null and relevanceId != ''">
+				AND relevanceId = #{relevanceId}
+			</if>
+			<if test="userId != null and userId != ''">
+				AND userId = #{userId}
+			</if>
+			<if test="userName != null and userName != ''">
+				AND userName = #{userName}
+			</if>
+			<if test="contractId != null and contractId != ''">
+				AND contractId = #{contractId}
+			</if>
+			<if test="code != null and code != ''">
+				AND code = #{code}
+			</if>
+			<if test="fileName != null and fileName != ''">
+				AND fileName = #{fileName}
+			</if>
+			<if test="suffix != null and suffix != ''">
+				AND suffix = #{suffix}
+			</if>
+			<if test="savePathFile != null and savePathFile != ''">
+				AND savePathFile = #{savePathFile}
+			</if>
+			<if test="tag != null and tag != ''">
+				AND tag = #{tag}
+			</if>
+			<if test="addDate != null and addDate != ''">
+				AND addDate = #{addDate}
+			</if>
+			<if test="addUser != null and addUser != ''">
+				AND addUser = #{addUser}
+			</if>
+			<if test="addIp != null and addIp != ''">
+				AND addIp = #{addIp}
+			</if>
+			<if test="modifiedDate != null and modifiedDate != ''">
+				AND modifiedDate = #{modifiedDate}
+			</if>
+			<if test="modifiedUser != null and modifiedUser != ''">
+				AND modifiedUser = #{modifiedUser}
+			</if>
+			<if test="modifiedIp != null and modifiedIp != ''">
+				AND modifiedIp = #{modifiedIp}
+			</if>
+			<include refid="com.mtf.framework.dao.AttachmentConditionMapper.searchWhere"/>
+		</where>
+	</delete>
+
+	<!-- 更新实体对象 -->
+	<update id="update" parameterType="java.lang.Object">
+		UPDATE attachment
+		<set>
+			<if test="id != null and id != ''">
+				id = #{id},
+			</if>
+			<if test="relevanceTable != null and relevanceTable != ''">
+				relevanceTable = #{relevanceTable},
+			</if>
+			<if test="relevanceId != null and relevanceId != ''">
+				relevanceId = #{relevanceId},
+			</if>
+			<if test="userId != null and userId != ''">
+				userId = #{userId},
+			</if>
+			<if test="userName != null and userName != ''">
+				userName = #{userName},
+			</if>
+			<if test="contractId != null and contractId != ''">
+				contractId = #{contractId},
+			</if>
+			<if test="code != null and code != ''">
+				code = #{code},
+			</if>
+			<if test="fileName != null and fileName != ''">
+				fileName = #{fileName},
+			</if>
+			<if test="suffix != null and suffix != ''">
+				suffix = #{suffix},
+			</if>
+			<if test="savePathFile != null and savePathFile != ''">
+				savePathFile = #{savePathFile},
+			</if>
+			<if test="tag != null and tag != ''">
+				tag = #{tag},
+			</if>
+			<if test="addDate != null and addDate != ''">
+				addDate = #{addDate},
+			</if>
+			<if test="addUser != null and addUser != ''">
+				addUser = #{addUser},
+			</if>
+			<if test="addIp != null and addIp != ''">
+				addIp = #{addIp},
+			</if>
+			<if test="modifiedDate != null and modifiedDate != ''">
+				modifiedDate = #{modifiedDate},
+			</if>
+			<if test="modifiedUser != null and modifiedUser != ''">
+				modifiedUser = #{modifiedUser},
+			</if>
+			<if test="modifiedIp != null and modifiedIp != ''">
+				modifiedIp = #{modifiedIp},
+			</if>
+			<include refid="com.mtf.framework.dao.AttachmentConditionMapper.updateColumn"/>
+		</set>
+		WHERE
+			<include refid="com.mtf.framework.dao.AttachmentConditionMapper.updateWhere"/>
+			<if test="original != null">
+				 AND modified = #{original}
+			</if>
+	</update>
+
+	<!-- 查询单个实体对象 -->
+	<select id="get" parameterType="java.lang.Object" resultMap="attachment">
+		SELECT 
+			<include refid="com.mtf.framework.dao.AttachmentConditionMapper.getColumn"/>
+			a.id, 
+			a.relevanceTable, 
+			a.relevanceId, 
+			a.userId, 
+			a.userName, 
+			a.contractId, 
+			a.code, 
+			a.fileName, 
+			a.suffix, 
+			a.savePathFile, 
+			a.tag, 
+			a.addDate, 
+			a.addUser, 
+			a.addIp, 
+			a.modifiedDate, 
+			a.modifiedUser, 
+			a.modifiedIp
+		FROM attachment AS a
+		<include refid="com.mtf.framework.dao.AttachmentConditionMapper.getFrom"/>
+		<where>
+			<if test="id != null">
+				AND a.id = #{id}
+			</if>
+			<if test="relevanceTable != null">
+				AND a.relevanceTable = #{relevanceTable}
+			</if>
+			<if test="relevanceId != null">
+				AND a.relevanceId = #{relevanceId}
+			</if>
+			<if test="userId != null">
+				AND a.userId = #{userId}
+			</if>
+			<if test="userName != null">
+				AND a.userName = #{userName}
+			</if>
+			<if test="contractId != null">
+				AND a.contractId = #{contractId}
+			</if>
+			<if test="code != null">
+				AND a.code = #{code}
+			</if>
+			<if test="fileName != null">
+				AND a.fileName = #{fileName}
+			</if>
+			<if test="suffix != null">
+				AND a.suffix = #{suffix}
+			</if>
+			<if test="savePathFile != null">
+				AND a.savePathFile = #{savePathFile}
+			</if>
+			<if test="tag != null">
+				AND a.tag = #{tag}
+			</if>
+			<if test="addDate != null">
+				AND a.addDate = #{addDate}
+			</if>
+			<if test="addUser != null">
+				AND a.addUser = #{addUser}
+			</if>
+			<if test="addIp != null">
+				AND a.addIp = #{addIp}
+			</if>
+			<if test="modifiedDate != null">
+				AND a.modifiedDate = #{modifiedDate}
+			</if>
+			<if test="modifiedUser != null">
+				AND a.modifiedUser = #{modifiedUser}
+			</if>
+			<if test="modifiedIp != null">
+				AND a.modifiedIp = #{modifiedIp}
+			</if>
+			<include refid="com.mtf.framework.dao.AttachmentConditionMapper.getWhere"/>
+		</where>
+		LIMIT 1
+	</select>
+
+	<!-- 查询实体对象集合 -->
+	<select id="select" parameterType="java.lang.Object" resultMap="attachment">
+		SELECT 
+			<include refid="com.mtf.framework.dao.AttachmentConditionMapper.selectColumn"/>
+			a.id, 
+			a.relevanceTable, 
+			a.relevanceId, 
+			a.userId, 
+			a.userName, 
+			a.contractId, 
+			a.code, 
+			a.fileName, 
+			a.suffix, 
+			a.savePathFile, 
+			a.tag, 
+			a.addDate, 
+			a.addUser, 
+			a.addIp, 
+			a.modifiedDate, 
+			a.modifiedUser, 
+			a.modifiedIp
+		FROM attachment AS a
+		<include refid="com.mtf.framework.dao.AttachmentConditionMapper.searchFrom"/>
+		<where>
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="relevanceTable != null and relevanceTable != ''">
+				AND a.relevanceTable = #{relevanceTable}
+			</if>
+			<if test="relevanceId != null and relevanceId != ''">
+				AND a.relevanceId = #{relevanceId}
+			</if>
+			<if test="userId != null and userId != ''">
+				AND a.userId = #{userId}
+			</if>
+			<if test="userName != null and userName != ''">
+				AND a.userName = #{userName}
+			</if>
+			<if test="contractId != null and contractId != ''">
+				AND a.contractId = #{contractId}
+			</if>
+			<if test="code != null and code != ''">
+				AND a.code = #{code}
+			</if>
+			<if test="fileName != null and fileName != ''">
+				AND a.fileName = #{fileName}
+			</if>
+			<if test="suffix != null and suffix != ''">
+				AND a.suffix = #{suffix}
+			</if>
+			<if test="savePathFile != null and savePathFile != ''">
+				AND a.savePathFile = #{savePathFile}
+			</if>
+			<if test="tag != null and tag != ''">
+				AND a.tag = #{tag}
+			</if>
+			<if test="addDate != null and addDate != ''">
+				AND a.addDate = #{addDate}
+			</if>
+			<if test="addUser != null and addUser != ''">
+				AND a.addUser = #{addUser}
+			</if>
+			<if test="addIp != null and addIp != ''">
+				AND a.addIp = #{addIp}
+			</if>
+			<if test="modifiedDate != null and modifiedDate != ''">
+				AND a.modifiedDate = #{modifiedDate}
+			</if>
+			<if test="modifiedUser != null and modifiedUser != ''">
+				AND a.modifiedUser = #{modifiedUser}
+			</if>
+			<if test="modifiedIp != null and modifiedIp != ''">
+				AND a.modifiedIp = #{modifiedIp}
+			</if>
+			<include refid="com.mtf.framework.dao.AttachmentConditionMapper.searchWhere"/>
+		</where>
+		<if test="group != null">
+			GROUP BY ${group}
+		</if>
+		<if test="sort != null">
+			ORDER BY ${sort} ${order}
+		</if>
+		<if test="rows != 0">
+			LIMIT ${startIndex}, ${rows}
+		</if>
+	</select>
+
+	<!-- 查询实体对象记录数 -->
+	<select id="count" parameterType="java.lang.Object" resultType="int">
+		SELECT COUNT(1) FROM attachment AS a
+		<include refid="com.mtf.framework.dao.AttachmentConditionMapper.searchFrom"/>
+		<where>
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="relevanceTable != null and relevanceTable != ''">
+				AND a.relevanceTable = #{relevanceTable}
+			</if>
+			<if test="relevanceId != null and relevanceId != ''">
+				AND a.relevanceId = #{relevanceId}
+			</if>
+			<if test="userId != null and userId != ''">
+				AND a.userId = #{userId}
+			</if>
+			<if test="userName != null and userName != ''">
+				AND a.userName = #{userName}
+			</if>
+			<if test="contractId != null and contractId != ''">
+				AND a.contractId = #{contractId}
+			</if>
+			<if test="code != null and code != ''">
+				AND a.code = #{code}
+			</if>
+			<if test="fileName != null and fileName != ''">
+				AND a.fileName = #{fileName}
+			</if>
+			<if test="suffix != null and suffix != ''">
+				AND a.suffix = #{suffix}
+			</if>
+			<if test="savePathFile != null and savePathFile != ''">
+				AND a.savePathFile = #{savePathFile}
+			</if>
+			<if test="tag != null and tag != ''">
+				AND a.tag = #{tag}
+			</if>
+			<if test="addDate != null and addDate != ''">
+				AND a.addDate = #{addDate}
+			</if>
+			<if test="addUser != null and addUser != ''">
+				AND a.addUser = #{addUser}
+			</if>
+			<if test="addIp != null and addIp != ''">
+				AND a.addIp = #{addIp}
+			</if>
+			<if test="modifiedDate != null and modifiedDate != ''">
+				AND a.modifiedDate = #{modifiedDate}
+			</if>
+			<if test="modifiedUser != null and modifiedUser != ''">
+				AND a.modifiedUser = #{modifiedUser}
+			</if>
+			<if test="modifiedIp != null and modifiedIp != ''">
+				AND a.modifiedIp = #{modifiedIp}
+			</if>
+			<include refid="com.mtf.framework.dao.AttachmentConditionMapper.searchWhere"/>
+		</where>
+	</select>
+</mapper>

@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mtf.framework.dao.CustomerMapper" > 
+	<resultMap type="com.mtf.framework.model.impl.CustomerImpl" id="customer"/> 
+	<!-- 添加实体对象 -->
+	<insert id="insert" parameterType="customer">
+		INSERT INTO customer
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					id,
+				</if>
+				<if test="name != null">
+					name,
+				</if>
+				<if test="alias != null">
+					alias,
+				</if>
+				<if test="pid != null">
+					pid,
+				</if>
+				<if test="type != null">
+					type,
+				</if>
+				<if test="status != null">
+					status,
+				</if>
+				<if test="createUserId != null">
+					createUserId,
+				</if>
+				<if test="createUserName != null">
+					createUserName,
+				</if>
+				<if test="createDatetime != null">
+					createDatetime,
+				</if>
+				<if test="updateUserId != null">
+					updateUserId,
+				</if>
+				<if test="updateUserName != null">
+					updateUserName,
+				</if>
+				<if test="updateDatetime != null">
+					updateDatetime,
+				</if>
+			</trim>
+			<trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					#{id},
+				</if>
+				<if test="name != null">
+					#{name},
+				</if>
+				<if test="alias != null">
+					#{alias},
+				</if>
+				<if test="pid != null">
+					#{pid},
+				</if>
+				<if test="type != null">
+					#{type},
+				</if>
+				<if test="status != null">
+					#{status},
+				</if>
+				<if test="createUserId != null">
+					#{createUserId},
+				</if>
+				<if test="createUserName != null">
+					#{createUserName},
+				</if>
+				<if test="createDatetime != null">
+					#{createDatetime},
+				</if>
+				<if test="updateUserId != null">
+					#{updateUserId},
+				</if>
+				<if test="updateUserName != null">
+					#{updateUserName},
+				</if>
+				<if test="updateDatetime != null">
+					#{updateDatetime},
+				</if>
+			</trim>
+	</insert>
+
+	<!-- 删除实体对象 -->
+	<delete id="delete" parameterType="java.lang.Object">
+		DELETE FROM customer
+		WHERE
+			id = #{id}
+	</delete>
+
+	<!-- 更新实体对象 -->
+	<update id="update" parameterType="java.lang.Object">
+		UPDATE customer
+		<set>
+			<if test="id != null">
+				id = #{id},
+			</if>
+			<if test="name != null">
+				name = #{name},
+			</if>
+			<if test="alias != null">
+				alias = #{alias},
+			</if>
+			<if test="pid != null">
+				pid = #{pid},
+			</if>
+			<if test="type != null">
+				type = #{type},
+			</if>
+			<if test="status != null">
+				status = #{status},
+			</if>
+			<if test="createUserId != null">
+				createUserId = #{createUserId},
+			</if>
+			<if test="createUserName != null">
+				createUserName = #{createUserName},
+			</if>
+			<if test="createDatetime != null">
+				createDatetime = #{createDatetime},
+			</if>
+			<if test="updateUserId != null">
+				updateUserId = #{updateUserId},
+			</if>
+			<if test="updateUserName != null">
+				updateUserName = #{updateUserName},
+			</if>
+			<if test="updateDatetime != null">
+				updateDatetime = #{updateDatetime},
+			</if>
+		</set>
+		WHERE
+			id = #{id}
+			<if test="original != null">
+				 AND modified = #{original}
+			</if>
+	</update>
+
+	<!-- 查询单个实体对象 -->
+	<select id="get" parameterType="java.lang.Object" resultMap="customer">
+		SELECT 
+			id, 
+			name, 
+			alias, 
+			pid, 
+			type, 
+			status, 
+			createUserId, 
+			createUserName, 
+			createDatetime, 
+			updateUserId, 
+			updateUserName, 
+			updateDatetime
+		FROM customer
+		<where>
+			<if test="id != null">
+				AND id = #{id}
+			</if>
+			<if test="name != null">
+				AND name = #{name}
+			</if>
+			<if test="alias != null">
+				AND alias = #{alias}
+			</if>
+			<if test="pid != null">
+				AND pid = #{pid}
+			</if>
+			<if test="type != null">
+				AND type = #{type}
+			</if>
+			<if test="status != null">
+				AND status = #{status}
+			</if>
+			<if test="createUserId != null">
+				AND createUserId = #{createUserId}
+			</if>
+			<if test="createUserName != null">
+				AND createUserName = #{createUserName}
+			</if>
+			<if test="createDatetime != null">
+				AND createDatetime = #{createDatetime}
+			</if>
+			<if test="updateUserId != null">
+				AND updateUserId = #{updateUserId}
+			</if>
+			<if test="updateUserName != null">
+				AND updateUserName = #{updateUserName}
+			</if>
+			<if test="updateDatetime != null">
+				AND updateDatetime = #{updateDatetime}
+			</if>
+		</where>
+		LIMIT 1
+	</select>
+
+	<!-- 查询实体对象集合 -->
+	<select id="select" parameterType="java.lang.Object" resultMap="customer">
+		SELECT 
+			id, 
+			name, 
+			alias, 
+			pid, 
+			type, 
+			status, 
+			createUserId, 
+			createUserName, 
+			createDatetime, 
+			updateUserId, 
+			updateUserName, 
+			updateDatetime
+		FROM customer
+		<where>
+			<if test="id != null and id != ''">
+				AND id = #{id}
+			</if>
+			<if test="name != null and name != ''">
+				AND name = #{name}
+			</if>
+			<if test="alias != null and alias != ''">
+				AND alias = #{alias}
+			</if>
+			<if test="pid != null and pid != ''">
+				AND pid = #{pid}
+			</if>
+			<if test="type != null and type != ''">
+				AND type = #{type}
+			</if>
+			<if test="status != null and status != ''">
+				AND status = #{status}
+			</if>
+			<if test="createUserId != null and createUserId != ''">
+				AND createUserId = #{createUserId}
+			</if>
+			<if test="createUserName != null and createUserName != ''">
+				AND createUserName = #{createUserName}
+			</if>
+			<if test="createDatetime != null and createDatetime != ''">
+				AND createDatetime = #{createDatetime}
+			</if>
+			<if test="updateUserId != null and updateUserId != ''">
+				AND updateUserId = #{updateUserId}
+			</if>
+			<if test="updateUserName != null and updateUserName != ''">
+				AND updateUserName = #{updateUserName}
+			</if>
+			<if test="updateDatetime != null and updateDatetime != ''">
+				AND updateDatetime = #{updateDatetime}
+			</if>
+			<if test="sort != null">
+				ORDER BY ${sort} ${order}
+			</if>
+		</where>
+		<if test="rows != 0">
+			LIMIT ${startIndex}, ${rows}
+		</if>
+	</select>
+
+	<!-- 查询实体对象记录数 -->
+	<select id="count" parameterType="java.lang.Object" resultType="int">
+		SELECT COUNT(1) FROM customer
+		<where>
+			<if test="id != null and id != ''">
+				AND id = #{id}
+			</if>
+			<if test="name != null and name != ''">
+				AND name = #{name}
+			</if>
+			<if test="alias != null and alias != ''">
+				AND alias = #{alias}
+			</if>
+			<if test="pid != null and pid != ''">
+				AND pid = #{pid}
+			</if>
+			<if test="type != null and type != ''">
+				AND type = #{type}
+			</if>
+			<if test="status != null and status != ''">
+				AND status = #{status}
+			</if>
+			<if test="createUserId != null and createUserId != ''">
+				AND createUserId = #{createUserId}
+			</if>
+			<if test="createUserName != null and createUserName != ''">
+				AND createUserName = #{createUserName}
+			</if>
+			<if test="createDatetime != null and createDatetime != ''">
+				AND createDatetime = #{createDatetime}
+			</if>
+			<if test="updateUserId != null and updateUserId != ''">
+				AND updateUserId = #{updateUserId}
+			</if>
+			<if test="updateUserName != null and updateUserName != ''">
+				AND updateUserName = #{updateUserName}
+			</if>
+			<if test="updateDatetime != null and updateDatetime != ''">
+				AND updateDatetime = #{updateDatetime}
+			</if>
+		</where>
+	</select>
+	
+	<select id="selectTetrad" resultType="Tetrad"  parameterType="java.lang.Object">
+		SELECT
+		id AS first,
+		name AS second,
+		alias AS third,
+		pid as fourth
+		FROM customer
+		WHERE 1 = 1
+		<if test="type == 0 ">
+			<!-- AND pid IS NULL -->
+			AND pid =""
+		</if>
+		<if test="type == 1 and pid != null">
+			AND pid = #{pid,jdbcType=CHAR}
+		</if>
+		<if test="status != null">
+			AND status = #{status,jdbcType=INTEGER}
+		</if>
+		ORDER BY name
+	</select>
+	
+	<select id="selectForCustomer" parameterType="java.lang.Object" resultMap="customer">
+		SELECT
+		id, name, alias, pid, type, status
+		FROM customer
+		WHERE 1 = 1
+		<if test="type == 0 ">
+			AND pid IS NULL
+		</if>
+		<if test="type == 1 and pid != null">
+			AND pid = #{pid,jdbcType=CHAR}
+		</if>
+		<!-- <if test="orderType != null">
+			AND C_ORDERTYPE = #{orderType,jdbcType=INTEGER}
+		</if> -->
+		<if test="status != null">
+			AND status = #{status,jdbcType=INTEGER}
+		</if>
+		ORDER BY name
+	</select>
+	
+	<select id="selectCustomer" parameterType="java.lang.Object" resultMap="customer">
+		SELECT 
+			id, 
+			name, 
+			alias, 
+			pid, 
+			type, 
+			status, 
+			createUserId, 
+			createUserName, 
+			createDatetime, 
+			updateUserId, 
+			updateUserName, 
+			updateDatetime
+		FROM customer
+		WHERE
+			type = #{type}
+		AND 
+			status = #{status}
+	</select>
+</mapper>

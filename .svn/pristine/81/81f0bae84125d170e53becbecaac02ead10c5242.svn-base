@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mtf.framework.dao.Category2DivisionMapper" >
+	<resultMap id="BaseResultMap" type="com.mtf.framework.model.Category2Division" >
+		<id column="id" property="id" jdbcType="CHAR" />
+		<result column="categoryId" property="categoryId" jdbcType="INTEGER" />
+		<result column="divisionId" property="divisionId" jdbcType="CHAR" />
+	</resultMap>
+	<sql id="Base_Column_List" >
+		id, categoryId, divisionId
+	</sql>
+	<insert id="insert" parameterType="com.mtf.framework.model.Category2Division" >
+		INSERT INTO categoryDivision (id, categoryId, divisionId)
+		VALUES (#{id,jdbcType=CHAR}, #{categoryId,jdbcType=INTEGER}, #{divisionId,jdbcType=CHAR})
+	</insert>
+	<delete id="deleteById" parameterType="java.lang.String" >
+		DELETE FROM categoryDivision
+		WHERE id = #{id,jdbcType=CHAR}
+	</delete>
+	<delete id="deleteByCategoryId" parameterType="java.lang.Integer" >
+		DELETE FROM categoryDivision
+		WHERE categoryId = #{categoryId,jdbcType=INTEGER}
+	</delete>
+	
+</mapper>

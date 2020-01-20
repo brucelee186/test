@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mtf.framework.dao.OrderServicePathMapper" > 
+	<resultMap type="com.mtf.framework.model.impl.OrderServicePathImpl" id="orderServicePath"/> 
+	<!-- 添加实体对象 -->
+	<insert id="insert" parameterType="orderServicePath">
+		INSERT INTO orderServicePath
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					id,
+				</if>
+				<if test="name != null">
+					name,
+				</if>
+				<if test="origin != null">
+					origin,
+				</if>
+				<if test="destination != null">
+					destination,
+				</if>
+				<if test="typeExpense != null">
+					typeExpense,
+				</if>
+				<if test="mileage != null">
+					mileage,
+				</if>
+				<if test="expense != null">
+					expense,
+				</if>
+				<if test="remark != null">
+					remark,
+				</if>
+				<if test="tag != null">
+					tag,
+				</if>
+				<if test="addDate != null">
+					addDate,
+				</if>
+				<if test="addUser != null">
+					addUser,
+				</if>
+				<if test="addIp != null">
+					addIp,
+				</if>
+				<if test="modifiedDate != null">
+					modifiedDate,
+				</if>
+				<if test="modifiedUser != null">
+					modifiedUser,
+				</if>
+				<if test="modifiedIp != null">
+					modifiedIp,
+				</if>
+			</trim>
+			<trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					#{id},
+				</if>
+				<if test="name != null">
+					#{name},
+				</if>
+				<if test="origin != null">
+					#{origin},
+				</if>
+				<if test="destination != null">
+					#{destination},
+				</if>
+				<if test="typeExpense != null">
+					#{typeExpense},
+				</if>
+				<if test="mileage != null">
+					#{mileage},
+				</if>
+				<if test="expense != null">
+					#{expense},
+				</if>
+				<if test="remark != null">
+					#{remark},
+				</if>
+				<if test="tag != null">
+					#{tag},
+				</if>
+				<if test="addDate != null">
+					#{addDate},
+				</if>
+				<if test="addUser != null">
+					#{addUser},
+				</if>
+				<if test="addIp != null">
+					#{addIp},
+				</if>
+				<if test="modifiedDate != null">
+					#{modifiedDate},
+				</if>
+				<if test="modifiedUser != null">
+					#{modifiedUser},
+				</if>
+				<if test="modifiedIp != null">
+					#{modifiedIp},
+				</if>
+			</trim>
+			<selectKey resultType="long" keyProperty="id">
+				SELECT LAST_INSERT_ID() AS ID
+			</selectKey>
+	</insert>
+
+	<!-- 删除实体对象 -->
+	<delete id="delete" parameterType="java.lang.Object">
+		DELETE FROM orderServicePath
+		<where>
+			<if test="id != null and id != ''">
+				AND id = #{id}
+			</if>
+			<if test="name != null and name != ''">
+				AND name = #{name}
+			</if>
+			<if test="origin != null and origin != ''">
+				AND origin = #{origin}
+			</if>
+			<if test="destination != null and destination != ''">
+				AND destination = #{destination}
+			</if>
+			<if test="typeExpense != null and typeExpense != ''">
+				AND typeExpense = #{typeExpense}
+			</if>
+			<if test="mileage != null and mileage != ''">
+				AND mileage = #{mileage}
+			</if>
+			<if test="expense != null and expense != ''">
+				AND expense = #{expense}
+			</if>
+			<if test="remark != null and remark != ''">
+				AND remark = #{remark}
+			</if>
+			<if test="tag != null and tag != ''">
+				AND tag = #{tag}
+			</if>
+			<if test="addDate != null and addDate != ''">
+				AND addDate = #{addDate}
+			</if>
+			<if test="addUser != null and addUser != ''">
+				AND addUser = #{addUser}
+			</if>
+			<if test="addIp != null and addIp != ''">
+				AND addIp = #{addIp}
+			</if>
+			<if test="modifiedDate != null and modifiedDate != ''">
+				AND modifiedDate = #{modifiedDate}
+			</if>
+			<if test="modifiedUser != null and modifiedUser != ''">
+				AND modifiedUser = #{modifiedUser}
+			</if>
+			<if test="modifiedIp != null and modifiedIp != ''">
+				AND modifiedIp = #{modifiedIp}
+			</if>
+			<include refid="com.mtf.framework.dao.OrderServicePathConditionMapper.countWhere"/>
+		</where>
+	</delete>
+
+	<!-- 更新实体对象 -->
+	<update id="update" parameterType="java.lang.Object">
+		UPDATE orderServicePath
+		<set>
+			<if test="id != null and id != ''">
+				id = #{id},
+			</if>
+			<if test="name != null and name != ''">
+				name = #{name},
+			</if>
+			<if test="origin != null and origin != ''">
+				origin = #{origin},
+			</if>
+			<if test="destination != null and destination != ''">
+				destination = #{destination},
+			</if>
+			<if test="typeExpense != null and typeExpense != ''">
+				typeExpense = #{typeExpense},
+			</if>
+			<if test="mileage != null and mileage != ''">
+				mileage = #{mileage},
+			</if>
+			<if test="expense != null and expense != ''">
+				expense = #{expense},
+			</if>
+			<if test="remark != null and remark != ''">
+				remark = #{remark},
+			</if>
+			<if test="tag != null and tag != ''">
+				tag = #{tag},
+			</if>
+			<if test="addDate != null and addDate != ''">
+				addDate = #{addDate},
+			</if>
+			<if test="addUser != null and addUser != ''">
+				addUser = #{addUser},
+			</if>
+			<if test="addIp != null and addIp != ''">
+				addIp = #{addIp},
+			</if>
+			<if test="modifiedDate != null and modifiedDate != ''">
+				modifiedDate = #{modifiedDate},
+			</if>
+			<if test="modifiedUser != null and modifiedUser != ''">
+				modifiedUser = #{modifiedUser},
+			</if>
+			<if test="modifiedIp != null and modifiedIp != ''">
+				modifiedIp = #{modifiedIp},
+			</if>
+			<include refid="com.mtf.framework.dao.OrderServicePathConditionMapper.updateColumn"/>
+		</set>
+		WHERE
+			<include refid="com.mtf.framework.dao.OrderServicePathConditionMapper.updateWhere"/>
+			<if test="original != null">
+				 AND modified = #{original}
+			</if>
+	</update>
+
+	<!-- 查询单个实体对象 -->
+	<select id="get" parameterType="java.lang.Object" resultMap="orderServicePath">
+		SELECT 
+			<include refid="com.mtf.framework.dao.OrderServicePathConditionMapper.getColumn"/>
+			a.id, 
+			a.name, 
+			a.origin, 
+			a.destination, 
+			a.typeExpense, 
+			a.mileage, 
+			a.expense, 
+			a.remark, 
+			a.tag, 
+			a.addDate, 
+			a.addUser, 
+			a.addIp, 
+			a.modifiedDate, 
+			a.modifiedUser, 
+			a.modifiedIp
+		FROM orderServicePath AS a
+		<include refid="com.mtf.framework.dao.OrderServicePathConditionMapper.getFrom"/>
+		<where>
+			<if test="id != null">
+				AND a.id = #{id}
+			</if>
+			<if test="name != null">
+				AND a.name = #{name}
+			</if>
+			<if test="origin != null">
+				AND a.origin = #{origin}
+			</if>
+			<if test="destination != null">
+				AND a.destination = #{destination}
+			</if>
+			<if test="typeExpense != null">
+				AND a.typeExpense = #{typeExpense}
+			</if>
+			<if test="mileage != null">
+				AND a.mileage = #{mileage}
+			</if>
+			<if test="expense != null">
+				AND a.expense = #{expense}
+			</if>
+			<if test="remark != null">
+				AND a.remark = #{remark}
+			</if>
+			<if test="tag != null">
+				AND a.tag = #{tag}
+			</if>
+			<if test="addDate != null">
+				AND a.addDate = #{addDate}
+			</if>
+			<if test="addUser != null">
+				AND a.addUser = #{addUser}
+			</if>
+			<if test="addIp != null">
+				AND a.addIp = #{addIp}
+			</if>
+			<if test="modifiedDate != null">
+				AND a.modifiedDate = #{modifiedDate}
+			</if>
+			<if test="modifiedUser != null">
+				AND a.modifiedUser = #{modifiedUser}
+			</if>
+			<if test="modifiedIp != null">
+				AND a.modifiedIp = #{modifiedIp}
+			</if>
+			<include refid="com.mtf.framework.dao.OrderServicePathConditionMapper.getWhere"/>
+		</where>
+		LIMIT 1
+	</select>
+
+	<!-- 查询实体对象集合 -->
+	<select id="select" parameterType="java.lang.Object" resultMap="orderServicePath">
+		SELECT 
+			<include refid="com.mtf.framework.dao.OrderServicePathConditionMapper.selectColumn"/>
+			a.id, 
+			a.name, 
+			a.origin, 
+			a.destination, 
+			a.typeExpense, 
+			a.mileage, 
+			a.expense, 
+			a.remark, 
+			a.tag, 
+			a.addDate, 
+			a.addUser, 
+			a.addIp, 
+			a.modifiedDate, 
+			a.modifiedUser, 
+			a.modifiedIp
+		FROM orderServicePath AS a
+		<include refid="com.mtf.framework.dao.OrderServicePathConditionMapper.selectFrom"/>
+		<where>
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name = #{name}
+			</if>
+			<if test="origin != null and origin != ''">
+				AND a.origin = #{origin}
+			</if>
+			<if test="destination != null and destination != ''">
+				AND a.destination = #{destination}
+			</if>
+			<if test="typeExpense != null and typeExpense != ''">
+				AND a.typeExpense = #{typeExpense}
+			</if>
+			<if test="mileage != null and mileage != ''">
+				AND a.mileage = #{mileage}
+			</if>
+			<if test="expense != null and expense != ''">
+				AND a.expense = #{expense}
+			</if>
+			<if test="remark != null and remark != ''">
+				AND a.remark = #{remark}
+			</if>
+			<if test="tag != null and tag != ''">
+				AND a.tag = #{tag}
+			</if>
+			<if test="addDate != null and addDate != ''">
+				AND a.addDate = #{addDate}
+			</if>
+			<if test="addUser != null and addUser != ''">
+				AND a.addUser = #{addUser}
+			</if>
+			<if test="addIp != null and addIp != ''">
+				AND a.addIp = #{addIp}
+			</if>
+			<if test="modifiedDate != null and modifiedDate != ''">
+				AND a.modifiedDate = #{modifiedDate}
+			</if>
+			<if test="modifiedUser != null and modifiedUser != ''">
+				AND a.modifiedUser = #{modifiedUser}
+			</if>
+			<if test="modifiedIp != null and modifiedIp != ''">
+				AND a.modifiedIp = #{modifiedIp}
+			</if>
+			<include refid="com.mtf.framework.dao.OrderServicePathConditionMapper.selectWhere"/>
+		</where>
+		<if test="sort != null">
+			ORDER BY a.${sort} ${order}
+		</if>
+		<if test="rows != 0">
+			LIMIT ${startIndex}, ${rows}
+		</if>
+	</select>
+
+	<!-- 查询实体对象记录数 -->
+	<select id="count" parameterType="java.lang.Object" resultType="int">
+		SELECT COUNT(1) FROM orderServicePath AS a
+		<include refid="com.mtf.framework.dao.OrderServicePathConditionMapper.countFrom"/>
+		<where>
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name = #{name}
+			</if>
+			<if test="origin != null and origin != ''">
+				AND a.origin = #{origin}
+			</if>
+			<if test="destination != null and destination != ''">
+				AND a.destination = #{destination}
+			</if>
+			<if test="typeExpense != null and typeExpense != ''">
+				AND a.typeExpense = #{typeExpense}
+			</if>
+			<if test="mileage != null and mileage != ''">
+				AND a.mileage = #{mileage}
+			</if>
+			<if test="expense != null and expense != ''">
+				AND a.expense = #{expense}
+			</if>
+			<if test="remark != null and remark != ''">
+				AND a.remark = #{remark}
+			</if>
+			<if test="tag != null and tag != ''">
+				AND a.tag = #{tag}
+			</if>
+			<if test="addDate != null and addDate != ''">
+				AND a.addDate = #{addDate}
+			</if>
+			<if test="addUser != null and addUser != ''">
+				AND a.addUser = #{addUser}
+			</if>
+			<if test="addIp != null and addIp != ''">
+				AND a.addIp = #{addIp}
+			</if>
+			<if test="modifiedDate != null and modifiedDate != ''">
+				AND a.modifiedDate = #{modifiedDate}
+			</if>
+			<if test="modifiedUser != null and modifiedUser != ''">
+				AND a.modifiedUser = #{modifiedUser}
+			</if>
+			<if test="modifiedIp != null and modifiedIp != ''">
+				AND a.modifiedIp = #{modifiedIp}
+			</if>
+			<include refid="com.mtf.framework.dao.OrderServicePathConditionMapper.countWhere"/>
+		</where>
+	</select>
+</mapper>

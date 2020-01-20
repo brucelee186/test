@@ -1,0 +1,976 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20120529" releaseVersion="7.0.0">
+<ReportWebAttr>
+<WebPageContent>
+<ToolBars>
+<ToolBarManager>
+<Location>
+<Embed position="1"/>
+</Location>
+<ToolBar>
+<Widget class="com.fr.report.web.ui.impl.page.First">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('ReportServerP-First')}]]></Text>
+<IconName>
+<![CDATA[first]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Previous">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('ReportServerP-Previous')}]]></Text>
+<IconName>
+<![CDATA[previous]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.PageNavi">
+<WidgetAttr/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Next">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('ReportServerP-Next')}]]></Text>
+<IconName>
+<![CDATA[next]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Last">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('ReportServerP-Last')}]]></Text>
+<IconName>
+<![CDATA[last]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.FlashPrint">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('Utils-Print[Client]A')}]]></Text>
+<IconName>
+<![CDATA[flashprint]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Print">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('Print')}]]></Text>
+<IconName>
+<![CDATA[print]]></IconName>
+<PrintButtons/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Export">
+<WidgetAttr/>
+<Text>
+<![CDATA[${i18n('Export')}]]></Text>
+<IconName>
+<![CDATA[export]]></IconName>
+<Buttons pdf="true" excelP="true" excelO="true" excelS="true" word="true" image="true" html="true"/>
+</Widget>
+</ToolBar>
+</ToolBarManager>
+</ToolBars>
+<WebPage isPage="false" isShowAsImage="false" isAutoScale="false" isTDHeavy="false"/>
+</WebPageContent>
+</ReportWebAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR F="1" T="14"/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<RowHeight defaultValue="723900">
+<![CDATA[723900,723900,723900,723900,1440000,1440000,1440000,1440000,720000,720000,1440000,1440000,1440000,1440000,1440000,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[0,5829300,4762500,876300,2592000,4191000,4991100,2592000,3505200,4000500,3124200,0,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" s="0">
+<Expand/>
+</C>
+<C c="1" r="1" cs="10" s="1">
+<O>
+<![CDATA[费用报销审批申请单]]></O>
+<Expand extendable="2" leftParentDefault="false" upParentDefault="false"/>
+</C>
+<C c="1" r="2" cs="10" s="2">
+<O>
+<![CDATA[Cash Payment Voucher\r]]></O>
+<Expand/>
+</C>
+<C c="1" r="4">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="2" r="4">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="4" r="4">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="5" r="4">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="6" r="4">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="7" r="4">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="8" r="4" s="3">
+<O>
+<![CDATA[CPV No.:]]></O>
+<Expand/>
+</C>
+<C c="9" r="4" cs="2" s="3">
+<Expand/>
+</C>
+<C c="1" r="5" cs="7" s="3">
+<O>
+<![CDATA[时代万恒（辽宁）民族贸易有限公司 Manchu Times Fashion Inc.]]></O>
+<Expand/>
+</C>
+<C c="8" r="5" s="3">
+<O>
+<![CDATA[日期  Date:                ]]></O>
+<Expand/>
+</C>
+<C c="9" r="5" cs="2" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=TODATE(L6, "yyyy-MM-dd")]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="11" r="5" s="2">
+<O t="DSColumn">
+<Attributes dsName="showOrderServiceRecordCheck" columnName="approveDate"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand/>
+</C>
+<C c="1" r="6" s="3">
+<O>
+<![CDATA[报销部门 Department:]]></O>
+<Expand/>
+</C>
+<C c="2" r="6" cs="4" s="3">
+<O>
+<![CDATA[行政部]]></O>
+<Expand/>
+</C>
+<C c="6" r="6" s="3">
+<O>
+<![CDATA[收款人 Payee Name:]]></O>
+<Expand/>
+</C>
+<C c="7" r="6" s="3">
+<Expand/>
+</C>
+<C c="8" r="6" s="3">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="9" r="6" s="4">
+<O>
+<![CDATA[货币 Currency:]]></O>
+<Expand/>
+</C>
+<C c="10" r="6" s="4">
+<O>
+<![CDATA[RMB]]></O>
+<Expand/>
+</C>
+<C c="1" r="7" cs="8" s="4">
+<O>
+<![CDATA[用    途 Explanation]]></O>
+<Expand/>
+</C>
+<C c="9" r="7" s="3">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="10" r="7" rs="2" s="5">
+<O>
+<![CDATA[金 额]]></O>
+<Expand/>
+</C>
+<C c="1" r="8" s="5">
+<O>
+<![CDATA[主类别 ]]></O>
+<Expand/>
+</C>
+<C c="2" r="8" cs="3" s="5">
+<O>
+<![CDATA[次类别 ]]></O>
+<Expand/>
+</C>
+<C c="5" r="8" cs="3" s="5">
+<O>
+<![CDATA[描   述 ]]></O>
+<Expand/>
+</C>
+<C c="8" r="8" s="5">
+<O>
+<![CDATA[部  门]]></O>
+<CellGUIAttr adjustmode="2" showAsDefault="true"/>
+<CellPageAttr/>
+<CellInsertPolicy/>
+<Expand/>
+</C>
+<C c="9" r="8" s="5">
+<O>
+<![CDATA[客  户]]></O>
+<Expand/>
+</C>
+<C c="1" r="9" s="6">
+<O>
+<![CDATA[Main Category]]></O>
+<Expand/>
+</C>
+<C c="2" r="9" cs="3" s="6">
+<O>
+<![CDATA[Sub Category]]></O>
+<Expand/>
+</C>
+<C c="5" r="9" cs="3" s="2">
+<O>
+<![CDATA[ Description]]></O>
+<Expand/>
+</C>
+<C c="8" r="9" s="6">
+<O>
+<![CDATA[Division]]></O>
+<CellGUIAttr adjustmode="2" showAsDefault="true"/>
+<CellPageAttr/>
+<CellInsertPolicy/>
+<Expand/>
+</C>
+<C c="9" r="9" s="6">
+<O>
+<![CDATA[Customer]]></O>
+<Expand/>
+</C>
+<C c="10" r="9" s="6">
+<O>
+<![CDATA[Amount]]></O>
+<Expand/>
+</C>
+<C c="1" r="10" s="3">
+<O>
+<![CDATA[车费]]></O>
+<Expand dir="0" extendable="1" leftParentDefault="false" left="F11"/>
+</C>
+<C c="2" r="10" cs="3" s="3">
+<O>
+<![CDATA[派车费]]></O>
+<Expand dir="0" extendable="1" leftParentDefault="false" left="F11"/>
+</C>
+<C c="5" r="10" cs="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="showOrderServiceRecordCheck" columnName="divisionName"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0" extendable="1" leftParentDefault="false"/>
+</C>
+<C c="8" r="10" s="3">
+<O t="DSColumn">
+<Attributes dsName="showOrderServiceRecordCheck" columnName="divisionName"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0" extendable="1" leftParentDefault="false" left="F11"/>
+</C>
+<C c="9" r="10" s="3">
+<O t="DSColumn">
+<Attributes dsName="showOrderServiceRecordCheck" columnName="customerName"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0" extendable="1" leftParentDefault="false" left="I11"/>
+</C>
+<C c="10" r="10" s="7">
+<O t="DSColumn">
+<Attributes dsName="showOrderServiceRecordCheck" columnName="expenseActual"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand extendable="1" leftParentDefault="false" left="F11"/>
+</C>
+<C c="1" r="11" cs="8" s="3">
+<O>
+<![CDATA[总计金额(大写) Total Amount (In words):                            ]]></O>
+<Expand/>
+</C>
+<C c="9" r="11" s="3">
+<O>
+<![CDATA[合计 Total:   ]]></O>
+<Expand/>
+</C>
+<C c="10" r="11" s="8">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=SUM(K11)]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="1" r="12" cs="2" s="9">
+<O>
+<![CDATA[批准人 Noted by:]]></O>
+<Expand/>
+</C>
+<C c="3" r="12" cs="3" s="9">
+<O>
+<![CDATA[审批人 Approved by:]]></O>
+<Expand/>
+</C>
+<C c="6" r="12" cs="2" s="9">
+<O>
+<![CDATA[审查人 Checked by:]]></O>
+<Expand/>
+</C>
+<C c="8" r="12" cs="3" s="9">
+<O>
+<![CDATA[申请人 Applicant:]]></O>
+<Expand/>
+</C>
+<C c="1" r="13" cs="2" s="10">
+<Expand/>
+</C>
+<C c="3" r="13" cs="3" s="10">
+<Expand/>
+</C>
+<C c="6" r="13" cs="2" s="10">
+<Expand/>
+</C>
+<C c="8" r="13" cs="3" s="10">
+<Expand/>
+</C>
+<C c="1" r="14" cs="2" s="11">
+<O>
+<![CDATA[首席执行官/首席营运官\"]]></O>
+<Expand/>
+</C>
+<C c="3" r="14" cs="3" s="11">
+<O>
+<![CDATA[行政部/部门负责人]]></O>
+<Expand/>
+</C>
+<C c="6" r="14" cs="2" s="11">
+<O>
+<![CDATA[行政部/直属上级]]></O>
+<Expand/>
+</C>
+<C c="8" r="14" cs="3" s="11">
+<O>
+<![CDATA[填报人]]></O>
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting orientation="1">
+<Margin top="986400" left="2743200" bottom="986400" right="2743200"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+</Report>
+<Report class="com.fr.report.WorkSheet" name="sheet2">
+<ReportPageAttr>
+<HR F="1" T="14"/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<RowHeight defaultValue="723900">
+<![CDATA[723900,723900,723900,723900,1440000,1440000,1440000,1440000,720000,720000,1440000,1440000,1440000,1440000,1440000,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[0,5829300,4762500,876300,2592000,4191000,4991100,2592000,3505200,3543300,3124200,0,0,0,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" s="0">
+<Expand/>
+</C>
+<C c="1" r="1" cs="10" s="1">
+<O>
+<![CDATA[费用报销审批申请单]]></O>
+<Expand extendable="2" leftParentDefault="false" upParentDefault="false"/>
+</C>
+<C c="1" r="2" cs="10" s="2">
+<O>
+<![CDATA[Cash Payment Voucher\r]]></O>
+<Expand/>
+</C>
+<C c="1" r="4">
+<Expand/>
+</C>
+<C c="2" r="4">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="4" r="4">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="5" r="4">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="6" r="4">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="7" r="4">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="8" r="4" s="3">
+<O>
+<![CDATA[CPV No.:]]></O>
+<Expand/>
+</C>
+<C c="9" r="4" cs="2" s="3">
+<Expand/>
+</C>
+<C c="1" r="5" cs="7" s="3">
+<O>
+<![CDATA[时代万恒（辽宁）民族贸易有限公司 Manchu Times Fashion Inc.]]></O>
+<Expand/>
+</C>
+<C c="8" r="5" s="3">
+<O>
+<![CDATA[日期  Date:                ]]></O>
+<Expand/>
+</C>
+<C c="9" r="5" cs="2" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=TODATE(N6, "yyyy-MM-dd")]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="13" r="5" s="3">
+<O t="DSColumn">
+<Attributes dsName="showOrderServiceRecordCheck" columnName="approveDate"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0" extendable="1"/>
+</C>
+<C c="1" r="6" s="3">
+<O>
+<![CDATA[报销部门 Department:]]></O>
+<Expand/>
+</C>
+<C c="2" r="6" cs="4" s="3">
+<O>
+<![CDATA[行政部]]></O>
+<Expand/>
+</C>
+<C c="6" r="6" s="3">
+<O>
+<![CDATA[收款人 Payee Name:]]></O>
+<Expand/>
+</C>
+<C c="7" r="6" s="3">
+<Expand/>
+</C>
+<C c="8" r="6" s="3">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="9" r="6" s="4">
+<O>
+<![CDATA[货币 Currency:]]></O>
+<Expand/>
+</C>
+<C c="10" r="6" s="4">
+<O>
+<![CDATA[RMB]]></O>
+<Expand/>
+</C>
+<C c="1" r="7" cs="8" s="4">
+<O>
+<![CDATA[用    途 Explanation]]></O>
+<Expand/>
+</C>
+<C c="9" r="7" s="3">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="10" r="7" rs="2" s="5">
+<O>
+<![CDATA[金 额]]></O>
+<Expand/>
+</C>
+<C c="1" r="8" s="5">
+<O>
+<![CDATA[主类别 ]]></O>
+<Expand/>
+</C>
+<C c="2" r="8" cs="3" s="5">
+<O>
+<![CDATA[次类别 ]]></O>
+<Expand/>
+</C>
+<C c="5" r="8" cs="3" s="5">
+<O>
+<![CDATA[描   述 ]]></O>
+<Expand/>
+</C>
+<C c="8" r="8" s="5">
+<O>
+<![CDATA[部  门]]></O>
+<CellGUIAttr adjustmode="2" showAsDefault="true"/>
+<CellPageAttr/>
+<CellInsertPolicy/>
+<Expand/>
+</C>
+<C c="9" r="8" s="5">
+<O>
+<![CDATA[客  户]]></O>
+<Expand/>
+</C>
+<C c="1" r="9" s="6">
+<O>
+<![CDATA[Main Category]]></O>
+<Expand/>
+</C>
+<C c="2" r="9" cs="3" s="6">
+<O>
+<![CDATA[Sub Category]]></O>
+<Expand/>
+</C>
+<C c="5" r="9" cs="3" s="2">
+<O>
+<![CDATA[ Description]]></O>
+<Expand/>
+</C>
+<C c="8" r="9" s="6">
+<O>
+<![CDATA[Division]]></O>
+<CellGUIAttr adjustmode="2" showAsDefault="true"/>
+<CellPageAttr/>
+<CellInsertPolicy/>
+<Expand/>
+</C>
+<C c="9" r="9" s="6">
+<O>
+<![CDATA[Customer]]></O>
+<Expand/>
+</C>
+<C c="10" r="9" s="6">
+<O>
+<![CDATA[Amount]]></O>
+<Expand/>
+</C>
+<C c="1" r="10" s="3">
+<O>
+<![CDATA[车费]]></O>
+<Expand dir="0" extendable="1" leftParentDefault="false" left="F11"/>
+</C>
+<C c="2" r="10" cs="3" s="3">
+<O>
+<![CDATA[停车过路过桥费]]></O>
+<Expand dir="0" extendable="1" leftParentDefault="false" left="F11"/>
+</C>
+<C c="5" r="10" cs="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="showOrderServiceRecordCheck" columnName="divisionName"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0" extendable="1" leftParentDefault="false"/>
+</C>
+<C c="8" r="10" s="3">
+<O t="DSColumn">
+<Attributes dsName="showOrderServiceRecordCheck" columnName="divisionName"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0" extendable="1" leftParentDefault="false" left="F11"/>
+</C>
+<C c="9" r="10" s="3">
+<O t="DSColumn">
+<Attributes dsName="showOrderServiceRecordCheck" columnName="customerName"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand dir="0" extendable="1" leftParentDefault="false" left="I11"/>
+</C>
+<C c="10" r="10" s="3">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=SUM(L11 + M11)]]></Attributes>
+</O>
+<Expand extendable="1" leftParentDefault="false" left="L11"/>
+</C>
+<C c="11" r="10" s="3">
+<O t="DSColumn">
+<Attributes dsName="showOrderServiceRecordCheck" columnName="expenseOther"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand extendable="1" leftParentDefault="false" left="F11"/>
+</C>
+<C c="12" r="10" s="3">
+<O t="DSColumn">
+<Attributes dsName="showOrderServiceRecordCheck" columnName="expensePass"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.SumFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<Expand extendable="1" leftParentDefault="false" left="F11"/>
+</C>
+<C c="1" r="11" cs="8" s="3">
+<O>
+<![CDATA[总计金额(大写) Total Amount (In words):                            ]]></O>
+<Expand/>
+</C>
+<C c="9" r="11" s="3">
+<O>
+<![CDATA[合计 Total:   ]]></O>
+<Expand/>
+</C>
+<C c="10" r="11" s="8">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=SUM(K11)]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="1" r="12" cs="2" s="9">
+<O>
+<![CDATA[批准人 Noted by:]]></O>
+<Expand/>
+</C>
+<C c="3" r="12" cs="3" s="9">
+<O>
+<![CDATA[审批人 Approved by:]]></O>
+<Expand/>
+</C>
+<C c="6" r="12" cs="2" s="9">
+<O>
+<![CDATA[审查人 Checked by:]]></O>
+<Expand/>
+</C>
+<C c="8" r="12" cs="3" s="9">
+<O>
+<![CDATA[申请人 Applicant:]]></O>
+<Expand/>
+</C>
+<C c="1" r="13" cs="2" s="10">
+<Expand/>
+</C>
+<C c="3" r="13" cs="3" s="10">
+<Expand/>
+</C>
+<C c="6" r="13" cs="2" s="10">
+<Expand/>
+</C>
+<C c="8" r="13" cs="3" s="10">
+<Expand/>
+</C>
+<C c="1" r="14" cs="2" s="11">
+<O>
+<![CDATA[首席执行官/首席营运官\"]]></O>
+<Expand/>
+</C>
+<C c="3" r="14" cs="3" s="11">
+<O>
+<![CDATA[行政部/部门负责人]]></O>
+<Expand/>
+</C>
+<C c="6" r="14" cs="2" s="11">
+<O>
+<![CDATA[行政部/直属上级]]></O>
+<Expand/>
+</C>
+<C c="8" r="14" cs="3" s="11">
+<O>
+<![CDATA[填报人]]></O>
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting orientation="1">
+<Margin top="986400" left="2743200" bottom="986400" right="2743200"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="false" windowPosition="1" align="0"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+<ParameterUI class="com.fr.main.parameter.FormParameterUI">
+<Layout class="com.fr.form.ui.container.WAbsoluteLayout">
+<WidgetName name="para"/>
+<WidgetAttr/>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.form.ui.FreeButton">
+<Listener event="click">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var serverIpText = '${serverIp}';
+var url = serverIpText + '/order/orderServiceRecord/toSearch.do';
+window.location.href =url;]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="button1_c_c"/>
+<WidgetAttr/>
+<Text>
+<![CDATA[返回]]></Text>
+<IconName>
+<![CDATA[reload]]></IconName>
+</InnerWidget>
+<BoundsAttr x="16" y="20" width="80" height="21"/>
+</Widget>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.form.ui.FreeButton">
+<Listener event="click">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[
+
+var serverIpText = '${serverIp}';
+
+var attenCollectDateStart = '${attenCollectDateStart}';
+
+var attenCollectDateEnd = 
+'${attenCollectDateEnd}';
+
+var url = serverIpText + '/order/orderServiceRecord/doApprove.do?editState=a';
+
+window.location.href = url;]]></Content>
+</JavaScript>
+</Listener>
+<Listener event="afterinit">
+<JavaScript class="com.fr.base.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var widget = this.options. form.getWidgetByName("button_approve");
+
+var statusWidget = '${statusWidget}';
+
+if('sh' == statusWidget){
+	widget.invisible();
+}
+]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="button_approve"/>
+<WidgetAttr/>
+<Text>
+<![CDATA[审批]]></Text>
+<IconName>
+<![CDATA[ok]]></IconName>
+</InnerWidget>
+<BoundsAttr x="120" y="20" width="80" height="21"/>
+</Widget>
+<LCAttr vgap="0" hgap="0"/>
+</Layout>
+<DesignAttr width="800" height="56"/>
+</ParameterUI>
+</ReportParameterAttr>
+<StyleList>
+<Style imageLayout="1">
+<FRFont name="宋体" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="宋体" style="1" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1">
+<Format class="com.fr.base.CoreDecimalFormat">
+<![CDATA[¤#0.00]]></Format>
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<Format class="com.fr.base.CoreDecimalFormat">
+<![CDATA[¤#0.00]]></Format>
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+</StyleList>
+</WorkBook>

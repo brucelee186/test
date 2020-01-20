@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mtf.framework.dao.RoleConditionMapper" > 
+	<resultMap id="BaseResultMap" type="RoleImpl">
+		<id column="id" property="id" jdbcType="CHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="level" property="level" jdbcType="INTEGER" />
+		<result column="description" property="description" jdbcType="VARCHAR" />
+		<result column="system" property="system" jdbcType="INTEGER" />
+		<result column="userId" property="userId" jdbcType="CHAR" />
+		<result column="dateTime" property="dateTime" jdbcType="TIMESTAMP" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="type" property="type"/>
+		<result column="typeSys" property="typeSys"/>
+		<result column="typeExtends" property="typeExtends"/>
+		<result column="typeId" property="typeId"/>
+	</resultMap>
+	<resultMap id="WithActionsResultMap" type="RoleImpl" extends="BaseResultMap">
+		<collection property="actions" javaType="java.util.List" ofType="Action">
+			<id column="actionId" property="id" jdbcType="CHAR" />
+			<result column="C_ACTION_NAME" property="name" jdbcType="VARCHAR" />
+			<result column="C_ACTION_DESCRIPTION" property="description" jdbcType="VARCHAR" />
+			<result column="C_ACTION_LEVEL" property="level" jdbcType="INTEGER" />
+			<result column="C_ACTION_SYSTEM" property="system" jdbcType="INTEGER" />
+			<result column="C_ACTION_STATUS" property="status" jdbcType="INTEGER" />
+		</collection>
+	</resultMap>
+	<resultMap type="com.mtf.framework.model.impl.RoleImpl" id="role"/> 
+	<sql id="Base_Column_List">
+		id, name, description, level, system, userId, dateTime, status, type, typeExtends, typeSys,typeId
+	</sql>
+	<select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.String">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM role
+		WHERE id = #{id,jdbcType=CHAR}
+	</select>
+	<select id="selectByIdWithActions" resultMap="WithActionsResultMap" parameterType="java.lang.String">
+		SELECT
+		role.id,
+		role.name,
+		role.level,
+		role.description,
+		role.system,
+		role.userId,
+		role.dateTime,
+		role.status,
+		action.id AS actionId,
+		action.name AS C_ACTION_NAME,
+		action.description AS C_ACTION_DESCRIPTION,
+		action.level AS C_ACTION_LEVEL,
+		action.system AS C_ACTION_SYSTEM,
+		action.status AS C_ACTION_STATUS
+		FROM role
+		LEFT JOIN roleAction ON roleAction.roleId = role.id
+		LEFT JOIN action ON action.id = roleAction.actionId
+		WHERE role.id = #{id,jdbcType=CHAR}
+	</select>
+	<select id="selectAll" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM role
+		WHERE 1 = 1
+		<if test="status != null">
+			AND status = #{status,jdbcType=INTEGER}
+		</if>
+		<if test="system != null">
+			AND system = #{system,jdbcType=INTEGER}
+		</if>
+		<if test="type != null and type != ''">
+			AND type = #{type}
+		</if>
+		<if test="sort != null and sort != ''">
+			<if test="system != null">
+			ORDER BY ${sort} ${order}
+			</if>
+			<if test="system == null">
+			ORDER BY system DESC, ${sort} ${order}
+			</if>
+		</if>
+		<if test="sort == null or sort == ''">
+			ORDER BY system DESC
+		</if>
+	</select>
+	<select id="countByName" resultType="int" parameterType="java.lang.String">
+		SELECT COUNT(id)
+		FROM role
+		WHERE name = #{name,jdbcType=VARCHAR}
+	</select>
+	<select id="selectByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
+		SELECT
+		role.id,
+		role.name,
+		role.level,
+		role.description,
+		role.system,
+		role.userId,
+		role.dateTime,
+		role.type,
+		role.status
+		FROM role
+		INNER JOIN userRole ON role.id = userRole.roleId
+		WHERE userRole.userId = #{userId,jdbcType=CHAR}
+		ORDER BY role.system DESC
+	</select>
+	<delete id="deleteById" parameterType="java.lang.String">
+		DELETE FROM role
+		WHERE id = #{id,jdbcType=CHAR}
+	</delete>
+	<insert id="insert" parameterType="RoleImpl">
+		INSERT INTO role (id, name, level, description, system, userId, dateTime, status, type, typeExtends, typeSys)
+		VALUES (#{id,jdbcType=CHAR}, #{name,jdbcType=VARCHAR}, #{level,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR}, #{system,jdbcType=INTEGER}, #{userId,jdbcType=CHAR}, #{dateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, #{type}, #{typeExtends}, #{typeSys})
+	</insert>
+	<update id="updateById" parameterType="RoleImpl">
+		UPDATE role
+		SET name = #{name,jdbcType=VARCHAR},
+		level = #{level,jdbcType=INTEGER},
+		type = #{type},
+		typeExtends = #{typeExtends},
+		typeSys = #{typeSys},
+		description = #{description,jdbcType=VARCHAR},
+		system = #{system,jdbcType=INTEGER},
+		typeId = #{typeId},
+		status = #{status,jdbcType=INTEGER}
+		WHERE id = #{id,jdbcType=CHAR}
+	</update>
+	
+	<sql id="getColumn">
+		
+	</sql>
+
+	<sql id="getFrom">
+		
+	</sql>
+
+	<sql id="getWhere">
+		
+	</sql>
+
+	<sql id="selectColumn">
+		
+	</sql>
+
+	<sql id="selectFrom">
+		
+	</sql>
+
+	<sql id="selectWhere">
+		
+	</sql>
+
+	<sql id="countFrom">
+		
+	</sql>
+
+	<sql id="searchFrom">
+		
+	</sql>
+
+	<sql id="countWhere">
+		
+	</sql>
+
+	<sql id="searchWhere">
+		
+	</sql>
+
+	<sql id="updateColumn">
+		
+	</sql>
+
+	<sql id="updateWhere">
+		id = #{id}
+	</sql>
+</mapper>

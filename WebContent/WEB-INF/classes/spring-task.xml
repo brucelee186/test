@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:aop="http://www.springframework.org/schema/aop" 
+xmlns:task="http://www.springframework.org/schema/task"  
+xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-3.0.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/task  
+http://www.springframework.org/schema/task/spring-task-3.1.xsd
+">
+
+	<!-- 自动扫描task包下的所有类 -->
+	<context:component-scan base-package="com.mtf.framework.task" />
+	
+	<!-- 计划任务 -->
+	<!-- <task:scheduled-tasks> -->
+		<!-- cron="Seconds Minutes Hours DayofMonth Month DayofWeek Year" -->
+		
+		
+		<!-- 测试环境 -->
+		<!-- 用于测试,正常必有得有一条记录 -->
+		<!--
+		1 2 3 4 5 6   7 		
+		秒 分 时 日  月  星期   年
+		？ 每次（不想配置的那个字段）
+		* 任意时段
+		- 区间
+		/ 每次执行的增量 分钟字段 0/5代表每5分钟发一次
+		
+		"0 0 12 * * ?"    每天中午十二点触发 
+		"0 15 10 ? * *"    每天早上10：15触发 
+		"0 15 10 * * ?"    每天早上10：15触发 
+		"0 15 10 * * ? *"    每天早上10：15触发 
+		"0 15 10 * * ? 2005"    2005年的每天早上10：15触发 
+		"0 * 14 * * ?"    每天从下午2点开始到2点59分每分钟一次触发 
+		"0 0/5 14 * * ?"    每天从下午2点开始到2：55分结束每5分钟一次触发 
+		"0 0/5 14,18 * * ?"    每天的下午2点至2：55和6点至6点55分两个时间段内每5分钟一次触发 
+		"0 0-5 14 * * ?"    每天14:00至14:05每分钟一次触发 
+		"0 10,44 14 ? 3 WED"    三月的每周三的14：10和14：44触发 
+		"0 15 10 ? * MON-FRI"    每个周一、周二、周三、周四、周五的10：15触发  -->
+		<!-- 报销邮件发送-->
+		<!-- <task:scheduled ref="mailSendTask" method="run" cron="1 * * * * ?"/> -->
+		<!-- 生成采购邮件模板以备发送 -->
+		<!-- <task:scheduled ref="purchaseMailTask" method="sendMail" cron="1 * * * * ?"/> -->
+		
+		<!-- <task:scheduled ref="mailSendTask" method="run" cron="0 11 11 5 11 ?"/> --> 
+		<!-- 测试 cron="0/5 * *  * * ?" 每5秒执行一次 -->
+		<!-- <task:scheduled ref="mailSendTask" method="run" cron="0/5 * *  * * ?"/> -->
+		<!-- <task:scheduled ref="purchaseMailTask" method="sendMail" cron="0/5 * *  * * ?"/> -->
+		
+		<!-- 服务器环境 -->
+		<!-- 发送邮件任务 （每周一到周五9点到19点每3分钟）-->
+		<!-- <task:scheduled ref="mailSendTask" method="run" cron="0 0/3 9-19 ? * MON-FRI"/> -->
+		<!-- 发送邮件任务 （每周六周日10点到18点每1小时） -->
+		<!-- <task:scheduled ref="mailSendTask" method="run" cron="0 0 10-18 ? * SAT,SUN"/> -->
+		<!-- <task:scheduled ref="purchaseMailTask" method="sendMail" cron="0 0 9 ? * MON"/> -->
+	<!-- </task:scheduled-tasks> -->
+	<task:scheduled-tasks> 
+		<!-- cron="0/20 * *  * * ?" 每20秒执行一次  -->
+		<!-- <task:scheduled ref="taskMailSend" method="run" cron="0/20 * *  * * ?"/> -->
+		<!-- cron="0/10 * *  * * ?" 每10秒执行一次员工加班处理  -->
+		<!-- <task:scheduled ref="taskCreaterOverwork" method="run" cron="0/10 * *  * * ?"/> -->
+		<!-- 每晚1点同步更新用户信息 -->
+		<task:scheduled ref="taskUpdateUser" method="run" cron="0 0 1  * * ?"/>
+		<!-- <task:scheduled ref="taskUpdateUser" method="run" cron="0 15 4 ? * *" /> -->
+	</task:scheduled-tasks>
+</beans>

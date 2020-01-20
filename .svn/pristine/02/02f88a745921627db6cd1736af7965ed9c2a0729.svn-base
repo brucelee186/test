@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mtf.framework.dao.MailMapper">
+	<resultMap id="BaseResultMap" type="Mail">
+		<id column="id" property="id" jdbcType="CHAR" />
+		<result column="type" property="type" jdbcType="INTEGER" />
+		<result column="tos" property="tos" jdbcType="LONGVARCHAR" />
+		<result column="ccs" property="ccs" jdbcType="LONGVARCHAR" />
+		<result column="bccs" property="bccs" jdbcType="LONGVARCHAR" />
+		<result column="subject" property="subject" jdbcType="VARCHAR" />
+		<result column="content" property="content" jdbcType="LONGVARCHAR" />
+		<result column="priority" property="priority" jdbcType="INTEGER" />
+		<result column="isHtml" property="isHtml" jdbcType="INTEGER" />
+		<result column="extFile" property="extFile" jdbcType="VARCHAR" />
+		<result column="retry" property="retry" jdbcType="INTEGER" />
+		<result column="createDateTime" property="createDateTime" jdbcType="TIMESTAMP" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="updateDateTime" property="updateDateTime" jdbcType="TIMESTAMP" />
+		<result column="msg" property="msg" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, type, tos, ccs, bccs, subject, content, content, isHtml, extFile, retry, createDateTime, status, updateDateTime, msg
+	</sql>
+	<sql id="WithoutContent_Column_List">
+		id, type, tos, ccs, bccs, subject, content, isHtml, extFile, retry, createDateTime, status, updateDateTime, msg
+	</sql>
+	
+	<!-- Basic -->
+	<select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.String">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM mail
+		WHERE id = #{id,jdbcType=CHAR}
+	</select>
+	<delete id="deleteById" parameterType="java.lang.String">
+		DELETE FROM mail
+		WHERE id = #{id,jdbcType=CHAR}
+	</delete>
+	<insert id="insert" parameterType="Mail">
+		INSERT INTO mail (id, type, tos, ccs, bccs, subject, content, 
+		priority, isHtml, extFile, retry, createDateTime, status, updateDateTime, msg)
+		VALUES (#{id,jdbcType=CHAR}, #{type,jdbcType=INTEGER}, #{tos,jdbcType=LONGVARCHAR},
+			#{ccs,jdbcType=LONGVARCHAR}, #{bccs,jdbcType=LONGVARCHAR}, #{subject,jdbcType=VARCHAR},
+			#{content,jdbcType=LONGVARCHAR}, #{priority,jdbcType=INTEGER}, #{isHtml,jdbcType=INTEGER}, 
+			#{extFile,jdbcType=VARCHAR}, #{retry,jdbcType=INTEGER}, #{createDateTime,jdbcType=TIMESTAMP},
+			#{status,jdbcType=INTEGER}, #{updateDateTime,jdbcType=TIMESTAMP}, #{msg,jdbcType=VARCHAR})
+	</insert>
+	<update id="updateById" parameterType="Mail">
+		UPDATE mail
+		SET
+		retry = #{retry,jdbcType=INTEGER},
+		status = #{status,jdbcType=INTEGER},
+		updateDateTime = #{updateDateTime,jdbcType=TIMESTAMP},
+		msg = #{msg,jdbcType=VARCHAR}
+		WHERE id = #{id,jdbcType=CHAR}
+	</update>
+	<select id="count" resultType="java.lang.Integer">
+		SELECT COUNT(*)
+		FROM mail
+		WHERE 1 = 1
+		<if test="record != null">
+			<if test="record.retry != null">
+				AND retry = #{record.retry,jdbcType=INTEGER}
+			</if>
+			<if test="record.status != null">
+				AND status = #{record.status,jdbcType=INTEGER}
+			</if>
+			<if test="record.type != null">
+				AND type = #{record.type,jdbcType=INTEGER}
+			</if>
+		</if>
+	</select>
+	<select id="select" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM mail
+		WHERE 1 = 1
+		<if test="record != null">
+			<if test="record.retry != null">
+				AND retry = #{record.retry,jdbcType=INTEGER}
+			</if>
+			<if test="record.status != null">
+				AND status = #{record.status,jdbcType=INTEGER}
+			</if>
+			<if test="record.type != null">
+				AND type = #{record.type,jdbcType=INTEGER}
+			</if>
+		</if>
+		<if test="page != null">
+			<if test="page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</if>
+			<if test="page.orderBy == null or page.orderBy == ''">
+				ORDER BY createDateTime
+			</if>
+			<if test="page.startIndex &gt;= 0 and page.rows &gt; 0">
+				LIMIT ${page.startIndex}, ${page.rows}
+			</if>
+		</if>
+		<if test="page == null">
+			ORDER BY createDateTime
+		</if>
+	</select>
+	<select id="selectWithoutContent" resultMap="BaseResultMap">
+		SELECT
+		<include refid="WithoutContent_Column_List" />
+		FROM mail
+		WHERE 1 = 1
+		<if test="record != null">
+			<if test="record.retry != null">
+				AND retry = #{record.retry,jdbcType=INTEGER}
+			</if>
+			<if test="record.status != null">
+				AND status = #{record.status,jdbcType=INTEGER}
+			</if>
+			<if test="record.type != null">
+				AND type = #{record.type,jdbcType=INTEGER}
+			</if>
+		</if>
+		<if test="page != null">
+			<if test="page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</if>
+			<if test="page.orderBy == null or page.orderBy == ''">
+				ORDER BY createDateTime
+			</if>
+			<if test="page.startIndex &gt;= 0 and page.rows &gt; 0">
+				LIMIT ${page.startIndex}, ${page.rows}
+			</if>
+		</if>
+		<if test="page == null">
+			ORDER BY createDateTime
+		</if>
+	</select>
+	<select id="selectUnsend" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM mail
+		WHERE 1 = 1
+		AND retry &lt; 2
+		AND status = 0
+		<if test="page != null">
+			<if test="page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</if>
+			<if test="page.orderBy == null or page.orderBy == ''">
+				ORDER BY createDateTime
+			</if>
+			<if test="page.startIndex &gt;= 0 and page.rows &gt; 0">
+				LIMIT ${page.startIndex}, ${page.rows}
+			</if>
+		</if>
+		<if test="page == null">
+			ORDER BY createDateTime
+		</if>
+	</select>
+</mapper>

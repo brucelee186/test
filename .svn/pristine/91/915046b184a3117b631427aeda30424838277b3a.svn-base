@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mtf.framework.dao.OrderServiceConditionMapper" > 
+	<resultMap type="com.mtf.framework.model.impl.OrderServiceImpl" id="orderService"/> 
+
+	<sql id="updateColumn">
+		<if test="statusOrderUpdate != null ">
+			statusOrder = #{statusOrderUpdateValue},
+		</if>	
+		<if test="updateIdOrderServicePathId == 'null' ">
+			idOrderServicePath = null,
+		</if>	
+	</sql>
+
+	<sql id="getColumn">
+		(SELECT division.name FROM division WHERE division.id = a.customer) customerName, 
+		(SELECT userinfor.name FROM userinfor WHERE userinfor.code = a.type) typeName,
+	</sql>
+
+	<sql id="getFrom">
+		
+	</sql>
+
+	<sql id="getWhere">
+		
+	</sql>
+
+	<sql id="selectColumn">
+		b.`name` AS nameCustomer,
+		a.id AS idOrderService,
+		DATE(a.timeTrip) departDate,
+		TIME(a.timeTrip) departTime,
+		DATE_FORMAT(a.timeTrip, '%Y-%m') departMonth,
+	</sql>
+
+	<sql id="selectFrom">
+		LEFT JOIN division AS b ON b.id = a.customer 
+	</sql>
+
+	<sql id="selectWhere">
+		<if test="searchDateStart != null and searchDateStart != ''">
+			AND a.timeTrip >= #{searchDateStart}
+		</if>
+		<if test="searchDateEnd != null and searchDateEnd != ''">
+			AND #{searchDateEnd} >= a.timeTrip
+		</if>
+		<if test="listDivision != null">
+			AND a.divisionId IN
+			<foreach collection="listDivision" item="item" index="index" open="(" separator="," close=")">
+				#{item.divisionId}
+			</foreach>
+		</if>
+		<if test="listStatusOrder != null">
+			AND a.statusOrder NOT IN
+			<foreach collection="listStatusOrder" item="item" index="index" open="(" separator="," close=")">
+				#{item}
+			</foreach>
+		</if>
+	</sql>
+
+	<sql id="countFrom">
+		
+	</sql>
+
+	<sql id="countWhere">
+		<if test="searchDateStart != null and searchDateStart != ''">
+			AND a.timeTrip >= #{searchDateStart}
+		</if>
+		<if test="searchDateEnd != null and searchDateEnd != ''">
+			AND #{searchDateEnd} >= a.timeTrip
+		</if>
+		<if test="listDivision != null">
+			AND a.divisionId IN
+			<foreach collection="listDivision" item="item" index="index" open="(" separator="," close=")">
+				#{item.divisionId}
+			</foreach>
+		</if>		
+	</sql>
+
+	<sql id="updateWhere">
+		<if test="statusOrderUpdate == null ">
+			id = #{id}
+		</if>
+		<if test="statusOrderUpdate != null ">
+			statusOrder = #{statusOrderUpdate}
+		</if>	
+		<if test="updateApproveStatusOrder != null ">
+			AND 
+				statusOrder = #{updateApproveStatusOrder}
+		</if>	
+	</sql>
+</mapper>

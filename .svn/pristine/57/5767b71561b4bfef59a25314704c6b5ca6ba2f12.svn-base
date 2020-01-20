@@ -1,0 +1,699 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mtf.framework.dao.UserMapper" > 
+	<resultMap type="com.mtf.framework.model.impl.UserImpl" id="user"/> 
+	<!-- 添加实体对象 -->
+	<insert id="insert" parameterType="user">
+		INSERT INTO user
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					id,
+				</if>
+				<if test="code != null">
+					code,
+				</if>
+				<if test="loginName != null">
+					loginName,
+				</if>
+				<if test="firstName != null">
+					firstName,
+				</if>
+				<if test="lastName != null">
+					lastName,
+				</if>
+				<if test="displayName != null">
+					displayName,
+				</if>
+				<if test="password != null">
+					password,
+				</if>
+				<if test="userId != null">
+					userId,
+				</if>
+				<if test="datetime != null">
+					datetime,
+				</if>
+				<if test="signature != null">
+					signature,
+				</if>
+				<if test="status != null">
+					status,
+				</if>
+				<if test="email != null">
+					email,
+				</if>
+				<if test="language != null">
+					language,
+				</if>
+				<if test="chineseName != null">
+					chineseName,
+				</if>
+				<if test="departmentId != null">
+					departmentId,
+				</if>
+				<if test="positionId != null">
+					positionId,
+				</if>
+				<if test="personalPhoto != null">
+					personalPhoto,
+				</if>
+				<if test="cardNo != null">
+					cardNo,
+				</if>
+				<if test="badgenumber != null">
+					badgenumber,
+				</if>
+				<if test="workGroup != null">
+					workGroup,
+				</if>
+				<if test="workGroupDetail != null">
+					workGroupDetail,
+				</if>
+				<if test="addDate != null">
+					addDate,
+				</if>
+				<if test="addIp != null">
+					addIp,
+				</if>
+				<if test="addUser != null">
+					addUser,
+				</if>
+				<if test="modifyDate != null">
+					modifyDate,
+				</if>
+				<if test="modifyIp != null">
+					modifyIp,
+				</if>
+				<if test="modifyUser != null">
+					modifyUser,
+				</if>
+			</trim>
+			<trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					#{id},
+				</if>
+				<if test="code != null">
+					#{code},
+				</if>
+				<if test="loginName != null">
+					#{loginName},
+				</if>
+				<if test="firstName != null">
+					#{firstName},
+				</if>
+				<if test="lastName != null">
+					#{lastName},
+				</if>
+				<if test="displayName != null">
+					#{displayName},
+				</if>
+				<if test="password != null">
+					#{password},
+				</if>
+				<if test="userId != null">
+					#{userId},
+				</if>
+				<if test="datetime != null">
+					#{datetime},
+				</if>
+				<if test="signature != null">
+					#{signature},
+				</if>
+				<if test="status != null">
+					#{status},
+				</if>
+				<if test="email != null">
+					#{email},
+				</if>
+				<if test="language != null">
+					#{language},
+				</if>
+				<if test="chineseName != null">
+					#{chineseName},
+				</if>
+				<if test="departmentId != null">
+					#{departmentId},
+				</if>
+				<if test="positionId != null">
+					#{positionId},
+				</if>
+				<if test="personalPhoto != null">
+					#{personalPhoto},
+				</if>
+				<if test="cardNo != null">
+					#{cardNo},
+				</if>
+				<if test="badgenumber != null">
+					#{badgenumber},
+				</if>
+				<if test="workGroup != null">
+					#{workGroup},
+				</if>
+				<if test="workGroupDetail != null">
+					#{workGroupDetail},
+				</if>
+				<if test="addDate != null">
+					#{addDate},
+				</if>
+				<if test="addIp != null">
+					#{addIp},
+				</if>
+				<if test="addUser != null">
+					#{addUser},
+				</if>
+				<if test="modifyDate != null">
+					#{modifyDate},
+				</if>
+				<if test="modifyIp != null">
+					#{modifyIp},
+				</if>
+				<if test="modifyUser != null">
+					#{modifyUser},
+				</if>
+			</trim>
+			<selectKey resultType="long" keyProperty="id">
+				SELECT LAST_INSERT_ID() AS ID
+			</selectKey>
+	</insert>
+
+	<!-- 删除实体对象 -->
+	<delete id="delete" parameterType="java.lang.Object">
+		DELETE FROM user
+		<where>
+			<if test="id != null and id != ''">
+				AND id = #{id}
+			</if>
+			<if test="code != null and code != ''">
+				AND code = #{code}
+			</if>
+			<if test="loginName != null and loginName != ''">
+				AND loginName = #{loginName}
+			</if>
+			<if test="firstName != null and firstName != ''">
+				AND firstName = #{firstName}
+			</if>
+			<if test="lastName != null and lastName != ''">
+				AND lastName = #{lastName}
+			</if>
+			<if test="displayName != null and displayName != ''">
+				AND displayName = #{displayName}
+			</if>
+			<if test="password != null and password != ''">
+				AND password = #{password}
+			</if>
+			<if test="userId != null and userId != ''">
+				AND userId = #{userId}
+			</if>
+			<if test="datetime != null and datetime != ''">
+				AND datetime = #{datetime}
+			</if>
+			<if test="signature != null and signature != ''">
+				AND signature = #{signature}
+			</if>
+			<if test="status != null and status != ''">
+				AND status = #{status}
+			</if>
+			<if test="email != null and email != ''">
+				AND email = #{email}
+			</if>
+			<if test="language != null and language != ''">
+				AND language = #{language}
+			</if>
+			<if test="chineseName != null and chineseName != ''">
+				AND chineseName = #{chineseName}
+			</if>
+			<if test="departmentId != null and departmentId != ''">
+				AND departmentId = #{departmentId}
+			</if>
+			<if test="positionId != null and positionId != ''">
+				AND positionId = #{positionId}
+			</if>
+			<if test="personalPhoto != null and personalPhoto != ''">
+				AND personalPhoto = #{personalPhoto}
+			</if>
+			<if test="cardNo != null and cardNo != ''">
+				AND cardNo = #{cardNo}
+			</if>
+			<if test="badgenumber != null and badgenumber != ''">
+				AND badgenumber = #{badgenumber}
+			</if>
+			<if test="workGroup != null and workGroup != ''">
+				AND workGroup = #{workGroup}
+			</if>
+			<if test="workGroupDetail != null and workGroupDetail != ''">
+				AND workGroupDetail = #{workGroupDetail}
+			</if>
+			<if test="addDate != null and addDate != ''">
+				AND addDate = #{addDate}
+			</if>
+			<if test="addIp != null and addIp != ''">
+				AND addIp = #{addIp}
+			</if>
+			<if test="addUser != null and addUser != ''">
+				AND addUser = #{addUser}
+			</if>
+			<if test="modifyDate != null and modifyDate != ''">
+				AND modifyDate = #{modifyDate}
+			</if>
+			<if test="modifyIp != null and modifyIp != ''">
+				AND modifyIp = #{modifyIp}
+			</if>
+			<if test="modifyUser != null and modifyUser != ''">
+				AND modifyUser = #{modifyUser}
+			</if>
+			<include refid="com.mtf.framework.dao.UserConditionMapper.countWhere"/>
+		</where>
+	</delete>
+
+	<!-- 更新实体对象 -->
+	<update id="update" parameterType="java.lang.Object">
+		UPDATE user
+		<set>
+			<if test="id != null and id != ''">
+				id = #{id},
+			</if>
+			<if test="code != null and code != ''">
+				code = #{code},
+			</if>
+			<if test="loginName != null and loginName != ''">
+				loginName = #{loginName},
+			</if>
+			<if test="firstName != null and firstName != ''">
+				firstName = #{firstName},
+			</if>
+			<if test="lastName != null and lastName != ''">
+				lastName = #{lastName},
+			</if>
+			<if test="displayName != null and displayName != ''">
+				displayName = #{displayName},
+			</if>
+			<if test="password != null and password != ''">
+				password = #{password},
+			</if>
+			<if test="userId != null and userId != ''">
+				userId = #{userId},
+			</if>
+			<if test="datetime != null and datetime != ''">
+				datetime = #{datetime},
+			</if>
+			<if test="signature != null and signature != ''">
+				signature = #{signature},
+			</if>
+			<if test="status != null and status != ''">
+				status = #{status},
+			</if>
+			<if test="email != null and email != ''">
+				email = #{email},
+			</if>
+			<if test="language != null and language != ''">
+				language = #{language},
+			</if>
+			<if test="chineseName != null and chineseName != ''">
+				chineseName = #{chineseName},
+			</if>
+			<if test="departmentId != null and departmentId != ''">
+				departmentId = #{departmentId},
+			</if>
+			<if test="positionId != null and positionId != ''">
+				positionId = #{positionId},
+			</if>
+			<if test="personalPhoto != null and personalPhoto != ''">
+				personalPhoto = #{personalPhoto},
+			</if>
+			<if test="cardNo != null and cardNo != ''">
+				cardNo = #{cardNo},
+			</if>
+			<if test="badgenumber != null and badgenumber != ''">
+				badgenumber = #{badgenumber},
+			</if>
+			<if test="workGroup != null and workGroup != ''">
+				workGroup = #{workGroup},
+			</if>
+			<if test="workGroupDetail != null and workGroupDetail != ''">
+				workGroupDetail = #{workGroupDetail},
+			</if>
+			<if test="addDate != null and addDate != ''">
+				addDate = #{addDate},
+			</if>
+			<if test="addIp != null and addIp != ''">
+				addIp = #{addIp},
+			</if>
+			<if test="addUser != null and addUser != ''">
+				addUser = #{addUser},
+			</if>
+			<if test="modifyDate != null and modifyDate != ''">
+				modifyDate = #{modifyDate},
+			</if>
+			<if test="modifyIp != null and modifyIp != ''">
+				modifyIp = #{modifyIp},
+			</if>
+			<if test="modifyUser != null and modifyUser != ''">
+				modifyUser = #{modifyUser},
+			</if>
+			<include refid="com.mtf.framework.dao.UserConditionMapper.updateColumn"/>
+		</set>
+		WHERE
+			<include refid="com.mtf.framework.dao.UserConditionMapper.updateWhere"/>
+			<if test="original != null">
+				 AND modified = #{original}
+			</if>
+	</update>
+
+	<!-- 查询单个实体对象 -->
+	<select id="get" parameterType="java.lang.Object" resultMap="user">
+		SELECT 
+			<include refid="com.mtf.framework.dao.UserConditionMapper.getColumn"/>
+			a.id, 
+			a.code, 
+			a.loginName, 
+			a.firstName, 
+			a.lastName, 
+			a.displayName, 
+			a.password, 
+			a.userId, 
+			a.datetime, 
+			a.signature, 
+			a.status, 
+			a.email, 
+			a.language, 
+			a.chineseName, 
+			a.departmentId, 
+			a.positionId, 
+			a.personalPhoto, 
+			a.cardNo, 
+			a.badgenumber, 
+			a.workGroup, 
+			a.workGroupDetail, 
+			a.addDate, 
+			a.addIp, 
+			a.addUser, 
+			a.modifyDate, 
+			a.modifyIp, 
+			a.modifyUser
+		FROM user AS a
+		<include refid="com.mtf.framework.dao.UserConditionMapper.getFrom"/>
+		<where>
+			<if test="id != null">
+				AND a.id = #{id}
+			</if>
+			<if test="code != null">
+				AND a.code = #{code}
+			</if>
+			<if test="loginName != null">
+				AND a.loginName = #{loginName}
+			</if>
+			<if test="firstName != null">
+				AND a.firstName = #{firstName}
+			</if>
+			<if test="lastName != null">
+				AND a.lastName = #{lastName}
+			</if>
+			<if test="displayName != null">
+				AND a.displayName = #{displayName}
+			</if>
+			<if test="password != null">
+				AND a.password = #{password}
+			</if>
+			<if test="userId != null">
+				AND a.userId = #{userId}
+			</if>
+			<if test="datetime != null">
+				AND a.datetime = #{datetime}
+			</if>
+			<if test="signature != null">
+				AND a.signature = #{signature}
+			</if>
+			<if test="status != null">
+				AND a.status = #{status}
+			</if>
+			<if test="email != null">
+				AND a.email = #{email}
+			</if>
+			<if test="language != null">
+				AND a.language = #{language}
+			</if>
+			<if test="chineseName != null">
+				AND a.chineseName = #{chineseName}
+			</if>
+			<if test="departmentId != null">
+				AND a.departmentId = #{departmentId}
+			</if>
+			<if test="positionId != null">
+				AND a.positionId = #{positionId}
+			</if>
+			<if test="personalPhoto != null">
+				AND a.personalPhoto = #{personalPhoto}
+			</if>
+			<if test="cardNo != null">
+				AND a.cardNo = #{cardNo}
+			</if>
+			<if test="badgenumber != null">
+				AND a.badgenumber = #{badgenumber}
+			</if>
+			<if test="workGroup != null">
+				AND a.workGroup = #{workGroup}
+			</if>
+			<if test="workGroupDetail != null">
+				AND a.workGroupDetail = #{workGroupDetail}
+			</if>
+			<if test="addDate != null">
+				AND a.addDate = #{addDate}
+			</if>
+			<if test="addIp != null">
+				AND a.addIp = #{addIp}
+			</if>
+			<if test="addUser != null">
+				AND a.addUser = #{addUser}
+			</if>
+			<if test="modifyDate != null">
+				AND a.modifyDate = #{modifyDate}
+			</if>
+			<if test="modifyIp != null">
+				AND a.modifyIp = #{modifyIp}
+			</if>
+			<if test="modifyUser != null">
+				AND a.modifyUser = #{modifyUser}
+			</if>
+			<include refid="com.mtf.framework.dao.UserConditionMapper.getWhere"/>
+		</where>
+		<if test="sort != null">
+			ORDER BY a.${sort} ${order}
+		</if>
+		LIMIT 1
+	</select>
+
+	<!-- 查询实体对象集合 -->
+	<select id="select" parameterType="java.lang.Object" resultMap="user">
+		SELECT 
+			<include refid="com.mtf.framework.dao.UserConditionMapper.selectColumn"/>
+			a.id, 
+			a.code, 
+			a.loginName, 
+			a.firstName, 
+			a.lastName, 
+			a.displayName, 
+			a.password, 
+			a.userId, 
+			a.datetime, 
+			a.signature, 
+			a.status, 
+			a.email, 
+			a.language, 
+			a.chineseName, 
+			a.departmentId, 
+			a.positionId, 
+			a.personalPhoto, 
+			a.cardNo, 
+			a.badgenumber, 
+			a.workGroup, 
+			a.workGroupDetail, 
+			a.addDate, 
+			a.addIp, 
+			a.addUser, 
+			a.modifyDate, 
+			a.modifyIp, 
+			a.modifyUser
+		FROM user AS a
+		<include refid="com.mtf.framework.dao.UserConditionMapper.selectFrom"/>
+		<where>
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="code != null and code != ''">
+				AND a.code = #{code}
+			</if>
+			<if test="loginName != null and loginName != ''">
+				AND a.loginName = #{loginName}
+			</if>
+			<if test="firstName != null and firstName != ''">
+				AND a.firstName = #{firstName}
+			</if>
+			<if test="lastName != null and lastName != ''">
+				AND a.lastName = #{lastName}
+			</if>
+			<if test="displayName != null and displayName != ''">
+				AND a.displayName = #{displayName}
+			</if>
+			<if test="password != null and password != ''">
+				AND a.password = #{password}
+			</if>
+			<if test="userId != null and userId != ''">
+				AND a.userId = #{userId}
+			</if>
+			<if test="datetime != null and datetime != ''">
+				AND a.datetime = #{datetime}
+			</if>
+			<if test="signature != null and signature != ''">
+				AND a.signature = #{signature}
+			</if>
+			<if test="status != null and status != ''">
+				AND a.status = #{status}
+			</if>
+			<if test="email != null and email != ''">
+				AND a.email = #{email}
+			</if>
+			<if test="language != null and language != ''">
+				AND a.language = #{language}
+			</if>
+			<if test="chineseName != null and chineseName != ''">
+				AND a.chineseName = #{chineseName}
+			</if>
+			<if test="departmentId != null and departmentId != ''">
+				AND a.departmentId = #{departmentId}
+			</if>
+			<if test="positionId != null and positionId != ''">
+				AND a.positionId = #{positionId}
+			</if>
+			<if test="personalPhoto != null and personalPhoto != ''">
+				AND a.personalPhoto = #{personalPhoto}
+			</if>
+			<if test="cardNo != null and cardNo != ''">
+				AND a.cardNo = #{cardNo}
+			</if>
+			<if test="badgenumber != null and badgenumber != ''">
+				AND a.badgenumber = #{badgenumber}
+			</if>
+			<if test="workGroup != null and workGroup != ''">
+				AND a.workGroup = #{workGroup}
+			</if>
+			<if test="workGroupDetail != null and workGroupDetail != ''">
+				AND a.workGroupDetail = #{workGroupDetail}
+			</if>
+			<if test="addDate != null and addDate != ''">
+				AND a.addDate = #{addDate}
+			</if>
+			<if test="addIp != null and addIp != ''">
+				AND a.addIp = #{addIp}
+			</if>
+			<if test="addUser != null and addUser != ''">
+				AND a.addUser = #{addUser}
+			</if>
+			<if test="modifyDate != null and modifyDate != ''">
+				AND a.modifyDate = #{modifyDate}
+			</if>
+			<if test="modifyIp != null and modifyIp != ''">
+				AND a.modifyIp = #{modifyIp}
+			</if>
+			<if test="modifyUser != null and modifyUser != ''">
+				AND a.modifyUser = #{modifyUser}
+			</if>
+			<include refid="com.mtf.framework.dao.UserConditionMapper.selectWhere"/>
+		</where>
+		<if test="sort != null">
+			ORDER BY a.${sort} ${order}
+		</if>
+		<if test="rows != 0">
+			LIMIT ${startIndex}, ${rows}
+		</if>
+	</select>
+
+	<!-- 查询实体对象记录数 -->
+	<select id="count" parameterType="java.lang.Object" resultType="int">
+		SELECT COUNT(1) FROM user AS a
+		<include refid="com.mtf.framework.dao.UserConditionMapper.countFrom"/>
+		<where>
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="code != null and code != ''">
+				AND a.code = #{code}
+			</if>
+			<if test="loginName != null and loginName != ''">
+				AND a.loginName = #{loginName}
+			</if>
+			<if test="firstName != null and firstName != ''">
+				AND a.firstName = #{firstName}
+			</if>
+			<if test="lastName != null and lastName != ''">
+				AND a.lastName = #{lastName}
+			</if>
+			<if test="displayName != null and displayName != ''">
+				AND a.displayName = #{displayName}
+			</if>
+			<if test="password != null and password != ''">
+				AND a.password = #{password}
+			</if>
+			<if test="userId != null and userId != ''">
+				AND a.userId = #{userId}
+			</if>
+			<if test="datetime != null and datetime != ''">
+				AND a.datetime = #{datetime}
+			</if>
+			<if test="signature != null and signature != ''">
+				AND a.signature = #{signature}
+			</if>
+			<if test="status != null and status != ''">
+				AND a.status = #{status}
+			</if>
+			<if test="email != null and email != ''">
+				AND a.email = #{email}
+			</if>
+			<if test="language != null and language != ''">
+				AND a.language = #{language}
+			</if>
+			<if test="chineseName != null and chineseName != ''">
+				AND a.chineseName = #{chineseName}
+			</if>
+			<if test="departmentId != null and departmentId != ''">
+				AND a.departmentId = #{departmentId}
+			</if>
+			<if test="positionId != null and positionId != ''">
+				AND a.positionId = #{positionId}
+			</if>
+			<if test="personalPhoto != null and personalPhoto != ''">
+				AND a.personalPhoto = #{personalPhoto}
+			</if>
+			<if test="cardNo != null and cardNo != ''">
+				AND a.cardNo = #{cardNo}
+			</if>
+			<if test="badgenumber != null and badgenumber != ''">
+				AND a.badgenumber = #{badgenumber}
+			</if>
+			<if test="workGroup != null and workGroup != ''">
+				AND a.workGroup = #{workGroup}
+			</if>
+			<if test="workGroupDetail != null and workGroupDetail != ''">
+				AND a.workGroupDetail = #{workGroupDetail}
+			</if>
+			<if test="addDate != null and addDate != ''">
+				AND a.addDate = #{addDate}
+			</if>
+			<if test="addIp != null and addIp != ''">
+				AND a.addIp = #{addIp}
+			</if>
+			<if test="addUser != null and addUser != ''">
+				AND a.addUser = #{addUser}
+			</if>
+			<if test="modifyDate != null and modifyDate != ''">
+				AND a.modifyDate = #{modifyDate}
+			</if>
+			<if test="modifyIp != null and modifyIp != ''">
+				AND a.modifyIp = #{modifyIp}
+			</if>
+			<if test="modifyUser != null and modifyUser != ''">
+				AND a.modifyUser = #{modifyUser}
+			</if>
+			<include refid="com.mtf.framework.dao.UserConditionMapper.countWhere"/>
+		</where>
+	</select>
+</mapper>

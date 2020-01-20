@@ -1,0 +1,1987 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mtf.framework.dao.AttendanceMapper" > 
+	<resultMap type="com.mtf.framework.model.impl.AttendanceImpl" id="attendance"/> 
+	<!-- 添加实体对象 -->
+	<insert id="insert" parameterType="attendance">
+		INSERT INTO attendance
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					id,
+				</if>
+				<if test="userId != null">
+					userId,
+				</if>
+				<if test="userName != null">
+					userName,
+				</if>
+				<if test="divisionId != null">
+					divisionId,
+				</if>
+				<if test="divisionName != null">
+					divisionName,
+				</if>
+				<if test="cardNo != null">
+					cardNo,
+				</if>
+				<if test="timeStart != null">
+					timeStart,
+				</if>
+				<if test="timeEnd != null">
+					timeEnd,
+				</if>
+				<if test="dayStart != null">
+					dayStart,
+				</if>
+				<if test="dayEnd != null">
+					dayEnd,
+				</if>
+				<if test="dayStartRule != null">
+					dayStartRule,
+				</if>
+				<if test="dayEndRule != null">
+					dayEndRule,
+				</if>
+				<if test="vacateTimeStart != null">
+					vacateTimeStart,
+				</if>
+				<if test="vacateTimeEnd != null">
+					vacateTimeEnd,
+				</if>
+				<if test="day != null">
+					day,
+				</if>
+				<if test="dateMonth != null">
+					dateMonth,
+				</if>
+				<if test="dateWeek != null">
+					dateWeek,
+				</if>
+				<if test="date != null">
+					date,
+				</if>
+				<if test="dateAddMonth != null">
+					dateAddMonth,
+				</if>
+				<if test="timeWork != null">
+					timeWork,
+				</if>
+				<if test="workTime != null">
+					workTime,
+				</if>
+				<if test="workTimeTrue != null">
+					workTimeTrue,
+				</if>
+				<if test="workOvertime != null">
+					workOvertime,
+				</if>
+				<if test="workOvertimeBefore != null">
+					workOvertimeBefore,
+				</if>
+				<if test="workOvertimeAfter != null">
+					workOvertimeAfter,
+				</if>
+				<if test="late != null">
+					late,
+				</if>
+				<if test="leaveEarly != null">
+					leaveEarly,
+				</if>
+				<if test="attendHalf != null">
+					attendHalf,
+				</if>
+				<if test="absenteeism != null">
+					absenteeism,
+				</if>
+				<if test="statusAttendance != null">
+					statusAttendance,
+				</if>
+				<if test="statusApprove != null">
+					statusApprove,
+				</if>
+				<if test="statusVacate != null">
+					statusVacate,
+				</if>
+				<if test="idVacateManage != null">
+					idVacateManage,
+				</if>
+				<if test="idVacate != null">
+					idVacate,
+				</if>
+				<if test="codeVacate != null">
+					codeVacate,
+				</if>
+				<if test="idVacateDetail != null">
+					idVacateDetail,
+				</if>
+				<if test="codeVacateDetail != null">
+					codeVacateDetail,
+				</if>
+				<if test="typeVacateDate != null">
+					typeVacateDate,
+				</if>
+				<if test="hourStartAttenVacate != null">
+					hourStartAttenVacate,
+				</if>
+				<if test="hourEndAttenVacate != null">
+					hourEndAttenVacate,
+				</if>
+				<if test="minuteStartAttenVacate != null">
+					minuteStartAttenVacate,
+				</if>
+				<if test="minuteEndAttenVacate != null">
+					minuteEndAttenVacate,
+				</if>
+				<if test="durationAttenVacate != null">
+					durationAttenVacate,
+				</if>
+				<if test="daySignIn != null">
+					daySignIn,
+				</if>
+				<if test="signinLocation != null">
+					signinLocation,
+				</if>
+				<if test="signinDate != null">
+					signinDate,
+				</if>
+				<if test="ticks != null">
+					ticks,
+				</if>
+				<if test="remark != null">
+					remark,
+				</if>
+				<if test="remarkReject != null">
+					remarkReject,
+				</if>
+				<if test="tagReject != null">
+					tagReject,
+				</if>
+				<if test="tagAdjust != null">
+					tagAdjust,
+				</if>
+				<if test="loopYear != null">
+					loopYear,
+				</if>
+				<if test="typeDate != null">
+					typeDate,
+				</if>
+				<if test="festivelName != null">
+					festivelName,
+				</if>
+				<if test="attendRecordIdAp1 != null">
+					attendRecordIdAp1,
+				</if>
+				<if test="attendRecordIdAp2 != null">
+					attendRecordIdAp2,
+				</if>
+				<if test="tagOvertime != null">
+					tagOvertime,
+				</if>
+				<if test="tagVacateManage != null">
+					tagVacateManage,
+				</if>
+				<if test="idVacateManageOvertime != null">
+					idVacateManageOvertime,
+				</if>
+				<if test="idVacateOvertime != null">
+					idVacateOvertime,
+				</if>
+				<if test="codeVacateOvertime != null">
+					codeVacateOvertime,
+				</if>
+				<if test="idVacateDetailOvertime != null">
+					idVacateDetailOvertime,
+				</if>
+				<if test="codeVacateDetailOvertime != null">
+					codeVacateDetailOvertime,
+				</if>
+				<if test="typeVacateDateOvertime != null">
+					typeVacateDateOvertime,
+				</if>
+				<if test="hourStartOvertime != null">
+					hourStartOvertime,
+				</if>
+				<if test="hourEndOvertime != null">
+					hourEndOvertime,
+				</if>
+				<if test="minuteStartOvertime != null">
+					minuteStartOvertime,
+				</if>
+				<if test="minuteEndOvertime != null">
+					minuteEndOvertime,
+				</if>
+				<if test="durationOvertime != null">
+					durationOvertime,
+				</if>
+				<if test="durationOvertimeBefore != null">
+					durationOvertimeBefore,
+				</if>
+				<if test="durationOvertimeAfter != null">
+					durationOvertimeAfter,
+				</if>
+				<if test="workOvertimeApprove != null">
+					workOvertimeApprove,
+				</if>
+				<if test="workOvertimeBeforeApprove != null">
+					workOvertimeBeforeApprove,
+				</if>
+				<if test="workOvertimeAfterApprove != null">
+					workOvertimeAfterApprove,
+				</if>
+				<if test="rangeAreaOvertime != null">
+					rangeAreaOvertime,
+				</if>
+				<if test="rangeAreaOvertimeApprove != null">
+					rangeAreaOvertimeApprove,
+				</if>
+				<if test="tagModifyOverwork != null">
+					tagModifyOverwork,
+				</if>
+				<if test="addDate != null">
+					addDate,
+				</if>
+				<if test="addUser != null">
+					addUser,
+				</if>
+				<if test="addIp != null">
+					addIp,
+				</if>
+				<if test="modifiedDate != null">
+					modifiedDate,
+				</if>
+				<if test="modifiedUser != null">
+					modifiedUser,
+				</if>
+				<if test="modifiedIp != null">
+					modifiedIp,
+				</if>
+			</trim>
+			<trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					#{id},
+				</if>
+				<if test="userId != null">
+					#{userId},
+				</if>
+				<if test="userName != null">
+					#{userName},
+				</if>
+				<if test="divisionId != null">
+					#{divisionId},
+				</if>
+				<if test="divisionName != null">
+					#{divisionName},
+				</if>
+				<if test="cardNo != null">
+					#{cardNo},
+				</if>
+				<if test="timeStart != null">
+					#{timeStart},
+				</if>
+				<if test="timeEnd != null">
+					#{timeEnd},
+				</if>
+				<if test="dayStart != null">
+					#{dayStart},
+				</if>
+				<if test="dayEnd != null">
+					#{dayEnd},
+				</if>
+				<if test="dayStartRule != null">
+					#{dayStartRule},
+				</if>
+				<if test="dayEndRule != null">
+					#{dayEndRule},
+				</if>
+				<if test="vacateTimeStart != null">
+					#{vacateTimeStart},
+				</if>
+				<if test="vacateTimeEnd != null">
+					#{vacateTimeEnd},
+				</if>
+				<if test="day != null">
+					#{day},
+				</if>
+				<if test="dateMonth != null">
+					#{dateMonth},
+				</if>
+				<if test="dateWeek != null">
+					#{dateWeek},
+				</if>
+				<if test="date != null">
+					#{date},
+				</if>
+				<if test="dateAddMonth != null">
+					#{dateAddMonth},
+				</if>
+				<if test="timeWork != null">
+					#{timeWork},
+				</if>
+				<if test="workTime != null">
+					#{workTime},
+				</if>
+				<if test="workTimeTrue != null">
+					#{workTimeTrue},
+				</if>
+				<if test="workOvertime != null">
+					#{workOvertime},
+				</if>
+				<if test="workOvertimeBefore != null">
+					#{workOvertimeBefore},
+				</if>
+				<if test="workOvertimeAfter != null">
+					#{workOvertimeAfter},
+				</if>
+				<if test="late != null">
+					#{late},
+				</if>
+				<if test="leaveEarly != null">
+					#{leaveEarly},
+				</if>
+				<if test="attendHalf != null">
+					#{attendHalf},
+				</if>
+				<if test="absenteeism != null">
+					#{absenteeism},
+				</if>
+				<if test="statusAttendance != null">
+					#{statusAttendance},
+				</if>
+				<if test="statusApprove != null">
+					#{statusApprove},
+				</if>
+				<if test="statusVacate != null">
+					#{statusVacate},
+				</if>
+				<if test="idVacateManage != null">
+					#{idVacateManage},
+				</if>
+				<if test="idVacate != null">
+					#{idVacate},
+				</if>
+				<if test="codeVacate != null">
+					#{codeVacate},
+				</if>
+				<if test="idVacateDetail != null">
+					#{idVacateDetail},
+				</if>
+				<if test="codeVacateDetail != null">
+					#{codeVacateDetail},
+				</if>
+				<if test="typeVacateDate != null">
+					#{typeVacateDate},
+				</if>
+				<if test="hourStartAttenVacate != null">
+					#{hourStartAttenVacate},
+				</if>
+				<if test="hourEndAttenVacate != null">
+					#{hourEndAttenVacate},
+				</if>
+				<if test="minuteStartAttenVacate != null">
+					#{minuteStartAttenVacate},
+				</if>
+				<if test="minuteEndAttenVacate != null">
+					#{minuteEndAttenVacate},
+				</if>
+				<if test="durationAttenVacate != null">
+					#{durationAttenVacate},
+				</if>
+				<if test="daySignIn != null">
+					#{daySignIn},
+				</if>
+				<if test="signinLocation != null">
+					#{signinLocation},
+				</if>
+				<if test="signinDate != null">
+					#{signinDate},
+				</if>
+				<if test="ticks != null">
+					#{ticks},
+				</if>
+				<if test="remark != null">
+					#{remark},
+				</if>
+				<if test="remarkReject != null">
+					#{remarkReject},
+				</if>
+				<if test="tagReject != null">
+					#{tagReject},
+				</if>
+				<if test="tagAdjust != null">
+					#{tagAdjust},
+				</if>
+				<if test="loopYear != null">
+					#{loopYear},
+				</if>
+				<if test="typeDate != null">
+					#{typeDate},
+				</if>
+				<if test="festivelName != null">
+					#{festivelName},
+				</if>
+				<if test="attendRecordIdAp1 != null">
+					#{attendRecordIdAp1},
+				</if>
+				<if test="attendRecordIdAp2 != null">
+					#{attendRecordIdAp2},
+				</if>
+				<if test="tagOvertime != null">
+					#{tagOvertime},
+				</if>
+				<if test="tagVacateManage != null">
+					#{tagVacateManage},
+				</if>
+				<if test="idVacateManageOvertime != null">
+					#{idVacateManageOvertime},
+				</if>
+				<if test="idVacateOvertime != null">
+					#{idVacateOvertime},
+				</if>
+				<if test="codeVacateOvertime != null">
+					#{codeVacateOvertime},
+				</if>
+				<if test="idVacateDetailOvertime != null">
+					#{idVacateDetailOvertime},
+				</if>
+				<if test="codeVacateDetailOvertime != null">
+					#{codeVacateDetailOvertime},
+				</if>
+				<if test="typeVacateDateOvertime != null">
+					#{typeVacateDateOvertime},
+				</if>
+				<if test="hourStartOvertime != null">
+					#{hourStartOvertime},
+				</if>
+				<if test="hourEndOvertime != null">
+					#{hourEndOvertime},
+				</if>
+				<if test="minuteStartOvertime != null">
+					#{minuteStartOvertime},
+				</if>
+				<if test="minuteEndOvertime != null">
+					#{minuteEndOvertime},
+				</if>
+				<if test="durationOvertime != null">
+					#{durationOvertime},
+				</if>
+				<if test="durationOvertimeBefore != null">
+					#{durationOvertimeBefore},
+				</if>
+				<if test="durationOvertimeAfter != null">
+					#{durationOvertimeAfter},
+				</if>
+				<if test="workOvertimeApprove != null">
+					#{workOvertimeApprove},
+				</if>
+				<if test="workOvertimeBeforeApprove != null">
+					#{workOvertimeBeforeApprove},
+				</if>
+				<if test="workOvertimeAfterApprove != null">
+					#{workOvertimeAfterApprove},
+				</if>
+				<if test="rangeAreaOvertime != null">
+					#{rangeAreaOvertime},
+				</if>
+				<if test="rangeAreaOvertimeApprove != null">
+					#{rangeAreaOvertimeApprove},
+				</if>
+				<if test="tagModifyOverwork != null">
+					#{tagModifyOverwork},
+				</if>
+				<if test="addDate != null">
+					#{addDate},
+				</if>
+				<if test="addUser != null">
+					#{addUser},
+				</if>
+				<if test="addIp != null">
+					#{addIp},
+				</if>
+				<if test="modifiedDate != null">
+					#{modifiedDate},
+				</if>
+				<if test="modifiedUser != null">
+					#{modifiedUser},
+				</if>
+				<if test="modifiedIp != null">
+					#{modifiedIp},
+				</if>
+			</trim>
+			<selectKey resultType="long" keyProperty="id">
+				SELECT LAST_INSERT_ID() AS ID
+			</selectKey>
+	</insert>
+
+	<!-- 删除实体对象 -->
+	<delete id="delete" parameterType="java.lang.Object">
+		DELETE FROM attendance
+		<where>
+			<if test="id != null and id != ''">
+				AND id = #{id}
+			</if>
+			<if test="userId != null and userId != ''">
+				AND userId = #{userId}
+			</if>
+			<if test="userName != null and userName != ''">
+				AND userName = #{userName}
+			</if>
+			<if test="divisionId != null and divisionId != ''">
+				AND divisionId = #{divisionId}
+			</if>
+			<if test="divisionName != null and divisionName != ''">
+				AND divisionName = #{divisionName}
+			</if>
+			<if test="cardNo != null and cardNo != ''">
+				AND cardNo = #{cardNo}
+			</if>
+			<if test="timeStart != null and timeStart != ''">
+				AND timeStart = #{timeStart}
+			</if>
+			<if test="timeEnd != null and timeEnd != ''">
+				AND timeEnd = #{timeEnd}
+			</if>
+			<if test="dayStart != null and dayStart != ''">
+				AND dayStart = #{dayStart}
+			</if>
+			<if test="dayEnd != null and dayEnd != ''">
+				AND dayEnd = #{dayEnd}
+			</if>
+			<if test="dayStartRule != null and dayStartRule != ''">
+				AND dayStartRule = #{dayStartRule}
+			</if>
+			<if test="dayEndRule != null and dayEndRule != ''">
+				AND dayEndRule = #{dayEndRule}
+			</if>
+			<if test="vacateTimeStart != null and vacateTimeStart != ''">
+				AND vacateTimeStart = #{vacateTimeStart}
+			</if>
+			<if test="vacateTimeEnd != null and vacateTimeEnd != ''">
+				AND vacateTimeEnd = #{vacateTimeEnd}
+			</if>
+			<if test="day != null and day != ''">
+				AND day = #{day}
+			</if>
+			<if test="dateMonth != null and dateMonth != ''">
+				AND dateMonth = #{dateMonth}
+			</if>
+			<if test="dateWeek != null and dateWeek != ''">
+				AND dateWeek = #{dateWeek}
+			</if>
+			<if test="date != null and date != ''">
+				AND date = #{date}
+			</if>
+			<if test="dateAddMonth != null and dateAddMonth != ''">
+				AND dateAddMonth = #{dateAddMonth}
+			</if>
+			<if test="timeWork != null and timeWork != ''">
+				AND timeWork = #{timeWork}
+			</if>
+			<if test="workTime != null and workTime != ''">
+				AND workTime = #{workTime}
+			</if>
+			<if test="workTimeTrue != null and workTimeTrue != ''">
+				AND workTimeTrue = #{workTimeTrue}
+			</if>
+			<if test="workOvertime != null and workOvertime != ''">
+				AND workOvertime = #{workOvertime}
+			</if>
+			<if test="workOvertimeBefore != null and workOvertimeBefore != ''">
+				AND workOvertimeBefore = #{workOvertimeBefore}
+			</if>
+			<if test="workOvertimeAfter != null and workOvertimeAfter != ''">
+				AND workOvertimeAfter = #{workOvertimeAfter}
+			</if>
+			<if test="late != null and late != ''">
+				AND late = #{late}
+			</if>
+			<if test="leaveEarly != null and leaveEarly != ''">
+				AND leaveEarly = #{leaveEarly}
+			</if>
+			<if test="attendHalf != null and attendHalf != ''">
+				AND attendHalf = #{attendHalf}
+			</if>
+			<if test="absenteeism != null and absenteeism != ''">
+				AND absenteeism = #{absenteeism}
+			</if>
+			<if test="statusAttendance != null and statusAttendance != ''">
+				AND statusAttendance = #{statusAttendance}
+			</if>
+			<if test="statusApprove != null and statusApprove != ''">
+				AND statusApprove = #{statusApprove}
+			</if>
+			<if test="statusVacate != null and statusVacate != ''">
+				AND statusVacate = #{statusVacate}
+			</if>
+			<if test="idVacateManage != null and idVacateManage != ''">
+				AND idVacateManage = #{idVacateManage}
+			</if>
+			<if test="idVacate != null and idVacate != ''">
+				AND idVacate = #{idVacate}
+			</if>
+			<if test="codeVacate != null and codeVacate != ''">
+				AND codeVacate = #{codeVacate}
+			</if>
+			<if test="idVacateDetail != null and idVacateDetail != ''">
+				AND idVacateDetail = #{idVacateDetail}
+			</if>
+			<if test="codeVacateDetail != null and codeVacateDetail != ''">
+				AND codeVacateDetail = #{codeVacateDetail}
+			</if>
+			<if test="typeVacateDate != null and typeVacateDate != ''">
+				AND typeVacateDate = #{typeVacateDate}
+			</if>
+			<if test="hourStartAttenVacate != null and hourStartAttenVacate != ''">
+				AND hourStartAttenVacate = #{hourStartAttenVacate}
+			</if>
+			<if test="hourEndAttenVacate != null and hourEndAttenVacate != ''">
+				AND hourEndAttenVacate = #{hourEndAttenVacate}
+			</if>
+			<if test="minuteStartAttenVacate != null and minuteStartAttenVacate != ''">
+				AND minuteStartAttenVacate = #{minuteStartAttenVacate}
+			</if>
+			<if test="minuteEndAttenVacate != null and minuteEndAttenVacate != ''">
+				AND minuteEndAttenVacate = #{minuteEndAttenVacate}
+			</if>
+			<if test="durationAttenVacate != null and durationAttenVacate != ''">
+				AND durationAttenVacate = #{durationAttenVacate}
+			</if>
+			<if test="daySignIn != null and daySignIn != ''">
+				AND daySignIn = #{daySignIn}
+			</if>
+			<if test="signinLocation != null and signinLocation != ''">
+				AND signinLocation = #{signinLocation}
+			</if>
+			<if test="signinDate != null and signinDate != ''">
+				AND signinDate = #{signinDate}
+			</if>
+			<if test="ticks != null and ticks != ''">
+				AND ticks = #{ticks}
+			</if>
+			<if test="remark != null and remark != ''">
+				AND remark = #{remark}
+			</if>
+			<if test="remarkReject != null and remarkReject != ''">
+				AND remarkReject = #{remarkReject}
+			</if>
+			<if test="tagReject != null and tagReject != ''">
+				AND tagReject = #{tagReject}
+			</if>
+			<if test="tagAdjust != null and tagAdjust != ''">
+				AND tagAdjust = #{tagAdjust}
+			</if>
+			<if test="loopYear != null and loopYear != ''">
+				AND loopYear = #{loopYear}
+			</if>
+			<if test="typeDate != null and typeDate != ''">
+				AND typeDate = #{typeDate}
+			</if>
+			<if test="festivelName != null and festivelName != ''">
+				AND festivelName = #{festivelName}
+			</if>
+			<if test="attendRecordIdAp1 != null and attendRecordIdAp1 != ''">
+				AND attendRecordIdAp1 = #{attendRecordIdAp1}
+			</if>
+			<if test="attendRecordIdAp2 != null and attendRecordIdAp2 != ''">
+				AND attendRecordIdAp2 = #{attendRecordIdAp2}
+			</if>
+			<if test="tagOvertime != null and tagOvertime != ''">
+				AND tagOvertime = #{tagOvertime}
+			</if>
+			<if test="tagVacateManage != null and tagVacateManage != ''">
+				AND tagVacateManage = #{tagVacateManage}
+			</if>
+			<if test="idVacateManageOvertime != null and idVacateManageOvertime != ''">
+				AND idVacateManageOvertime = #{idVacateManageOvertime}
+			</if>
+			<if test="idVacateOvertime != null and idVacateOvertime != ''">
+				AND idVacateOvertime = #{idVacateOvertime}
+			</if>
+			<if test="codeVacateOvertime != null and codeVacateOvertime != ''">
+				AND codeVacateOvertime = #{codeVacateOvertime}
+			</if>
+			<if test="idVacateDetailOvertime != null and idVacateDetailOvertime != ''">
+				AND idVacateDetailOvertime = #{idVacateDetailOvertime}
+			</if>
+			<if test="codeVacateDetailOvertime != null and codeVacateDetailOvertime != ''">
+				AND codeVacateDetailOvertime = #{codeVacateDetailOvertime}
+			</if>
+			<if test="typeVacateDateOvertime != null and typeVacateDateOvertime != ''">
+				AND typeVacateDateOvertime = #{typeVacateDateOvertime}
+			</if>
+			<if test="hourStartOvertime != null and hourStartOvertime != ''">
+				AND hourStartOvertime = #{hourStartOvertime}
+			</if>
+			<if test="hourEndOvertime != null and hourEndOvertime != ''">
+				AND hourEndOvertime = #{hourEndOvertime}
+			</if>
+			<if test="minuteStartOvertime != null and minuteStartOvertime != ''">
+				AND minuteStartOvertime = #{minuteStartOvertime}
+			</if>
+			<if test="minuteEndOvertime != null and minuteEndOvertime != ''">
+				AND minuteEndOvertime = #{minuteEndOvertime}
+			</if>
+			<if test="durationOvertime != null and durationOvertime != ''">
+				AND durationOvertime = #{durationOvertime}
+			</if>
+			<if test="durationOvertimeBefore != null and durationOvertimeBefore != ''">
+				AND durationOvertimeBefore = #{durationOvertimeBefore}
+			</if>
+			<if test="durationOvertimeAfter != null and durationOvertimeAfter != ''">
+				AND durationOvertimeAfter = #{durationOvertimeAfter}
+			</if>
+			<if test="workOvertimeApprove != null and workOvertimeApprove != ''">
+				AND workOvertimeApprove = #{workOvertimeApprove}
+			</if>
+			<if test="workOvertimeBeforeApprove != null and workOvertimeBeforeApprove != ''">
+				AND workOvertimeBeforeApprove = #{workOvertimeBeforeApprove}
+			</if>
+			<if test="workOvertimeAfterApprove != null and workOvertimeAfterApprove != ''">
+				AND workOvertimeAfterApprove = #{workOvertimeAfterApprove}
+			</if>
+			<if test="rangeAreaOvertime != null and rangeAreaOvertime != ''">
+				AND rangeAreaOvertime = #{rangeAreaOvertime}
+			</if>
+			<if test="rangeAreaOvertimeApprove != null and rangeAreaOvertimeApprove != ''">
+				AND rangeAreaOvertimeApprove = #{rangeAreaOvertimeApprove}
+			</if>
+			<if test="tagModifyOverwork != null and tagModifyOverwork != ''">
+				AND tagModifyOverwork = #{tagModifyOverwork}
+			</if>
+			<if test="addDate != null and addDate != ''">
+				AND addDate = #{addDate}
+			</if>
+			<if test="addUser != null and addUser != ''">
+				AND addUser = #{addUser}
+			</if>
+			<if test="addIp != null and addIp != ''">
+				AND addIp = #{addIp}
+			</if>
+			<if test="modifiedDate != null and modifiedDate != ''">
+				AND modifiedDate = #{modifiedDate}
+			</if>
+			<if test="modifiedUser != null and modifiedUser != ''">
+				AND modifiedUser = #{modifiedUser}
+			</if>
+			<if test="modifiedIp != null and modifiedIp != ''">
+				AND modifiedIp = #{modifiedIp}
+			</if>
+			<include refid="com.mtf.framework.dao.AttendanceConditionMapper.countWhere"/>
+		</where>
+	</delete>
+
+	<!-- 更新实体对象 -->
+	<update id="update" parameterType="java.lang.Object">
+		UPDATE attendance
+		<set>
+			<if test="id != null and id != ''">
+				id = #{id},
+			</if>
+			<if test="userId != null and userId != ''">
+				userId = #{userId},
+			</if>
+			<if test="userName != null and userName != ''">
+				userName = #{userName},
+			</if>
+			<if test="divisionId != null and divisionId != ''">
+				divisionId = #{divisionId},
+			</if>
+			<if test="divisionName != null and divisionName != ''">
+				divisionName = #{divisionName},
+			</if>
+			<if test="cardNo != null and cardNo != ''">
+				cardNo = #{cardNo},
+			</if>
+			<if test="timeStart != null and timeStart != ''">
+				timeStart = #{timeStart},
+			</if>
+			<if test="timeEnd != null and timeEnd != ''">
+				timeEnd = #{timeEnd},
+			</if>
+			<if test="dayStart != null and dayStart != ''">
+				dayStart = #{dayStart},
+			</if>
+			<if test="dayEnd != null and dayEnd != ''">
+				dayEnd = #{dayEnd},
+			</if>
+			<if test="dayStartRule != null and dayStartRule != ''">
+				dayStartRule = #{dayStartRule},
+			</if>
+			<if test="dayEndRule != null and dayEndRule != ''">
+				dayEndRule = #{dayEndRule},
+			</if>
+			<if test="vacateTimeStart != null and vacateTimeStart != ''">
+				vacateTimeStart = #{vacateTimeStart},
+			</if>
+			<if test="vacateTimeEnd != null and vacateTimeEnd != ''">
+				vacateTimeEnd = #{vacateTimeEnd},
+			</if>
+			<if test="day != null and day != ''">
+				day = #{day},
+			</if>
+			<if test="dateMonth != null and dateMonth != ''">
+				dateMonth = #{dateMonth},
+			</if>
+			<if test="dateWeek != null and dateWeek != ''">
+				dateWeek = #{dateWeek},
+			</if>
+			<if test="date != null and date != ''">
+				date = #{date},
+			</if>
+			<if test="dateAddMonth != null and dateAddMonth != ''">
+				dateAddMonth = #{dateAddMonth},
+			</if>
+			<if test="timeWork != null and timeWork != ''">
+				timeWork = #{timeWork},
+			</if>
+			<if test="workTime != null">
+				workTime = #{workTime},
+			</if>
+			<if test="workTimeTrue != null">
+				workTimeTrue = #{workTimeTrue},
+			</if>
+			<if test="workOvertime != null">
+				workOvertime = #{workOvertime},
+			</if>
+			<if test="workOvertimeBefore != null">
+				workOvertimeBefore = #{workOvertimeBefore},
+			</if>
+			<if test="workOvertimeAfter != null">
+				workOvertimeAfter = #{workOvertimeAfter},
+			</if>
+			<if test="late != null and late != ''">
+				late = #{late},
+			</if>
+			<if test="leaveEarly != null and leaveEarly != ''">
+				leaveEarly = #{leaveEarly},
+			</if>
+			<if test="attendHalf != null and attendHalf != ''">
+				attendHalf = #{attendHalf},
+			</if>
+			<if test="absenteeism != null and absenteeism != ''">
+				absenteeism = #{absenteeism},
+			</if>
+			<if test="statusAttendance != null and statusAttendance != ''">
+				statusAttendance = #{statusAttendance},
+			</if>
+			<if test="statusApprove != null and statusApprove != ''">
+				statusApprove = #{statusApprove},
+			</if>
+			<if test="statusVacate != null and statusVacate != ''">
+				statusVacate = #{statusVacate},
+			</if>
+			<if test="idVacateManage != null and idVacateManage != ''">
+				idVacateManage = #{idVacateManage},
+			</if>
+			<if test="idVacate != null and idVacate != ''">
+				idVacate = #{idVacate},
+			</if>
+			<if test="codeVacate != null and codeVacate != ''">
+				codeVacate = #{codeVacate},
+			</if>
+			<if test="idVacateDetail != null and idVacateDetail != ''">
+				idVacateDetail = #{idVacateDetail},
+			</if>
+			<if test="codeVacateDetail != null and codeVacateDetail != ''">
+				codeVacateDetail = #{codeVacateDetail},
+			</if>
+			<if test="typeVacateDate != null and typeVacateDate != ''">
+				typeVacateDate = #{typeVacateDate},
+			</if>
+			<if test="hourStartAttenVacate != null and hourStartAttenVacate != ''">
+				hourStartAttenVacate = #{hourStartAttenVacate},
+			</if>
+			<if test="hourEndAttenVacate != null and hourEndAttenVacate != ''">
+				hourEndAttenVacate = #{hourEndAttenVacate},
+			</if>
+			<if test="minuteStartAttenVacate != null and minuteStartAttenVacate != ''">
+				minuteStartAttenVacate = #{minuteStartAttenVacate},
+			</if>
+			<if test="minuteEndAttenVacate != null and minuteEndAttenVacate != ''">
+				minuteEndAttenVacate = #{minuteEndAttenVacate},
+			</if>
+			<if test="durationAttenVacate != null">
+				durationAttenVacate = #{durationAttenVacate},
+			</if>
+			<if test="daySignIn != null and daySignIn != ''">
+				daySignIn = #{daySignIn},
+			</if>
+			<if test="signinLocation != null and signinLocation != ''">
+				signinLocation = #{signinLocation},
+			</if>
+			<if test="signinDate != null and signinDate != ''">
+				signinDate = #{signinDate},
+			</if>
+			<if test="ticks != null and ticks != ''">
+				ticks = #{ticks},
+			</if>
+			<if test="remark != null and remark != ''">
+				remark = #{remark},
+			</if>
+			<if test="remarkReject != null and remarkReject != ''">
+				remarkReject = #{remarkReject},
+			</if>
+			<if test="tagReject != null and tagReject != ''">
+				tagReject = #{tagReject},
+			</if>
+			<if test="tagAdjust != null and tagAdjust != ''">
+				tagAdjust = #{tagAdjust},
+			</if>
+			<if test="loopYear != null and loopYear != ''">
+				loopYear = #{loopYear},
+			</if>
+			<if test="typeDate != null and typeDate != ''">
+				typeDate = #{typeDate},
+			</if>
+			<if test="festivelName != null and festivelName != ''">
+				festivelName = #{festivelName},
+			</if>
+			<if test="attendRecordIdAp1 != null and attendRecordIdAp1 != ''">
+				attendRecordIdAp1 = #{attendRecordIdAp1},
+			</if>
+			<if test="attendRecordIdAp2 != null and attendRecordIdAp2 != ''">
+				attendRecordIdAp2 = #{attendRecordIdAp2},
+			</if>
+			<if test="tagOvertime != null and tagOvertime != ''">
+				tagOvertime = #{tagOvertime},
+			</if>
+			<if test="tagVacateManage != null and tagVacateManage != ''">
+				tagVacateManage = #{tagVacateManage},
+			</if>
+			<if test="idVacateManageOvertime != null and idVacateManageOvertime != ''">
+				idVacateManageOvertime = #{idVacateManageOvertime},
+			</if>
+			<if test="idVacateOvertime != null and idVacateOvertime != ''">
+				idVacateOvertime = #{idVacateOvertime},
+			</if>
+			<if test="codeVacateOvertime != null and codeVacateOvertime != ''">
+				codeVacateOvertime = #{codeVacateOvertime},
+			</if>
+			<if test="idVacateDetailOvertime != null and idVacateDetailOvertime != ''">
+				idVacateDetailOvertime = #{idVacateDetailOvertime},
+			</if>
+			<if test="codeVacateDetailOvertime != null and codeVacateDetailOvertime != ''">
+				codeVacateDetailOvertime = #{codeVacateDetailOvertime},
+			</if>
+			<if test="typeVacateDateOvertime != null and typeVacateDateOvertime != ''">
+				typeVacateDateOvertime = #{typeVacateDateOvertime},
+			</if>
+			<if test="hourStartOvertime != null and hourStartOvertime != ''">
+				hourStartOvertime = #{hourStartOvertime},
+			</if>
+			<if test="hourEndOvertime != null and hourEndOvertime != ''">
+				hourEndOvertime = #{hourEndOvertime},
+			</if>
+			<if test="minuteStartOvertime != null and minuteStartOvertime != ''">
+				minuteStartOvertime = #{minuteStartOvertime},
+			</if>
+			<if test="minuteEndOvertime != null and minuteEndOvertime != ''">
+				minuteEndOvertime = #{minuteEndOvertime},
+			</if>
+			<if test="durationOvertime != null">
+				durationOvertime = #{durationOvertime},
+			</if>
+			<if test="durationOvertimeBefore != null">
+				durationOvertimeBefore = #{durationOvertimeBefore},
+			</if>
+			<if test="durationOvertimeAfter != null">
+				durationOvertimeAfter = #{durationOvertimeAfter},
+			</if>
+			<if test="workOvertimeApprove != null">
+				workOvertimeApprove = #{workOvertimeApprove},
+			</if>
+			<if test="workOvertimeBeforeApprove != null">
+				workOvertimeBeforeApprove = #{workOvertimeBeforeApprove},
+			</if>
+			<if test="workOvertimeAfterApprove != null">
+				workOvertimeAfterApprove = #{workOvertimeAfterApprove},
+			</if>
+			<if test="rangeAreaOvertime != null and rangeAreaOvertime != ''">
+				rangeAreaOvertime = #{rangeAreaOvertime},
+			</if>
+			<if test="rangeAreaOvertimeApprove != null and rangeAreaOvertimeApprove != ''">
+				rangeAreaOvertimeApprove = #{rangeAreaOvertimeApprove},
+			</if>
+			<if test="tagModifyOverwork != null and tagModifyOverwork != ''">
+				tagModifyOverwork = #{tagModifyOverwork},
+			</if>
+			<if test="addDate != null and addDate != ''">
+				addDate = #{addDate},
+			</if>
+			<if test="addUser != null and addUser != ''">
+				addUser = #{addUser},
+			</if>
+			<if test="addIp != null and addIp != ''">
+				addIp = #{addIp},
+			</if>
+			<if test="modifiedDate != null and modifiedDate != ''">
+				modifiedDate = #{modifiedDate},
+			</if>
+			<if test="modifiedUser != null and modifiedUser != ''">
+				modifiedUser = #{modifiedUser},
+			</if>
+			<if test="modifiedIp != null and modifiedIp != ''">
+				modifiedIp = #{modifiedIp},
+			</if>
+			<include refid="com.mtf.framework.dao.AttendanceConditionMapper.updateColumn"/>
+		</set>
+		WHERE
+			<include refid="com.mtf.framework.dao.AttendanceConditionMapper.updateWhere"/>
+			<if test="original != null">
+				 AND modified = #{original}
+			</if>
+	</update>
+
+	<!-- 查询单个实体对象 -->
+	<select id="get" parameterType="java.lang.Object" resultMap="attendance">
+		SELECT 
+			<include refid="com.mtf.framework.dao.AttendanceConditionMapper.getColumn"/>
+			a.id, 
+			a.userId, 
+			a.userName, 
+			a.divisionId, 
+			a.divisionName, 
+			a.cardNo, 
+			a.timeStart, 
+			a.timeEnd, 
+			a.dayStart, 
+			a.dayEnd, 
+			a.dayStartRule, 
+			a.dayEndRule, 
+			a.vacateTimeStart, 
+			a.vacateTimeEnd, 
+			a.day, 
+			a.dateMonth, 
+			a.dateWeek, 
+			a.date, 
+			a.dateAddMonth, 
+			a.timeWork, 
+			a.workTime, 
+			a.workTimeTrue, 
+			a.workOvertime, 
+			a.workOvertimeBefore, 
+			a.workOvertimeAfter, 
+			a.late, 
+			a.leaveEarly, 
+			a.attendHalf, 
+			a.absenteeism, 
+			a.statusAttendance, 
+			a.statusApprove, 
+			a.statusVacate, 
+			a.idVacateManage, 
+			a.idVacate, 
+			a.codeVacate, 
+			a.idVacateDetail, 
+			a.codeVacateDetail, 
+			a.typeVacateDate, 
+			a.hourStartAttenVacate, 
+			a.hourEndAttenVacate, 
+			a.minuteStartAttenVacate, 
+			a.minuteEndAttenVacate, 
+			a.durationAttenVacate, 
+			a.daySignIn, 
+			a.signinLocation, 
+			a.signinDate, 
+			a.ticks, 
+			a.remark, 
+			a.remarkReject, 
+			a.tagReject, 
+			a.tagAdjust, 
+			a.loopYear, 
+			a.typeDate, 
+			a.festivelName, 
+			a.attendRecordIdAp1, 
+			a.attendRecordIdAp2, 
+			a.tagOvertime, 
+			a.tagVacateManage, 
+			a.idVacateManageOvertime, 
+			a.idVacateOvertime, 
+			a.codeVacateOvertime, 
+			a.idVacateDetailOvertime, 
+			a.codeVacateDetailOvertime, 
+			a.typeVacateDateOvertime, 
+			a.hourStartOvertime, 
+			a.hourEndOvertime, 
+			a.minuteStartOvertime, 
+			a.minuteEndOvertime, 
+			a.durationOvertime, 
+			a.durationOvertimeBefore, 
+			a.durationOvertimeAfter, 
+			a.workOvertimeApprove, 
+			a.workOvertimeBeforeApprove, 
+			a.workOvertimeAfterApprove, 
+			a.rangeAreaOvertime, 
+			a.rangeAreaOvertimeApprove, 
+			a.tagModifyOverwork, 
+			a.addDate, 
+			a.addUser, 
+			a.addIp, 
+			a.modifiedDate, 
+			a.modifiedUser, 
+			a.modifiedIp
+		FROM attendance AS a
+		<include refid="com.mtf.framework.dao.AttendanceConditionMapper.getFrom"/>
+		<where>
+			<if test="id != null">
+				AND a.id = #{id}
+			</if>
+			<if test="userId != null">
+				AND a.userId = #{userId}
+			</if>
+			<if test="userName != null">
+				AND a.userName = #{userName}
+			</if>
+			<if test="divisionId != null">
+				AND a.divisionId = #{divisionId}
+			</if>
+			<if test="divisionName != null">
+				AND a.divisionName = #{divisionName}
+			</if>
+			<if test="cardNo != null">
+				AND a.cardNo = #{cardNo}
+			</if>
+			<if test="timeStart != null">
+				AND a.timeStart = #{timeStart}
+			</if>
+			<if test="timeEnd != null">
+				AND a.timeEnd = #{timeEnd}
+			</if>
+			<if test="dayStart != null">
+				AND a.dayStart = #{dayStart}
+			</if>
+			<if test="dayEnd != null">
+				AND a.dayEnd = #{dayEnd}
+			</if>
+			<if test="dayStartRule != null">
+				AND a.dayStartRule = #{dayStartRule}
+			</if>
+			<if test="dayEndRule != null">
+				AND a.dayEndRule = #{dayEndRule}
+			</if>
+			<if test="vacateTimeStart != null">
+				AND a.vacateTimeStart = #{vacateTimeStart}
+			</if>
+			<if test="vacateTimeEnd != null">
+				AND a.vacateTimeEnd = #{vacateTimeEnd}
+			</if>
+			<if test="day != null">
+				AND a.day = #{day}
+			</if>
+			<if test="dateMonth != null">
+				AND a.dateMonth = #{dateMonth}
+			</if>
+			<if test="dateWeek != null">
+				AND a.dateWeek = #{dateWeek}
+			</if>
+			<if test="date != null">
+				AND a.date = #{date}
+			</if>
+			<if test="dateAddMonth != null">
+				AND a.dateAddMonth = #{dateAddMonth}
+			</if>
+			<if test="timeWork != null">
+				AND a.timeWork = #{timeWork}
+			</if>
+			<if test="workTime != null">
+				AND a.workTime = #{workTime}
+			</if>
+			<if test="workTimeTrue != null">
+				AND a.workTimeTrue = #{workTimeTrue}
+			</if>
+			<if test="workOvertime != null">
+				AND a.workOvertime = #{workOvertime}
+			</if>
+			<if test="workOvertimeBefore != null">
+				AND a.workOvertimeBefore = #{workOvertimeBefore}
+			</if>
+			<if test="workOvertimeAfter != null">
+				AND a.workOvertimeAfter = #{workOvertimeAfter}
+			</if>
+			<if test="late != null">
+				AND a.late = #{late}
+			</if>
+			<if test="leaveEarly != null">
+				AND a.leaveEarly = #{leaveEarly}
+			</if>
+			<if test="attendHalf != null">
+				AND a.attendHalf = #{attendHalf}
+			</if>
+			<if test="absenteeism != null">
+				AND a.absenteeism = #{absenteeism}
+			</if>
+			<if test="statusAttendance != null">
+				AND a.statusAttendance = #{statusAttendance}
+			</if>
+			<if test="statusApprove != null">
+				AND a.statusApprove = #{statusApprove}
+			</if>
+			<if test="statusVacate != null">
+				AND a.statusVacate = #{statusVacate}
+			</if>
+			<if test="idVacateManage != null">
+				AND a.idVacateManage = #{idVacateManage}
+			</if>
+			<if test="idVacate != null">
+				AND a.idVacate = #{idVacate}
+			</if>
+			<if test="codeVacate != null">
+				AND a.codeVacate = #{codeVacate}
+			</if>
+			<if test="idVacateDetail != null">
+				AND a.idVacateDetail = #{idVacateDetail}
+			</if>
+			<if test="codeVacateDetail != null">
+				AND a.codeVacateDetail = #{codeVacateDetail}
+			</if>
+			<if test="typeVacateDate != null">
+				AND a.typeVacateDate = #{typeVacateDate}
+			</if>
+			<if test="hourStartAttenVacate != null">
+				AND a.hourStartAttenVacate = #{hourStartAttenVacate}
+			</if>
+			<if test="hourEndAttenVacate != null">
+				AND a.hourEndAttenVacate = #{hourEndAttenVacate}
+			</if>
+			<if test="minuteStartAttenVacate != null">
+				AND a.minuteStartAttenVacate = #{minuteStartAttenVacate}
+			</if>
+			<if test="minuteEndAttenVacate != null">
+				AND a.minuteEndAttenVacate = #{minuteEndAttenVacate}
+			</if>
+			<if test="durationAttenVacate != null">
+				AND a.durationAttenVacate = #{durationAttenVacate}
+			</if>
+			<if test="daySignIn != null">
+				AND a.daySignIn = #{daySignIn}
+			</if>
+			<if test="signinLocation != null">
+				AND a.signinLocation = #{signinLocation}
+			</if>
+			<if test="signinDate != null">
+				AND a.signinDate = #{signinDate}
+			</if>
+			<if test="ticks != null">
+				AND a.ticks = #{ticks}
+			</if>
+			<if test="remark != null">
+				AND a.remark = #{remark}
+			</if>
+			<if test="remarkReject != null">
+				AND a.remarkReject = #{remarkReject}
+			</if>
+			<if test="tagReject != null">
+				AND a.tagReject = #{tagReject}
+			</if>
+			<if test="tagAdjust != null">
+				AND a.tagAdjust = #{tagAdjust}
+			</if>
+			<if test="loopYear != null">
+				AND a.loopYear = #{loopYear}
+			</if>
+			<if test="typeDate != null">
+				AND a.typeDate = #{typeDate}
+			</if>
+			<if test="festivelName != null">
+				AND a.festivelName = #{festivelName}
+			</if>
+			<if test="attendRecordIdAp1 != null">
+				AND a.attendRecordIdAp1 = #{attendRecordIdAp1}
+			</if>
+			<if test="attendRecordIdAp2 != null">
+				AND a.attendRecordIdAp2 = #{attendRecordIdAp2}
+			</if>
+			<if test="tagOvertime != null">
+				AND a.tagOvertime = #{tagOvertime}
+			</if>
+			<if test="tagVacateManage != null">
+				AND a.tagVacateManage = #{tagVacateManage}
+			</if>
+			<if test="idVacateManageOvertime != null">
+				AND a.idVacateManageOvertime = #{idVacateManageOvertime}
+			</if>
+			<if test="idVacateOvertime != null">
+				AND a.idVacateOvertime = #{idVacateOvertime}
+			</if>
+			<if test="codeVacateOvertime != null">
+				AND a.codeVacateOvertime = #{codeVacateOvertime}
+			</if>
+			<if test="idVacateDetailOvertime != null">
+				AND a.idVacateDetailOvertime = #{idVacateDetailOvertime}
+			</if>
+			<if test="codeVacateDetailOvertime != null">
+				AND a.codeVacateDetailOvertime = #{codeVacateDetailOvertime}
+			</if>
+			<if test="typeVacateDateOvertime != null">
+				AND a.typeVacateDateOvertime = #{typeVacateDateOvertime}
+			</if>
+			<if test="hourStartOvertime != null">
+				AND a.hourStartOvertime = #{hourStartOvertime}
+			</if>
+			<if test="hourEndOvertime != null">
+				AND a.hourEndOvertime = #{hourEndOvertime}
+			</if>
+			<if test="minuteStartOvertime != null">
+				AND a.minuteStartOvertime = #{minuteStartOvertime}
+			</if>
+			<if test="minuteEndOvertime != null">
+				AND a.minuteEndOvertime = #{minuteEndOvertime}
+			</if>
+			<if test="durationOvertime != null">
+				AND a.durationOvertime = #{durationOvertime}
+			</if>
+			<if test="durationOvertimeBefore != null">
+				AND a.durationOvertimeBefore = #{durationOvertimeBefore}
+			</if>
+			<if test="durationOvertimeAfter != null">
+				AND a.durationOvertimeAfter = #{durationOvertimeAfter}
+			</if>
+			<if test="workOvertimeApprove != null">
+				AND a.workOvertimeApprove = #{workOvertimeApprove}
+			</if>
+			<if test="workOvertimeBeforeApprove != null">
+				AND a.workOvertimeBeforeApprove = #{workOvertimeBeforeApprove}
+			</if>
+			<if test="workOvertimeAfterApprove != null">
+				AND a.workOvertimeAfterApprove = #{workOvertimeAfterApprove}
+			</if>
+			<if test="rangeAreaOvertime != null">
+				AND a.rangeAreaOvertime = #{rangeAreaOvertime}
+			</if>
+			<if test="rangeAreaOvertimeApprove != null">
+				AND a.rangeAreaOvertimeApprove = #{rangeAreaOvertimeApprove}
+			</if>
+			<if test="tagModifyOverwork != null">
+				AND a.tagModifyOverwork = #{tagModifyOverwork}
+			</if>
+			<if test="addDate != null">
+				AND a.addDate = #{addDate}
+			</if>
+			<if test="addUser != null">
+				AND a.addUser = #{addUser}
+			</if>
+			<if test="addIp != null">
+				AND a.addIp = #{addIp}
+			</if>
+			<if test="modifiedDate != null">
+				AND a.modifiedDate = #{modifiedDate}
+			</if>
+			<if test="modifiedUser != null">
+				AND a.modifiedUser = #{modifiedUser}
+			</if>
+			<if test="modifiedIp != null">
+				AND a.modifiedIp = #{modifiedIp}
+			</if>
+			<include refid="com.mtf.framework.dao.AttendanceConditionMapper.getWhere"/>
+		</where>
+		<if test="sort != null">
+			ORDER BY a.${sort} ${order}
+		</if>
+		LIMIT 1
+	</select>
+
+	<!-- 查询实体对象集合 -->
+	<select id="select" parameterType="java.lang.Object" resultMap="attendance">
+		SELECT 
+			<include refid="com.mtf.framework.dao.AttendanceConditionMapper.selectColumn"/>
+			a.id, 
+			a.userId, 
+			a.userName, 
+			a.divisionId, 
+			a.divisionName, 
+			a.cardNo, 
+			a.timeStart, 
+			a.timeEnd, 
+			a.dayStart, 
+			a.dayEnd, 
+			a.dayStartRule, 
+			a.dayEndRule, 
+			a.vacateTimeStart, 
+			a.vacateTimeEnd, 
+			a.day, 
+			a.dateMonth, 
+			a.dateWeek, 
+			a.date, 
+			a.dateAddMonth, 
+			a.timeWork, 
+			a.workTime, 
+			a.workTimeTrue, 
+			a.workOvertime, 
+			a.workOvertimeBefore, 
+			a.workOvertimeAfter, 
+			a.late, 
+			a.leaveEarly, 
+			a.attendHalf, 
+			a.absenteeism, 
+			a.statusAttendance, 
+			a.statusApprove, 
+			a.statusVacate, 
+			a.idVacateManage, 
+			a.idVacate, 
+			a.codeVacate, 
+			a.idVacateDetail, 
+			a.codeVacateDetail, 
+			a.typeVacateDate, 
+			a.hourStartAttenVacate, 
+			a.hourEndAttenVacate, 
+			a.minuteStartAttenVacate, 
+			a.minuteEndAttenVacate, 
+			a.durationAttenVacate, 
+			a.daySignIn, 
+			a.signinLocation, 
+			a.signinDate, 
+			a.ticks, 
+			a.remark, 
+			a.remarkReject, 
+			a.tagReject, 
+			a.tagAdjust, 
+			a.loopYear, 
+			a.typeDate, 
+			a.festivelName, 
+			a.attendRecordIdAp1, 
+			a.attendRecordIdAp2, 
+			a.tagOvertime, 
+			a.tagVacateManage, 
+			a.idVacateManageOvertime, 
+			a.idVacateOvertime, 
+			a.codeVacateOvertime, 
+			a.idVacateDetailOvertime, 
+			a.codeVacateDetailOvertime, 
+			a.typeVacateDateOvertime, 
+			a.hourStartOvertime, 
+			a.hourEndOvertime, 
+			a.minuteStartOvertime, 
+			a.minuteEndOvertime, 
+			a.durationOvertime, 
+			a.durationOvertimeBefore, 
+			a.durationOvertimeAfter, 
+			a.workOvertimeApprove, 
+			a.workOvertimeBeforeApprove, 
+			a.workOvertimeAfterApprove, 
+			a.rangeAreaOvertime, 
+			a.rangeAreaOvertimeApprove, 
+			a.tagModifyOverwork, 
+			a.addDate, 
+			a.addUser, 
+			a.addIp, 
+			a.modifiedDate, 
+			a.modifiedUser, 
+			a.modifiedIp
+		FROM attendance AS a
+		<include refid="com.mtf.framework.dao.AttendanceConditionMapper.selectFrom"/>
+		<where>
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="userId != null and userId != ''">
+				AND a.userId = #{userId}
+			</if>
+			<if test="userName != null and userName != ''">
+				AND a.userName = #{userName}
+			</if>
+			<if test="divisionId != null and divisionId != ''">
+				AND a.divisionId = #{divisionId}
+			</if>
+			<if test="divisionName != null and divisionName != ''">
+				AND a.divisionName = #{divisionName}
+			</if>
+			<if test="cardNo != null and cardNo != ''">
+				AND a.cardNo = #{cardNo}
+			</if>
+			<if test="timeStart != null and timeStart != ''">
+				AND a.timeStart = #{timeStart}
+			</if>
+			<if test="timeEnd != null and timeEnd != ''">
+				AND a.timeEnd = #{timeEnd}
+			</if>
+			<if test="dayStart != null and dayStart != ''">
+				AND a.dayStart = #{dayStart}
+			</if>
+			<if test="dayEnd != null and dayEnd != ''">
+				AND a.dayEnd = #{dayEnd}
+			</if>
+			<if test="dayStartRule != null and dayStartRule != ''">
+				AND a.dayStartRule = #{dayStartRule}
+			</if>
+			<if test="dayEndRule != null and dayEndRule != ''">
+				AND a.dayEndRule = #{dayEndRule}
+			</if>
+			<if test="vacateTimeStart != null and vacateTimeStart != ''">
+				AND a.vacateTimeStart = #{vacateTimeStart}
+			</if>
+			<if test="vacateTimeEnd != null and vacateTimeEnd != ''">
+				AND a.vacateTimeEnd = #{vacateTimeEnd}
+			</if>
+			<if test="day != null and day != ''">
+				AND a.day = #{day}
+			</if>
+			<if test="dateMonth != null and dateMonth != ''">
+				AND a.dateMonth = #{dateMonth}
+			</if>
+			<if test="dateWeek != null and dateWeek != ''">
+				AND a.dateWeek = #{dateWeek}
+			</if>
+			<if test="date != null and date != ''">
+				AND a.date = #{date}
+			</if>
+			<if test="dateAddMonth != null and dateAddMonth != ''">
+				AND a.dateAddMonth = #{dateAddMonth}
+			</if>
+			<if test="timeWork != null and timeWork != ''">
+				AND a.timeWork = #{timeWork}
+			</if>
+			<if test="workTime != null and workTime != ''">
+				AND a.workTime = #{workTime}
+			</if>
+			<if test="workTimeTrue != null and workTimeTrue != ''">
+				AND a.workTimeTrue = #{workTimeTrue}
+			</if>
+			<if test="workOvertime != null and workOvertime != ''">
+				AND a.workOvertime = #{workOvertime}
+			</if>
+			<if test="workOvertimeBefore != null and workOvertimeBefore != ''">
+				AND a.workOvertimeBefore = #{workOvertimeBefore}
+			</if>
+			<if test="workOvertimeAfter != null and workOvertimeAfter != ''">
+				AND a.workOvertimeAfter = #{workOvertimeAfter}
+			</if>
+			<if test="late != null and late != ''">
+				AND a.late = #{late}
+			</if>
+			<if test="leaveEarly != null and leaveEarly != ''">
+				AND a.leaveEarly = #{leaveEarly}
+			</if>
+			<if test="attendHalf != null and attendHalf != ''">
+				AND a.attendHalf = #{attendHalf}
+			</if>
+			<if test="absenteeism != null and absenteeism != ''">
+				AND a.absenteeism = #{absenteeism}
+			</if>
+			<if test="statusAttendance != null and statusAttendance != ''">
+				AND a.statusAttendance = #{statusAttendance}
+			</if>
+			<if test="statusApprove != null and statusApprove != ''">
+				AND a.statusApprove = #{statusApprove}
+			</if>
+			<if test="statusVacate != null and statusVacate != ''">
+				AND a.statusVacate = #{statusVacate}
+			</if>
+			<if test="idVacateManage != null and idVacateManage != ''">
+				AND a.idVacateManage = #{idVacateManage}
+			</if>
+			<if test="idVacate != null and idVacate != ''">
+				AND a.idVacate = #{idVacate}
+			</if>
+			<if test="codeVacate != null and codeVacate != ''">
+				AND a.codeVacate = #{codeVacate}
+			</if>
+			<if test="idVacateDetail != null and idVacateDetail != ''">
+				AND a.idVacateDetail = #{idVacateDetail}
+			</if>
+			<if test="codeVacateDetail != null and codeVacateDetail != ''">
+				AND a.codeVacateDetail = #{codeVacateDetail}
+			</if>
+			<if test="typeVacateDate != null and typeVacateDate != ''">
+				AND a.typeVacateDate = #{typeVacateDate}
+			</if>
+			<if test="hourStartAttenVacate != null and hourStartAttenVacate != ''">
+				AND a.hourStartAttenVacate = #{hourStartAttenVacate}
+			</if>
+			<if test="hourEndAttenVacate != null and hourEndAttenVacate != ''">
+				AND a.hourEndAttenVacate = #{hourEndAttenVacate}
+			</if>
+			<if test="minuteStartAttenVacate != null and minuteStartAttenVacate != ''">
+				AND a.minuteStartAttenVacate = #{minuteStartAttenVacate}
+			</if>
+			<if test="minuteEndAttenVacate != null and minuteEndAttenVacate != ''">
+				AND a.minuteEndAttenVacate = #{minuteEndAttenVacate}
+			</if>
+			<if test="durationAttenVacate != null and durationAttenVacate != ''">
+				AND a.durationAttenVacate = #{durationAttenVacate}
+			</if>
+			<if test="daySignIn != null and daySignIn != ''">
+				AND a.daySignIn = #{daySignIn}
+			</if>
+			<if test="signinLocation != null and signinLocation != ''">
+				AND a.signinLocation = #{signinLocation}
+			</if>
+			<if test="signinDate != null and signinDate != ''">
+				AND a.signinDate = #{signinDate}
+			</if>
+			<if test="ticks != null and ticks != ''">
+				AND a.ticks = #{ticks}
+			</if>
+			<if test="remark != null and remark != ''">
+				AND a.remark = #{remark}
+			</if>
+			<if test="remarkReject != null and remarkReject != ''">
+				AND a.remarkReject = #{remarkReject}
+			</if>
+			<if test="tagReject != null and tagReject != ''">
+				AND a.tagReject = #{tagReject}
+			</if>
+			<if test="tagAdjust != null and tagAdjust != ''">
+				AND a.tagAdjust = #{tagAdjust}
+			</if>
+			<if test="loopYear != null and loopYear != ''">
+				AND a.loopYear = #{loopYear}
+			</if>
+			<if test="typeDate != null and typeDate != ''">
+				AND a.typeDate = #{typeDate}
+			</if>
+			<if test="festivelName != null and festivelName != ''">
+				AND a.festivelName = #{festivelName}
+			</if>
+			<if test="attendRecordIdAp1 != null and attendRecordIdAp1 != ''">
+				AND a.attendRecordIdAp1 = #{attendRecordIdAp1}
+			</if>
+			<if test="attendRecordIdAp2 != null and attendRecordIdAp2 != ''">
+				AND a.attendRecordIdAp2 = #{attendRecordIdAp2}
+			</if>
+			<if test="tagOvertime != null and tagOvertime != ''">
+				AND a.tagOvertime = #{tagOvertime}
+			</if>
+			<if test="tagVacateManage != null and tagVacateManage != ''">
+				AND a.tagVacateManage = #{tagVacateManage}
+			</if>
+			<if test="idVacateManageOvertime != null and idVacateManageOvertime != ''">
+				AND a.idVacateManageOvertime = #{idVacateManageOvertime}
+			</if>
+			<if test="idVacateOvertime != null and idVacateOvertime != ''">
+				AND a.idVacateOvertime = #{idVacateOvertime}
+			</if>
+			<if test="codeVacateOvertime != null and codeVacateOvertime != ''">
+				AND a.codeVacateOvertime = #{codeVacateOvertime}
+			</if>
+			<if test="idVacateDetailOvertime != null and idVacateDetailOvertime != ''">
+				AND a.idVacateDetailOvertime = #{idVacateDetailOvertime}
+			</if>
+			<if test="codeVacateDetailOvertime != null and codeVacateDetailOvertime != ''">
+				AND a.codeVacateDetailOvertime = #{codeVacateDetailOvertime}
+			</if>
+			<if test="typeVacateDateOvertime != null and typeVacateDateOvertime != ''">
+				AND a.typeVacateDateOvertime = #{typeVacateDateOvertime}
+			</if>
+			<if test="hourStartOvertime != null and hourStartOvertime != ''">
+				AND a.hourStartOvertime = #{hourStartOvertime}
+			</if>
+			<if test="hourEndOvertime != null and hourEndOvertime != ''">
+				AND a.hourEndOvertime = #{hourEndOvertime}
+			</if>
+			<if test="minuteStartOvertime != null and minuteStartOvertime != ''">
+				AND a.minuteStartOvertime = #{minuteStartOvertime}
+			</if>
+			<if test="minuteEndOvertime != null and minuteEndOvertime != ''">
+				AND a.minuteEndOvertime = #{minuteEndOvertime}
+			</if>
+			<if test="durationOvertime != null and durationOvertime != ''">
+				AND a.durationOvertime = #{durationOvertime}
+			</if>
+			<if test="durationOvertimeBefore != null and durationOvertimeBefore != ''">
+				AND a.durationOvertimeBefore = #{durationOvertimeBefore}
+			</if>
+			<if test="durationOvertimeAfter != null and durationOvertimeAfter != ''">
+				AND a.durationOvertimeAfter = #{durationOvertimeAfter}
+			</if>
+			<if test="workOvertimeApprove != null and workOvertimeApprove != ''">
+				AND a.workOvertimeApprove = #{workOvertimeApprove}
+			</if>
+			<if test="workOvertimeBeforeApprove != null and workOvertimeBeforeApprove != ''">
+				AND a.workOvertimeBeforeApprove = #{workOvertimeBeforeApprove}
+			</if>
+			<if test="workOvertimeAfterApprove != null and workOvertimeAfterApprove != ''">
+				AND a.workOvertimeAfterApprove = #{workOvertimeAfterApprove}
+			</if>
+			<if test="rangeAreaOvertime != null and rangeAreaOvertime != ''">
+				AND a.rangeAreaOvertime = #{rangeAreaOvertime}
+			</if>
+			<if test="rangeAreaOvertimeApprove != null and rangeAreaOvertimeApprove != ''">
+				AND a.rangeAreaOvertimeApprove = #{rangeAreaOvertimeApprove}
+			</if>
+			<if test="tagModifyOverwork != null and tagModifyOverwork != ''">
+				AND a.tagModifyOverwork = #{tagModifyOverwork}
+			</if>
+			<if test="addDate != null and addDate != ''">
+				AND a.addDate = #{addDate}
+			</if>
+			<if test="addUser != null and addUser != ''">
+				AND a.addUser = #{addUser}
+			</if>
+			<if test="addIp != null and addIp != ''">
+				AND a.addIp = #{addIp}
+			</if>
+			<if test="modifiedDate != null and modifiedDate != ''">
+				AND a.modifiedDate = #{modifiedDate}
+			</if>
+			<if test="modifiedUser != null and modifiedUser != ''">
+				AND a.modifiedUser = #{modifiedUser}
+			</if>
+			<if test="modifiedIp != null and modifiedIp != ''">
+				AND a.modifiedIp = #{modifiedIp}
+			</if>
+			<include refid="com.mtf.framework.dao.AttendanceConditionMapper.selectWhere"/>
+		</where>
+		<if test="sort != null">
+			ORDER BY a.${sort} ${order}
+		</if>
+		<if test="rows != 0">
+			LIMIT ${startIndex}, ${rows}
+		</if>
+	</select>
+
+	<!-- 查询实体对象记录数 -->
+	<select id="count" parameterType="java.lang.Object" resultType="int">
+		SELECT COUNT(1) FROM attendance AS a
+		<include refid="com.mtf.framework.dao.AttendanceConditionMapper.countFrom"/>
+		<where>
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="userId != null and userId != ''">
+				AND a.userId = #{userId}
+			</if>
+			<if test="userName != null and userName != ''">
+				AND a.userName = #{userName}
+			</if>
+			<if test="divisionId != null and divisionId != ''">
+				AND a.divisionId = #{divisionId}
+			</if>
+			<if test="divisionName != null and divisionName != ''">
+				AND a.divisionName = #{divisionName}
+			</if>
+			<if test="cardNo != null and cardNo != ''">
+				AND a.cardNo = #{cardNo}
+			</if>
+			<if test="timeStart != null and timeStart != ''">
+				AND a.timeStart = #{timeStart}
+			</if>
+			<if test="timeEnd != null and timeEnd != ''">
+				AND a.timeEnd = #{timeEnd}
+			</if>
+			<if test="dayStart != null and dayStart != ''">
+				AND a.dayStart = #{dayStart}
+			</if>
+			<if test="dayEnd != null and dayEnd != ''">
+				AND a.dayEnd = #{dayEnd}
+			</if>
+			<if test="dayStartRule != null and dayStartRule != ''">
+				AND a.dayStartRule = #{dayStartRule}
+			</if>
+			<if test="dayEndRule != null and dayEndRule != ''">
+				AND a.dayEndRule = #{dayEndRule}
+			</if>
+			<if test="vacateTimeStart != null and vacateTimeStart != ''">
+				AND a.vacateTimeStart = #{vacateTimeStart}
+			</if>
+			<if test="vacateTimeEnd != null and vacateTimeEnd != ''">
+				AND a.vacateTimeEnd = #{vacateTimeEnd}
+			</if>
+			<if test="day != null and day != ''">
+				AND a.day = #{day}
+			</if>
+			<if test="dateMonth != null and dateMonth != ''">
+				AND a.dateMonth = #{dateMonth}
+			</if>
+			<if test="dateWeek != null and dateWeek != ''">
+				AND a.dateWeek = #{dateWeek}
+			</if>
+			<if test="date != null and date != ''">
+				AND a.date = #{date}
+			</if>
+			<if test="dateAddMonth != null and dateAddMonth != ''">
+				AND a.dateAddMonth = #{dateAddMonth}
+			</if>
+			<if test="timeWork != null and timeWork != ''">
+				AND a.timeWork = #{timeWork}
+			</if>
+			<if test="workTime != null and workTime != ''">
+				AND a.workTime = #{workTime}
+			</if>
+			<if test="workTimeTrue != null and workTimeTrue != ''">
+				AND a.workTimeTrue = #{workTimeTrue}
+			</if>
+			<if test="workOvertime != null and workOvertime != ''">
+				AND a.workOvertime = #{workOvertime}
+			</if>
+			<if test="workOvertimeBefore != null and workOvertimeBefore != ''">
+				AND a.workOvertimeBefore = #{workOvertimeBefore}
+			</if>
+			<if test="workOvertimeAfter != null and workOvertimeAfter != ''">
+				AND a.workOvertimeAfter = #{workOvertimeAfter}
+			</if>
+			<if test="late != null and late != ''">
+				AND a.late = #{late}
+			</if>
+			<if test="leaveEarly != null and leaveEarly != ''">
+				AND a.leaveEarly = #{leaveEarly}
+			</if>
+			<if test="attendHalf != null and attendHalf != ''">
+				AND a.attendHalf = #{attendHalf}
+			</if>
+			<if test="absenteeism != null and absenteeism != ''">
+				AND a.absenteeism = #{absenteeism}
+			</if>
+			<if test="statusAttendance != null and statusAttendance != ''">
+				AND a.statusAttendance = #{statusAttendance}
+			</if>
+			<if test="statusApprove != null and statusApprove != ''">
+				AND a.statusApprove = #{statusApprove}
+			</if>
+			<if test="statusVacate != null and statusVacate != ''">
+				AND a.statusVacate = #{statusVacate}
+			</if>
+			<if test="idVacateManage != null and idVacateManage != ''">
+				AND a.idVacateManage = #{idVacateManage}
+			</if>
+			<if test="idVacate != null and idVacate != ''">
+				AND a.idVacate = #{idVacate}
+			</if>
+			<if test="codeVacate != null and codeVacate != ''">
+				AND a.codeVacate = #{codeVacate}
+			</if>
+			<if test="idVacateDetail != null and idVacateDetail != ''">
+				AND a.idVacateDetail = #{idVacateDetail}
+			</if>
+			<if test="codeVacateDetail != null and codeVacateDetail != ''">
+				AND a.codeVacateDetail = #{codeVacateDetail}
+			</if>
+			<if test="typeVacateDate != null and typeVacateDate != ''">
+				AND a.typeVacateDate = #{typeVacateDate}
+			</if>
+			<if test="hourStartAttenVacate != null and hourStartAttenVacate != ''">
+				AND a.hourStartAttenVacate = #{hourStartAttenVacate}
+			</if>
+			<if test="hourEndAttenVacate != null and hourEndAttenVacate != ''">
+				AND a.hourEndAttenVacate = #{hourEndAttenVacate}
+			</if>
+			<if test="minuteStartAttenVacate != null and minuteStartAttenVacate != ''">
+				AND a.minuteStartAttenVacate = #{minuteStartAttenVacate}
+			</if>
+			<if test="minuteEndAttenVacate != null and minuteEndAttenVacate != ''">
+				AND a.minuteEndAttenVacate = #{minuteEndAttenVacate}
+			</if>
+			<if test="durationAttenVacate != null and durationAttenVacate != ''">
+				AND a.durationAttenVacate = #{durationAttenVacate}
+			</if>
+			<if test="daySignIn != null and daySignIn != ''">
+				AND a.daySignIn = #{daySignIn}
+			</if>
+			<if test="signinLocation != null and signinLocation != ''">
+				AND a.signinLocation = #{signinLocation}
+			</if>
+			<if test="signinDate != null and signinDate != ''">
+				AND a.signinDate = #{signinDate}
+			</if>
+			<if test="ticks != null and ticks != ''">
+				AND a.ticks = #{ticks}
+			</if>
+			<if test="remark != null and remark != ''">
+				AND a.remark = #{remark}
+			</if>
+			<if test="remarkReject != null and remarkReject != ''">
+				AND a.remarkReject = #{remarkReject}
+			</if>
+			<if test="tagReject != null and tagReject != ''">
+				AND a.tagReject = #{tagReject}
+			</if>
+			<if test="tagAdjust != null and tagAdjust != ''">
+				AND a.tagAdjust = #{tagAdjust}
+			</if>
+			<if test="loopYear != null and loopYear != ''">
+				AND a.loopYear = #{loopYear}
+			</if>
+			<if test="typeDate != null and typeDate != ''">
+				AND a.typeDate = #{typeDate}
+			</if>
+			<if test="festivelName != null and festivelName != ''">
+				AND a.festivelName = #{festivelName}
+			</if>
+			<if test="attendRecordIdAp1 != null and attendRecordIdAp1 != ''">
+				AND a.attendRecordIdAp1 = #{attendRecordIdAp1}
+			</if>
+			<if test="attendRecordIdAp2 != null and attendRecordIdAp2 != ''">
+				AND a.attendRecordIdAp2 = #{attendRecordIdAp2}
+			</if>
+			<if test="tagOvertime != null and tagOvertime != ''">
+				AND a.tagOvertime = #{tagOvertime}
+			</if>
+			<if test="tagVacateManage != null and tagVacateManage != ''">
+				AND a.tagVacateManage = #{tagVacateManage}
+			</if>
+			<if test="idVacateManageOvertime != null and idVacateManageOvertime != ''">
+				AND a.idVacateManageOvertime = #{idVacateManageOvertime}
+			</if>
+			<if test="idVacateOvertime != null and idVacateOvertime != ''">
+				AND a.idVacateOvertime = #{idVacateOvertime}
+			</if>
+			<if test="codeVacateOvertime != null and codeVacateOvertime != ''">
+				AND a.codeVacateOvertime = #{codeVacateOvertime}
+			</if>
+			<if test="idVacateDetailOvertime != null and idVacateDetailOvertime != ''">
+				AND a.idVacateDetailOvertime = #{idVacateDetailOvertime}
+			</if>
+			<if test="codeVacateDetailOvertime != null and codeVacateDetailOvertime != ''">
+				AND a.codeVacateDetailOvertime = #{codeVacateDetailOvertime}
+			</if>
+			<if test="typeVacateDateOvertime != null and typeVacateDateOvertime != ''">
+				AND a.typeVacateDateOvertime = #{typeVacateDateOvertime}
+			</if>
+			<if test="hourStartOvertime != null and hourStartOvertime != ''">
+				AND a.hourStartOvertime = #{hourStartOvertime}
+			</if>
+			<if test="hourEndOvertime != null and hourEndOvertime != ''">
+				AND a.hourEndOvertime = #{hourEndOvertime}
+			</if>
+			<if test="minuteStartOvertime != null and minuteStartOvertime != ''">
+				AND a.minuteStartOvertime = #{minuteStartOvertime}
+			</if>
+			<if test="minuteEndOvertime != null and minuteEndOvertime != ''">
+				AND a.minuteEndOvertime = #{minuteEndOvertime}
+			</if>
+			<if test="durationOvertime != null and durationOvertime != ''">
+				AND a.durationOvertime = #{durationOvertime}
+			</if>
+			<if test="durationOvertimeBefore != null and durationOvertimeBefore != ''">
+				AND a.durationOvertimeBefore = #{durationOvertimeBefore}
+			</if>
+			<if test="durationOvertimeAfter != null and durationOvertimeAfter != ''">
+				AND a.durationOvertimeAfter = #{durationOvertimeAfter}
+			</if>
+			<if test="workOvertimeApprove != null and workOvertimeApprove != ''">
+				AND a.workOvertimeApprove = #{workOvertimeApprove}
+			</if>
+			<if test="workOvertimeBeforeApprove != null and workOvertimeBeforeApprove != ''">
+				AND a.workOvertimeBeforeApprove = #{workOvertimeBeforeApprove}
+			</if>
+			<if test="workOvertimeAfterApprove != null and workOvertimeAfterApprove != ''">
+				AND a.workOvertimeAfterApprove = #{workOvertimeAfterApprove}
+			</if>
+			<if test="rangeAreaOvertime != null and rangeAreaOvertime != ''">
+				AND a.rangeAreaOvertime = #{rangeAreaOvertime}
+			</if>
+			<if test="rangeAreaOvertimeApprove != null and rangeAreaOvertimeApprove != ''">
+				AND a.rangeAreaOvertimeApprove = #{rangeAreaOvertimeApprove}
+			</if>
+			<if test="tagModifyOverwork != null and tagModifyOverwork != ''">
+				AND a.tagModifyOverwork = #{tagModifyOverwork}
+			</if>
+			<if test="addDate != null and addDate != ''">
+				AND a.addDate = #{addDate}
+			</if>
+			<if test="addUser != null and addUser != ''">
+				AND a.addUser = #{addUser}
+			</if>
+			<if test="addIp != null and addIp != ''">
+				AND a.addIp = #{addIp}
+			</if>
+			<if test="modifiedDate != null and modifiedDate != ''">
+				AND a.modifiedDate = #{modifiedDate}
+			</if>
+			<if test="modifiedUser != null and modifiedUser != ''">
+				AND a.modifiedUser = #{modifiedUser}
+			</if>
+			<if test="modifiedIp != null and modifiedIp != ''">
+				AND a.modifiedIp = #{modifiedIp}
+			</if>
+			<include refid="com.mtf.framework.dao.AttendanceConditionMapper.countWhere"/>
+		</where>
+	</select>
+</mapper>

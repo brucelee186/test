@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mtf.framework.dao.AttenVacateConditionMapper" > 
+	<resultMap type="com.mtf.framework.model.impl.AttenVacateImpl" id="attenVacate"/> 
+
+	<sql id="updateColumn">
+		
+	</sql>
+
+	<sql id="getColumn">
+		(SELECT SUM(attenVacateManage.duration) FROM attenVacateManage WHERE attenVacateManage.userId = #{userId} AND attenVacateManage.idVacate = ${id} AND attenVacateManage.year = DATE_FORMAT(NOW(),'%Y') ) AS durationTotal, 
+		IFNULL((SELECT attenVacateRule.duration FROM attenVacateRule WHERE attenVacateRule.idAttenVacate = a.id AND attenVacateRule.tagScope = 'p' AND attenVacateRule.userId = #{userId} LIMIT 1),(SELECT attenVacateRule.duration FROM attenVacateRule WHERE attenVacateRule.idAttenVacate = a.id AND attenVacateRule.tagScope = 'a' LIMIT 1) )
+			AS durationRule,
+	</sql>
+
+	<sql id="getFrom">
+		LEFT JOIN attenVacateRule AS b ON b.idAttenVacate = a.id
+	</sql>
+
+	<sql id="getWhere">
+	</sql>
+
+	<sql id="selectColumn">
+		CONCAT(a.`name`,' - ',(CASE WHEN a.unit = 'w' THEN '工作日' WHEN a.unit = 'c' THEN '日历日' END)) AS nameDetail,
+	</sql>
+
+	<sql id="selectFrom">
+	</sql>
+
+	<sql id="selectWhere">
+	</sql>
+
+	<sql id="countFrom">
+		
+	</sql>
+
+	<sql id="countWhere">
+		
+	</sql>
+
+	<sql id="updateWhere">
+		id = #{id}
+	</sql>
+</mapper>

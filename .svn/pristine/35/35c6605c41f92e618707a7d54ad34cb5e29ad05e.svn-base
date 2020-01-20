@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mtf.framework.dao.QuestionMapper" >
+	<resultMap type="com.mtf.framework.model.impl.QuestionImpl" id="question"/> 
+	 <resultMap id="questionResultMap" type="com.mtf.framework.model.impl.QuestionImpl">
+		<id property="id" column="id" />
+		<result property="quesId" column="quesId" />
+		<result property="content" column="content" />
+		<result property="number" column="number" />
+		<result property="type" column="type" />
+		<result property="remark" column="remark"/>
+		<result property="answerId" column="answerId" />
+		<collection property="listSelecter" resultMap="selecterResult" />
+	</resultMap>
+	<resultMap id="selecterResult" type="com.mtf.framework.model.impl.SelecterImpl">
+		<id property="id" column="S_ID" />
+		<result property="questionId" column="questionId" />
+		<result property="quesId" column="S_QUESID" />
+		<result property="content" column="S_CON" />
+		<result property="number" column="S_NUM" />
+		<result property="answer" column="answer" />
+		<result property="charNum" column="charNum"/>
+	</resultMap> 
+
+	<!-- 添加实体对象 -->
+	<insert id="insert" parameterType="question">
+		INSERT INTO question
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					id,
+				</if>
+				<if test="quesId != null">
+					quesId,
+				</if>
+				<if test="content != null">
+					content,
+				</if>
+				<if test="number != null">
+					number,
+				</if>
+				<if test="remark != null">
+					remark,
+				</if>
+				<if test="type != null">
+					type,
+				</if>
+				<if test="answerId != null">
+					answerId,
+				</if>
+			</trim>
+			<trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+				<if test="id != null">
+					#{id},
+				</if>
+				<if test="quesId != null">
+					#{quesId},
+				</if>
+				<if test="content != null">
+					#{content},
+				</if>
+				<if test="number != null">
+					#{number},
+				</if>
+				<if test="remark != null">
+					#{remark},
+				</if>
+				<if test="type != null">
+					#{type},
+				</if>
+				<if test="answerId != null">
+					#{answerId},
+				</if>
+			</trim>
+			<selectKey resultType="long" keyProperty="id">
+				SELECT LAST_INSERT_ID() AS ID
+			</selectKey>
+	</insert>
+
+	<!-- 删除实体对象 -->
+	<delete id="delete" parameterType="java.lang.Object">
+		DELETE FROM question
+		WHERE
+		1=1
+			<if test="id != null">
+				AND	id = #{id}
+			</if>
+			<if test="quesId != null">
+				AND	quesId = #{quesId}
+			</if>
+	</delete>
+
+	<!-- 更新实体对象 -->
+	<update id="update" parameterType="java.lang.Object">
+		UPDATE question
+		<set>
+			<if test="id != null">
+				id = #{id},
+			</if>
+			<if test="quesId != null">
+				quesId = #{quesId},
+			</if>
+			<if test="content != null">
+				content = #{content},
+			</if>
+			<if test="number != null">
+				number = #{number},
+			</if>
+			<if test="remark != null">
+				remark = #{remark},
+			</if>
+			<if test="type != null">
+				type = #{type},
+			</if>
+			<if test="answerId != null">
+				answerId = #{answerId},
+			</if>
+		</set>
+		WHERE
+			id = #{id}
+			<if test="original != null">
+				 AND modified = #{original}
+			</if>
+	</update>
+
+	<!-- 查询单个实体对象 -->
+	<select id="get" parameterType="java.lang.Object" resultMap="question">
+		SELECT 
+			id, 
+			quesId, 
+			content, 
+			number, 
+			remark, 
+			type, 
+			answerId
+		FROM question
+		<where>
+			<if test="id != null">
+				AND id = #{id}
+			</if>
+			<if test="quesId != null">
+				AND quesId = #{quesId}
+			</if>
+			<if test="content != null">
+				AND content = #{content}
+			</if>
+			<if test="number != null">
+				AND number = #{number}
+			</if>
+			<if test="remark != null">
+				AND remark = #{remark}
+			</if>
+			<if test="type != null">
+				AND type = #{type}
+			</if>
+			<if test="answerId != null">
+				AND answerId = #{answerId}
+			</if>
+		</where>
+		LIMIT 1
+	</select>
+
+	<!-- 查询实体对象集合 -->
+	<select id="select" parameterType="java.lang.Object" resultMap="question">
+		SELECT 
+			id, 
+			quesId, 
+			content, 
+			number, 
+			remark, 
+			type, 
+			answerId
+		FROM question
+		<where>
+			<if test="id != null">
+				AND id = #{id}
+			</if>
+			<if test="quesId != null">
+				AND quesId = #{quesId}
+			</if>
+			<if test="content != null">
+				AND content = #{content}
+			</if>
+			<if test="number != null">
+				AND number = #{number}
+			</if>
+			<if test="remark != null">
+				AND remark = #{remark}
+			</if>
+			<if test="type != null">
+				AND type = #{type}
+			</if>
+			<if test="answerId != null">
+				AND answerId = #{answerId}
+			</if>
+			<if test="sort != null">
+				ORDER BY ${sort} ${order}
+			</if>
+		</where>
+	</select>
+
+	<!-- 查询实体对象记录数 -->
+	<select id="count" parameterType="java.lang.Object" resultType="int">
+		SELECT COUNT(1) FROM question
+		<where>
+			<if test="id != null">
+				AND id = #{id}
+			</if>
+			<if test="quesId != null">
+				AND quesId = #{quesId}
+			</if>
+			<if test="content != null">
+				AND content = #{content}
+			</if>
+			<if test="number != null">
+				AND number = #{number}
+			</if>
+			<if test="remark != null">
+				AND remark = #{remark}
+			</if>
+			<if test="type != null">
+				AND type = #{type}
+			</if>
+			<if test="answerId != null">
+				AND answerId = #{answerId}
+			</if>
+		</where>
+	</select>
+	<select id="selectWithSelecter" parameterType="java.lang.Object" resultMap="questionResultMap">
+	SELECT a.id,a.quesId,a.answerId,a.content,a.remark,a.number,a.type,b.id AS S_ID,b.answer,b.content AS S_CON,b.number AS C_NUM,(CASE WHEN b.number=1 THEN 'A' 
+		WHEN b.number =2 THEN 'B'
+		WHEN b.number =3 THEN 'C'
+		WHEN b.number =4 THEN 'D'
+		WHEN b.number =5 THEN 'E'
+		WHEN b.number =6 THEN 'F'
+		WHEN b.number =7 THEN 'G'
+		WHEN b.number =8 THEN 'H'
+		WHEN b.number =9 THEN 'I'
+		WHEN b.number =10 THEN 'G'
+		WHEN b.number =11 THEN 'K'
+		WHEN b.number =12 THEN 'L'
+		WHEN b.number =13 THEN 'M'
+		WHEN b.number =14 THEN 'N'
+		WHEN b.number =15 THEN 'O'
+		WHEN b.number =16 THEN 'P'
+		WHEN b.number =17 THEN 'Q'
+		WHEN b.number =18 THEN 'R'
+		WHEN b.number =19 THEN 'S'
+		WHEN b.number =20 THEN 'T'
+		WHEN b.number =21 THEN 'U'
+		WHEN b.number =22 THEN 'V'
+		WHEN b.number =23 THEN 'W'
+		WHEN b.number =24 THEN 'X'
+		WHEN b.number =25 THEN 'Y'
+		WHEN b.number =26 THEN 'Z'
+		ELSE b.number END) AS charNum,b.quesId AS S_QUESID
+	FROM question as a
+	LEFT JOIN selecter as b ON a.id = b.questionId
+	WHERE a.quesId = #{quesId} ORDER BY a.number ,b.number ASC
+	
+	</select>
+</mapper>

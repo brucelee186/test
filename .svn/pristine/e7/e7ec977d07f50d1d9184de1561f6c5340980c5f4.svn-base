@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mtf.framework.dao.OrderCategoryServiceDetailConditionMapper" > 
+	<resultMap type="com.mtf.framework.model.impl.OrderCategoryServiceDetailImpl" id="orderCategoryServiceDetail"/>
+	
+	<resultMap id="orderCategoryServiceDetailGroupMain" type="com.mtf.framework.model.impl.OrderCategoryServiceDetailImpl" >
+		<id property="id" column="id" /> 
+		<result property="idOrderCategoryService" column="idOrderCategoryService" /> 
+		<result property="idPurchase" column="idPurchase" /> 
+		<result property="idReimbursement" column="idReimbursement" /> 
+		<result property="idCategoryLeve1" column="idCategoryLeve1" /> 
+		<result property="nameCategoryLevel1" column="nameCategoryLevel1" /> 
+		<result property="idCategoryLevel2" column="idCategoryLevel2" /> 
+		<result property="nameCategoryLevel2" column="nameCategoryLevel2" /> 
+		<result property="remark" column="remark" /> 
+		<result property="amount" column="amount" /> 
+		<result property="divisionId" column="divisionId" /> 
+		<result property="divisionName" column="divisionName" /> 
+		<result property="customerId1" column="customerId1" /> 
+		<result property="customerName1" column="customerName1" /> 
+		<result property="customerId2" column="customerId2" /> 
+		<result property="customerName2" column="customerName2" /> 
+		<result property="approverId1" column="approverId1" /> 
+		<result property="approverName1" column="approverName1" /> 
+		<result property="approveNeed1" column="approveNeed1" /> 
+		<result property="approveStatus1" column="approveStatus1" /> 
+		<result property="approveDate1" column="approveDate1" /> 
+		<result property="approverId2" column="approverId2" /> 
+		<result property="approverName2" column="approverName2" /> 
+		<result property="approveNeed2" column="approveNeed2" /> 
+		<result property="approveStatus2" column="approveStatus2" /> 
+		<result property="approveDate2" column="approveDate2" /> 
+		<result property="approverId3" column="approverId3" /> 
+		<result property="approverName3" column="approverName3" /> 
+		<result property="approveNeed3" column="approveNeed3" /> 
+		<result property="approveStatus3" column="approveStatus3" /> 
+		<result property="approveDate3" column="approveDate3" /> 
+		<result property="approveStatus" column="approveStatus" /> 
+		<result property="approveStatusFinal" column="approveStatusFinal" /> 
+		<result property="status" column="statusDetail" /> 
+		<result property="typeData" column="typeData" /> 
+		<result property="addDate" column="addDate" /> 
+		<result property="addUser" column="addUser" /> 
+		<result property="addIp" column="addIp" /> 
+		<result property="modifiedDate" column="modifiedDate" /> 
+		<result property="modifiedUser" column="modifiedUser" /> 
+		<result property="modifiedIp" column="modifiedIp" />
+		<result property="countApprovePercentDetail" column="countApprovePercentDetail" /> 
+		<result property="userName" column="applicantName" /> 
+		<result property="approverEmail1" column="approverEmail1" /> 
+		<result property="approverEmail2" column="approverEmail2" /> 
+		<result property="approverEmail3" column="approverEmail3" /> 
+		<result property="applicantDate" column="applicantDate" /> 
+		<result property="applicantId" column="applicantId" /> 
+		<result property="remarkApprove" column="remarkApprove" /> 
+		<result property="currencyName" column="currencyName" /> 
+		<result property="totalAmount" column="totalAmount" /> 
+		<collection property="listOrderCategoryServiceDetail" resultMap="orderCategoryServiceDetailGroup"></collection>
+	</resultMap> 
+
+	<resultMap id="orderCategoryServiceDetailGroup" type="com.mtf.framework.model.impl.OrderCategoryServiceDetailImpl" >
+		<id property="id" column="id2d" />
+		<result property="divisionId" column="divisionIdd" /> 
+		<result property="divisionName" column="divisionNamed" /> 
+		<result property="customerId1" column="customerId1d" /> 
+		<result property="customerName1" column="customerName1d" /> 
+		<result property="customerId2" column="customerId2d" /> 
+		<result property="customerName2" column="customerName2d" /> 
+		<result property="approverId1" column="approverId1d" /> 
+		<result property="approverName1" column="approverName1d" /> 
+		<result property="approveNeed1" column="approveNeed1d" /> 
+		<result property="approveStatus1" column="approveStatus1d" /> 
+		<result property="approveDate1" column="approveDate1d" /> 
+		<result property="approverId2" column="approverId2d" /> 
+		<result property="approverName2" column="approverName2d" /> 
+		<result property="approveNeed2" column="approveNeed2d" /> 
+		<result property="approveStatus2" column="approveStatus2d" /> 
+		<result property="approveDate2" column="approveDate2d" /> 
+		<result property="approverId3" column="approverId3d" /> 
+		<result property="approverName3" column="approverName3d" /> 
+		<result property="approveNeed3" column="approveNeed3d" /> 
+		<result property="approveStatus3" column="approveStatus3d" /> 
+		<result property="approveDate3" column="approveDate3d" /> 
+		<result property="approveStatus" column="approveStatusd" /> 
+		<result property="approveStatusFinal" column="approveStatusFinald" /> 
+		<result property="status" column="statusDetaild" /> 
+		<result property="typeData" column="typeDatad" /> 
+		<result property="nameCategoryLevel1" column="nameCategoryLevel1d" /> 
+		<result property="nameCategoryLevel2" column="nameCategoryLevel2d" /> 
+		<result property="remark" column="remarkd" /> 
+		<result property="amount" column="amountd" /> 
+		<result property="approverEmail1" column="approverEmail1d" /> 
+		<result property="approverEmail2" column="approverEmail2d" /> 
+		<result property="approverEmail3" column="approverEmail3d" /> 
+	</resultMap> 
+	
+	<sql id="getColumn">
+		
+	</sql>
+
+	<sql id="getFrom">
+		
+	</sql>
+
+	<sql id="getWhere">
+		
+	</sql>
+
+	<sql id="selectColumn">
+		
+	</sql>
+
+	<sql id="selectFrom">
+		
+	</sql>
+
+	<sql id="selectWhere">
+		
+	</sql>
+
+	<sql id="countFrom">
+		
+	</sql>
+
+	<sql id="searchFrom">
+		
+	</sql>
+
+	<sql id="countWhere">
+		
+	</sql>
+	
+	<select id="sumAmountRmbById" parameterType="java.lang.Object" resultMap="orderCategoryServiceDetail">
+		SELECT 
+			SUM(od.amountRmb) totalAmountRmb,
+			SUM(od.amount) totalAmount  
+		FROM ordercategoryservicedetail od
+		WHERE od.idOrderCategoryService = #{idOrderCategoryService}
+		GROUP BY od.idOrderCategoryService
+	</select>
+
+	<sql id="searchWhere">
+		
+	</sql>
+
+	<sql id="updateColumn">
+		<!-- 如果是修改报销审批人的情况下, 为空可以更新 -->
+		<if test="tagUpdate == 'egnoreArrpoveId'">
+			<if test="approverId1 == ''">
+				approverId1 = #{approverId1},
+			</if>
+			<if test="approverName1 == ''">
+				approverName1 = #{approverName1},
+			</if>
+			<if test="approveNeed1 == ''">
+				approveNeed1 = #{approveNeed1},
+			</if>
+			<if test="approveStatus1 == ''">
+				approveStatus1 = #{approveStatus1},
+			</if>
+			<if test="approveDate1 == ''">
+				approveDate1 = #{approveDate1},
+			</if>
+			<if test="approverEmail1 == ''">
+				approverEmail1 = #{approverEmail1},
+			</if>
+			<if test="approverId2 == ''">
+				approverId2 = #{approverId2},
+			</if>
+			<if test="approverName2 == ''">
+				approverName2 = #{approverName2},
+			</if>
+			<if test="approveNeed2 == ''">
+				approveNeed2 = #{approveNeed2},
+			</if>
+			<if test="approveStatus2 == ''">
+				approveStatus2 = #{approveStatus2},
+			</if>
+			<if test="approveDate2 == ''">
+				approveDate2 = #{approveDate2},
+			</if>
+			<if test="approverEmail2 == ''">
+				approverEmail2 = #{approverEmail2},
+			</if>
+			<if test="approverId3 == ''">
+				approverId3 = #{approverId3},
+			</if>
+			<if test="approverName3 == ''">
+				approverName3 = #{approverName3},
+			</if>
+			<if test="approveNeed3 == ''">
+				approveNeed3 = #{approveNeed3},
+			</if>
+			<if test="approveStatus3 == ''">
+				approveStatus3 = #{approveStatus3},
+			</if>
+			<if test="approveDate3 == ''">
+				approveDate3 = #{approveDate3},
+			</if>
+			<if test="approverEmail3 == ''">
+				approverEmail3 = #{approverEmail3},
+			</if>
+		</if>
+	</sql>
+
+	<sql id="updateWhere">
+		<if test="tagUpdate != 'iId'">
+			id = #{id}
+		</if>
+		<if test="idOrderCategoryService != null">
+			idOrderCategoryService = #{idOrderCategoryService}
+		</if>
+		<!-- 如果是修改报销审批人的情况下,忽略这个更新条件 -->
+		<if test="tagUpdate != 'egnoreArrpoveId'">
+			<if test="approverId1 != null and approverId1 != ''">
+				and approverId1 = #{approverId1}
+			</if>
+			<if test="approverId2 != null and approverId2 != ''">
+				and approverId2 = #{approverId2}
+			</if>
+			<if test="approverId3 != null and approverId3 != ''">
+				and approverId3 = #{approverId3}
+			</if>
+		</if>
+		<!-- <if test="approverId4 != null and approverId4 != ''">
+			and approverId4 = #{approverId4}
+		</if> -->
+	</sql>
+	
+	<select id="selectGroupByUser" parameterType="java.lang.Object" resultMap="orderCategoryServiceDetailGroupMain">
+		SELECT 
+			a.id, 
+			a.idOrderCategoryService, 
+			a.idPurchase, 
+			a.idReimbursement, 
+			a.idCategoryLeve1, 
+			a.nameCategoryLevel1, 
+			a.idCategoryLevel2, 
+			a.nameCategoryLevel2, 
+			a.remark, 
+			a.amount, 
+			a.divisionId, 
+			a.divisionName, 
+			a.customerId1, 
+			a.customerName1, 
+			a.customerId2, 
+			a.customerName2, 
+			a.approverId1, 
+			a.approverName1, 
+			a.approveNeed1, 
+			a.approveStatus1, 
+			a.approveDate1, 
+			a.approverId2, 
+			a.approverName2, 
+			a.approveNeed2, 
+			a.approveStatus2, 
+			a.approveDate2, 
+			a.approverId3, 
+			a.approverName3, 
+			a.approveNeed3, 
+			a.approveStatus3, 
+			a.approveDate3, 
+			a.approveStatus, 
+			a.approveStatusFinal, 
+			a.status, 
+			a.typeData, 
+			a.countDetail, 
+			a.countApprove, 
+			a.countApprovePercent, 
+			a.addDate, 
+			a.addUser, 
+			a.addIp, 
+			a.modifiedDate, 
+			a.modifiedUser, 
+			a.modifiedIp,
+			a.id idOrderCategoryService,
+			a.approverEmail1,
+			a.approverEmail2,
+			a.approverEmail3,
+			m.applicantId,
+			m.applicantName,
+			m.applicantDate,
+			m.totalAmount,
+			m.remarkApprove,
+			(SELECT userInfor.name FROM userInfor WHERE userInfor.code = m.currencyCode) currencyName,
+			b.id idd,
+			b.divisionId divisionIdd, 
+			b.divisionName divisionNamed, 
+			b.customerId1 customerId1d, 
+			b.customerName1 customerName1d, 
+			b.customerId2 customerId2d, 
+			b.customerName2 customerName2d, 
+			b.approverId1 approverId1d, 
+			b.approverName1 approverName1d, 
+			b.approveNeed1 approveNeed1d, 
+			b.approveStatus1 approveStatus1d, 
+			b.approveDate1 approveDate1d, 
+			b.approverId2 approverId2d, 
+			b.approverName2 approverName2d, 
+			b.approveNeed2 approveNeed2d, 
+			b.approveStatus2 approveStatus2d, 
+			b.approveDate2 approveDate2d, 
+			b.approverId3 approverId3d, 
+			b.approverName3 approverName3d, 
+			b.approveNeed3 approveNeed3d, 
+			b.approveStatus3 approveStatus3d, 
+			b.approveDate3 approveDate3d, 
+			b.approveStatus approveStatusd,
+			b.nameCategoryLevel1 nameCategoryLevel1d,
+			b.nameCategoryLevel2 nameCategoryLevel2d,
+			b.remark remarkd,
+			b.amount amountd,
+			b.approverEmail1 approverEmail1d,
+			b.approverEmail2 approverEmail2d,
+			b.approverEmail3 approverEmail3d,
+			b.amountRmb amountRmbd
+			FROM orderCategoryServiceDetail AS a
+			LEFT JOIN orderCategoryService m on m.id = a.idOrderCategoryService
+		<if test="approveCondition1 != null  and approveCondition1 != ''">
+			LEFT JOIN orderCategoryServiceDetail b ON (b.approverId1 = a.approverId1 AND b.idOrderCategoryService = a.idOrderCategoryService)
+		</if>
+		<if test="approveCondition2 != null  and approveCondition2 != ''">
+			LEFT JOIN orderCategoryServiceDetail b ON (b.approverId2 = a.approverId2 AND b.idOrderCategoryService = a.idOrderCategoryService)
+		</if>
+		<if test="approveCondition3 != null  and approveCondition3 != ''">
+			LEFT JOIN orderCategoryServiceDetail b ON (b.approverId3 = a.approverId3 AND b.idOrderCategoryService = a.idOrderCategoryService)
+		</if>
+		<if test="approveCondition4 != null  and approveCondition4 != ''">
+			LEFT JOIN orderCategoryServiceDetail b ON (b.approverId4 = a.approverId4 AND b.idOrderCategoryService = a.idOrderCategoryService)
+		</if>
+		<if test="tagMapper == 'approveConditionReject'">
+			LEFT JOIN orderCategoryServiceDetail b ON (b.id = a.id AND b.idOrderCategoryService = a.idOrderCategoryService)
+		</if>
+		<where>
+			a.idOrderCategoryService = #{idOrderCategoryService}
+			<if test="approverId1 != null  and approverId1 != ''">
+				AND b.approverId1 = #{approverId1}
+			</if>
+			<if test="approveStatus1 != null  and approveStatus1 != ''">
+				AND b.approveStatus1 = #{approveStatus1}
+			</if>
+			<if test="approveStatus2 != null  and approveStatus2 != ''">
+				AND b.approveStatus2 = #{approveStatus2}
+			</if>
+			<if test="approveStatus3 != null  and approveStatus3 != ''">
+				AND b.approveStatus3 = #{approveStatus3}
+			</if>
+			<if test="approveStatus4 != null  and approveStatus4 != ''">
+				AND b.approveStatus4 = #{approveStatus4}
+			</if>
+			<if test="approverId2 != null  and approverId2 != ''">
+				AND b.approverId2 = #{approverId2}
+			</if>
+			<if test="approverId3 != null  and approverId3 != ''">
+				AND b.approverId3 = #{approverId3}
+			</if>
+			<if test="approverId4 != null  and approverId4 != ''">
+				AND b.approverId4 = #{approverId4}
+			</if>
+		</where>
+		<if test="approveCondition1 != null  and approveCondition1 != ''">
+			GROUP BY a.approverId1, b.id
+		</if>
+		<if test="approveCondition2 != null  and approveCondition2 != ''">
+			GROUP BY a.approverId2, b.id
+		</if>
+		<if test="approveCondition3 != null  and approveCondition3 != ''">
+			GROUP BY a.approverId3, b.id
+		</if>
+		<if test="approveCondition4 != null  and approveCondition4 != ''">
+			GROUP BY a.approverId4, b.id
+		</if>
+	</select>
+</mapper>

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mtf.framework.dao.User2DivisionMapper">
+	<resultMap id="BaseResultMap" type="User2Division">
+		<id column="id" property="id" jdbcType="CHAR" />
+		<result column="userId" property="userId" jdbcType="CHAR" />
+		<result column="divisionId" property="divisionId" jdbcType="CHAR" />
+		<result column="index" property="index" jdbcType="INTEGER" />
+		<result column="displayName" property="displayName"/>
+		<result column="level" property="level"/>
+		<result column="mainIndex" property="mainIndex"/>
+		<result column="positionId" property="positionId"/>
+		<result column="tag" property="tag"/>
+	</resultMap>
+	<resultMap id="WithUserResultMap" type="User2Division" extends="BaseResultMap">
+		<association property="user" javaType="User">
+			<id column="userId" property="id" jdbcType="CHAR" />
+			<result column="C_USER_LOGINNAME" property="loginName" jdbcType="VARCHAR" />
+			<result column="C_USER_DISPLAYNAME" property="displayName" jdbcType="VARCHAR" />
+			<result column="C_USER_USER_ID" property="userId" jdbcType="CHAR" />
+			<result column="C_USER_DATETIME" property="datetime" jdbcType="TIMESTAMP" />
+			<result column="C_USER_STATUS" property="status" jdbcType="INTEGER" />
+		</association>
+	</resultMap>
+	<resultMap id="WithDivisionResultMap" type="User2Division" extends="BaseResultMap">
+		<association property="division" javaType="Division">
+			<id column="divisionId" property="id" jdbcType="CHAR" />
+			<result column="C_DIVISION_NAME" property="name" jdbcType="VARCHAR" />
+			<result column="C_DIVISION_DESCRIPTION" property="description" jdbcType="VARCHAR" />
+			<result column="C_DIVISION_PID" property="pid" jdbcType="CHAR" />
+			<result column="C_DIVISION_DATETIME" property="datetime" jdbcType="TIMESTAMP" />
+			<result column="C_DIVISION_STATUS" property="status" jdbcType="INTEGER" />
+		</association>
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, userId, divisionId, `index`,mainIndex,positionId
+	</sql>
+	<select id="selectByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
+		SELECT
+		<include refid="Base_Column_List"/>
+		FROM userDivision
+		WHERE userId = #{userId,jdbcType=CHAR}
+	</select>
+	<select id="selectByUserIdWithDivision" resultMap="WithDivisionResultMap" parameterType="java.lang.String">
+		SELECT
+			userDivision.id,
+			userDivision.userId,
+			userDivision.divisionId,
+			userDivision.`index`,
+			userDivision.positionId,
+			userDivision.tag,
+			division.id AS divisionId,
+			division.name AS C_DIVISION_NAME,
+			division.description AS C_DIVISION_DESCRIPTION,
+			division.pid AS C_DIVISION_PID,
+			division.dateTime AS C_DIVISION_DATETIME,
+			division.status AS C_DIVISION_STATUS
+		FROM userDivision
+			LEFT JOIN division ON userDivision.divisionId = division.id
+		WHERE userDivision.userId = #{userId,jdbcType=CHAR}
+		AND userDivision.mainIndex = 1
+		AND userDivision.tag = 'd'
+	</select>
+	
+		<select id="searchUserDivisionByPermission" resultMap="WithDivisionResultMap" parameterType="java.lang.String">
+		SELECT
+			a.value1 AS divisionId,
+			(SELECT division.`name` FROM division WHERE division.id = a.value1) AS divisionName
+		FROM
+			permission AS a
+		LEFT JOIN rolePermission AS b ON (b.`code` = a.`code` AND  a.parentCode = #{parentCode})
+		LEFT JOIN userRole AS c ON c.roleId = b.roleId
+		WHERE c.userId = #{userId}
+	</select>
+	<select id="selectByUserIdWithDivisionAndMain" resultMap="WithDivisionResultMap" parameterType="java.lang.String">
+		SELECT
+			userDivision.id,
+			userDivision.userId,
+			userDivision.divisionId,
+			userDivision.`index`,
+			userDivision.positionId,
+			userDivision.tag,
+			division.id AS divisionId,
+			division.name AS C_DIVISION_NAME,
+			division.description AS C_DIVISION_DESCRIPTION,
+			division.pid AS C_DIVISION_PID,
+			division.dateTime AS C_DIVISION_DATETIME,
+			division.status AS C_DIVISION_STATUS
+		FROM userDivision
+			LEFT JOIN division ON userDivision.divisionId = division.id
+		WHERE userDivision.userId = #{userId,jdbcType=CHAR} and userDivision.mainIndex = 1
+	</select>
+	
+	<select id="selectByDivisionId" resultMap="BaseResultMap" parameterType="java.lang.String">
+		SELECT
+		<include refid="Base_Column_List"/>
+		FROM userDivision
+		WHERE divisionId = #{divisionId,jdbcType=CHAR}
+	</select>
+	
+	<select id="selectByDivisionIdWithUser" resultMap="WithUserResultMap" parameterType="java.lang.String">
+		SELECT
+			userDivision.id,
+			userDivision.userId,
+			userDivision.divisionId,
+			userDivision.`index`,
+			userDivision.positionId,
+			userDivision.mainIndex,
+			user.loginName AS C_USER_LOGINNAME,
+			user.displayName AS C_USER_DISPLAYNAME,
+			user.userId AS C_USER_USER_ID,
+			user.dateTime AS C_USER_DATETIME,
+			user.status AS C_USER_STATUS
+		FROM userDivision
+			LEFT JOIN user ON userDivision.userId = user.id
+		WHERE userDivision.divisionId = #{divisionId,jdbcType=CHAR} 
+		ORDER BY userDivision.`index` DESC, user.loginName
+	</select>
+	
+	<select id="selectByDivisionWithUser" resultMap="WithUserResultMap" parameterType="java.lang.Object">
+		SELECT
+			userDivision.id,
+			userDivision.userId,
+			userDivision.divisionId,
+			userDivision.`index`,
+			userDivision.positionId,
+			userDivision.mainIndex,
+			user.loginName AS C_USER_LOGINNAME,
+			user.displayName AS C_USER_DISPLAYNAME,
+			user.userId AS C_USER_USER_ID,
+			user.dateTime AS C_USER_DATETIME,
+			user.status AS C_USER_STATUS
+		FROM userDivision
+			LEFT JOIN user ON userDivision.userId = user.id
+		WHERE userDivision.divisionId = #{divisionId,jdbcType=CHAR} 
+			<if test="level == 1">
+				OR userDivision.divisionId1 = #{divisionId}
+			</if>
+			<if test="level == 2">
+				OR userDivision.divisionId2 = #{divisionId}
+			</if>
+			<if test="level == 3">
+				OR userDivision.divisionId3 = #{divisionId}
+			</if>
+			<if test="level == 4">
+				OR userDivision.divisionId4 = #{divisionId}
+			</if>
+			<if test="level == 5">
+				OR userDivision.divisionId5 = #{divisionId}
+			</if>
+		GROUP BY userDivision.`index` DESC, user.loginName
+	</select>
+	
+	<select id="selectById" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM userDivision
+		WHERE id = #{id,jdbcType=CHAR}
+	</select>
+	<select id="selectAllLeadersExcludeUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
+		SELECT
+		<include refid="Base_Column_List"/>
+		FROM userDivision
+		WHERE userId != #{userId,jdbcType=CHAR}
+			AND `index` = 1
+	</select>
+	<select id="selectLeadersMainUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
+		SELECT
+		<include refid="Base_Column_List"/>
+		FROM userDivision
+		WHERE userId = #{userId,jdbcType=CHAR}
+			AND `index` = 1
+	</select>
+	<select id="countLeadersByDivisionId" resultType = "int" parameterType = "java.lang.String">
+		SELECT COUNT(id)
+		FROM userDivision
+		WHERE divisionId = #{divisionId,jdbcType=CHAR}
+			AND `index` = 1
+	</select>
+	<select id="countLeadersByDivisionIdAndNotUserId" resultType = "int" parameterType = "User2Division">
+		SELECT COUNT(id)
+		FROM userDivision
+		WHERE userId != #{userId,jdbcType=CHAR}
+			AND divisionId = #{divisionId,jdbcType=CHAR}
+			AND `index` = 1
+	</select>
+	<select id="countByUserIdAndDivisionId" resultType = "int" parameterType = "User2Division">
+		SELECT COUNT(id)
+		FROM userDivision
+		WHERE userId = #{userId,jdbcType=CHAR}
+			AND divisionId = #{divisionId,jdbcType=CHAR}
+	</select>
+	<delete id="deleteById" parameterType="java.lang.String">
+		DELETE FROM userDivision
+		WHERE id = #{id,jdbcType=CHAR}
+	</delete>
+	<delete id="deleteByDivisionId" parameterType="java.lang.String">
+		DELETE FROM userDivision
+		WHERE divisionId = #{divisionId,jdbcType=CHAR}
+	</delete>
+	<delete id="deleteByUserId" parameterType="java.lang.String">
+		DELETE FROM userDivision
+		WHERE userId = #{userId,jdbcType=CHAR}
+	</delete>
+	<insert id="insert" parameterType="User2Division">
+		INSERT INTO userDivision (id, userId, divisionId,`index`,mainIndex,positionId, tag)
+		VALUES (#{id,jdbcType=CHAR}, #{userId,jdbcType=CHAR}, #{divisionId,jdbcType=CHAR}, #{index,jdbcType=INTEGER},#{mainIndex,jdbcType=INTEGER}, #{positionId}, #{tag})
+	</insert>
+	<update id="updateById" parameterType="User2Division">
+		UPDATE userDivision
+		SET userId = #{userId,jdbcType=CHAR},
+		divisionId = #{divisionId,jdbcType=CHAR},
+		tag = #{tag},
+		`index` = #{index,jdbcType=INTEGER}
+		WHERE id = #{id,jdbcType=CHAR}
+	</update>
+	<update id="updateByUserAndDivision" parameterType="User2Division">
+		UPDATE userDivision
+		SET userId = #{userId,jdbcType=CHAR},
+		divisionId = #{divisionId,jdbcType=CHAR},
+		`index` = #{index,jdbcType=INTEGER},
+		mainIndex = #{mainIndex},
+		tag = #{tag},
+		positionId = #{positionId}
+		WHERE 
+			userId = #{userId}
+		AND 
+			divisionId = #{divisionId}
+	</update>
+	<update id="updateMainIndexByUser" parameterType="User2Division">
+		UPDATE userDivision
+		SET 
+		mainIndex = #{mainIndex}
+		WHERE 
+			userId = #{userId}
+	</update>
+	
+	<select id="selectLeadByUserId" resultMap="BaseResultMap" parameterType="User2Division">
+		SELECT
+			divisionId
+		FROM userDivision
+		<where>
+			<if test="userId != null">
+				AND userId = #{userId}
+			</if>
+			<if test="index != null">
+				AND `index` = #{index}
+			</if>
+		</where>
+		LIMIT 1
+	</select>	
+	<!-- 取得当前记录假设为领导`index` = 1 的情况下,本部门(下级部门)的所有员工,存入list -->
+	<select id="selectEmployeeByUserId" resultType="java.lang.String" parameterType="User2Division">
+		SELECT
+			userId
+		FROM userDivision
+		<where>
+			<if test="divisionId != null">
+				AND divisionId = #{divisionId}
+			</if>
+		</where>
+	</select>	
+	
+	<!-- 查询用户 -->
+	<select id="selectUser" resultMap="BaseResultMap" parameterType="User2Division">
+		SELECT
+			a.*, b.displayName
+		FROM userDivision AS a
+		LEFT JOIN user AS b ON b.id = a.userId
+		<where>
+			<if test="divisionId != null">
+				AND divisionId = #{divisionId}
+			</if>
+			<if test="index != null">
+				AND `index` = #{index}
+			</if>
+		</where>
+	</select>
+	<!-- 查询用户 -->
+	<select id="selectUserByCondition" resultMap="BaseResultMap" parameterType="User2Division">
+		SELECT
+			a.*, d.level, e.displayName
+		FROM userDivision as a
+		LEFT JOIN userRole AS c ON c.userId = a.userId
+		LEFT JOIN role AS d ON d.id = c.roleId
+		LEFT JOIN user AS e ON e.id = c.userId
+		WHERE a.divisionId = 
+			(
+				SELECT b.divisionId FROM userDivision AS b 
+				WHERE 
+					b.userId = #{userId} 
+				AND 
+					b.`index` = 1
+			)
+		AND `index` = 0
+	</select>
+	
+	<!-- 调用存储过程:根据用户编号取得下属所有基层员工 -->
+	<select id="callSelectEmpListbyLeadId" resultType="java.lang.String" parameterType="User2Division">
+		call searchEmpListbyLeadId(#{userId});
+	</select>
+</mapper>

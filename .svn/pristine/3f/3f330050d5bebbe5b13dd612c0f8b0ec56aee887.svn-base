@@ -1,0 +1,376 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mtf.framework.dao.PermissionConditionMapper">
+	<resultMap type="com.mtf.framework.model.impl.PermissionImpl" id="permission" />
+	 <resultMap id="permissionLeve1" type="com.mtf.framework.model.impl.PermissionImpl">
+		<id property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="typePermission" column="typePermission" />
+		<result property="typeData" column="typeData" />
+		<result property="code" column="code" />
+		<result property="parentCode" column="parentCode" />
+		<result property="level" column="level"/>
+		<result property="remark" column="remark" />
+		<result property="value1" column="value11" />
+		<result property="value2" column="value12" />
+		<result property="value3" column="value13" />
+		<result property="value4" column="value14" />
+		<result property="tagPermission" column="tagPermission" />
+		<result property="typeSys" column="typeSys1" />
+		<result property="type" column="type1" />
+		<result property="approver1LimitRuleId" column="approver1LimitRuleId1" />
+		<result property="approver1AmonutLower" column="approver1AmonutLower1" />
+		<result property="approveType" column="approveType1" />
+		<result property="haveExtends" column="haveExtends1" />
+
+		<result property="bag" column="bag" />
+		<result property="clazz" column="clazz" />
+		<result property="method" column="method" />
+		<result property="parameter" column="parameter" />
+		<result property="parameterVal" column="parameterVal" />
+		<result property="skipUrl" column="skipUrl" />
+		
+		<collection property="listPermissionLevel2" resultMap="permissionLeve2" />
+	</resultMap>
+	
+	<resultMap id="permissionLeve2" type="com.mtf.framework.model.impl.PermissionImpl">
+		<id property="id" column="id2" />
+		<result property="name" column="name2" />
+		<result property="typePermission" column="typePermission2" />
+		<result property="typeData" column="typeData2" />
+		<result property="code" column="code2" />
+		<result property="parentCode" column="parentCode2" />
+		<result property="level" column="level2"/>
+		<result property="remark" column="remark2" />
+		<result property="value1" column="value21" />
+		<result property="value2" column="value22" />
+		<result property="value3" column="value23" />
+		<result property="value4" column="value24" />
+		<result property="tagPermission" column="tagPermission2" />
+		<result property="typeSys" column="typeSys2" />
+		<result property="type" column="type2" />
+		<result property="approver1LimitRuleId" column="approver1LimitRuleId2" />
+		<result property="approver1AmonutLower" column="approver1AmonutLower2" />
+		<result property="approveType" column="approveType2" />
+		<result property="haveExtends" column="haveExtends2" />
+		
+		<result property="bag" column="bag2" />
+		<result property="clazz" column="clazz2" />
+		<result property="method" column="method2" />
+		<result property="parameter" column="parameter2" />
+		<result property="parameterVal" column="parameterVal2" />
+		<result property="skipUrl" column="skipUrl2" />
+		
+		<collection property="listPermissionLevel3" resultMap="permissionLeve3" />
+	</resultMap>
+	
+	<resultMap id="permissionLeve3" type="com.mtf.framework.model.impl.PermissionImpl">
+		<id property="id" column="id3" />
+		<result property="name" column="name3" />
+		<result property="typePermission" column="typePermission3" />
+		<result property="typeData" column="typeData3" />
+		<result property="code" column="code3" />
+		<result property="parentCode" column="parentCode3" />
+		<result property="level" column="level3"/>
+		<result property="value1" column="value31" />
+		<result property="value2" column="value32" />
+		<result property="value3" column="value33" />
+		<result property="value4" column="value34" />
+		<result property="tagPermission" column="tagPermission3" />
+		<result property="typeSys" column="typeSys3" />
+		<result property="type" column="type3" />
+		<result property="approver1LimitRuleId" column="approver1LimitRuleId3" />
+		<result property="approver1AmonutLower" column="approver1AmonutLower3" />
+		<result property="approveType" column="approveType3" />
+		<result property="haveExtends" column="haveExtends3" />
+		
+		<result property="bag" column="bag3" />
+		<result property="clazz" column="clazz3" />
+		<result property="method" column="method3" />
+		<result property="parameter" column="parameter3" />
+		<result property="parameterVal" column="parameterVal3" />
+		<result property="skipUrl" column="skipUrl" />
+		
+		<result property="remark" column="remark3" />
+	</resultMap>
+	
+	<!-- 查询实体对象集合 -->
+	<select id="searchPermissionList" parameterType="java.lang.Object" resultMap="permissionLeve1">
+		SELECT 
+				a.id, 
+				a.name, 
+				a.typePermission, 
+				a.typeData, 
+				a.code, 
+				d.`code`,
+				IF(d.`code` = a.`code`, 'y', 'n') AS tagPermission,
+				a.value1,
+				a.value2,
+				a.value3,
+				a.value4,
+				a.parentCode, 
+				a.level, 
+				a.remark,
+				a.typeSys typeSys1,
+				a.type type1,
+				
+				a.bag,
+				a.clazz,
+				a.method,
+				a.parameter,
+				a.parameterVal,
+				a.skipUrl,
+				 
+				a.addDate, 
+				a.addUser, 
+				a.addIp, 
+				a.modifiedDate, 
+				a.modifiedUser, 
+				a.modifiedIp,
+				
+				d.haveExtends haveExtends1,
+				d.approver1LimitRuleId approver1LimitRuleId1,
+				e.approver1AmonutLower approver1AmonutLower1,
+				d.approveType approveType1,
+			
+				b.id AS id2, 
+				b.name AS name2, 
+				b.typePermission AS typePermission2, 
+				b.value1 AS value21,
+				b.value2 AS value22,
+				b.value3 AS value23,
+				b.value4 AS value24,
+				b.typeData AS typeData2, 
+				b.code AS code2, 
+				e.`code`,
+				IF(e.`code` = b.`code`, 'y', 'n') AS tagPermission2,
+				b.parentCode AS parentCode2, 
+				b.level AS level2, 
+				b.remark AS remark2,
+				
+				b.bag AS bag2,
+				b.clazz AS clazz2,
+				b.method AS method2,
+				b.parameter AS parameter2,
+				b.parameterVal AS parameterVal2,
+				b.skipUrl AS skipUrl2,
+				b.typeSys typeSys2,
+				b.type type2,
+				e.haveExtends haveExtends2,
+				e.approver1LimitRuleId approver1LimitRuleId2,
+				e.approveType approveType2,
+				e.approver1AmonutLower approver1AmonutLower2,
+			
+				c.id AS id3, 
+				c.name AS name3, 
+				c.typePermission AS typePermission3, 
+				c.value1 AS value31,
+				c.value2 AS value32,
+				c.value3 AS value33,
+				c.value4 AS value34,
+				c.typeData AS typeData3, 
+				c.type type3,
+				c.code AS code3, 
+				f.`code`,
+				IF(f.`code` = c.`code`, 'y', 'n') AS tagPermission3,
+				c.parentCode AS parentCode3, 
+				c.level AS level3, 
+				c.remark AS remark3,
+				
+				c.bag  AS bag3,
+				c.clazz AS clazz3,
+				c.method AS method3,
+				c.parameter AS parameter3,
+				c.parameterVal AS parameterVal3,
+				c.skipUrl AS skipUrl3,
+				c.typeSys typeSys3,
+				f.approver1LimitRuleId approver1LimitRuleId3,
+				e.approver1AmonutLower approver1AmonutLower3,
+				f.approveType approveType3,
+				f.haveExtends haveExtends3
+			FROM permission AS a 
+			LEFT JOIN permission AS b ON (b.parentCode = a.`code`)
+			LEFT JOIN permission AS c ON (c.parentCode = b.`code`)
+			LEFT JOIN rolePermission AS d ON (d.`code` = a.`code` AND d.roleId = #{roleId})
+			LEFT JOIN rolePermission AS e ON (e.`code` = b.`code` AND e.roleId = #{roleId})
+			LEFT JOIN rolePermission AS f ON (f.`code` = c.`code` AND f.roleId = #{roleId})
+			WHERE 
+				a.`level` = '1'
+				<if test="typeSys != null and typeSys != ''">
+					AND a.typeSys = #{typeSys}
+				</if>
+				<if test="type != null and type != ''">
+					AND a.type = #{type}
+				</if>
+			ORDER BY a.`code`, c.`name`
+	</select>
+	
+	<select id="searchUserDivisionByPermission" parameterType="java.lang.Object" resultMap="permission">
+		SELECT
+			a.value1 AS divisionId,
+			(SELECT division.`name` FROM division WHERE division.id = a.value1) AS divisionName
+		FROM
+			permission AS a
+		LEFT JOIN rolePermission AS b ON (b.`code` = a.`code` AND  a.parentCode = #{parentCode})
+		LEFT JOIN userRole AS c ON c.roleId = b.roleId
+		WHERE c.userId = #{userId}
+		GROUP BY a.value1
+		ORDER BY divisionName
+	</select>
+	
+	<select id="getAmountByUserId" resultMap="permission">
+		SELECT DISTINCT (vp.value1+0) AS amount 
+		FROM userRole vur
+		LEFT JOIN rolePermission vrp ON vur.roleId = vrp.roleId
+		LEFT JOIN permission vp ON vp.`code` = vrp.`code`
+		LEFT JOIN userDivision vud ON vud.userId = vur.userId
+		LEFT JOIN categoryDivision vcd ON vcd.divisionId = vud.divisionId
+		WHERE vur.userId=#{userId}
+		AND vp.value2 = #{pid}
+		AND vcd.categoryId = #{categoryId}
+		AND LENGTH(0 + vp.value1) = LENGTH(vp.value1)
+		<if test="codes != null">
+			AND vp.code IN
+			<foreach collection="codes" item="code" open="(" separator="," close=")">
+				#{code}
+			</foreach>
+		</if>
+		<!-- ORDER BY amount DESC
+		LIMIT 1 -->
+	</select>
+	
+	<select id="getMinAmountByAmount" resultType="java.lang.Double">
+		SELECT MIN(p.value1+0) AS value1 
+		FROM permission p
+		LEFT JOIN rolePermission rp ON p.code = rp.code
+		LEFT JOIN userRole ur ON ur.roleId = rp.roleId
+		LEFT JOIN userDivision ud ON ud.userId = ur.userId
+		LEFT JOIN categoryDivision cd ON cd.divisionId = ud.divisionId
+		WHERE LENGTH(0 + p.value1) = LENGTH(p.value1)
+		AND (p.value1+0) &gt; #{amount}
+		AND p.value2 = #{pid}
+		AND cd.categoryId = #{categoryId}
+		<if test="codes != null">
+			AND p.code IN
+			<foreach collection="codes" item="code" open="(" separator="," close=")">
+				#{code}
+			</foreach>
+		</if>
+	</select>
+	<select id="countMinAmountByAmount" resultType="java.lang.Integer">
+		SELECT COUNT(p.value1+0) AS countValue1
+		FROM permission p
+		LEFT JOIN rolePermission rp ON p.code = rp.code
+		LEFT JOIN userRole ur ON ur.roleId = rp.roleId
+		LEFT JOIN userDivision ud ON ud.userId = ur.userId
+		LEFT JOIN categoryDivision cd ON cd.divisionId = ud.divisionId
+		WHERE LENGTH(0 + p.value1) = LENGTH(p.value1)
+		AND (p.value1+0) &gt; #{amount}
+		AND p.value2 = #{pid}
+		AND cd.categoryId = #{categoryId}
+		<if test="codes != null">
+			AND p.code IN
+			<foreach collection="codes" item="code" open="(" separator="," close=")">
+				#{code}
+			</foreach>
+		</if>
+	</select>
+	<select id="getAmountByCode" resultType="java.lang.Double" >
+		SELECT p.value1 
+		FROM permission p
+		WHERE 1 = 1
+		<if test="code != null">
+			AND p.code = #{code}
+		</if>
+	</select>
+	
+	<select id="getValueByCode" resultType="java.lang.String" >
+		SELECT p.value1 
+		FROM permission p
+		WHERE 1 = 1
+		<if test="code != null">
+			AND p.code = #{code}
+		</if>
+	</select>
+	
+	<!-- 根据用户编号和权限ID,判断此权限是否存在 -->
+	<select id="getPermissionByUserId" parameterType="java.lang.Object" resultMap="permission">
+		SELECT
+			a.*
+		FROM
+			rolepermission a
+		LEFT JOIN role b ON b.id = a.roleId
+		LEFT JOIN userrole c ON c.roleId = b.id
+		WHERE 
+			c.userId = #{userId}
+		AND
+			a.`code` = #{code}
+		LIMIT 1;
+	</select>
+	
+	<!-- 根据主权限与Value1判断用户是否有些权限 -->
+	<select id="getPermissionByUserIdValue1" parameterType="java.lang.Object" resultMap="permission">
+		SELECT
+			a.*
+		FROM
+			rolepermission a
+		LEFT JOIN role b ON b.id = a.roleId
+		LEFT JOIN userrole c ON c.roleId = b.id
+		LEFT JOIN permission d ON d.code = a.code
+		WHERE 
+			a.parentCode = #{parentCode}
+		AND
+			c.userId = #{userId}
+		AND
+			d.value1 = #{value1}
+		LIMIT 1;
+	</select>
+	
+		<sql id="getColumn">
+		
+	</sql>
+
+	<sql id="getFrom">
+		
+	</sql>
+
+	<sql id="getWhere">
+		
+	</sql>
+
+	<sql id="selectColumn">
+		
+	</sql>
+
+	<sql id="selectFrom">
+		
+	</sql>
+
+	<sql id="selectWhere">
+		
+	</sql>
+
+	<sql id="countFrom">
+		
+	</sql>
+
+	<sql id="searchFrom">
+		
+	</sql>
+
+	<sql id="countWhere">
+		
+	</sql>
+
+	<sql id="searchWhere">
+		
+	</sql>
+
+	<sql id="updateColumn">
+		
+	</sql>
+
+	<sql id="updateWhere">
+		id = #{id}
+	</sql>
+</mapper>
