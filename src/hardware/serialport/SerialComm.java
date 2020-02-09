@@ -15,7 +15,7 @@ public class SerialComm {
         //获得系统端口列表
         getSystemPort();
         //开启端口
-        final SerialPort serialPort = openSerialPort("COM6", 9600);
+        final SerialPort serialPort = openSerialPort("COM2", 9600);
         //启动一个线程，每2s 向串口发送数据，发送1000次 hello
         new Thread(new Runnable() {
             @Override
