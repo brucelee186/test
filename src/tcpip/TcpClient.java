@@ -11,19 +11,21 @@ public class TcpClient {
 	public static void main(String[] args) {
 	    
         try {
-			Socket socket = new Socket("192.168.1.101", 8266);  
+			Socket socket = new Socket("192.168.0.211", 8266);  
 			OutputStream outputStream = socket.getOutputStream();  
 			outputStream.write(("Hello server with java").getBytes());  
 			outputStream.flush();  
 			System.out.println(socket);  
 			  
-			InputStream is = socket.getInputStream();  
-			byte[] bytes = new byte[1024];  
-			int n = is.read(bytes);  
-			System.out.println(new String(bytes, 0, n));  
+			while(true){
+				InputStream is = socket.getInputStream();  
+				byte[] bytes = new byte[1024];  
+				int n = is.read(bytes);  
+				System.out.println(new String(bytes, 0, n));  
+			}
 			  
-			is.close();  
-			socket.close();
+//			is.close();  
+//			socket.close();
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
