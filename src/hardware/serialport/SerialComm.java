@@ -9,6 +9,7 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.TooManyListenersException;
 
+// https://www.cnblogs.com/new-life/p/9345849.html
 public class SerialComm {
 
 	private static boolean tagSend = true;
@@ -23,12 +24,13 @@ public class SerialComm {
             @Override
             public void run() {
                 while (tagSend) {
-                    if (serialPort != null) {
-                        String s = "sht11";
-                        byte[] bytes = s.getBytes();
-                        SerialComm.sendData(serialPort, bytes);
-                    }
-                    try {
+                	try {
+	                    if (serialPort != null) {
+	                        String s = "sht11";
+	                        byte[] bytes = s.getBytes();
+	                        SerialComm.sendData(serialPort, bytes);
+	                        // tagSend = false;
+	                    }
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -41,7 +43,9 @@ public class SerialComm {
             @Override
             public void serialEvent(SerialPortEvent serialPortEvent) {
                 if (serialPortEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) { //数据通知
-                    byte[] bytes = SerialComm.readData(serialPort);
+                	
+                    // byte[] bytes = SerialComm.readData(serialPort);
+                    byte[] bytes = SerialComm.readFromPort(serialPort);
                     System.out.println("收到的数据长度： " + bytes.length);
                     System.out.println("收到的数据：" + new String(bytes));
                 }
@@ -165,6 +169,42 @@ public class SerialComm {
         return bytes;
     }
 
+    
+    /**
+     * 从串口读取数据
+     * 
+     * @param serialPort
+     *            当前已建立连接的SerialPort对象
+     * @return 读取到的数据
+     */
+	// https://blog.csdn.net/kong_gu_you_lan/article/details/80589859
+    public static byte[] readFromPort(SerialPort serialPort) {
+        InputStream in = null;
+        byte[] bytes = {};
+        try {
+            in = serialPort.getInputStream();
+            // 缓冲区大小为一个字节
+            byte[] readBuffer = new byte[1];
+            int bytesNum = in.read(readBuffer);
+            while (bytesNum > 0) {
+            	bytes = UtilBytes.concat(bytes, readBuffer);
+                bytesNum = in.read(readBuffer);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (in != null) {
+                    in.close();
+                    in = null;
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return bytes;
+    }
+	
     public static void setListenerToSerialPort(SerialPort serialPort, SerialPortEventListener listener) {
         try {
             //给串口添加事件监听
