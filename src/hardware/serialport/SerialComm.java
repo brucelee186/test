@@ -11,23 +11,23 @@ import java.util.TooManyListenersException;
 
 public class SerialComm {
 
+	private static boolean tagSend = true;
+	
     public static void main(String[] args) throws IOException {
         //获得系统端口列表
         getSystemPort();
         //开启端口
-        final SerialPort serialPort = openSerialPort("COM2", 9600);
+        final SerialPort serialPort = openSerialPort("COM101", 9600);
         //启动一个线程，每2s 向串口发送数据，发送1000次 hello
         new Thread(new Runnable() {
             @Override
             public void run() {
-                int i = 1;
-                while (i<1000) {
+                while (tagSend) {
                     if (serialPort != null) {
-                        String s = "hello \n";
+                        String s = "sht11";
                         byte[] bytes = s.getBytes();
                         SerialComm.sendData(serialPort, bytes);
                     }
-                    i++;
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {

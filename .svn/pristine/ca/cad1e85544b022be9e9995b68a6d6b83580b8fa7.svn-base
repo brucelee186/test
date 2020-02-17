@@ -1,9 +1,0 @@
-eclipse.preferences.version=1
-encoding//WebContent/WEB-INF/jsp/maintenance/permission/editPermission.jsp=UTF-8
-encoding//WebContent/WEB-INF/jsp/maintenance/user/addUser.jsp=UTF-8
-encoding//WebContent/js/order/orderCategoryService/searchOrderCategoryService.js=UTF-8
-encoding//WebContent/upload/tempEmail/templateAttendance.jsp=UTF-8
-encoding//WebContent/upload/tempEmail/templateOrderServiceVehicle.jsp=UTF-8
-encoding//message/p_main_en.properties=UTF-8
-encoding//resource/config.properties=UTF-8
-encoding/<project>=UTF-8
